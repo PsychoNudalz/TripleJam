@@ -9,6 +9,7 @@ public class PlayerInputController : MonoBehaviour
     [Header("Components")]
     [SerializeField]
     PlayerMovement playerMovement;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,7 +22,6 @@ public class PlayerInputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void OnMove(InputValue inputValue)
@@ -30,6 +30,11 @@ public class PlayerInputController : MonoBehaviour
         if (dir.y > 0.5)
         {
             playerMovement.Move_Forward();
+        }
+
+        if (Mathf.Abs(dir.x) > .1f)
+        {
+            playerMovement.Move_Rotate(dir.x > 0);
         }
     }
 }

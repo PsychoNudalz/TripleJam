@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Still,
         Move,
-        Freeze
+        Freeze,
+        Rotate
     }
 
     [Header("Stats")]
@@ -36,19 +37,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private WaypointController waypoint;
 
-    [SerializeField]
+
     private Vector3 target_pos;
 
-    [SerializeField]
+    private Vector3 original_rot;
     private Vector3 target_rot;
-    
-    
-    [SerializeField]
     private Vector3 target_forward;
 
     [Header("Current")]
     [SerializeField]
-    private MoveStat moveStat = MoveStat.Still;
+    private MoveStat moveState = MoveStat.Still;
 
     [SerializeField]
     private Vector3 current_velocity;
@@ -92,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (moveStat)
+        switch (moveState)
         {
             case MoveStat.Still:
                 Move_Rotate(target_rot);
@@ -105,6 +103,10 @@ public class PlayerMovement : MonoBehaviour
 
                 break;
             case MoveStat.Freeze:
+                break;
+            case MoveStat.Rotate:
+                Move_Rotate(target_rot);
+
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -148,41 +150,62 @@ public class PlayerMovement : MonoBehaviour
         if (rotateLerp > 1)
         {
             rotateLerp = 1;
+            if (moveState == MoveStat.Rotate)
+            {
+                ChangeState(MoveStat.Still);
+            }
         }
         else if (rotateLerp < 1)
         {
             rotateLerp += Time.deltaTime * rotationSpeed;
         }
-        transformEulerAngles.y = Mathf.LerpAngle(transformEulerAngles.y,target.y,rotateLerp);
+
+        transformEulerAngles.y = Mathf.LerpAngle(original_rot.y, target.y, rotateLerp);
 
 
         transform.eulerAngles = transformEulerAngles;
     }
-   
+
 
     void ChangeState(MoveStat s)
     {
-        switch (moveStat)
+        switch (moveState)
         {
             case MoveStat.Still:
+                rotateLerp = 0;
                 break;
             case MoveStat.Move:
                 rotateLerp = 0;
+                original_rot = transform.eulerAngles;
                 break;
             case MoveStat.Freeze:
+                break;
+            case MoveStat.Rotate:
+                original_rot = transform.eulerAngles;
+
+                rotateLerp = 0;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        moveStat = s;
-        switch (moveStat)
+
+        moveState = s;
+        switch (s)
         {
             case MoveStat.Still:
+                rotateLerp = 0;
                 break;
             case MoveStat.Move:
+                original_rot = transform.eulerAngles;
+
                 rotateLerp = 0;
                 break;
             case MoveStat.Freeze:
+                break;
+            case MoveStat.Rotate:
+                original_rot = transform.eulerAngles;
+
+                rotateLerp = 0;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -191,11 +214,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move_Forward()
     {
-        if (moveStat != MoveStat.Still)
+        if (moveState != MoveStat.Still)
         {
             return;
         }
-        
+
         WaypointController newPoint = waypoint.GetConnected(transform.forward);
 
         target_forward = waypoint.GetDir(newPoint);
@@ -213,5 +236,19 @@ public class PlayerMovement : MonoBehaviour
 
         target_pos = waypoint.position;
         ChangeState(MoveStat.Move);
+    }
+
+    public void Move_Rotate(bool clockwise = true)
+    {
+        if (clockwise)
+        {
+            target_rot.y += 90f;
+        }
+        else
+        {
+            target_rot.y -= 90f;
+        }
+
+        ChangeState(MoveStat.Rotate);
     }
 }
