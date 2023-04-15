@@ -165,6 +165,8 @@ public sealed class HeadDetector : MonoBehaviour
     [Header("Camera Capture")]
     PhotoCapture photoCaptureObject = null;
 
+    private WebCamTexture liveWebCam;
+    
     Texture2D targetTexture = null;
     private Resolution cameraResolution;
 
@@ -176,6 +178,7 @@ public sealed class HeadDetector : MonoBehaviour
         // BodyPix detector initialization
         _detector = new BodyDetector(_resources, _resolution.x, _resolution.y);
 
+        StartLiveCameraToTexture();
 
         // // Texture
         //
@@ -192,7 +195,7 @@ public sealed class HeadDetector : MonoBehaviour
     void OnDestroy()
         => _detector.Dispose();
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         // if (!setMarkerFlag)
         // {
@@ -201,12 +204,15 @@ public sealed class HeadDetector : MonoBehaviour
         // }
         // TakePicture();
 
-        if (!setMarkerFlag)
-        {
-            MarkFacePoints();
-            UpdateRenderer();
-            setMarkerFlag = true;
-        }
+        // if (!setMarkerFlag)
+        // {
+        //     MarkFacePoints();
+        //     UpdateRenderer();
+        //     setMarkerFlag = true;
+        // }
+        
+        MarkFacePoints();
+        UpdateRenderer();
     }
     //
     // private void SetMarkers()
@@ -328,6 +334,22 @@ public sealed class HeadDetector : MonoBehaviour
 
 
     //Camera stuff
+
+    public void StartLiveCameraToTexture()
+    {
+        liveWebCam = new WebCamTexture();
+        liveWebCam.Play();
+        _source = liveWebCam;
+    }
+
+    private void OnApplicationQuit()
+    {
+        if (liveWebCam)
+        {
+            liveWebCam.Stop();
+
+        }
+    }
 
     private void InitialiseCamera()
     {
