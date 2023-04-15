@@ -191,6 +191,25 @@
       },
       "url": "https://registry.npmjs.com"
     },
+    "jp.keijiro.klak.testtools": {
+      "version": "1.0.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.audio": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.modules.unitywebrequesttexture": "1.0.0",
+        "com.unity.modules.video": "1.0.0"
+      },
+      "url": "https://registry.npmjs.com"
+    },
+    "jp.keijiro.test-assets": {
+      "version": "1.0.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.com"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
