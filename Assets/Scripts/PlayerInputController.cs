@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInputController : MonoBehaviour
 {
@@ -20,5 +22,14 @@ public class PlayerInputController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnMove(InputValue inputValue)
+    {
+        Vector2 dir = inputValue.Get<Vector2>();
+        if (dir.y > 0.5)
+        {
+            playerMovement.Move_Forward();
+        }
     }
 }

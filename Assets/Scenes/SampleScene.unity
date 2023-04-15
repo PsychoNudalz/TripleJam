@@ -253,6 +253,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 9113039594264300345, guid: f7f3b44d1565c744e85e1b7f09370125,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9113039594264300347, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
       propertyPath: connected.Array.size
@@ -1296,6 +1301,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Waypoint (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113039594264300345, guid: f7f3b44d1565c744e85e1b7f09370125,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9113039594264300347, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
@@ -2378,6 +2388,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9113039594264300345, guid: f7f3b44d1565c744e85e1b7f09370125,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9113039594264300347, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
       propertyPath: manager
@@ -2667,7 +2682,7 @@ MonoBehaviour:
   - {fileID: 1003042928}
   - {fileID: 16594583}
   - {fileID: 1712253288}
-  startingPoint: {fileID: 0}
+  startingPoint: {fileID: 234928734}
   editor_Distance: 10
   crossAdd: 1
 --- !u!1001 &1366321008
@@ -3679,6 +3694,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 9113039594264300345, guid: f7f3b44d1565c744e85e1b7f09370125,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113039594264300347, guid: f7f3b44d1565c744e85e1b7f09370125,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1249235747}
+    - target: {fileID: 9113039594264300347, guid: f7f3b44d1565c744e85e1b7f09370125,
+        type: 3}
+      propertyPath: Gizmos_Counter
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113039594264300347, guid: f7f3b44d1565c744e85e1b7f09370125,
+        type: 3}
+      propertyPath: connected.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113039594264300347, guid: f7f3b44d1565c744e85e1b7f09370125,
+        type: 3}
+      propertyPath: connected.Array.data[0]
+      value: 
+      objectReference: {fileID: 234928734}
+    - target: {fileID: 9113039594264300347, guid: f7f3b44d1565c744e85e1b7f09370125,
+        type: 3}
+      propertyPath: connected.Array.data[1]
+      value: 
+      objectReference: {fileID: 16594583}
+    - target: {fileID: 9113039594264300347, guid: f7f3b44d1565c744e85e1b7f09370125,
+        type: 3}
+      propertyPath: connected.Array.data[2]
+      value: 
+      objectReference: {fileID: 1712253288}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7f3b44d1565c744e85e1b7f09370125, type: 3}
 --- !u!4 &1712253287 stripped
@@ -3814,10 +3864,12 @@ MonoBehaviour:
   moveSpeed: 5
   deadZone: 0.2
   acceleration: 2
+  waypoint: {fileID: 0}
   target: {x: 0, y: 0, z: 5}
   moveStat: 0
   current_velocity: {x: 0, y: 0, z: 0}
   cc: {fileID: 0}
+  waypointManager: {fileID: 0}
 --- !u!143 &1859979500
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4293,6 +4345,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Waypoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113039594264300345, guid: f7f3b44d1565c744e85e1b7f09370125,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9113039594264300347, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}

@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     private float acceleration = .1f;
 
     [SerializeField]
+    private WaypointController waypoint;
+
+    [SerializeField]
     private Vector3 target;
 
     [Header("Current")]
@@ -36,6 +39,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private CharacterController cc;
 
+    [SerializeField]
+    private WaypointManager waypointManager;
+
     private Vector3 position
     {
         get => transform.position;
@@ -43,17 +49,26 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private float distance => Vector3.Distance(target, position);
-    
+
     private Vector3 direction => (target - position).normalized;
     // Start is called before the first frame update
 
     private void Awake()
     {
         cc = GetComponent<CharacterController>();
+        if (!waypointManager)
+        {
+            waypointManager = FindObjectOfType<WaypointManager>();
+        }
     }
 
     void Start()
     {
+        if (waypointManager)
+        {
+            position = waypointManager.StartingPosition;
+            waypoint = waypointManager.StartingPoint;
+        }
     }
 
     // Update is called once per frame
@@ -66,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
             case MoveStat.Move:
                 if (distance < deadZone)
                 {
-                    current_velocity= Vector3.zero;
+                    current_velocity = Vector3.zero;
                     position = target;
                     ChangeState(MoveStat.Still);
                 }
@@ -81,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
                         current_velocity = direction * moveSpeed;
                     }
 
-                    cc.Move(current_velocity* Time.deltaTime);
+                    cc.Move(current_velocity * Time.deltaTime);
                 }
 
                 break;
@@ -95,5 +110,30 @@ public class PlayerMovement : MonoBehaviour
     void ChangeState(MoveStat s)
     {
         moveStat = s;
+    }
+
+    public void Move_Forward()
+    {
+        if (moveStat == MoveStat.Move)
+        {
+            return;
+        }
+        WaypointController newPoint = waypoint.GetConnected(transform.forward);
+        if (Vector3.Dot(waypoint.GetDir(newPoint), waypoint.forward) < 0)
+        {
+            transform.forward = -waypoint.forward;
+        }
+        else
+        {
+            transform.forward = waypoint.forward;
+        }
+
+        waypoint = newPoint;
+        
+        
+        target = waypoint.position;
+        ChangeState(MoveStat.Move);
+
+        
     }
 }

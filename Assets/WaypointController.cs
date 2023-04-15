@@ -32,6 +32,9 @@ public class WaypointController : MonoBehaviour
 
     public int Gizmos_Counter = 0;
 
+    public Vector3 forward => transform.forward;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -94,5 +97,32 @@ public class WaypointController : MonoBehaviour
                 AddWaypoint(waypointController);
             }
         }
+    }
+
+    public WaypointController GetConnected(Vector3 dir)
+    {
+        if (connected.Length == 0)
+        {
+            Debug.LogError($"{this} missing connected");
+            return null;
+        }
+        WaypointController closest = connected[0];
+        double smallestDot = -2;
+        foreach (WaypointController waypointController in connected)
+        {
+            double current = Vector3.Dot(dir, GetDir(waypointController));
+            if (smallestDot < current)
+            {
+                closest = waypointController;
+                smallestDot = current;
+            }
+        }
+
+        return closest;
+    }
+
+    public Vector3 GetDir(WaypointController other)
+    {
+        return (other.position - position).normalized;
     }
 }

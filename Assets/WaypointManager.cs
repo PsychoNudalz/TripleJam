@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +21,20 @@ public class WaypointManager : MonoBehaviour
 
     public float Editor_Distance => editor_Distance;
 
+    public WaypointController StartingPoint => startingPoint;
+
+    public Vector3 StartingPosition => startingPoint.position;
+
     public WaypointController[] Waypoints => waypoints;
+
+
+    private void Awake()
+    {
+        if (!startingPoint&&waypoints.Length>0)
+        {
+            startingPoint = waypoints[0];
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
