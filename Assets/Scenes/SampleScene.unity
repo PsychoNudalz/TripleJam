@@ -216,22 +216,22 @@ PrefabInstance:
     - target: {fileID: 9113039594264300344, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.8380949
       objectReference: {fileID: 0}
     - target: {fileID: 9113039594264300344, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9113039594264300344, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.5455244
       objectReference: {fileID: 0}
     - target: {fileID: 9113039594264300344, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9113039594264300344, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
@@ -241,7 +241,7 @@ PrefabInstance:
     - target: {fileID: 9113039594264300344, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 66.121
       objectReference: {fileID: 0}
     - target: {fileID: 9113039594264300344, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
@@ -1663,7 +1663,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1672,7 +1672,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &572973400
@@ -2351,22 +2351,22 @@ PrefabInstance:
     - target: {fileID: 9113039594264300344, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.60186374
       objectReference: {fileID: 0}
     - target: {fileID: 9113039594264300344, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9113039594264300344, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7985988
       objectReference: {fileID: 0}
     - target: {fileID: 9113039594264300344, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9113039594264300344, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
@@ -2376,7 +2376,7 @@ PrefabInstance:
     - target: {fileID: 9113039594264300344, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -105.993
       objectReference: {fileID: 0}
     - target: {fileID: 9113039594264300344, guid: f7f3b44d1565c744e85e1b7f09370125,
         type: 3}
@@ -3861,11 +3861,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc1cfe36807f31978fe0fc7af0dd034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 7
   deadZone: 0.2
-  acceleration: 2
+  acceleration: 10
+  rotationSpeed: 0.2
   waypoint: {fileID: 0}
-  target: {x: 0, y: 0, z: 5}
+  target_pos: {x: 0, y: 0, z: 0}
+  target_rot: {x: 0, y: 0, z: 0}
+  target_forward: {x: 0, y: 0, z: 0}
   moveStat: 0
   current_velocity: {x: 0, y: 0, z: 0}
   cc: {fileID: 0}
