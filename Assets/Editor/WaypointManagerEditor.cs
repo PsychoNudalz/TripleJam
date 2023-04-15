@@ -54,27 +54,28 @@ public class WaypointManagerEditor : Editor
 }
 
 
-// [CustomEditor(typeof(WaypointController))]
-// public class WaypointEditor : Editor
-// {
-//     private float distance = 5f;
-//
-//     public override void OnInspectorGUI()
-//     {
-//         WaypointController myScript = (WaypointController) target;
-//         if (GUILayout.Button("Reset Waypoints"))
-//         {
-//             myScript.ResetConnected();
-//             EditorUtility.SetDirty(myScript.gameObject);
-//         }
-//
-//         if (GUILayout.Button("Set Waypoints by Distance "))
-//         {
-//             myScript.AddWaypoint_Distance(distance);
-//             EditorUtility.SetDirty(myScript.gameObject);
-//         }
-//
-//
-//         DrawDefaultInspector();
-//     }
-// }
+[CustomEditor(typeof(WaypointController))]
+public class WaypointEditor : Editor
+{
+    private float distance = 5f;
+
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+
+        WaypointController myScript = (WaypointController) target;
+        if (GUILayout.Button("Reset Waypoints"))
+        {
+            myScript.ResetConnected();
+            EditorUtility.SetDirty(myScript.gameObject);
+        }
+
+        if (GUILayout.Button("Set Waypoints by Distance "))
+        {
+            myScript.AddWaypoint_Distance(distance);
+            EditorUtility.SetDirty(myScript.gameObject);
+        }
+
+
+    }
+}
