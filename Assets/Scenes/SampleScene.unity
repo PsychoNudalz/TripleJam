@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18029127, g: 0.22572401, b: 0.3069303, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3053,7 +3053,7 @@ MonoBehaviour:
     scale: 0
     score: 0
     ratio: 0
-  _resources: {fileID: 11400000, guid: e52c12e9e5e58d14da0ca9006fdba3ca, type: 2}
+  _resources: {fileID: 11400000, guid: 4f9330a89914fac438cb63225f3b6e25, type: 2}
   _resolution: {x: 1440, y: 1080}
   inWorldResolution: {x: 1, y: 1}
   _markerPrefab: {fileID: 1341392014938367964, guid: d4fa121fa142f56439e1f6e232dd5302,
@@ -4553,6 +4553,7 @@ GameObject:
   - component: {fileID: 1651453501}
   - component: {fileID: 1651453500}
   - component: {fileID: 1651453499}
+  - component: {fileID: 1651453502}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -4568,7 +4569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651453497}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.518, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4609,7 +4610,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ef6a5429467193aa683db70033d89f60, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4639,6 +4640,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651453497}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1651453502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651453497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce9e2045ec6aa3a3988b7d16745d40f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textures:
+  - {fileID: 2800000, guid: bc208effad703f34c8ce50324d9a5ade, type: 3}
+  - {fileID: 2800000, guid: d2206deddd7d2f94698419586c4e2063, type: 3}
+  - {fileID: 2800000, guid: 595c4f5c951c79e44bf47a6f76d01e1d, type: 3}
+  - {fileID: 2800000, guid: ab8f91b39e984bb4d8e45face586981b, type: 3}
+  - {fileID: 2800000, guid: a2cccbcda0a4f334f8418d731fb93571, type: 3}
+  lerpValue: 0
+  lerpSpeed: 2
+  renderer: {fileID: 1651453500}
+  increaseLerp: 1
 --- !u!1 &1706660776
 GameObject:
   m_ObjectHideFlags: 3
