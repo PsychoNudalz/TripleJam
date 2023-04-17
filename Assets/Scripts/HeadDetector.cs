@@ -166,7 +166,8 @@ public sealed class HeadDetector : MonoBehaviour
     PhotoCapture photoCaptureObject = null;
 
     private WebCamTexture liveWebCam;
-    
+    bool webCamOn = false;
+
     Texture2D targetTexture = null;
     private Resolution cameraResolution;
 
@@ -179,6 +180,7 @@ public sealed class HeadDetector : MonoBehaviour
         _detector = new BodyDetector(_resources, _resolution.x, _resolution.y);
 
         StartLiveCameraToTexture();
+        
 
         // // Texture
         //
@@ -210,9 +212,12 @@ public sealed class HeadDetector : MonoBehaviour
         //     UpdateRenderer();
         //     setMarkerFlag = true;
         // }
-        
-        MarkFacePoints();
-        UpdateRenderer();
+
+        if (liveWebCam)
+        {
+            MarkFacePoints();
+            UpdateRenderer();
+        }
     }
     //
     // private void SetMarkers()
@@ -301,7 +306,7 @@ public sealed class HeadDetector : MonoBehaviour
 
 
         float ratio = (float)_source.height / (float)_source.width;
-        Debug.Log($"image size: {_source.height} { _source.width}");
+        Debug.Log($"image size: {_source.height} {_source.width}");
 
         float score = Nose.Item2 + LeftEar.Item2 + RightEar.Item2 + LeftEye.Item2 + RightEye.Item2;
         Vector2 centre = new Vector2();
@@ -328,7 +333,7 @@ public sealed class HeadDetector : MonoBehaviour
 
     (Vector2, float) GetPoint(Body.KeypointID keypoint)
     {
-        Keypoint detectorKeypoint = _detector.Keypoints[(int) keypoint];
+        Keypoint detectorKeypoint = _detector.Keypoints[(int)keypoint];
         return (detectorKeypoint.Position, detectorKeypoint.Score);
     }
 
@@ -338,8 +343,24 @@ public sealed class HeadDetector : MonoBehaviour
     public void StartLiveCameraToTexture()
     {
         liveWebCam = new WebCamTexture();
-        liveWebCam.Play();
-        _source = liveWebCam;
+        try
+        {
+            if (liveWebCam.isReadable)
+            {
+                liveWebCam.Play();
+                _source = liveWebCam;
+                webCamOn = true;
+            }
+            else
+            {
+                webCamOn = false;
+            }
+        }
+        catch (Exception e)
+        {
+                webCamOn = false;
+            
+        }
     }
 
     private void OnApplicationQuit()
@@ -347,7 +368,6 @@ public sealed class HeadDetector : MonoBehaviour
         if (liveWebCam)
         {
             liveWebCam.Stop();
-
         }
     }
 
