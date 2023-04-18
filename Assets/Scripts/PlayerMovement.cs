@@ -232,7 +232,8 @@ public class PlayerMovement : MonoBehaviour
         target_forward = Quaternion.LookRotation(target_forward).eulerAngles;
 
         waypoint = newPoint;
-
+        newPoint.OnMove();
+        
 
         target_pos = waypoint.position;
         ChangeState(MoveStat.Move);

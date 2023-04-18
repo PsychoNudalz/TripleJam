@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WaypointController : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class WaypointController : MonoBehaviour
 
     [SerializeField]
     private WaypointManager manager;
+
+    [Space(10f)]
+    [SerializeField]
+    private UnityEvent onMoveEvent;
 
     public WaypointManager Manager
     {
@@ -124,5 +129,10 @@ public class WaypointController : MonoBehaviour
     public Vector3 GetDir(WaypointController other)
     {
         return (other.position - position).normalized;
+    }
+
+    public void OnMove()
+    {
+        onMoveEvent.Invoke();
     }
 }

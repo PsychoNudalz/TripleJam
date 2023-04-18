@@ -9,7 +9,7 @@ public class SpriteLerp : MonoBehaviour
 {
     [Header("Material")]
     [SerializeField]
-    Texture[] textures;
+    List<Texture> textures;
 
     private Texture[] materialTextureQueue = new Texture[4];
 
@@ -44,6 +44,11 @@ public class SpriteLerp : MonoBehaviour
 
     private Material material;
 
+    public List<Texture> Textures
+    {
+        get => textures;
+    }
+
     private void Awake()
     {
         if (!renderer)
@@ -56,10 +61,10 @@ public class SpriteLerp : MonoBehaviour
 
     void Start()
     {
-        if (textures.Length <= 1)
+        if (textures.Count == 0)
         {
             enabled = false;
-            Debug.LogError($"{gameObject} missing textures");
+            Debug.LogWarning($"{gameObject} missing textures");
             return;
         }
 
@@ -100,10 +105,13 @@ public class SpriteLerp : MonoBehaviour
 
     Texture GetRandomTexture()
     {
-        Texture randomTexture = textures[Random.Range(0, textures.Length)];
-        while (randomTexture.Equals(materialTextureQueue[0]))
+        Texture randomTexture = textures[Random.Range(0, textures.Count)];
+        if (textures.Count > 1)
         {
-            randomTexture = textures[Random.Range(0, textures.Length)];
+            while (randomTexture.Equals(materialTextureQueue[0]))
+            {
+                randomTexture = textures[Random.Range(0, textures.Count)];
+            }
         }
 
         return randomTexture;
@@ -126,5 +134,14 @@ public class SpriteLerp : MonoBehaviour
         material.SetTexture("_Texture_1", materialTextureQueue[1]);
         material.SetTexture("_Texture_2", materialTextureQueue[2]);
         material.SetTexture("_Texture_3", materialTextureQueue[3]);
+    }
+
+    public void SetTextures(List<Texture> t)
+    {
+        textures = t;
+        if (!enabled)
+        {
+            enabled = true;
+        }
     }
 }

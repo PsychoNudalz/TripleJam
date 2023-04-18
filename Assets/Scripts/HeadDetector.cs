@@ -214,7 +214,7 @@ public sealed class HeadDetector : MonoBehaviour
     Texture2D targetTexture = null;
     private Vector2Int cameraResolution;
 
-    private float EARTOFACE_RATIO = 1f;
+    private float EARTOFACE_RATIO = .9f;
     private float EYETOFACE_RATIO = 1.3f;
     string pictureFilePath => Application.persistentDataPath + "/faces/";
     string pictureFileName = "faceCap.png";
@@ -556,7 +556,7 @@ public sealed class HeadDetector : MonoBehaviour
 
     public HeadImage TakePlayerPicture_HeadImage()
     {
-        TakePicture(true, true);
+        TakePicture(false, true);
         // StartCoroutine(CaptureFaceCoroutine(processPhoto, false));
         // MarkFacePoints(processPhoto);
         headImage.Face = processPhoto;

@@ -17,7 +17,10 @@ public class PlayerHeadMaker : MonoBehaviour
     [SerializeField]
     private Renderer renderer;
 
+    [SerializeField]
+    private SpriteLerp spriteLerp;
     private Material material;
+    private int lowestFaceIndex = 0;
 
     private void Awake()
     {
@@ -47,24 +50,53 @@ public class PlayerHeadMaker : MonoBehaviour
     public void OnAddPlayerHead()
     {
         HeadImage newHead = headDetector.TakePlayerPicture_HeadImage();
-        StartCoroutine(DelayUpdateTexture(index));
-        headImages[index] = newHead;
+        // StartCoroutine(DelayUpdateTexture(index));
+
+        int highestIndex = 0;
+        float highest = 0;
+        float lowest = 100;
+        
+        headImages[lowestFaceIndex] = newHead;
+
+        
+        //locate the smallest and biggest
+        for (var i = 0; i < headImages.Count; i++)
+        {
+            var headImage = headImages[i];
+            if (headImage.Score > highest)
+            {
+                highestIndex = i;
+                highest = headImage.Score;
+            }
+            if (headImage.Score < lowest)
+            {
+                lowestFaceIndex = i;
+                lowest = headImage.Score;
+            }
+        }
+
+        spriteLerp.SetTextures(GetTextures());
+        
+        // headImages[index] = newHead;
         if (index > 0)
         {
             Debug.Log($"New image better: {headImages[index].Score > headImages[index - 1].Score}");
         }
 
-        index++;
-        index %= headImages.Count;
+        // index++;
+        // index %= headImages.Capacity;
     }
 
-    IEnumerator DelayUpdateTexture(int i)
+    List<Texture> GetTextures()
     {
-        yield return new WaitForFixedUpdate();
-        material.SetTexture("_MainTex", headImages[i].Face);
-        material.SetTexture("_Texture_0", headImages[i].Face);
-        material.SetTexture("_Texture_1", headImages[i].Face);
-        material.SetTexture("_Texture_2", headImages[i].Face);
-        material.SetTexture("_Texture_3", headImages[i].Face);
+        List<Texture> t = new List<Texture>();
+        foreach (HeadImage headImage in headImages)
+        {
+            t.Add(headImage.Face);
+        }
+
+        return t;
     }
+
+
 }
