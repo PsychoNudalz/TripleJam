@@ -8,13 +8,14 @@ using UI = UnityEngine.UI;
 using Klak.TestTools;
 using BodyPix;
 using Unity.VisualScripting;
+using UnityEngine.Serialization;
 using UnityEngine.Windows.WebCam;
 
 [Serializable]
-struct HeadImage
+public struct HeadImage : IComparable<HeadImage>
 {
     [SerializeField]
-    private Texture face;
+    private Texture2D face;
 
     [SerializeField]
     private Vector2 ear_l;
@@ -47,7 +48,7 @@ struct HeadImage
     private float ratio;
 
 
-    public Texture Face
+    public Texture2D Face
     {
         get => face;
         set => face = value;
@@ -114,7 +115,8 @@ struct HeadImage
         set => ratio = value;
     }
 
-    public HeadImage(Texture face, Vector2 earL, Vector2 earR, Vector2 eyeL, Vector2 eyeR, Vector2 nose, Vector2 center,
+    public HeadImage(Texture2D face, Vector2 earL, Vector2 earR, Vector2 eyeL, Vector2 eyeR, Vector2 nose,
+        Vector2 center,
         float rotation, float scale, float score, float ratio)
     {
         this.face = face;
@@ -129,11 +131,41 @@ struct HeadImage
         this.score = score;
         this.ratio = ratio;
     }
+
+    public bool Equals(HeadImage other)
+    {
+        return score.Equals(other.score);
+    }
+
+    public int CompareTo(HeadImage other)
+    {
+        return score.CompareTo(other.score);
+    }
+
+    public override bool Equals(object obj)
+    {
+        return obj is HeadImage other && Equals(other);
+    }
+
+    public override int GetHashCode()
+    {
+        return score.GetHashCode();
+    }
+
+    private sealed class ScoreRelationalComparer : IComparer<HeadImage>
+    {
+        public int Compare(HeadImage x, HeadImage y)
+        {
+            return x.score.CompareTo(y.score);
+        }
+    }
+
+    public static IComparer<HeadImage> ScoreComparer { get; } = new ScoreRelationalComparer();
 }
 
 public sealed class HeadDetector : MonoBehaviour
 {
-    public Texture _source = null;
+    public Texture2D _source = null;
 
     [SerializeField]
     private HeadImage headImage;
@@ -142,7 +174,10 @@ public sealed class HeadDetector : MonoBehaviour
     ResourceSet _resources = null;
 
     [SerializeField]
-    Vector2Int _resolution = new Vector2Int(512, 384);
+    Vector2Int _detectorResolution = new Vector2Int(512, 384);
+
+    [SerializeField]
+    Vector2Int _headResolution = new Vector2Int(960, 960);
 
     [SerializeField]
     private Vector2 inWorldResolution = new Vector2(1, 1);
@@ -177,23 +212,23 @@ public sealed class HeadDetector : MonoBehaviour
     bool webCamOn = false;
 
     Texture2D targetTexture = null;
-    private Resolution cameraResolution;
+    private Vector2Int cameraResolution;
 
-    private float EARTOFACE_RATIO = 1.4f;
-    private float EYETOFACE_RATIO = 1.6f;
+    private float EARTOFACE_RATIO = 1f;
+    private float EYETOFACE_RATIO = 1.3f;
     string pictureFilePath => Application.persistentDataPath + "/faces/";
     string pictureFileName = "faceCap.png";
 
 
     void Start()
     {
-        // BodyPix detector initialization
-        _detector = new BodyDetector(_resources, _resolution.x, _resolution.y);
-
         if (useLive)
         {
             StartLiveCameraToTexture();
         }
+
+        // BodyPix detector initialization
+        _detector = new BodyDetector(_resources, _detectorResolution.x, _detectorResolution.y);
 
 
         // // Texture
@@ -260,7 +295,7 @@ public sealed class HeadDetector : MonoBehaviour
     // }
 
 
-    public void MarkFacePoints(Texture image = null)
+    public void MarkFacePoints(Texture2D image = null)
     {
         if (image)
         {
@@ -336,13 +371,14 @@ public sealed class HeadDetector : MonoBehaviour
             Debug.LogError($"Face {_source} scaling error");
             scale = Mathf.Clamp(scale, 0, 1);
         }
-        
+
         //CENTRE
         Vector2 centre = new Vector2();
         centre = Nose.Item1;
         centre -= new Vector2(0.5f, .5f);
         headImage = new HeadImage(_source, LeftEar.Item1, RightEar.Item1, LeftEye.Item1, RightEye.Item1,
             Nose.Item1, centre, rotation, scale, score, ratio);
+        Debug.Log($"Face created: {headImage.Scale} {headImage.Score}");
     }
 
     public void UpdateRenderer()
@@ -360,6 +396,25 @@ public sealed class HeadDetector : MonoBehaviour
         return (detectorKeypoint.Position, detectorKeypoint.Score);
     }
 
+    Vector2 GetHeadPos(Vector2 pos)
+    {
+        Quaternion rotation = Quaternion.Euler(0, 0, -headImage.Rotation);
+        // Vector2 ratio = new Vector2( headImage.Ratio);
+        Vector2 headImageCornerOffset =
+            new Vector2(headImage.Scale*headImage.Ratio, headImage.Scale) *
+            new Vector2(_source.width, _source.height);
+        headImageCornerOffset = rotation * headImageCornerOffset;
+        Vector2 headImageCenter =
+            (headImage.Center + new Vector2(0.5f, 0.5f)) *
+            new Vector2(_source.width, _source.height);
+        // headImageCenter = rotation * headImageCenter;
+        Vector2 headImageScale = pos * headImage.Scale;
+        headImageScale = rotation * headImageScale;
+
+        Vector2 returnVector = headImageScale + headImageCenter-headImageCornerOffset;
+        // returnVector = rotation * returnVector;
+        return returnVector;
+    }
 
     //Camera stuff
 
@@ -368,10 +423,10 @@ public sealed class HeadDetector : MonoBehaviour
         liveWebCam = new WebCamTexture();
         try
         {
-            if (liveWebCam.isReadable)
+            liveWebCam.Play();
+
+            if (liveWebCam.isPlaying)
             {
-                liveWebCam.Play();
-                _source = liveWebCam;
                 webCamOn = true;
             }
             else
@@ -393,40 +448,70 @@ public sealed class HeadDetector : MonoBehaviour
         }
     }
 
-    private void InitialiseCamera()
-    {
-        cameraResolution = PhotoCapture.SupportedResolutions.OrderByDescending((res) => res.width * res.height).First();
-        targetTexture = new Texture2D(cameraResolution.width, cameraResolution.height);
-    }
+    // private void InitialiseCamera()
+    // {
+    //     cameraResolution = PhotoCapture.SupportedResolutions.OrderByDescending((res) => res.width * res.height).First();
+    //     targetTexture = new Texture2D(cameraResolution.width, cameraResolution.height);
+    // }
 
-    public Texture TakePicture(bool savePNG)
+    public Texture TakePicture(bool savePNG, bool processImage = false)
     {
         takePictureLock = true;
-        _resolution = new Vector2Int(liveWebCam.width, liveWebCam.height);
+        _detectorResolution = new Vector2Int(liveWebCam.width, liveWebCam.height);
 
-        StartCoroutine(TakePictureCoroutine(true, savePNG));
+        StartCoroutine(TakePictureCoroutine(true, savePNG, processImage));
 
         //Encode to a PNG
 
         return processPhoto;
     }
 
-    IEnumerator TakePictureCoroutine(bool setCaptureFlag, bool savePNG)
+    IEnumerator TakePictureCoroutine(bool setCaptureFlag, bool savePNG, bool processImage = false)
     {
         if (setCaptureFlag)
         {
             captureDoneFlag = false;
         }
-        // if (liveWebCam && liveWebCam.isPlaying)
-        // {
-        //     liveWebCam.Stop();
-        // }
 
+        // yield return new WaitForFixedUpdate();
 
-        yield return new WaitForFixedUpdate();
         processPhoto = new Texture2D(liveWebCam.width, liveWebCam.height);
         processPhoto.SetPixels(liveWebCam.GetPixels());
         processPhoto.Apply();
+        if (processImage)
+        {
+            MarkFacePoints(processPhoto);
+
+            processPhoto = new Texture2D(_headResolution.x, _headResolution.y);
+            Vector2 pos = new Vector2();
+            Vector2 newPos = new Vector2();
+
+            //sample from capture
+            for (int i = 0; i < _headResolution.x; i++)
+            {
+                for (int j = 0; j < _headResolution.y; j++)
+                {
+                    pos = new Vector2(i, j);
+
+                    newPos = GetHeadPos(pos);
+
+                    // Vector4 c = pos;
+                    // c.x = c.x/_headResolution.x;
+                    // c.y = c.y/_headResolution.y;
+                    // c /= 255f;
+                    // newPhoto.SetPixel((int) pos.x, (int) pos.y, new Color(c.x,c.y,c.z,0));
+
+                    processPhoto.SetPixel((int) pos.x, (int) pos.y,
+                    headImage.Face.GetPixel((int) newPos.x, (int) newPos.y));
+                }
+            }
+            processPhoto.Apply();
+
+
+
+
+            Debug.Log("created new head texture");
+        }
 
         if (savePNG)
         {
@@ -440,6 +525,7 @@ public sealed class HeadDetector : MonoBehaviour
         }
 
         takePictureLock = false;
+        // liveWebCam.Stop();
     }
 
     public void CaptureFace()
@@ -449,7 +535,8 @@ public sealed class HeadDetector : MonoBehaviour
             return;
         }
 
-        TakePicture(false);
+        TakePicture(false, true);
+        // UpdateRenderer();
         StartCoroutine(CaptureFaceCoroutine(processPhoto, true));
     }
 
@@ -461,12 +548,22 @@ public sealed class HeadDetector : MonoBehaviour
         }
 
         TakePicture(true);
-        Texture2D t = FileLoader.LoadTextureFromImage(new Texture2D(_resolution.x, _resolution.y), pictureFilePath,
+        Texture2D t = FileLoader.LoadTextureFromImage(new Texture2D(cameraResolution.x, cameraResolution.y),
+            pictureFilePath,
             pictureFileName);
         StartCoroutine(CaptureFaceCoroutine(processPhoto, true));
     }
 
-    IEnumerator CaptureFaceCoroutine(Texture t, bool setCaptureFlag)
+    public HeadImage TakePlayerPicture_HeadImage()
+    {
+        TakePicture(true, true);
+        // StartCoroutine(CaptureFaceCoroutine(processPhoto, false));
+        // MarkFacePoints(processPhoto);
+        headImage.Face = processPhoto;
+        return headImage;
+    }
+
+    IEnumerator CaptureFaceCoroutine(Texture2D t, bool setCaptureFlag, bool updateRenderer = true)
     {
         if (setCaptureFlag)
         {
@@ -474,11 +571,14 @@ public sealed class HeadDetector : MonoBehaviour
         }
 
         MarkFacePoints(t);
-        UpdateRenderer();
+        if (updateRenderer)
+        {
+            UpdateRenderer();
+        }
     }
 
-    public void RenderFace()
-    {
-        UpdateRenderer();
-    }
+    // public void RenderFace()
+    // {
+    //     UpdateRenderer();
+    // }
 }

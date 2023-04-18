@@ -96,6 +96,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "AddPlayerHead",
+                    "type": "Button",
+                    "id": "618d3f2b-1151-4a3a-bad8-2484bae9b83b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -107,6 +116,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "CaptureFace",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c88ae727-a275-49ec-9126-9a9a6b6fc04e",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AddPlayerHead",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

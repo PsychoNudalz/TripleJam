@@ -1761,6 +1761,128 @@ PrefabInstance:
       objectReference: {fileID: 564803954}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7f3b44d1565c744e85e1b7f09370125, type: 3}
+--- !u!1 &526867411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 526867414}
+  - component: {fileID: 526867413}
+  - component: {fileID: 526867412}
+  m_Layer: 0
+  m_Name: HeadDetection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &526867412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526867411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 3676600332d362044b50cef54b17f67b,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9204dcc5-ba62-4988-bc52-ab0071f419d7
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 526867413}
+        m_TargetAssemblyTypeName: HeadDetector, Assembly-CSharp
+        m_MethodName: CaptureFace
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cbcb3ff1-3020-4230-bfa0-a1ee69696755
+    m_ActionName: Debug/CaptureFace[/Keyboard/l]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 618d3f2b-1151-4a3a-bad8-2484bae9b83b
+    m_ActionName: Debug/AddPlayerHead[/Keyboard/p]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Debug
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &526867413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526867411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35237e0c454cbd344aad03c97133ddd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _source: {fileID: 2800000, guid: 868fe15c53e4ec245ac8c3432c9746b5, type: 3}
+  headImage:
+    face: {fileID: 0}
+    ear_l: {x: 0, y: 0}
+    ear_r: {x: 0, y: 0}
+    eye_l: {x: 0, y: 0}
+    eye_r: {x: 0, y: 0}
+    nose: {x: 0, y: 0}
+    center: {x: 0, y: 0}
+    rotation: 0
+    scale: 0
+    score: 0
+    ratio: 0
+  _resources: {fileID: 11400000, guid: e52c12e9e5e58d14da0ca9006fdba3ca, type: 2}
+  _detectorResolution: {x: 512, y: 384}
+  _headResolution: {x: 960, y: 960}
+  inWorldResolution: {x: 1, y: 1}
+  _markerPrefab: {fileID: 1341392014938367964, guid: d4fa121fa142f56439e1f6e232dd5302,
+    type: 3}
+  textureDisplay: {fileID: 1475720186}
+  useLive: 1
+--- !u!4 &526867414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526867411}
+  m_LocalRotation: {x: -0, y: -0.9282885, z: -0, w: 0.3718608}
+  m_LocalPosition: {x: 0.977, y: 1.42, z: 7.247}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1475720189}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: -136.339, z: 0}
 --- !u!114 &539585472 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9113039594264300347, guid: f7f3b44d1565c744e85e1b7f09370125,
@@ -3170,8 +3292,9 @@ GameObject:
   - component: {fileID: 1054392045}
   - component: {fileID: 1054392044}
   - component: {fileID: 1054392046}
+  - component: {fileID: 1054392047}
   m_Layer: 0
-  m_Name: HeadDetection
+  m_Name: PlayerHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3203,7 +3326,8 @@ MonoBehaviour:
     score: 0
     ratio: 0
   _resources: {fileID: 11400000, guid: e52c12e9e5e58d14da0ca9006fdba3ca, type: 2}
-  _resolution: {x: 1440, y: 1080}
+  _detectorResolution: {x: 960, y: 960}
+  _headResolution: {x: 960, y: 960}
   inWorldResolution: {x: 1, y: 1}
   _markerPrefab: {fileID: 1341392014938367964, guid: d4fa121fa142f56439e1f6e232dd5302,
     type: 3}
@@ -3239,7 +3363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 3676600332d362044b50cef54b17f67b,
     type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -3271,11 +3395,86 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: cbcb3ff1-3020-4230-bfa0-a1ee69696755
     m_ActionName: Debug/CaptureFace[/Keyboard/l]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 618d3f2b-1151-4a3a-bad8-2484bae9b83b
+    m_ActionName: Debug/AddPlayerHead[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Debug
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1054392047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054392043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b42dd19310c144e9a36038414894b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headDetector: {fileID: 1054392044}
+  headImages:
+  - face: {fileID: 0}
+    ear_l: {x: 0, y: 0}
+    ear_r: {x: 0, y: 0}
+    eye_l: {x: 0, y: 0}
+    eye_r: {x: 0, y: 0}
+    nose: {x: 0, y: 0}
+    center: {x: 0, y: 0}
+    rotation: 0
+    scale: 0
+    score: 0
+    ratio: 0
+  - face: {fileID: 0}
+    ear_l: {x: 0, y: 0}
+    ear_r: {x: 0, y: 0}
+    eye_l: {x: 0, y: 0}
+    eye_r: {x: 0, y: 0}
+    nose: {x: 0, y: 0}
+    center: {x: 0, y: 0}
+    rotation: 0
+    scale: 0
+    score: 0
+    ratio: 0
+  - face: {fileID: 0}
+    ear_l: {x: 0, y: 0}
+    ear_r: {x: 0, y: 0}
+    eye_l: {x: 0, y: 0}
+    eye_r: {x: 0, y: 0}
+    nose: {x: 0, y: 0}
+    center: {x: 0, y: 0}
+    rotation: 0
+    scale: 0
+    score: 0
+    ratio: 0
+  - face: {fileID: 0}
+    ear_l: {x: 0, y: 0}
+    ear_r: {x: 0, y: 0}
+    eye_l: {x: 0, y: 0}
+    eye_r: {x: 0, y: 0}
+    nose: {x: 0, y: 0}
+    center: {x: 0, y: 0}
+    rotation: 0
+    scale: 0
+    score: 0
+    ratio: 0
+  - face: {fileID: 0}
+    ear_l: {x: 0, y: 0}
+    ear_r: {x: 0, y: 0}
+    eye_l: {x: 0, y: 0}
+    eye_r: {x: 0, y: 0}
+    nose: {x: 0, y: 0}
+    center: {x: 0, y: 0}
+    rotation: 0
+    scale: 0
+    score: 0
+    ratio: 0
+  index: 0
+  renderer: {fileID: 1400064267}
 --- !u!1001 &1110817940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4228,7 +4427,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 54997a2adef7e2040bcbe936cb1db177, type: 2}
+  - {fileID: 2100000, guid: 044adee35c99f8846bc6a0b1745240b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4394,6 +4593,104 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1433681361}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1475720185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1475720189}
+  - component: {fileID: 1475720188}
+  - component: {fileID: 1475720186}
+  - component: {fileID: 1475720187}
+  m_Layer: 0
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &1475720186
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475720185}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 54997a2adef7e2040bcbe936cb1db177, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1475720187
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475720185}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &1475720188
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475720185}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1475720189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475720185}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 526867414}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &1478173749
 PrefabInstance:
   m_ObjectHideFlags: 0
