@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 using UI = UnityEngine.UI;
@@ -163,9 +165,15 @@ public sealed class HeadDetector : MonoBehaviour
     private bool setMarkerFlag = false;
 
     [Header("Camera Capture")]
+    [SerializeField]
+    private bool useLive = false;
+
     PhotoCapture photoCaptureObject = null;
 
     private WebCamTexture liveWebCam;
+    private Texture2D processPhoto;
+    private bool captureDoneFlag = false;
+    private bool takePictureLock = false;
     bool webCamOn = false;
 
     Texture2D targetTexture = null;
@@ -173,14 +181,20 @@ public sealed class HeadDetector : MonoBehaviour
 
     private float EARTOFACE_RATIO = 1.4f;
     private float EYETOFACE_RATIO = 1.6f;
+    string pictureFilePath => Application.persistentDataPath + "/faces/";
+    string pictureFileName = "faceCap.png";
+
 
     void Start()
     {
         // BodyPix detector initialization
         _detector = new BodyDetector(_resources, _resolution.x, _resolution.y);
 
-        StartLiveCameraToTexture();
-        
+        if (useLive)
+        {
+            StartLiveCameraToTexture();
+        }
+
 
         // // Texture
         //
@@ -213,11 +227,11 @@ public sealed class HeadDetector : MonoBehaviour
         //     setMarkerFlag = true;
         // }
 
-        if (liveWebCam)
-        {
-            MarkFacePoints();
-            UpdateRenderer();
-        }
+        // if (liveWebCam)
+        // {
+        //     MarkFacePoints();
+        //     UpdateRenderer();
+        // }
     }
     //
     // private void SetMarkers()
@@ -246,9 +260,15 @@ public sealed class HeadDetector : MonoBehaviour
     // }
 
 
-    public void MarkFacePoints()
+    public void MarkFacePoints(Texture image = null)
     {
+        if (image)
+        {
+            _source = image;
+        }
+
         _detector.ProcessImage(_source);
+
 
         List<Vector2> validPoints = new List<Vector2>();
 
@@ -304,18 +324,21 @@ public sealed class HeadDetector : MonoBehaviour
 
         Debug.Log($"number of valid points: {validPoints.Count}. dir: {dir}");
 
-
-        float ratio = (float)_source.height / (float)_source.width;
+        //Ratio
+        float ratio = (float) _source.height / (float) _source.width;
         Debug.Log($"image size: {_source.height} {_source.width}");
 
+        //Score
         float score = Nose.Item2 + LeftEar.Item2 + RightEar.Item2 + LeftEye.Item2 + RightEye.Item2;
+        if (scale is >= 1f or <= 0f)
+        {
+            score = -1;
+            Debug.LogError($"Face {_source} scaling error");
+            scale = Mathf.Clamp(scale, 0, 1);
+        }
+        
+        //CENTRE
         Vector2 centre = new Vector2();
-        // foreach (Vector2 validPoint in validPoints)
-        // {
-        //     centre += validPoint;
-        // }
-        //
-        // centre /= validPoints.Count;
         centre = Nose.Item1;
         centre -= new Vector2(0.5f, .5f);
         headImage = new HeadImage(_source, LeftEar.Item1, RightEar.Item1, LeftEye.Item1, RightEye.Item1,
@@ -333,7 +356,7 @@ public sealed class HeadDetector : MonoBehaviour
 
     (Vector2, float) GetPoint(Body.KeypointID keypoint)
     {
-        Keypoint detectorKeypoint = _detector.Keypoints[(int)keypoint];
+        Keypoint detectorKeypoint = _detector.Keypoints[(int) keypoint];
         return (detectorKeypoint.Position, detectorKeypoint.Score);
     }
 
@@ -358,14 +381,13 @@ public sealed class HeadDetector : MonoBehaviour
         }
         catch (Exception e)
         {
-                webCamOn = false;
-            
+            webCamOn = false;
         }
     }
 
     private void OnApplicationQuit()
     {
-        if (liveWebCam)
+        if (useLive && liveWebCam)
         {
             liveWebCam.Stop();
         }
@@ -377,39 +399,86 @@ public sealed class HeadDetector : MonoBehaviour
         targetTexture = new Texture2D(cameraResolution.width, cameraResolution.height);
     }
 
-    public void TakePicture()
+    public Texture TakePicture(bool savePNG)
     {
-        // Create a PhotoCapture object
-        PhotoCapture.CreateAsync(false, delegate(PhotoCapture captureObject)
+        takePictureLock = true;
+        _resolution = new Vector2Int(liveWebCam.width, liveWebCam.height);
+
+        StartCoroutine(TakePictureCoroutine(true, savePNG));
+
+        //Encode to a PNG
+
+        return processPhoto;
+    }
+
+    IEnumerator TakePictureCoroutine(bool setCaptureFlag, bool savePNG)
+    {
+        if (setCaptureFlag)
         {
-            photoCaptureObject = captureObject;
-            CameraParameters cameraParameters = new CameraParameters();
-            cameraParameters.hologramOpacity = 0.0f;
-            cameraParameters.cameraResolutionWidth = cameraResolution.width;
-            cameraParameters.cameraResolutionHeight = cameraResolution.height;
-            cameraParameters.pixelFormat = CapturePixelFormat.BGRA32;
+            captureDoneFlag = false;
+        }
+        // if (liveWebCam && liveWebCam.isPlaying)
+        // {
+        //     liveWebCam.Stop();
+        // }
 
-            // Activate the camera
-            photoCaptureObject.StartPhotoModeAsync(cameraParameters, delegate(PhotoCapture.PhotoCaptureResult result)
-            {
-                // Take a picture
-                photoCaptureObject.TakePhotoAsync(OnCapturedPhotoToMemory);
-            });
-        });
+
+        yield return new WaitForFixedUpdate();
+        processPhoto = new Texture2D(liveWebCam.width, liveWebCam.height);
+        processPhoto.SetPixels(liveWebCam.GetPixels());
+        processPhoto.Apply();
+
+        if (savePNG)
+        {
+            FileLoader.CreatePNG(pictureFilePath, pictureFileName, processPhoto);
+        }
+
+        yield return new WaitForFixedUpdate();
+        if (setCaptureFlag)
+        {
+            captureDoneFlag = true;
+        }
+
+        takePictureLock = false;
     }
 
-    void OnCapturedPhotoToMemory(PhotoCapture.PhotoCaptureResult result, PhotoCaptureFrame photoCaptureFrame)
+    public void CaptureFace()
     {
-        // Copy the raw image data into our target texture
-        photoCaptureFrame.UploadImageDataToTexture(targetTexture);
-        // Deactivate our camera
-        photoCaptureObject.StopPhotoModeAsync(OnStoppedPhotoMode);
+        if (takePictureLock)
+        {
+            return;
+        }
+
+        TakePicture(false);
+        StartCoroutine(CaptureFaceCoroutine(processPhoto, true));
     }
 
-    void OnStoppedPhotoMode(PhotoCapture.PhotoCaptureResult result)
+    public void CaptureFace_SavePNG()
     {
-        // Shutdown our photo capture resource
-        photoCaptureObject.Dispose();
-        photoCaptureObject = null;
+        if (takePictureLock)
+        {
+            return;
+        }
+
+        TakePicture(true);
+        Texture2D t = FileLoader.LoadTextureFromImage(new Texture2D(_resolution.x, _resolution.y), pictureFilePath,
+            pictureFileName);
+        StartCoroutine(CaptureFaceCoroutine(processPhoto, true));
+    }
+
+    IEnumerator CaptureFaceCoroutine(Texture t, bool setCaptureFlag)
+    {
+        if (setCaptureFlag)
+        {
+            yield return new WaitUntil(() => captureDoneFlag);
+        }
+
+        MarkFacePoints(t);
+        UpdateRenderer();
+    }
+
+    public void RenderFace()
+    {
+        UpdateRenderer();
     }
 }

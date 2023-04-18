@@ -83,6 +83,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Debug",
+            "id": "62bc9e42-2477-4dea-9576-15e0807528d1",
+            "actions": [
+                {
+                    "name": "CaptureFace",
+                    "type": "Button",
+                    "id": "cbcb3ff1-3020-4230-bfa0-a1ee69696755",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1badd25d-c1e8-4186-9af7-cec3bdad915f",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CaptureFace",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
