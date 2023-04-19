@@ -145,9 +145,9 @@ public class SpriteLerp : MonoBehaviour
         {
             enabled = true;
             ShiftMaterialTexture(t[0]);
-            // ShiftMaterialTexture(t[0]);
-            // ShiftMaterialTexture(t[0]);
-            // ShiftMaterialTexture(t[0]);
+            ShiftMaterialTexture(t[1]);
+            ShiftMaterialTexture(t[2]);
+            ShiftMaterialTexture(t[3]);
         }
     }
 }

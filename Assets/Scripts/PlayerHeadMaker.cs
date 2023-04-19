@@ -36,6 +36,8 @@ public class PlayerHeadMaker : MonoBehaviour
         {
             OnCapturePlayerHead();
             Debug.Log($"Face done: {i} ");
+            yield return new WaitForSeconds(Time.fixedDeltaTime);
+
         }
 
         UpdateSprites();
