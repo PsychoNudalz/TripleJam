@@ -219,6 +219,9 @@ public sealed class HeadDetector : MonoBehaviour
     string pictureFilePath => Application.persistentDataPath + "/faces/";
     string pictureFileName = "faceCap.png";
 
+    [Header("Debug_Calibration")]
+    [SerializeField]
+    private bool saveOriginalWebCam = true;
 
     void Start()
     {
@@ -401,14 +404,13 @@ public sealed class HeadDetector : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0, 0, -headImage.Rotation);
         // Vector2 ratio = new Vector2( headImage.Ratio);
         Vector2 headImageCornerOffset =
-            new Vector2(headImage.Scale*headImage.Ratio, headImage.Scale) *
-            new Vector2(_source.width, _source.height);
+            new Vector2(_source.width*headImage.Scale*headImage.Ratio, _source.height*headImage.Scale);
         headImageCornerOffset = rotation * headImageCornerOffset;
         Vector2 headImageCenter =
             (headImage.Center + new Vector2(0.5f, 0.5f)) *
             new Vector2(_source.width, _source.height);
         // headImageCenter = rotation * headImageCenter;
-        Vector2 headImageScale = pos * headImage.Scale;
+        Vector2 headImageScale = pos * (headImage.Scale / headImage.Ratio);
         headImageScale = rotation * headImageScale;
 
         Vector2 returnVector = headImageScale + headImageCenter-headImageCornerOffset;
@@ -477,6 +479,12 @@ public sealed class HeadDetector : MonoBehaviour
         processPhoto = new Texture2D(liveWebCam.width, liveWebCam.height);
         processPhoto.SetPixels(liveWebCam.GetPixels());
         processPhoto.Apply();
+        
+        if (saveOriginalWebCam)
+        {
+            FileLoader.CreatePNG(pictureFilePath, "Original_"+pictureFileName, processPhoto);
+        }
+        
         if (processImage)
         {
             MarkFacePoints(processPhoto);
@@ -527,7 +535,7 @@ public sealed class HeadDetector : MonoBehaviour
         // liveWebCam.Stop();
     }
 
-    public void CaptureFace()
+    public void CaptureFace_Calibration()
     {
         if (takePictureLock)
         {
@@ -555,7 +563,7 @@ public sealed class HeadDetector : MonoBehaviour
 
     public HeadImage TakePlayerPicture_HeadImage()
     {
-        TakePicture(false, true);
+        TakePicture(true, true);
         // StartCoroutine(CaptureFaceCoroutine(processPhoto, false));
         // MarkFacePoints(processPhoto);
         headImage.Face = processPhoto;
