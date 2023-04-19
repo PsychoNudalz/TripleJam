@@ -14,8 +14,13 @@ public class WaypointController : MonoBehaviour
     private WaypointManager manager;
 
     [Space(10f)]
+    [Header("Events")]
     [SerializeField]
     private UnityEvent onMoveEvent;
+    [SerializeField]
+    private UnityEvent onLeaveEvent;
+    [SerializeField]
+    private UnityEvent onArriveEvent;
 
     public WaypointManager Manager
     {
@@ -134,5 +139,15 @@ public class WaypointController : MonoBehaviour
     public void OnMove()
     {
         onMoveEvent.Invoke();
+    }
+
+    public void OnLeave()
+    {
+        onLeaveEvent.Invoke();
+    }
+
+    public void OnArrive()
+    {
+        onArriveEvent.Invoke();
     }
 }

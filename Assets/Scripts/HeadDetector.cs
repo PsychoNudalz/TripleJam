@@ -420,10 +420,9 @@ public sealed class HeadDetector : MonoBehaviour
 
     public void StartLiveCameraToTexture()
     {
-        liveWebCam = new WebCamTexture();
         try
         {
-            liveWebCam.Play();
+            liveWebCam = WebCamManager.Texture;
 
             if (liveWebCam.isPlaying)
             {
