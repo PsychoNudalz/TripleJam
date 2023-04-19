@@ -115,6 +115,15 @@ public struct HeadImage : IComparable<HeadImage>
         set => ratio = value;
     }
 
+    public Vector2 Ratio2_x
+    {
+        get => new Vector2(Ratio, 1f);
+    }
+    public Vector2 Ratio2_y
+    {
+        get => new Vector2(1f, 1f/Ratio);
+    }
+
     public HeadImage(Texture2D face, Vector2 earL, Vector2 earR, Vector2 eyeL, Vector2 eyeR, Vector2 nose,
         Vector2 center,
         float rotation, float scale, float score, float ratio)
@@ -405,7 +414,7 @@ public sealed class HeadDetector : MonoBehaviour
     {
         Quaternion rotation = Quaternion.Euler(0, 0, -headImage.Rotation);
         // headImageCenter = rotation * headImageCenter;
-        Vector2 headImageScale = pos * (headImage.Scale / headImage.Ratio);
+        Vector2 headImageScale = pos * (headImage.Scale)*headImage.Ratio2_x;
         headImageScale = rotation * headImageScale;
 
         Vector2 returnVector = headImageScale + GetOffsetStart();
@@ -418,10 +427,10 @@ public sealed class HeadDetector : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0, 0, -headImage.Rotation);
         // Vector2 ratio = new Vector2( headImage.Ratio);
         Vector2 headImageCornerOffset =
-            new Vector2(_source.width*headImage.Scale*headImage.Ratio, _source.height*headImage.Scale);
+            new Vector2(_source.width*headImage.Scale, _source.height*headImage.Scale)*headImage.Ratio2_x;
         headImageCornerOffset = rotation * headImageCornerOffset;
         Vector2 headImageCenter =
-            (headImage.Center/new Vector2(headImage.Ratio,1) + new Vector2(0.5f, 0.5f)) *
+            (headImage.Center*headImage.Ratio2_x + new Vector2(0.5f, 0.5f)) *
             new Vector2(_source.width, _source.height);
         return headImageCenter - headImageCornerOffset;
     }

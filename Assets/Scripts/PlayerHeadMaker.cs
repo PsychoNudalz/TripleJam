@@ -63,6 +63,11 @@ public class PlayerHeadMaker : MonoBehaviour
     private void OnCapturePlayerHead()
     {
         HeadImage newHead = headDetector.TakePlayerPicture_HeadImage();
+        if (newHead.Score < 0)
+        {
+            Debug.LogWarning("Head generate score < 0");
+
+        }
         // StartCoroutine(DelayUpdateTexture(index));
         Debug.Log("Head generated");
 
