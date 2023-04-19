@@ -220,8 +220,8 @@ public sealed class HeadDetector : MonoBehaviour
     string pictureFileName = "faceCap.png";
 
     [Header("Debug_Calibration")]
-    [SerializeField]
-    private bool saveOriginalWebCam = true;
+    // [SerializeField]
+    private bool saveOriginalWebCam = false;
 
     void Start()
     {
@@ -563,7 +563,7 @@ public sealed class HeadDetector : MonoBehaviour
 
     public HeadImage TakePlayerPicture_HeadImage()
     {
-        TakePicture(true, true);
+        TakePicture(false, true);
         // StartCoroutine(CaptureFaceCoroutine(processPhoto, false));
         // MarkFacePoints(processPhoto);
         headImage.Face = processPhoto;

@@ -40,6 +40,10 @@ public class PlayerHeadMaker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < headImages.Capacity; i++)
+        {
+            OnAddPlayerHead();
+        }
     }
 
     // Update is called once per frame

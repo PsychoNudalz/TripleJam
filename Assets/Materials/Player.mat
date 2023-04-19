@@ -57,6 +57,7 @@ Material:
     m_Floats:
     - _Distort_Amount: 0.1
     - _Distort_UV_Amount: 0.1
+    - _Exposer: 1.5
     - _LerpValue: 0.68
     - _LerpValue_1: 0.68
     - _LoopValue: 0.68
