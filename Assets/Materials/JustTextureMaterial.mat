@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BaseMaterial
+  m_Name: JustTextureMaterial
   m_Shader: {fileID: -6465566751694194690, guid: 45724066908e4884cb467085ebe95313,
     type: 3}
   m_ValidKeywords: []

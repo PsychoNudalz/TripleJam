@@ -459,8 +459,8 @@ public sealed class HeadDetector : MonoBehaviour
     {
         takePictureLock = true;
         _detectorResolution = new Vector2Int(liveWebCam.width, liveWebCam.height);
-
-        StartCoroutine(TakePictureCoroutine(true, savePNG, processImage));
+        processPhoto = CreatePicture(false, savePNG, processImage);
+        // StartCoroutine(TakePictureCoroutine(true, savePNG, processImage));
 
         //Encode to a PNG
 
@@ -469,61 +469,7 @@ public sealed class HeadDetector : MonoBehaviour
 
     IEnumerator TakePictureCoroutine(bool setCaptureFlag, bool savePNG, bool processImage = false)
     {
-        if (setCaptureFlag)
-        {
-            captureDoneFlag = false;
-        }
-
-        // yield return new WaitForFixedUpdate();
-
-        processPhoto = new Texture2D(liveWebCam.width, liveWebCam.height);
-        processPhoto.SetPixels(liveWebCam.GetPixels());
-        processPhoto.Apply();
-        
-        if (saveOriginalWebCam)
-        {
-            FileLoader.CreatePNG(pictureFilePath, "Original_"+pictureFileName, processPhoto);
-        }
-        
-        if (processImage)
-        {
-            MarkFacePoints(processPhoto);
-
-            processPhoto = new Texture2D(_headResolution.x, _headResolution.y);
-            Vector2 pos = new Vector2();
-            Vector2 newPos = new Vector2();
-
-            //sample from capture
-            for (int i = 0; i < _headResolution.x; i++)
-            {
-                for (int j = 0; j < _headResolution.y; j++)
-                {
-                    pos = new Vector2(i, j);
-
-                    newPos = GetHeadPos(pos);
-
-                    // Vector4 c = pos;
-                    // c.x = c.x/_headResolution.x;
-                    // c.y = c.y/_headResolution.y;
-                    // c /= 255f;
-                    // newPhoto.SetPixel((int) pos.x, (int) pos.y, new Color(c.x,c.y,c.z,0));
-
-                    processPhoto.SetPixel((int) pos.x, (int) pos.y,
-                    headImage.Face.GetPixel((int) newPos.x, (int) newPos.y));
-                }
-            }
-            processPhoto.Apply();
-
-
-
-
-            Debug.Log("created new head texture");
-        }
-
-        if (savePNG)
-        {
-            FileLoader.CreatePNG(pictureFilePath, pictureFileName, processPhoto);
-        }
+        CreatePicture(setCaptureFlag, savePNG, processImage);
 
         yield return new WaitForFixedUpdate();
         if (setCaptureFlag)
@@ -535,6 +481,57 @@ public sealed class HeadDetector : MonoBehaviour
         // liveWebCam.Stop();
     }
 
+    private Texture2D CreatePicture(bool setCaptureFlag, bool savePNG, bool processImage)
+    {
+        if (setCaptureFlag) captureDoneFlag = false;
+
+        // yield return new WaitForFixedUpdate();
+
+        processPhoto = new Texture2D(liveWebCam.width, liveWebCam.height);
+        processPhoto.SetPixels(liveWebCam.GetPixels());
+        processPhoto.Apply();
+
+        if (saveOriginalWebCam) FileLoader.CreatePNG(pictureFilePath, "Original_" + pictureFileName, processPhoto);
+
+        if (processImage)
+        {
+            MarkFacePoints(processPhoto);
+
+            processPhoto = new Texture2D(_headResolution.x, _headResolution.y);
+            var pos = new Vector2();
+            var newPos = new Vector2();
+
+            //sample from capture
+            for (var i = 0; i < _headResolution.x; i++)
+            for (var j = 0; j < _headResolution.y; j++)
+            {
+                pos = new Vector2(i, j);
+
+                newPos = GetHeadPos(pos);
+
+                // Vector4 c = pos;
+                // c.x = c.x/_headResolution.x;
+                // c.y = c.y/_headResolution.y;
+                // c /= 255f;
+                // newPhoto.SetPixel((int) pos.x, (int) pos.y, new Color(c.x,c.y,c.z,0));
+                processPhoto.SetPixel((int)pos.x, (int)pos.y,
+                    headImage.Face.GetPixel((int)newPos.x, (int)newPos.y));
+            }
+
+            processPhoto.Apply();
+
+
+            Debug.Log("created new head texture");
+        }
+
+        if (savePNG)
+        {
+            FileLoader.CreatePNG(pictureFilePath, pictureFileName, processPhoto);
+        }
+
+        return processPhoto;
+    }
+
     public void CaptureFace_Calibration()
     {
         if (takePictureLock)
@@ -544,7 +541,7 @@ public sealed class HeadDetector : MonoBehaviour
 
         TakePicture(false, true);
         // UpdateRenderer();
-        StartCoroutine(CaptureFaceCoroutine(processPhoto, true));
+        // StartCoroutine(CaptureFaceCoroutine(processPhoto, true));
     }
 
     public void CaptureFace_SavePNG()
@@ -558,7 +555,7 @@ public sealed class HeadDetector : MonoBehaviour
         Texture2D t = FileLoader.LoadTextureFromImage(new Texture2D(cameraResolution.x, cameraResolution.y),
             pictureFilePath,
             pictureFileName);
-        StartCoroutine(CaptureFaceCoroutine(processPhoto, true));
+        // StartCoroutine(CaptureFaceCoroutine(processPhoto, true));
     }
 
     public HeadImage TakePlayerPicture_HeadImage()
@@ -570,19 +567,20 @@ public sealed class HeadDetector : MonoBehaviour
         return headImage;
     }
 
-    IEnumerator CaptureFaceCoroutine(Texture2D t, bool setCaptureFlag, bool updateRenderer = true)
-    {
-        if (setCaptureFlag)
-        {
-            yield return new WaitUntil(() => captureDoneFlag);
-        }
-
-        MarkFacePoints(t);
-        if (updateRenderer)
-        {
-            UpdateRenderer();
-        }
-    }
+    // IEnumerator CaptureFaceCoroutine(Texture2D t, bool setCaptureFlag, bool updateRenderer = true)
+    // {
+    //     
+    //     // if (setCaptureFlag)
+    //     // {
+    //     //     yield return new WaitUntil(() => captureDoneFlag);
+    //     // }
+    //     //
+    //     // MarkFacePoints(t);
+    //     // if (updateRenderer)
+    //     // {
+    //     //     UpdateRenderer();
+    //     // }
+    // }
 
     // public void RenderFace()
     // {

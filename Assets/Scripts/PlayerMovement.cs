@@ -252,4 +252,16 @@ public class PlayerMovement : MonoBehaviour
 
         ChangeState(MoveStat.Rotate);
     }
+
+    public void SetFreeze(bool b)
+    {
+        if (b)
+        {
+            ChangeState(MoveStat.Freeze);
+        }
+        else
+        {
+            ChangeState(MoveStat.Still);
+        }
+    }
 }

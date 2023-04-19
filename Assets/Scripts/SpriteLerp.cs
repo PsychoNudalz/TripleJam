@@ -108,9 +108,11 @@ public class SpriteLerp : MonoBehaviour
         Texture randomTexture = textures[Random.Range(0, textures.Count)];
         if (textures.Count > 1)
         {
-            while (!randomTexture||randomTexture.Equals(materialTextureQueue[0]))
+            int MAXLOOP = 50;
+            while (MAXLOOP>0&&!randomTexture||randomTexture.Equals(materialTextureQueue[0]))
             {
                 randomTexture = textures[Random.Range(0, textures.Count)];
+                MAXLOOP--;
             }
         }
 
@@ -143,9 +145,9 @@ public class SpriteLerp : MonoBehaviour
         {
             enabled = true;
             ShiftMaterialTexture(t[0]);
-            ShiftMaterialTexture(t[0]);
-            ShiftMaterialTexture(t[0]);
-            ShiftMaterialTexture(t[0]);
+            // ShiftMaterialTexture(t[0]);
+            // ShiftMaterialTexture(t[0]);
+            // ShiftMaterialTexture(t[0]);
         }
     }
 }
