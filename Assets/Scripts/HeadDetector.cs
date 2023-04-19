@@ -179,6 +179,8 @@ public sealed class HeadDetector : MonoBehaviour
     [SerializeField]
     Vector2Int _headResolution = new Vector2Int(960, 960);
 
+    private Vector2Int _sourceRes => new Vector2Int(_source.width, _source.height);
+    
     [SerializeField]
     private Vector2 inWorldResolution = new Vector2(1, 1);
 
@@ -402,6 +404,18 @@ public sealed class HeadDetector : MonoBehaviour
     Vector2 GetHeadPos(Vector2 pos)
     {
         Quaternion rotation = Quaternion.Euler(0, 0, -headImage.Rotation);
+        // headImageCenter = rotation * headImageCenter;
+        Vector2 headImageScale = pos * (headImage.Scale / headImage.Ratio);
+        headImageScale = rotation * headImageScale;
+
+        Vector2 returnVector = headImageScale + GetOffsetStart();
+        // returnVector = rotation * returnVector;
+        return returnVector;
+    }
+
+    Vector2 GetOffsetStart()
+    {
+        Quaternion rotation = Quaternion.Euler(0, 0, -headImage.Rotation);
         // Vector2 ratio = new Vector2( headImage.Ratio);
         Vector2 headImageCornerOffset =
             new Vector2(_source.width*headImage.Scale*headImage.Ratio, _source.height*headImage.Scale);
@@ -409,13 +423,7 @@ public sealed class HeadDetector : MonoBehaviour
         Vector2 headImageCenter =
             (headImage.Center/new Vector2(headImage.Ratio,1) + new Vector2(0.5f, 0.5f)) *
             new Vector2(_source.width, _source.height);
-        // headImageCenter = rotation * headImageCenter;
-        Vector2 headImageScale = pos * (headImage.Scale / headImage.Ratio);
-        headImageScale = rotation * headImageScale;
-
-        Vector2 returnVector = headImageScale + headImageCenter-headImageCornerOffset;
-        // returnVector = rotation * returnVector;
-        return returnVector;
+        return headImageCenter - headImageCornerOffset;
     }
 
     //Camera stuff
@@ -532,6 +540,30 @@ public sealed class HeadDetector : MonoBehaviour
         return processPhoto;
     }
 
+    HeadImage ConvertHeadImage(Texture2D newHeadImage)
+    {
+        // headImage.EarL = ConvertPoints(headImage.EarL);
+        // headImage.EarR = ConvertPoints(headImage.EarR);
+        // headImage.EyeL = ConvertPoints(headImage.EyeL);
+        // headImage.EyeR = ConvertPoints(headImage.EyeR);
+        // headImage.Nose = ConvertPoints(headImage.Nose);
+        // headImage.Face = newHeadImage;
+        // headImage.Center = headImage.Nose;
+        // headImage.Rotation = 0;
+        // headImage.Scale = 1;
+        // headImage.Ratio = _headResolution.x/_headResolution.y;
+        MarkFacePoints(newHeadImage);
+        
+        return headImage;
+    }
+
+    Vector2 ConvertPoints(Vector2 point)
+    {
+        Vector2 headResolution = (headImage.Scale*new Vector2(1,1/headImage.Ratio) * new Vector2(_sourceRes.x,_sourceRes.y));
+        Vector2 localPointPosition = (point * _sourceRes - GetOffsetStart());
+        return localPointPosition / headResolution;
+    }
+
     public void CaptureFace_Calibration()
     {
         if (takePictureLock)
@@ -563,7 +595,10 @@ public sealed class HeadDetector : MonoBehaviour
         TakePicture(false, true);
         // StartCoroutine(CaptureFaceCoroutine(processPhoto, false));
         // MarkFacePoints(processPhoto);
-        headImage.Face = processPhoto;
+        // headImage.Face = processPhoto;
+
+        MarkFacePoints(processPhoto);
+
         return headImage;
     }
 
