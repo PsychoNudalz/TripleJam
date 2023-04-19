@@ -407,7 +407,7 @@ public sealed class HeadDetector : MonoBehaviour
             new Vector2(_source.width*headImage.Scale*headImage.Ratio, _source.height*headImage.Scale);
         headImageCornerOffset = rotation * headImageCornerOffset;
         Vector2 headImageCenter =
-            (headImage.Center + new Vector2(0.5f, 0.5f)) *
+            (headImage.Center/new Vector2(headImage.Ratio,1) + new Vector2(0.5f, 0.5f)) *
             new Vector2(_source.width, _source.height);
         // headImageCenter = rotation * headImageCenter;
         Vector2 headImageScale = pos * (headImage.Scale / headImage.Ratio);
