@@ -117,7 +117,7 @@ public struct HeadImage : IComparable<HeadImage>
 
     public Vector2 Ratio2_x
     {
-        get => new Vector2( 1/Ratio, 1f);
+        get => new Vector2(1 / Ratio, 1f);
     }
 
     public Vector2 Ratio2_y
@@ -366,7 +366,7 @@ public sealed class HeadDetector : MonoBehaviour
         }
         else
         {
-             Debug.LogError($"Face missing eye");
+            Debug.LogError($"Face missing eye");
             scale = 1;
             dir = Vector2.right;
         }
@@ -401,7 +401,7 @@ public sealed class HeadDetector : MonoBehaviour
 
         //CENTRE
         Vector2 centre = new Vector2();
-        centre = Nose.Item1;
+        centre = (LeftEye.Item1+RightEye.Item1+Nose.Item1)/3;
         centre -= new Vector2(0.5f, .5f);
         headImage = new HeadImage(_source, LeftEar.Item1, RightEar.Item1, LeftEye.Item1, RightEye.Item1,
             Nose.Item1, centre, rotation, scale, score, ratio);
@@ -440,7 +440,7 @@ public sealed class HeadDetector : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0, 0, -headImage.Rotation);
         // Vector2 ratio = new Vector2( headImage.Ratio);
         Vector2 headImageCornerOffset =
-            _sourceRes * headImage.Scale* headImage.Ratio2_x;
+            _sourceRes * headImage.Scale * headImage.Ratio2_x;
         headImageCornerOffset = rotation * headImageCornerOffset;
         Vector2 headImageCenter =
             (headImage.Center + new Vector2(0.5f, 0.5f)) *
@@ -569,21 +569,24 @@ public sealed class HeadDetector : MonoBehaviour
         // headImage.EyeL = ConvertPoints(headImage.EyeL);
         // headImage.EyeR = ConvertPoints(headImage.EyeR);
         // headImage.Nose = ConvertPoints(headImage.Nose);
-        // headImage.Face = newHeadImage;
-        // headImage.Center = headImage.Nose;
-        // headImage.Rotation = 0;
-        // headImage.Scale = 1;
-        // headImage.Ratio = _headResolution.x/_headResolution.y;
-        MarkFacePoints(newHeadImage);
+        headImage.Face = newHeadImage;
+        headImage.Center = headImage.Nose;
+        headImage.Rotation = 0;
+        headImage.Scale = 1;
+        headImage.Ratio = _headResolution.x/_headResolution.y;
+        // MarkFacePoints(newHeadImage,false);
 
         return headImage;
     }
 
     Vector2 ConvertPoints(Vector2 point)
     {
-        Vector2 headResolution = (headImage.Scale * new Vector2(1, 1 / headImage.Ratio) *
-                                  new Vector2(_sourceRes.x, _sourceRes.y));
-        Vector2 localPointPosition = (point * _sourceRes - GetOffsetStart());
+        Quaternion rotation = Quaternion.Euler(0, 0, headImage.Rotation);
+
+        Vector2 headResolution = (headImage.Scale * headImage.Ratio2_x *
+                                  _sourceRes);
+        Vector2 offsetStart = GetOffsetStart();
+        Vector2 localPointPosition = (rotation*point * _sourceRes) - offsetStart;
         return localPointPosition / headResolution;
     }
 
@@ -620,7 +623,8 @@ public sealed class HeadDetector : MonoBehaviour
         // MarkFacePoints(processPhoto);
         // headImage.Face = processPhoto;
         Debug.Log("Re-analysis photo");
-        MarkFacePoints(processPhoto,false);
+        // MarkFacePoints(processPhoto,false);
+        ConvertHeadImage(processPhoto);
 
         return headImage;
     }
