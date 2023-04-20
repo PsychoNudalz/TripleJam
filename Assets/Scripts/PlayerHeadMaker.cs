@@ -33,7 +33,7 @@ public class PlayerHeadMaker : MonoBehaviour
 
     private void Start()
     {
-        FaceInit();
+        // FaceInit();
     }
 
 

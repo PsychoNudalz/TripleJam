@@ -2532,13 +2532,14 @@ MonoBehaviour:
     score: 0
     ratio: 0
   _resources: {fileID: 11400000, guid: e52c12e9e5e58d14da0ca9006fdba3ca, type: 2}
-  _detectorResolution: {x: 512, y: 384}
-  _headResolution: {x: 960, y: 960}
+  _detectorResolution: {x: 720, y: 720}
+  _headResolution: {x: 640, y: 640}
   inWorldResolution: {x: 1, y: 1}
   _markerPrefab: {fileID: 1341392014938367964, guid: d4fa121fa142f56439e1f6e232dd5302,
     type: 3}
   textureDisplay: {fileID: 1475720186}
   useLive: 1
+  saveOriginalWebCam: 1
 --- !u!4 &526867414
 Transform:
   m_ObjectHideFlags: 0
@@ -4400,6 +4401,7 @@ MonoBehaviour:
     type: 3}
   textureDisplay: {fileID: 1400064267}
   useLive: 1
+  saveOriginalWebCam: 1
 --- !u!4 &1054392045
 Transform:
   m_ObjectHideFlags: 0

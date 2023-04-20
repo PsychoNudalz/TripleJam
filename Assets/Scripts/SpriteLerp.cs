@@ -109,7 +109,7 @@ public class SpriteLerp : MonoBehaviour
         if (textures.Count > 1)
         {
             int MAXLOOP = 50;
-            while (MAXLOOP>0&&!randomTexture||randomTexture.Equals(materialTextureQueue[0]))
+            while (MAXLOOP>0&&(!randomTexture||randomTexture.Equals(materialTextureQueue[0])))
             {
                 randomTexture = textures[Random.Range(0, textures.Count)];
                 MAXLOOP--;

@@ -25,7 +25,10 @@ public class TheVoiceController : MonoBehaviour
     {
         for (int i = 0; i < Mathf.Min(5,faces.Length); i++)
         {
-            vfx_Faces.SetTexture("Face_"+i,faces[i]);
+            if (faces[i])
+            {
+                vfx_Faces.SetTexture("Face_"+i,faces[i]);
+            }
         }
     }
 }

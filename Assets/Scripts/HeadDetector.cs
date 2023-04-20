@@ -117,11 +117,12 @@ public struct HeadImage : IComparable<HeadImage>
 
     public Vector2 Ratio2_x
     {
-        get => new Vector2(Ratio, 1f);
+        get => new Vector2( 1/Ratio, 1f);
     }
+
     public Vector2 Ratio2_y
     {
-        get => new Vector2(1f, 1f/Ratio);
+        get => new Vector2(1f, Ratio);
     }
 
     public HeadImage(Texture2D face, Vector2 earL, Vector2 earR, Vector2 eyeL, Vector2 eyeR, Vector2 nose,
@@ -188,8 +189,8 @@ public sealed class HeadDetector : MonoBehaviour
     [SerializeField]
     Vector2Int _headResolution = new Vector2Int(960, 960);
 
-    private Vector2Int _sourceRes => new Vector2Int(_source.width, _source.height);
-    
+    private Vector2 _sourceRes => new Vector2Int(_source.width, _source.height);
+
     [SerializeField]
     private Vector2 inWorldResolution = new Vector2(1, 1);
 
@@ -226,13 +227,13 @@ public sealed class HeadDetector : MonoBehaviour
     private Vector2Int cameraResolution;
 
     private float EARTOFACE_RATIO = .9f;
-    private float EYETOFACE_RATIO = 1.3f;
+    private float EYETOFACE_RATIO = 1.5f;
     string pictureFilePath => Application.persistentDataPath + "/faces/";
     string pictureFileName = "faceCap.png";
 
     [Header("Debug_Calibration")]
-    // [SerializeField]
-    private bool saveOriginalWebCam = false;
+    [SerializeField]
+    private bool saveOriginalWebCam = true;
 
     void Start()
     {
@@ -309,7 +310,7 @@ public sealed class HeadDetector : MonoBehaviour
     // }
 
 
-    public void MarkFacePoints(Texture2D image = null)
+    public void MarkFacePoints(Texture2D image = null, bool resetScoreIfFail = true)
     {
         if (image)
         {
@@ -354,18 +355,22 @@ public sealed class HeadDetector : MonoBehaviour
         float scale = 1;
         float rotation = 0;
         Vector2 dir;
-        if (LeftEar.Item2 > ScoreThreshold && RightEar.Item2 > ScoreThreshold)
+        bool analysisFailed = false;
+        if (LeftEye.Item2 > ScoreThreshold && RightEye.Item2 > ScoreThreshold)
         {
-            dir = LeftEar.Item1 - RightEar.Item1;
-            scale = dir.magnitude;
-            scale *= EARTOFACE_RATIO;
-        }
-        else
-        {
+            analysisFailed = true;
+
             dir = LeftEye.Item1 - RightEye.Item1;
             scale = dir.magnitude;
             scale *= EYETOFACE_RATIO;
         }
+        else
+        {
+             Debug.LogError($"Face missing eye");
+            scale = 1;
+            dir = Vector2.right;
+        }
+
 
         rotation = Vector2.SignedAngle(dir.normalized, Vector2.right);
 
@@ -374,16 +379,24 @@ public sealed class HeadDetector : MonoBehaviour
         Debug.Log($"number of valid points: {validPoints.Count}. dir: {dir}");
 
         //Ratio
-        float ratio = (float) _source.height / (float) _source.width;
+        //4:3, 16:9
+        float ratio = (float) _source.width / (float) _source.height;
         Debug.Log($"image size: {_source.height} {_source.width}");
 
         //Score
         float score = Nose.Item2 + LeftEar.Item2 + RightEar.Item2 + LeftEye.Item2 + RightEye.Item2;
         if (scale is >= 1f or <= 0f)
         {
-            score = -1;
-            Debug.LogError($"Face {_source} scaling error");
-            scale = Mathf.Clamp(scale, 0, 1);
+            if (resetScoreIfFail)
+            {
+                score = -1;
+                Debug.LogError($"Face {_source} scaling error");
+                scale = Mathf.Clamp(scale, 0, 1);
+            }
+            else
+            {
+                score = headImage.Score;
+            }
         }
 
         //CENTRE
@@ -414,7 +427,7 @@ public sealed class HeadDetector : MonoBehaviour
     {
         Quaternion rotation = Quaternion.Euler(0, 0, -headImage.Rotation);
         // headImageCenter = rotation * headImageCenter;
-        Vector2 headImageScale = pos * (headImage.Scale)*headImage.Ratio2_x;
+        Vector2 headImageScale = pos * (headImage.Scale);
         headImageScale = rotation * headImageScale;
 
         Vector2 returnVector = headImageScale + GetOffsetStart();
@@ -427,11 +440,11 @@ public sealed class HeadDetector : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0, 0, -headImage.Rotation);
         // Vector2 ratio = new Vector2( headImage.Ratio);
         Vector2 headImageCornerOffset =
-            new Vector2(_source.width*headImage.Scale, _source.height*headImage.Scale)*headImage.Ratio2_x;
+            _sourceRes * headImage.Scale* headImage.Ratio2_x;
         headImageCornerOffset = rotation * headImageCornerOffset;
         Vector2 headImageCenter =
-            (headImage.Center*headImage.Ratio2_x + new Vector2(0.5f, 0.5f)) *
-            new Vector2(_source.width, _source.height);
+            (headImage.Center + new Vector2(0.5f, 0.5f)) *
+            _sourceRes;
         return headImageCenter - headImageCornerOffset;
     }
 
@@ -531,8 +544,8 @@ public sealed class HeadDetector : MonoBehaviour
                 // c.y = c.y/_headResolution.y;
                 // c /= 255f;
                 // newPhoto.SetPixel((int) pos.x, (int) pos.y, new Color(c.x,c.y,c.z,0));
-                processPhoto.SetPixel((int)pos.x, (int)pos.y,
-                    headImage.Face.GetPixel((int)newPos.x, (int)newPos.y));
+                processPhoto.SetPixel((int) pos.x, (int) pos.y,
+                    headImage.Face.GetPixel((int) newPos.x, (int) newPos.y));
             }
 
             processPhoto.Apply();
@@ -562,13 +575,14 @@ public sealed class HeadDetector : MonoBehaviour
         // headImage.Scale = 1;
         // headImage.Ratio = _headResolution.x/_headResolution.y;
         MarkFacePoints(newHeadImage);
-        
+
         return headImage;
     }
 
     Vector2 ConvertPoints(Vector2 point)
     {
-        Vector2 headResolution = (headImage.Scale*new Vector2(1,1/headImage.Ratio) * new Vector2(_sourceRes.x,_sourceRes.y));
+        Vector2 headResolution = (headImage.Scale * new Vector2(1, 1 / headImage.Ratio) *
+                                  new Vector2(_sourceRes.x, _sourceRes.y));
         Vector2 localPointPosition = (point * _sourceRes - GetOffsetStart());
         return localPointPosition / headResolution;
     }
@@ -601,12 +615,12 @@ public sealed class HeadDetector : MonoBehaviour
 
     public HeadImage TakePlayerPicture_HeadImage()
     {
-        TakePicture(false, true);
+        TakePicture(false || saveOriginalWebCam, true);
         // StartCoroutine(CaptureFaceCoroutine(processPhoto, false));
         // MarkFacePoints(processPhoto);
         // headImage.Face = processPhoto;
-
-        MarkFacePoints(processPhoto);
+        Debug.Log("Re-analysis photo");
+        MarkFacePoints(processPhoto,false);
 
         return headImage;
     }

@@ -18,6 +18,13 @@ public class HeadDetectorEditor : Editor
             myScript.MarkFacePoints();
             myScript.UpdateRenderer();
         }
+        
+        if (GUILayout.Button("Take Picture"))
+        {
+            HeadDetector myScript = (HeadDetector) target;
+            
+            myScript.TakePlayerPicture_HeadImage();
+        }
 
     }
 }
