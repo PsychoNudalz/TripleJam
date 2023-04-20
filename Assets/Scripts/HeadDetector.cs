@@ -226,8 +226,8 @@ public sealed class HeadDetector : MonoBehaviour
     Texture2D targetTexture = null;
     private Vector2Int cameraResolution;
 
-    private float EARTOFACE_RATIO = .9f;
-    private float EYETOFACE_RATIO = 1.5f;
+    public static  float EARTOFACE_RATIO = .9f;
+    public static float EYETOFACE_RATIO = 1.7f;
     string pictureFilePath => Application.persistentDataPath + "/faces/";
     string pictureFileName = "faceCap.png";
 
