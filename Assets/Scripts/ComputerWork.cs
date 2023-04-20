@@ -36,6 +36,9 @@ public class ComputerWork : MonoBehaviour
     [SerializeField]
     private GameObject spook;
 
+    [SerializeField]
+    private GameObject whiteScreen;
+
     // Start is called before the first frame update
     [Header("Computer")]
     [SerializeField]
@@ -58,7 +61,7 @@ public class ComputerWork : MonoBehaviour
     private int captureMod = 2;
 
     [SerializeField]
-    private int presses_Total = 16;
+    private int presses_Total = 12;
 
     private int presses_Current = 0;
 
@@ -158,10 +161,16 @@ public class ComputerWork : MonoBehaviour
         vCam.Priority = 0;
         playerMovement.SetFreeze(false);
         playerInput.enabled = true;
+        spook.SetActive(true);
     }
 
     public void DisplayRandomButton()
     {
+        if (presses_Current > presses_Total)
+        {
+            On_WorkComputer_Exit();
+            ChangeState(ComputerWorkState.Ready);
+        }
         button.gameObject.SetActive(true);
 
         button.sprite = buttonSprites[Random.Range(0, buttonSprites.Length)];
@@ -187,6 +196,10 @@ public class ComputerWork : MonoBehaviour
 
         ChangeState(ComputerWorkState.Input);
 
+        if (presses_Current > presses_Total)
+        {
+            whiteScreen.SetActive(false);
+        }
     }
 
     IEnumerator DelayCapture(float t)

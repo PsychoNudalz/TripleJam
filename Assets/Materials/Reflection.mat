@@ -47,7 +47,7 @@ Material:
     - _Power: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Step: 0.5
+    - _Step: 0.2
     m_Colors:
     - _Offset: {r: 0.29, g: 0.19, b: 0, a: 0}
     - _Scale: {r: 1, g: 0.5, b: 0, a: 0}
