@@ -8,6 +8,11 @@ public class TheVoiceController : MonoBehaviour
     [Header("Effects")]
     [SerializeField]
     private VisualEffect vfx_Faces;
+
+    [SerializeField]
+    private Renderer mainRenderer;
+
+    private Material faceMaterial;
     
     // Start is called before the first frame update
     void Start()
@@ -21,7 +26,7 @@ public class TheVoiceController : MonoBehaviour
         
     }
 
-    public void SetFaceTexture(Texture[] faces)
+    public void SetFaceTexture(Texture[] faces,Texture bestFace)
     {
         for (int i = 0; i < Mathf.Min(5,faces.Length); i++)
         {
@@ -29,6 +34,11 @@ public class TheVoiceController : MonoBehaviour
             {
                 vfx_Faces.SetTexture("Face_"+i,faces[i]);
             }
+        }
+
+        if (faceMaterial&&bestFace)
+        {
+            faceMaterial.SetTexture("_Face",bestFace);
         }
     }
 }

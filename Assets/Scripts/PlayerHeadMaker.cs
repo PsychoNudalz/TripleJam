@@ -22,6 +22,9 @@ public class PlayerHeadMaker : MonoBehaviour
     private TheVoiceController voice;
 
     private int lowestFaceIndex = 0;
+    private int highestFaceIndex = 0;
+
+    public Texture BestFace => headImages[highestFaceIndex].Face;
 
     private void Awake()
     {
@@ -85,7 +88,7 @@ public class PlayerHeadMaker : MonoBehaviour
         }
         else
         {
-            int highestIndex = 0;
+             highestFaceIndex = 0;
             float highest = 0;
             float lowest = 100;
             headImages[lowestFaceIndex] = newHead;
@@ -96,7 +99,7 @@ public class PlayerHeadMaker : MonoBehaviour
                 var headImage = headImages[i];
                 if (headImage.Score > highest)
                 {
-                    highestIndex = i;
+                    highestFaceIndex = i;
                     highest = headImage.Score;
                 }
 
@@ -121,7 +124,7 @@ public class PlayerHeadMaker : MonoBehaviour
             spriteLerp.SetTextures(GetTextures());
         }
 
-        voice.SetFaceTexture(GetTextures().ToArray());
+        voice.SetFaceTexture(GetTextures().ToArray(),BestFace);
 
         Debug.Log("Sprites updated");
     }

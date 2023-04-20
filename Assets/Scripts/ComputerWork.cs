@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
+using Range = UnityEngine.SocialPlatforms.Range;
 
 public class ComputerWork : MonoBehaviour
 {
@@ -40,10 +42,10 @@ public class ComputerWork : MonoBehaviour
     private Transform centrePoint;
 
     [SerializeField]
-    private GameObject button;
+    private SpriteRenderer button;
 
     [SerializeField]
-    private Texture2D[] buttonSprites;
+    private Sprite[] buttonSprites;
 
     [SerializeField]
     private int captureMod = 2;
@@ -81,7 +83,8 @@ public class ComputerWork : MonoBehaviour
         vCam.Priority = 20;
         playerMovement.SetFreeze(true);
         playerInput.enabled = true;
-        playerHeadMaker.FaceInit();
+        // playerHeadMaker.FaceInit();
+        DisplayRandomButton();
     }
 
     public void On_WorkComputer_Exit()
@@ -93,6 +96,25 @@ public class ComputerWork : MonoBehaviour
 
     public void DisplayRandomButton()
     {
-        
+        button.sprite = buttonSprites[Random.Range(0, buttonSprites.Length)];
+        Vector3 pos =centrePoint.localPosition;
+        float range = normalRange;
+        if (presses_Current % captureMod==0)
+        {
+            range = cameraRange;
+        }
+
+        if (clampY)
+        {
+            pos += new Vector3(Random.Range(-range, range), Random.Range(-range, 0));
+        }
+        else
+        {
+            pos += new Vector3(Random.Range(-range, range), Random.Range(-range, range));
+        }
+
+        button.transform.localPosition = pos;
+        presses_Current++;
+
     }
 }
