@@ -27,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
 
     private float slowDownZone => (current_velocity.magnitude * current_velocity.magnitude) / (2 * acceleration);
 
+    [SerializeField]
+    private float freezeResumeDelayTime = 1f;
+
+    private Coroutine freezeResumeDelayCoroutine;
+    
     [Header("Rotate")]
     [SerializeField]
     private float rotationSpeed = 2f;

@@ -66,7 +66,7 @@ public class WaypointController : MonoBehaviour
         {
             Gizmos.color = new Color((float) (((Gizmos_Counter + 1) * .2) % 1),
                 (float) (((Gizmos_Counter + 3) * .2) % 1), (float) (((Gizmos_Counter + 5) * .2) % 1));
-            Vector3 offset = new Vector3(0, (float) ((Gizmos_Counter * 0.01) % .3), 0);
+            Vector3 offset = new Vector3(0, (float) ((Gizmos_Counter * 0.01) % .3)+1f, 0);
             
             foreach (WaypointController waypointController in connected)
             {
