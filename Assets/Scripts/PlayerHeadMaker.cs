@@ -18,6 +18,9 @@ public class PlayerHeadMaker : MonoBehaviour
     [SerializeField]
     private SpriteLerp[] spriteLerps;
 
+    [SerializeField]
+    private TheVoiceController voice;
+
     private int lowestFaceIndex = 0;
 
     private void Awake()
@@ -27,7 +30,12 @@ public class PlayerHeadMaker : MonoBehaviour
             headDetector = GetComponent<HeadDetector>();
         }
     }
-    
+
+    private void Start()
+    {
+        FaceInit();
+    }
+
 
     private IEnumerator DelayFaceInitialise()
     {
@@ -66,39 +74,44 @@ public class PlayerHeadMaker : MonoBehaviour
         if (newHead.Score < 0)
         {
             Debug.LogWarning("Head generate score < 0");
-
+            return;
         }
         // StartCoroutine(DelayUpdateTexture(index));
         Debug.Log("Head generated");
-
-        int highestIndex = 0;
-        float highest = 0;
-        float lowest = 100;
-
-        headImages[lowestFaceIndex] = newHead;
-
-
-        //locate the smallest and biggest
-        for (var i = 0; i < headImages.Count; i++)
+        if (index < headImages.Capacity)
         {
-            var headImage = headImages[i];
-            if (headImage.Score > highest)
-            {
-                highestIndex = i;
-                highest = headImage.Score;
-            }
+            headImages[index] = newHead;
+            index++;
+        }
+        else
+        {
+            int highestIndex = 0;
+            float highest = 0;
+            float lowest = 100;
+            headImages[lowestFaceIndex] = newHead;
 
-            if (headImage.Score < lowest)
+            //locate the smallest and biggest
+            for (var i = 0; i < headImages.Count; i++)
             {
-                lowestFaceIndex = i;
-                lowest = headImage.Score;
+                var headImage = headImages[i];
+                if (headImage.Score > highest)
+                {
+                    highestIndex = i;
+                    highest = headImage.Score;
+                }
+
+                if (headImage.Score < lowest)
+                {
+                    lowestFaceIndex = i;
+                    lowest = headImage.Score;
+                }
             }
         }
 
-        if (index > 0)
-        {
-            Debug.Log($"New image better: {headImages[index].Score > headImages[index - 1].Score}");
-        }
+        // if (index > 0)
+        // {
+        //     Debug.Log($"New image better: {headImages[index].Score > headImages[index - 1].Score}");
+        // }
     }
 
     private void UpdateSprites()
@@ -107,6 +120,8 @@ public class PlayerHeadMaker : MonoBehaviour
         {
             spriteLerp.SetTextures(GetTextures());
         }
+
+        voice.SetFaceTexture(GetTextures().ToArray());
 
         Debug.Log("Sprites updated");
     }
