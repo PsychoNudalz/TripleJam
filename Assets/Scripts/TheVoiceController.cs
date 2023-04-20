@@ -17,7 +17,7 @@ public class TheVoiceController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        faceMaterial = mainRenderer.material;
     }
 
     // Update is called once per frame

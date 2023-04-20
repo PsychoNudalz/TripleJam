@@ -39,6 +39,13 @@ public class ComputerWork : MonoBehaviour
     // Start is called before the first frame update
     [Header("Computer")]
     [SerializeField]
+    private float buttonSpawnTime = 1;
+    private float buttonSpawnTime_now = 0;
+
+    [SerializeField]
+    private float captureDelay = 0.5f;
+    [Header("Button Settings")]
+    [SerializeField]
     private Transform centrePoint;
 
     [SerializeField]
@@ -63,19 +70,78 @@ public class ComputerWork : MonoBehaviour
 
     [SerializeField]
     private bool clampY = true;
+    
 
     [SerializeField]
     void Start()
     {
         playerInput.enabled = false;
+        button.gameObject.SetActive(false);
     }
 
     private void Update()
     {
+        switch (workState)
+        {
+            case ComputerWorkState.Input:
+                break;
+            case ComputerWorkState.Wait:
+                if (buttonSpawnTime_now < 0)
+                {
+                    ChangeState(ComputerWorkState.Ready);
+                }
+                else
+                {
+                    buttonSpawnTime_now -= Time.deltaTime;
+                }
+                break;
+            case ComputerWorkState.Ready:
+                DisplayRandomButton();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    void ChangeState(ComputerWorkState state)
+    {
+        switch (workState)
+        {
+            case ComputerWorkState.Input:
+                button.gameObject.SetActive(false);
+                break;
+            case ComputerWorkState.Wait:
+                break;
+            case ComputerWorkState.Ready:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        workState = state;
+        switch (state)
+        {
+            case ComputerWorkState.Input:
+                break;
+            case ComputerWorkState.Wait:
+                buttonSpawnTime_now = buttonSpawnTime;
+                break;
+            case ComputerWorkState.Ready:
+                
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(state), state, null);
+        }
     }
 
     public void OnMove(InputValue inputValue)
     {
+        if (workState == ComputerWorkState.Input)
+        {
+            if (inputValue.Get<Vector2>().magnitude > .1f)
+            {
+                ChangeState(ComputerWorkState.Wait);
+            }
+        }
     }
 
     public void On_WorkComputer_Enter()
@@ -84,7 +150,7 @@ public class ComputerWork : MonoBehaviour
         playerMovement.SetFreeze(true);
         playerInput.enabled = true;
         // playerHeadMaker.FaceInit();
-        DisplayRandomButton();
+        ChangeState(ComputerWorkState.Ready);
     }
 
     public void On_WorkComputer_Exit()
@@ -96,12 +162,15 @@ public class ComputerWork : MonoBehaviour
 
     public void DisplayRandomButton()
     {
+        button.gameObject.SetActive(true);
+
         button.sprite = buttonSprites[Random.Range(0, buttonSprites.Length)];
         Vector3 pos =centrePoint.localPosition;
         float range = normalRange;
         if (presses_Current % captureMod==0)
         {
             range = cameraRange;
+            StartCoroutine(DelayCapture(captureDelay));
         }
 
         if (clampY)
@@ -116,5 +185,13 @@ public class ComputerWork : MonoBehaviour
         button.transform.localPosition = pos;
         presses_Current++;
 
+        ChangeState(ComputerWorkState.Input);
+
+    }
+
+    IEnumerator DelayCapture(float t)
+    {
+        yield return new WaitForSeconds(t);
+        playerHeadMaker.OnCapturePlayerHead();
     }
 }

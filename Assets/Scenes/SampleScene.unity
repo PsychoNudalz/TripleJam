@@ -6093,6 +6093,8 @@ MonoBehaviour:
   playerHeadMaker: {fileID: 1054392047}
   playerInput: {fileID: 1526647448}
   spook: {fileID: 0}
+  buttonSpawnTime: 1
+  captureDelay: 0.5
   centrePoint: {fileID: 1917543944}
   button: {fileID: 724271846}
   buttonSprites:
@@ -6102,8 +6104,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b4f428aa933152e419e5c9923c8e5b9c, type: 3}
   captureMod: 2
   presses_Total: 16
-  normalRange: 0.2
-  cameraRange: 0.02
+  normalRange: 0.25
+  cameraRange: 0.05
   clampY: 1
 --- !u!1001 &1553157875
 PrefabInstance:

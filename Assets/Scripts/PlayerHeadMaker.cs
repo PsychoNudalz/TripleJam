@@ -71,7 +71,7 @@ public class PlayerHeadMaker : MonoBehaviour
         // index %= headImages.Capacity;
     }
 
-    private void OnCapturePlayerHead()
+    public void OnCapturePlayerHead()
     {
         HeadImage newHead = headDetector.TakePlayerPicture_HeadImage();
         if (newHead.Score < 0)
