@@ -13,12 +13,13 @@ public class ComputerWork : MonoBehaviour
     {
         Input,
         Wait,
-        Ready
+        Ready,
+        Off
     }
 
     [Header("State")]
     [SerializeField]
-    private ComputerWorkState workState = ComputerWorkState.Wait;
+    private ComputerWorkState workState = ComputerWorkState.Off;
 
     [Header("Components")]
     [SerializeField]
@@ -101,6 +102,8 @@ public class ComputerWork : MonoBehaviour
             case ComputerWorkState.Ready:
                 DisplayRandomButton();
                 break;
+            case ComputerWorkState.Off:
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -117,6 +120,8 @@ public class ComputerWork : MonoBehaviour
                 break;
             case ComputerWorkState.Ready:
                 break;
+            case ComputerWorkState.Off:
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -130,6 +135,8 @@ public class ComputerWork : MonoBehaviour
                 break;
             case ComputerWorkState.Ready:
                 
+                break;
+            case ComputerWorkState.Off:
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
@@ -162,6 +169,9 @@ public class ComputerWork : MonoBehaviour
         playerMovement.SetFreeze(false);
         playerInput.enabled = true;
         spook.SetActive(true);
+        playerHeadMaker.UpdateSprites();
+        ChangeState(ComputerWorkState.Off);
+
     }
 
     public void DisplayRandomButton()
@@ -169,7 +179,6 @@ public class ComputerWork : MonoBehaviour
         if (presses_Current > presses_Total)
         {
             On_WorkComputer_Exit();
-            ChangeState(ComputerWorkState.Ready);
         }
         button.gameObject.SetActive(true);
 
@@ -179,7 +188,10 @@ public class ComputerWork : MonoBehaviour
         if (presses_Current % captureMod==0)
         {
             range = cameraRange;
-            StartCoroutine(DelayCapture(captureDelay));
+            if (workState != ComputerWorkState.Off)
+            {
+                StartCoroutine(DelayCapture(captureDelay));
+            }
         }
 
         if (clampY)

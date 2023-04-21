@@ -117,7 +117,7 @@ public class PlayerHeadMaker : MonoBehaviour
         // }
     }
 
-    private void UpdateSprites()
+    public void UpdateSprites()
     {
         foreach (SpriteLerp spriteLerp in spriteLerps)
         {

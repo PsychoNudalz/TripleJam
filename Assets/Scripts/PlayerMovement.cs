@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
         Still,
         Move,
         Freeze,
-        Rotate
+        Rotate,
+        Unfreeze
     }
 
     [Header("Stats")]
@@ -113,6 +114,9 @@ public class PlayerMovement : MonoBehaviour
                 Move_Rotate(target_rot);
 
                 break;
+            case MoveStat.Unfreeze:
+                
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -122,8 +126,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (distance < deadZone)
         {
-            current_velocity = Vector3.zero;
-            position = target_pos;
+            SetPositionToWayPoint();
             ChangeState(MoveStat.Still);
         }
         else
@@ -146,6 +149,12 @@ public class PlayerMovement : MonoBehaviour
 
             transform.Translate(current_velocity * Time.deltaTime, Space.World);
         }
+    }
+
+    private void SetPositionToWayPoint()
+    {
+        current_velocity = Vector3.zero;
+        position = target_pos;
     }
 
     void Move_Rotate(Vector3 target)
@@ -182,13 +191,30 @@ public class PlayerMovement : MonoBehaviour
             case MoveStat.Move:
                 rotateLerp = 0;
                 original_rot = transform.eulerAngles;
+                if (s is MoveStat.Still or MoveStat.Rotate)
+                {
+                    waypoint.OnMove();
+                    if (moveState == MoveStat.Freeze)
+                    {
+                        return;
+                    }
+                }
                 break;
             case MoveStat.Freeze:
+                if (s != MoveStat.Unfreeze)
+                {
+                    return;
+                }
+                SetPositionToWayPoint();
+
                 break;
             case MoveStat.Rotate:
                 original_rot = transform.eulerAngles;
 
                 rotateLerp = 0;
+                break;
+            case MoveStat.Unfreeze:
+                
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -211,6 +237,10 @@ public class PlayerMovement : MonoBehaviour
                 original_rot = transform.eulerAngles;
 
                 rotateLerp = 0;
+                break;
+            case MoveStat.Unfreeze:
+                StartCoroutine(DelayFreeze());
+
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -237,7 +267,6 @@ public class PlayerMovement : MonoBehaviour
         target_forward = Quaternion.LookRotation(target_forward).eulerAngles;
 
         waypoint = newPoint;
-        newPoint.OnMove();
         
 
         target_pos = waypoint.position;
@@ -266,7 +295,14 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            ChangeState(MoveStat.Still);
+            ChangeState(MoveStat.Unfreeze);
         }
+    }
+
+
+    IEnumerator DelayFreeze()
+    {
+        yield return new WaitForSeconds(freezeResumeDelayTime);
+        ChangeState(MoveStat.Still);
     }
 }
