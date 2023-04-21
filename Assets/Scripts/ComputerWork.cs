@@ -168,6 +168,7 @@ public class ComputerWork : MonoBehaviour
         vCam.Priority = 0;
         playerMovement.SetFreeze(false);
         playerInput.enabled = true;
+        whiteScreen.SetActive(false);
         spook.SetActive(true);
         playerHeadMaker.UpdateSprites();
         ChangeState(ComputerWorkState.Off);
@@ -180,6 +181,8 @@ public class ComputerWork : MonoBehaviour
         {
             On_WorkComputer_Exit();
         }
+        
+        
         button.gameObject.SetActive(true);
 
         button.sprite = buttonSprites[Random.Range(0, buttonSprites.Length)];
@@ -208,10 +211,7 @@ public class ComputerWork : MonoBehaviour
 
         ChangeState(ComputerWorkState.Input);
 
-        if (presses_Current > presses_Total)
-        {
-            whiteScreen.SetActive(false);
-        }
+
     }
 
     IEnumerator DelayCapture(float t)

@@ -21,6 +21,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Eyes:
+        m_Texture: {fileID: 2800000, guid: 3448d1020f79e6c4eb9d369579dd8b2d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Face:
         m_Texture: {fileID: 2800000, guid: 95022835de63ade48b2602e0d2afaed4, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -48,6 +52,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Dot_Power: 1
+    - _Eye_Step: 0
     - _Mask_Power: 0.3
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -55,6 +60,9 @@ Material:
     - _Step: 0.5
     m_Colors:
     - _Dot_Size: {r: 2, g: 2, b: 0, a: 0}
+    - _EyeColour: {r: 2, g: 0, b: 0, a: 1}
+    - _EyeScale: {r: 0.5, g: 1, b: 0, a: 0}
+    - _Eye_Position: {r: 0.35, g: 0.25, b: 0, a: 0}
     - _FaceScale: {r: 0.9, g: 0.9, b: 0, a: 0}
     - _Velocity: {r: 100, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -228,8 +228,12 @@ public sealed class HeadDetector : MonoBehaviour
 
     public static  float EARTOFACE_RATIO = .9f;
     public static float EYETOFACE_RATIO = 1.7f;
+    public static float OVERRIDE_SCALE_POS = 2f;
+    public static float OVERRIDE_SCALE_OFFSET = 1.5f;
+
     string pictureFilePath => Application.persistentDataPath + "/faces/";
     string pictureFileName = "faceCap.png";
+    
 
     [Header("Debug_Calibration")]
     [SerializeField]
@@ -427,7 +431,7 @@ public sealed class HeadDetector : MonoBehaviour
     {
         Quaternion rotation = Quaternion.Euler(0, 0, -headImage.Rotation);
         // headImageCenter = rotation * headImageCenter;
-        Vector2 headImageScale = pos * (headImage.Scale);
+        Vector2 headImageScale = pos * (headImage.Scale*OVERRIDE_SCALE_POS);
         headImageScale = rotation * headImageScale;
 
         Vector2 returnVector = headImageScale + GetOffsetStart();
@@ -440,7 +444,7 @@ public sealed class HeadDetector : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0, 0, -headImage.Rotation);
         // Vector2 ratio = new Vector2( headImage.Ratio);
         Vector2 headImageCornerOffset =
-            _sourceRes * headImage.Scale * headImage.Ratio2_x;
+            _sourceRes * headImage.Ratio2_x * (headImage.Scale *OVERRIDE_SCALE_OFFSET);
         headImageCornerOffset = rotation * headImageCornerOffset;
         Vector2 headImageCenter =
             (headImage.Center + new Vector2(0.5f, 0.5f)) *

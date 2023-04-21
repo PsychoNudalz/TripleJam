@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,9 @@ public class TheVoiceController : MonoBehaviour
     [SerializeField]
     private Renderer mainRenderer;
 
+    [SerializeField]
+    private float eyeBleedSpeed = .5f;
+    float eyeBleedValue = 0;
     private Material faceMaterial;
     
     // Start is called before the first frame update
@@ -23,7 +27,16 @@ public class TheVoiceController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (eyeBleedValue < 3)
+        {
+            eyeBleedValue += Time.deltaTime * eyeBleedSpeed;
+            faceMaterial.SetFloat("_Eye_Step",eyeBleedValue);
+        }
+    }
+
+    private void OnEnable()
+    {
+        eyeBleedValue = -.5f;
     }
 
     public void SetFaceTexture(Texture[] faces,Texture bestFace)

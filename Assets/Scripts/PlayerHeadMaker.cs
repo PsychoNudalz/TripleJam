@@ -119,10 +119,10 @@ public class PlayerHeadMaker : MonoBehaviour
 
     public void UpdateSprites()
     {
-        foreach (SpriteLerp spriteLerp in spriteLerps)
-        {
-            spriteLerp.SetTextures(GetTextures());
-        }
+        // foreach (SpriteLerp spriteLerp in spriteLerps)
+        // {
+        //     spriteLerp.SetTextures(GetTextures());
+        // }
 
         voice.SetFaceTexture(GetTextures().ToArray(),BestFace);
 

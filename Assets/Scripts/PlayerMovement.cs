@@ -157,10 +157,13 @@ public class PlayerMovement : MonoBehaviour
         position = target_pos;
     }
 
-    void Move_Rotate(Vector3 target)
+    void Move_Rotate(Vector3 target, bool forceLerp = false)
     {
         Vector3 transformEulerAngles = transform.eulerAngles;
-
+        if (forceLerp)
+        {
+            rotateLerp = 2;
+        }
         if (rotateLerp > 1)
         {
             rotateLerp = 1;
@@ -232,6 +235,7 @@ public class PlayerMovement : MonoBehaviour
                 rotateLerp = 0;
                 break;
             case MoveStat.Freeze:
+                Move_Rotate(target_rot,true);
                 break;
             case MoveStat.Rotate:
                 original_rot = transform.eulerAngles;
