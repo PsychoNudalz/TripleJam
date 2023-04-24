@@ -21,7 +21,7 @@ public class WaypointMovement : MonoBehaviour
 
 
     [SerializeField]
-    private float deadZone = .02f;
+    private float deadZone = .1f;
 
     [SerializeField]
     private float acceleration = .1f;
@@ -62,6 +62,7 @@ public class WaypointMovement : MonoBehaviour
     [SerializeField]
     private WaypointManager waypointManager;
 
+    public bool IsMoving => moveState is MoveStat.Move or MoveStat.Rotate;
     private Vector3 position
     {
         get => transform.position;
