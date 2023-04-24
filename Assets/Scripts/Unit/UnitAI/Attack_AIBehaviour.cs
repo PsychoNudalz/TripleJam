@@ -23,6 +23,10 @@ public class Attack_AIBehaviour : AIBehaviour
 
     public override int FixedUpdateBehaviour(UnitAIController controller)
     {
+        if (!controller.Attack.IsAttacking)
+        {
+            controller.ChangeState(AIState.Reload);
+        }
         return 0;
     }
 }

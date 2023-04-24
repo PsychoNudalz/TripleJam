@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 185653562613628953}
   - component: {fileID: 185653562613628954}
   - component: {fileID: 185653562613628955}
+  - component: {fileID: 6240731943609582361}
   - component: {fileID: 185653562613628952}
   - component: {fileID: 108111832121728554}
   - component: {fileID: 232672403605783391}
@@ -107,6 +108,61 @@ MonoBehaviour:
   attackRange: 10
   attack: {fileID: 232672403605783391}
   targetUnit: {fileID: 0}
+--- !u!114 &6240731943609582361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185653562613628966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bed41e2d6f2219f168cf8167c091396e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeState: 0
+  health_max: 100
+  health: 0
+  healthToDisplay:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  onDeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 185653562613628966}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  healthSpriteRenderer: {fileID: 0}
 --- !u!114 &185653562613628952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,10 +213,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   damage: 10
+  cooldown: 5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
   separateAction: 0
   projectile: {fileID: 1599073898647236912, guid: 572e9f59267c463429b7e1841de6b612,
     type: 3}
-  projectileTime: 5
+  projectileTime: 1
 --- !u!1001 &185653561151186895
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class Attack_Projectile : UnitAttack
     [SerializeField]
     private Projectile projectile;
 
+
     [SerializeField]
     private float projectileTime = 1;
 
@@ -20,8 +21,10 @@ public class Attack_Projectile : UnitAttack
     public override void OnAttack_Action(UnitController target)
     {
         base.OnAttack_Action(target);
-        Projectile newProjectile = Instantiate(projectile, transform.position, Quaternion.identity, transform)
+        Projectile newProjectile = Instantiate(projectile, transform.position, Quaternion.identity)
             .GetComponent<Projectile>();
+        
+        newProjectile.Init(damage,layerMask);
         Vector3 trajectory = FindTrajectoryToTarget(target.Position, transform.position);
         newProjectile.LaunchVelocity(trajectory);
     }
@@ -31,11 +34,11 @@ public class Attack_Projectile : UnitAttack
         Vector3 distance = targetPos - launchPos;
         float t = projectileTime;
         float horizontal = (distance.magnitude / t);
-        float gravityMagnitude = Physics.gravity.y;
+        float gravityMagnitude = -(Physics.gravity.y);
         float y = gravityMagnitude * t / 2f + distance.y;
         Vector3 velocity = new Vector3(horizontal * distance.normalized.x, y, horizontal * distance.normalized.z);
 
-        // Debug.Log($"Calculated Velocity: {velocity}, {velocity.magnitude}");
+        Debug.Log($"Calculated Velocity: {velocity}, {velocity.magnitude}");
 
 
         return velocity;

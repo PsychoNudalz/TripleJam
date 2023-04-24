@@ -71,4 +71,16 @@ public class DamageSystem : MonoBehaviour
     {
         ls.TakeDamage(damage);
     }
+
+    public static void SphereCastDamage(Vector3 position, float damage, float range, LayerMask layerMask, LifeSystem self = null)
+    {
+        Collider[] colliders = Physics.OverlapSphere(position, range, layerMask);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.TryGetComponent(out LifeSystem lifeSystem))
+            {
+                DealDamage(lifeSystem,damage,self);
+            }
+        }
+    }
 }

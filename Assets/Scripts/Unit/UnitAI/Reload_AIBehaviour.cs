@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class Reload_AIBehaviour : AIBehaviour
 {
+    [SerializeField]
+    private float reloadTime = 0;
     public override int ChangeState_Enter(UnitAIController controller)
     {
+        reloadTime = controller.AttackCooldown;
         return 0;
     }
 
@@ -22,6 +25,12 @@ public class Reload_AIBehaviour : AIBehaviour
 
     public override int FixedUpdateBehaviour(UnitAIController controller)
     {
+        reloadTime -= Time.deltaTime;
+        if (reloadTime < 0)
+        {
+            controller.ChangeState(AIState.Overwatch);
+            return 1;
+        }
         return 0;
     }
 }

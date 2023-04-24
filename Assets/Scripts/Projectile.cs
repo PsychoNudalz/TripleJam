@@ -15,6 +15,8 @@ public class Projectile : MonoBehaviour
 
     private float damage;
 
+    private LayerMask layerMask;
+
     [SerializeField]
     private float damageRange = 5f;
 
@@ -30,6 +32,8 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private Collider mainCollider;
 
+    public float Mass => rb.mass;
+
     private void Awake()
     {
         if (!rb)
@@ -41,6 +45,12 @@ public class Projectile : MonoBehaviour
         {
             mainCollider = GetComponent<Collider>();
         }
+    }
+
+    public virtual void Init(float baseDamage, LayerMask layerMask)
+    {
+        damage = baseDamage;
+        this.layerMask = layerMask;
     }
 
     public virtual void LaunchVelocity(Vector3 velocity)
@@ -65,6 +75,7 @@ public class Projectile : MonoBehaviour
     public virtual void OnCollisionBehaviour()
     {
         collisionEvent.Invoke();
+        DamageSystem.SphereCastDamage(transform.position,damage*damageMultiplier,damageRange,layerMask);
         Destroy(gameObject,delayDestroy);
     }
 

@@ -32,6 +32,15 @@ public class UnitAIBehaviour_Set : ScriptableObject
 
     public Reload_AIBehaviour ReloadAIBehaviour => reloadAIBehaviour;
 
+    private void Awake()
+    {
+        idleAIBehaviour = Instantiate(idleAIBehaviour);
+        moveAIBehaviour = Instantiate(moveAIBehaviour);
+        overwatchAIBehaviour = Instantiate(overwatchAIBehaviour);
+        attackAIBehaviour = Instantiate(attackAIBehaviour);
+        reloadAIBehaviour = Instantiate(reloadAIBehaviour);
+    }
+
     public AIBehaviour GetBehaviour(AIState aiState)
     {
         switch (aiState)

@@ -6,15 +6,33 @@ using UnityEngine.Serialization;
 
 public class UnitAttack : MonoBehaviour
 {
+    enum AttackState
+    {
+        Start,
+        Action,
+        End
+    }
+
+    private AttackState attackState = AttackState.Start;
     [SerializeField]
     protected UnityEvent onAttackEvent;
 
     [SerializeField]
-    private float damage = 10f;
+    protected float damage = 10f;
+
+    [SerializeField]
+    protected float cooldown = 5f;
+    
+    [SerializeField]
+    protected LayerMask layerMask;
 
     [FormerlySerializedAs("seperateAction")]
     [SerializeField]
-    private bool separateAction = false;
+    protected bool separateAction = false;
+
+    public bool IsAttacking => !(attackState is AttackState.End);
+
+    public float Cooldown => cooldown;
 
     public virtual void OnAttack_Enter(UnitController target)
     {
@@ -22,11 +40,19 @@ public class UnitAttack : MonoBehaviour
         if (!separateAction)
         {
             OnAttack_Action(target);
+            OnAttack_Exit(target);
         }
     }
 
     public virtual void OnAttack_Action(UnitController target)
     {
-        
+        attackState = AttackState.Action;
+        Debug.Log($"{this} attack => {target}");
+    }
+
+    public virtual void OnAttack_Exit(UnitController target)
+    {
+        attackState = AttackState.End;
+
     }
 }

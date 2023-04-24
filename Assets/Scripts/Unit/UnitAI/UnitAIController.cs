@@ -53,6 +53,10 @@ public class UnitAIController : MonoBehaviour
 
     public UnitController UnitController => unitController;
 
+    public UnitAttack Attack => attack;
+
+    public float AttackCooldown => attack.Cooldown;
+
     private void Awake()
     {
         if (!unitController)
@@ -64,6 +68,8 @@ public class UnitAIController : MonoBehaviour
         {
             currentBehaviour = unitAIBehaviourSet.IdleAIBehaviour;
         }
+
+        unitAIBehaviourSet = Instantiate(unitAIBehaviourSet,transform);
     }
 
     // Start is called before the first frame update
