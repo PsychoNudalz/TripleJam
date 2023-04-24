@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[CreateAssetMenu(menuName = "Unit_AI/Behavior/Overwatch")]
 
 public class Overwatch_AIBehaviour : AIBehaviour
 {
@@ -14,13 +15,13 @@ public class Overwatch_AIBehaviour : AIBehaviour
         return 0;
     }
 
-    public override int Update(UnitAIController controller)
+    public override int UpdateBehaviour(UnitAIController controller)
     {
         return CheckForUnit(controller);
 
     }
 
-    public override int FixedUpdate(UnitAIController controller)
+    public override int FixedUpdateBehaviour(UnitAIController controller)
     {
         return CheckForUnit(controller);
     }
@@ -30,6 +31,7 @@ public class Overwatch_AIBehaviour : AIBehaviour
         UnitController foundUnit = DetectUnit(controller);
         if (foundUnit)
         {
+            controller.SetTarget(foundUnit);
             controller.ChangeState(AIState.Attack);
             return 1;
         }

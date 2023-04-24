@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 185653562613628955}
   - component: {fileID: 185653562613628952}
   - component: {fileID: 108111832121728554}
+  - component: {fileID: 232672403605783391}
   m_Layer: 8
   m_Name: BaseUnit
   m_TagString: Untagged
@@ -97,11 +98,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitController: {fileID: 185653562613628954}
   aiState: 0
+  currentBehaviour: {fileID: 0}
+  unitAIBehaviourSet: {fileID: 11400000, guid: 5bca56e8085435d47a740621dd2f21a9, type: 2}
   isStationary: 1
   layerMask:
     serializedVersion: 2
     m_Bits: 256
   attackRange: 10
+  attack: {fileID: 232672403605783391}
+  targetUnit: {fileID: 0}
 --- !u!114 &185653562613628952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +141,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &232672403605783391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185653562613628966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2521ee892e685de499270739474b7cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onAttackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  damage: 10
+  separateAction: 0
+  projectile: {fileID: 1599073898647236912, guid: 572e9f59267c463429b7e1841de6b612,
+    type: 3}
+  projectileTime: 5
 --- !u!1001 &185653561151186895
 PrefabInstance:
   m_ObjectHideFlags: 0

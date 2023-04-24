@@ -21,8 +21,11 @@ public class UnitAIController : MonoBehaviour
     [SerializeField]
     private AIState aiState = AIState.Idle;
     [SerializeField]
-    private AIBehaviour currentBehaviour = new Idle_AIBehaviour();
+    private AIBehaviour currentBehaviour ;
 
+    [SerializeField]
+    private UnitAIBehaviour_Set unitAIBehaviourSet;
+    
     [Header("States")]
     [SerializeField]
     private bool isStationary = true;
@@ -33,6 +36,13 @@ public class UnitAIController : MonoBehaviour
 
     [SerializeField]
     private float attackRange;
+
+    [Header("Attack")]
+    [SerializeField]
+    private UnitAttack attack;
+
+    [SerializeField]
+    private UnitController targetUnit;
 
     public LayerMask LayerMask => layerMask;
 
@@ -49,6 +59,11 @@ public class UnitAIController : MonoBehaviour
         {
             unitController = GetComponent<UnitController>();
         }
+
+        if (!currentBehaviour)
+        {
+            currentBehaviour = unitAIBehaviourSet.IdleAIBehaviour;
+        }
     }
 
     // Start is called before the first frame update
@@ -60,41 +75,19 @@ public class UnitAIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentBehaviour.Update(this);
+        currentBehaviour.UpdateBehaviour(this);
     }
 
     private void FixedUpdate()
     {
-        currentBehaviour.FixedUpdate(this);
+        currentBehaviour.FixedUpdateBehaviour(this);
     }
 
     public void ChangeState(AIState aiState)
     {
         currentBehaviour.ChangeState_Exit(this);
         Debug.Log($"{this} change state: {this.aiState} => {aiState}");
-        
-        switch (aiState)
-        {
-            case AIState.Idle:
-                currentBehaviour = new Idle_AIBehaviour();
-                break;
-            case AIState.Move:
-                currentBehaviour = new Move_AIBehaviour();
-
-                break;
-            case AIState.Overwatch:
-                currentBehaviour = new Overwatch_AIBehaviour();
-                break;
-            case AIState.Attack:
-                
-                break;
-            case AIState.Reload:
-                
-                break;
-            case AIState.Dead:
-                break;
-        }
-
+        currentBehaviour = unitAIBehaviourSet.GetBehaviour(aiState);
         this.aiState = aiState;
         currentBehaviour.ChangeState_Enter(this);
     }
@@ -105,4 +98,17 @@ public class UnitAIController : MonoBehaviour
     }
 
     public bool IsMoving => unitController.IsMoving;
+
+    public void OnAttack()
+    {
+        if (attack)
+        {
+            attack.OnAttack_Enter(targetUnit);
+        }
+    }
+
+    public void SetTarget(UnitController target)
+    {
+        targetUnit = target;
+    }
 }

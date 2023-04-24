@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Unit_AI/Behavior/Idle")]
+
 public class Idle_AIBehaviour : AIBehaviour
 {
     public override int ChangeState_Enter(UnitAIController controller)
@@ -15,13 +17,13 @@ public class Idle_AIBehaviour : AIBehaviour
         return 0;
     }
 
-    public override int Update(UnitAIController controller)
+    public override int UpdateBehaviour(UnitAIController controller)
     {
         return 0;
 
     }
 
-    public override int FixedUpdate(UnitAIController controller)
+    public override int FixedUpdateBehaviour(UnitAIController controller)
     {
         return 0;
 

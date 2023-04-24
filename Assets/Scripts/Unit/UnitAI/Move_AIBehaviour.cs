@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[CreateAssetMenu(menuName = "Unit_AI/Behavior/Move")]
 
 public class Move_AIBehaviour : AIBehaviour
 {
@@ -16,12 +17,12 @@ public class Move_AIBehaviour : AIBehaviour
 
     }
 
-    public override int Update(UnitAIController controller)
+    public override int UpdateBehaviour(UnitAIController controller)
     {
         return 0;
     }
 
-    public override int FixedUpdate(UnitAIController controller)
+    public override int FixedUpdateBehaviour(UnitAIController controller)
     {
         if (!controller.IsMoving)
         {
