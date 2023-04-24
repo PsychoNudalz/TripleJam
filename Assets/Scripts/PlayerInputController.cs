@@ -54,6 +54,7 @@ public class PlayerInputController : MonoBehaviour
 
     public void OnMoveCamera(InputValue inputValue)
     {
+        print("MoveCam");
         float dir = inputValue.Get<float>();
             overviewCameraMovement.OnMove_Local((new Vector2(dir,0 )).normalized);
     }
