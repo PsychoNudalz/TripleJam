@@ -3,19 +3,30 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerInputController : MonoBehaviour
 {
+    [FormerlySerializedAs("playerMovement")]
     [Header("Components")]
     [SerializeField]
-    PlayerMovement playerMovement;
+    WaypointMovement waypointMovement;
+
+    [SerializeField]
+    private OverviewCameraMovement overviewCameraMovement;
+    
 
     // Start is called before the first frame update
     void Awake()
     {
-        if (!playerMovement)
+        if (!waypointMovement)
         {
-            playerMovement = GetComponent<PlayerMovement>();
+            waypointMovement = GetComponent<WaypointMovement>();
+        }
+
+        if (!overviewCameraMovement)
+        {
+            overviewCameraMovement = GetComponent<OverviewCameraMovement>();
         }
     }
 
@@ -27,14 +38,25 @@ public class PlayerInputController : MonoBehaviour
     public void OnMove(InputValue inputValue)
     {
         Vector2 dir = inputValue.Get<Vector2>();
-        if (dir.y > 0.5)
+        if (waypointMovement)
         {
-            playerMovement.Move_Forward();
-        }
+            if (dir.y > 0.5)
+            {
+                waypointMovement.Move_Forward();
+            }
 
-        if (Mathf.Abs(dir.x) > .1f)
-        {
-            playerMovement.Move_Rotate(dir.x > 0);
+            if (Mathf.Abs(dir.x) > .1f)
+            {
+                waypointMovement.Move_Rotate(dir.x > 0);
+            }
         }
     }
+
+    public void OnMoveCamera(InputValue inputValue)
+    {
+        float dir = inputValue.Get<float>();
+            overviewCameraMovement.OnMove_Local((new Vector2(dir,0 )).normalized);
+    }
+    
+    
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 using Range = UnityEngine.SocialPlatforms.Range;
 
@@ -21,9 +22,10 @@ public class ComputerWork : MonoBehaviour
     [SerializeField]
     private ComputerWorkState workState = ComputerWorkState.Off;
 
+    [FormerlySerializedAs("playerMovement")]
     [Header("Components")]
     [SerializeField]
-    private PlayerMovement playerMovement;
+    private WaypointMovement waypointMovement;
 
     [SerializeField]
     private CinemachineVirtualCamera vCam;
@@ -157,7 +159,7 @@ public class ComputerWork : MonoBehaviour
     public void On_WorkComputer_Enter()
     {
         vCam.Priority = 20;
-        playerMovement.SetFreeze(true);
+        waypointMovement.SetFreeze(true);
         playerInput.enabled = true;
         // playerHeadMaker.FaceInit();
         ChangeState(ComputerWorkState.Ready);
@@ -166,7 +168,7 @@ public class ComputerWork : MonoBehaviour
     public void On_WorkComputer_Exit()
     {
         vCam.Priority = 0;
-        playerMovement.SetFreeze(false);
+        waypointMovement.SetFreeze(false);
         playerInput.enabled = true;
         whiteScreen.SetActive(false);
         spook.SetActive(true);
