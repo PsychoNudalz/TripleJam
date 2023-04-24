@@ -8,6 +8,11 @@ using UnityEngine.Events;
 public class WaypointController : MonoBehaviour
 {
     [SerializeField]
+    private bool isMainWaypoint = false;
+
+    [SerializeField]
+    private bool hardRotate = false;
+    [SerializeField]
     private WaypointController[] connected;
 
     [SerializeField]
@@ -21,6 +26,8 @@ public class WaypointController : MonoBehaviour
     private UnityEvent onLeaveEvent;
     [SerializeField]
     private UnityEvent onArriveEvent;
+
+    public bool HardRotate => hardRotate;
 
     public WaypointManager Manager
     {
@@ -44,7 +51,19 @@ public class WaypointController : MonoBehaviour
 
     public Vector3 forward => transform.forward;
 
-    
+    public static WaypointController main;
+
+    private void Awake()
+    {
+        if (isMainWaypoint)
+        {
+            if (!main)
+            {
+                main = this;
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +81,7 @@ public class WaypointController : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if (connected.Length > 0)
+        if (connected != null  && connected.Length > 0)
         {
             Gizmos.color = new Color((float) (((Gizmos_Counter + 1) * .2) % 1),
                 (float) (((Gizmos_Counter + 3) * .2) % 1), (float) (((Gizmos_Counter + 5) * .2) % 1));

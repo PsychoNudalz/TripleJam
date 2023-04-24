@@ -13,7 +13,13 @@ public class PlayerInputController : MonoBehaviour
     WaypointMovement waypointMovement;
 
     [SerializeField]
+    private WaypointController waypointController;
+
+    [SerializeField]
     private OverviewCameraMovement overviewCameraMovement;
+
+    [SerializeField]
+    private UserCursorFromCameraController userCursorFromCameraController;
     
 
     // Start is called before the first frame update
@@ -27,6 +33,11 @@ public class PlayerInputController : MonoBehaviour
         if (!overviewCameraMovement)
         {
             overviewCameraMovement = GetComponent<OverviewCameraMovement>();
+        }
+
+        if (!userCursorFromCameraController)
+        {
+            userCursorFromCameraController = GetComponent<UserCursorFromCameraController>();
         }
     }
 
@@ -57,6 +68,17 @@ public class PlayerInputController : MonoBehaviour
         print("MoveCam");
         float dir = inputValue.Get<float>();
             overviewCameraMovement.OnMove_Local((new Vector2(dir,0 )).normalized);
+    }
+
+    public void OnClick(InputValue inputValue)
+    {
+        if (inputValue.isPressed)
+        {
+            if (waypointController)
+            {
+                waypointController.transform.position = userCursorFromCameraController.target;
+            }
+        }
     }
     
     

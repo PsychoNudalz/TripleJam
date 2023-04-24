@@ -123,6 +123,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Debug_Move",
+                    "type": "Button",
+                    "id": "b9556851-f2df-45ee-9d9e-d25da5d1c28e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -167,6 +176,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "EndDesktopGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7ec87286-8203-454d-8a19-860c706562c2",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Debug_Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -269,13 +289,22 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "OnMoveWithMouse",
+                    "name": "MoveWithMouse",
                     "type": "Value",
                     "id": "69e27208-19e1-4a3f-932e-50542222bdc7",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "fe8c658f-5292-414e-8ca5-a6a53dff10ec",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -330,7 +359,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "OnMoveWithMouse",
+                    "action": "MoveWithMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cc3e933e-22b2-42b1-94ce-554ae26aaac7",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

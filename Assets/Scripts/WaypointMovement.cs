@@ -58,8 +58,6 @@ public class WaypointMovement : MonoBehaviour
     private Vector3 current_velocity;
 
     [Header("Components")]
-    [SerializeField]
-    private CharacterController cc;
 
     [SerializeField]
     private WaypointManager waypointManager;
@@ -77,7 +75,6 @@ public class WaypointMovement : MonoBehaviour
 
     private void Awake()
     {
-        cc = GetComponent<CharacterController>();
         if (!waypointManager)
         {
             waypointManager = FindObjectOfType<WaypointManager>();
@@ -262,19 +259,35 @@ public class WaypointMovement : MonoBehaviour
 
         target_forward = waypoint.GetDir(newPoint);
 
+        MoveToPoint(newPoint);
+    }
+
+    private void MoveToPoint(WaypointController newPoint)
+    {
         target_rot = newPoint.transform.eulerAngles;
-        if (Vector3.Dot(target_forward, newPoint.forward) < 0)
+        if (!newPoint.HardRotate)
         {
-            target_rot.y -= 180;
+            if (Vector3.Dot(target_forward, newPoint.forward) < 0)
+            {
+                target_rot.y -= 180;
+            }
         }
 
         target_forward = Quaternion.LookRotation(target_forward).eulerAngles;
 
         waypoint = newPoint;
-        
+
 
         target_pos = waypoint.position;
         ChangeState(MoveStat.Move);
+    }
+
+    public void Move_NewPoint_FromPos(WaypointController newPoint)
+    {
+        target_forward = (newPoint.position - transform.position);
+
+        MoveToPoint(newPoint);
+
     }
 
     public void Move_Rotate(bool clockwise = true)

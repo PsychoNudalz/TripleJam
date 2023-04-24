@@ -24,6 +24,7 @@ public class UserCursorFromCameraController : MonoBehaviour
 
 
 
+    public Vector3 target =>targetPos;
 
     public GameObject Cursor { get => cursor; set => cursor = value; }
 
