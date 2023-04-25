@@ -28,6 +28,7 @@ public class LifeSystem : MonoBehaviour
     [Header("On Death")]
     [SerializeField]
     protected UnityEvent onDeathEvent;
+    
 
     [Header("Components")]
 

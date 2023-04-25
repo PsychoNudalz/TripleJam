@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
 
+    [Header("Damage")]
     [SerializeField]
     private float damageMultiplier = 1f;
 
@@ -21,8 +22,16 @@ public class Projectile : MonoBehaviour
     private float damageRange = 5f;
 
     [SerializeField]
+    private float damageOverTime_Duration = 0;
+
+    [SerializeField]
+    private float damageOverTime_Multiplier = 1f;
+
+    [Space(10)]
+    [SerializeField]
     private UnityEvent collisionEvent;
 
+    [Space(10)]
     [SerializeField]
     private float delayDestroy = 5f;
 
@@ -31,6 +40,12 @@ public class Projectile : MonoBehaviour
 
     [SerializeField]
     private Collider mainCollider;
+
+    [SerializeField]
+    private Collider damageTrigger;
+
+    private List<LifeSystem> inTriggerUnit = new List<LifeSystem>();
+
 
     public float Mass => rb.mass;
 
@@ -47,6 +62,18 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (inTriggerUnit.Count > 0)
+        {
+            foreach (LifeSystem lifeSystem in inTriggerUnit)
+            {
+                DamageSystem.DealDamage(lifeSystem,
+                    damage * damageMultiplier * damageOverTime_Multiplier * Time.deltaTime);
+            }
+        }
+    }
+
     public virtual void Init(float baseDamage, LayerMask layerMask)
     {
         damage = baseDamage;
@@ -57,7 +84,7 @@ public class Projectile : MonoBehaviour
     {
         if (rb)
         {
-            rb.AddForce(velocity,ForceMode.VelocityChange);
+            rb.AddForce(velocity, ForceMode.VelocityChange);
         }
         else
         {
@@ -75,8 +102,13 @@ public class Projectile : MonoBehaviour
     public virtual void OnCollisionBehaviour()
     {
         collisionEvent.Invoke();
-        DamageSystem.SphereCastDamage(transform.position,damage*damageMultiplier,damageRange,layerMask);
-        Destroy(gameObject,delayDestroy);
+        DamageSystem.SphereCastDamage(transform.position, damage * damageMultiplier, damageRange, layerMask);
+        if (damageOverTime_Duration > 0f)
+        {
+            StartCoroutine(DelayTrigger());
+        }
+        
+        Destroy(gameObject, delayDestroy+damageOverTime_Duration);
     }
 
     IEnumerator DelayCollider()
@@ -84,5 +116,46 @@ public class Projectile : MonoBehaviour
         mainCollider.enabled = false;
         yield return new WaitForSeconds(disableColliderTime);
         mainCollider.enabled = true;
+    }
+
+    IEnumerator DelayTrigger()
+    {
+        damageTrigger.enabled = true;
+        yield return new WaitForSeconds(damageOverTime_Duration);
+        damageTrigger.enabled = false;
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out LifeSystem ls))
+        {
+            if (!inTriggerUnit.Contains(ls))
+            {
+                inTriggerUnit.Add(ls);
+            }
+        }
+
+        LifeSystem[] temp = inTriggerUnit.ToArray();
+        for (int i = 0; i < temp.Length; i++)
+        {
+            if (temp[i] == null)
+            {
+                inTriggerUnit.RemoveAt(i);
+            }
+        }
+
+        inTriggerUnit = new List<LifeSystem>(temp);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out LifeSystem ls))
+        {
+            if (inTriggerUnit.Contains(ls))
+            {
+                inTriggerUnit.Remove(ls);
+            }
+        }
     }
 }

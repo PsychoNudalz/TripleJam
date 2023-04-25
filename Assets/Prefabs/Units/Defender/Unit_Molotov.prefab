@@ -62,10 +62,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 185653562613628955, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: attackRange
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 185653562613628966, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
       propertyPath: m_Name
-      value: BaseUnit
+      value: Unit_Molotov
+      objectReference: {fileID: 0}
+    - target: {fileID: 232672403605783391, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: projectileTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845886417771796297, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240731943609582361, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: health_max
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27b402c6c953339cf8697fa5f13a9025, type: 3}

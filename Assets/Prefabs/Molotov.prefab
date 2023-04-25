@@ -29131,7 +29131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 657767369303874010}
   damageMultiplier: 1
-  damageRange: 5
+  damageRange: 10
   collisionEvent:
     m_PersistentCalls:
       m_Calls:

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class UnitController : MonoBehaviour
 {
@@ -22,6 +24,14 @@ public class UnitController : MonoBehaviour
 
     [SerializeField]
     private int cost = 0;
+
+    [FormerlySerializedAs("OnSpawn")]
+    [Header("Events")]
+    [SerializeField]
+    private UnityEvent onSpawnEvent;
+
+    [SerializeField]
+    private UnityEvent onDeathEvent;
     public Vector3 Position => transform.position;
     public bool IsMoving => movement.IsMoving;
 
@@ -45,7 +55,7 @@ public class UnitController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        onSpawnEvent.Invoke();
     }
 
     // Update is called once per frame
@@ -77,7 +87,12 @@ public class UnitController : MonoBehaviour
         facingDirection = dir;
 
     }
-    
-    
+
+    public void OnDeath()
+    {
+        onDeathEvent.Invoke();
+        
+        Destroy(gameObject, 2f);
+    }
 
 }

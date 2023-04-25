@@ -90,6 +90,7 @@ public class FactionBaseController : MonoBehaviour
     {
         if (inputValue.isPressed)
         {
+            playerInputController.UpdateWaypointToCursor();
             SpawnUnit(0, transform.position,WaypointController.main.position);
         }
     }
@@ -103,7 +104,6 @@ public class FactionBaseController : MonoBehaviour
     /// <returns></returns>
     bool SpawnUnit(int i, Vector3 pos, Vector3 targetPos, bool force = false)
     {
-        playerInputController.UpdateWaypointToCursor();
         UnitController unit = units[i];
 
         if (!force && unit.Cost > resources)
@@ -125,8 +125,8 @@ public class FactionBaseController : MonoBehaviour
         }
         Vector3 spawnZoneLocalScale = spawnZone.localScale;
         Vector3 randomPos = new Vector3(Random.Range(-spawnZoneLocalScale.x, spawnZoneLocalScale.x), 0,
-            Random.Range(-spawnZoneLocalScale.z, spawnZoneLocalScale.z) / 2f) + spawnZone.position;
-        randomPos = transform.rotation * randomPos;
+            Random.Range(-spawnZoneLocalScale.z, spawnZoneLocalScale.z) / 4f) ;
+        randomPos = transform.rotation * randomPos+ spawnZone.position;
         if (Physics.Raycast(randomPos, Vector3.down, out RaycastHit hit, 100,floorLayer))
         {
             randomPos = hit.point;
