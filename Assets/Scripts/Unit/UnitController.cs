@@ -56,6 +56,7 @@ public class UnitController : MonoBehaviour
     void Start()
     {
         onSpawnEvent.Invoke();
+        
     }
 
     // Update is called once per frame

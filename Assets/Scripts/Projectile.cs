@@ -60,6 +60,11 @@ public class Projectile : MonoBehaviour
         {
             mainCollider = GetComponent<Collider>();
         }
+
+        if (damageTrigger)
+        {
+            damageTrigger.enabled = false;
+        }
     }
 
     private void FixedUpdate()
@@ -107,7 +112,8 @@ public class Projectile : MonoBehaviour
         {
             StartCoroutine(DelayTrigger());
         }
-        
+
+        rb.isKinematic = true;
         Destroy(gameObject, delayDestroy+damageOverTime_Duration);
     }
 
@@ -141,7 +147,7 @@ public class Projectile : MonoBehaviour
         {
             if (temp[i] == null)
             {
-                inTriggerUnit.RemoveAt(i);
+                inTriggerUnit.Remove(temp[i]);
             }
         }
 

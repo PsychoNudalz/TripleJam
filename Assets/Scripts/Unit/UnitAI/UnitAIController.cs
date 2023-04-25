@@ -96,6 +96,11 @@ public class UnitAIController : MonoBehaviour
     {
         currentBehaviour.ChangeState_Exit(this);
         Debug.Log($"{this} change state: {this.aiState} => {aiState}");
+        if (aiState == AIState.Dead)
+        {
+            enabled = false;
+            return;
+        }
         currentBehaviour = unitAIBehaviourSet.GetBehaviour(aiState);
         this.aiState = aiState;
         currentBehaviour.ChangeState_Enter(this);
