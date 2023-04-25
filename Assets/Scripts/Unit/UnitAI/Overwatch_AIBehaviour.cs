@@ -40,21 +40,5 @@ public class Overwatch_AIBehaviour : AIBehaviour
         return 0;
     }
 
-    public UnitController DetectUnit(UnitAIController controller)
-    {
 
-        Collider[] colliders = Physics.OverlapSphere(controller.Position, controller.AttackRange, controller.LayerMask);
-        UnitController unit;
-        foreach (Collider collider in colliders)
-        {
-            if (collider.TryGetComponent(out unit))
-            {
-                if (unit.IsHostile(controller.UnitController))
-                {
-                    return unit;
-                }
-            }
-        }
-        return null;
-    }
 }

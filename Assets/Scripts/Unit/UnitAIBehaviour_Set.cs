@@ -34,6 +34,10 @@ public class UnitAIBehaviour_Set : ScriptableObject
 
     private void Awake()
     {
+    }
+
+    public void Init()
+    {
         idleAIBehaviour = Instantiate(idleAIBehaviour);
         moveAIBehaviour = Instantiate(moveAIBehaviour);
         overwatchAIBehaviour = Instantiate(overwatchAIBehaviour);

@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 [CreateAssetMenu(menuName = "Unit_AI/Behavior/Move")]
 
 public class Move_AIBehaviour : AIBehaviour
 {
+    [FormerlySerializedAs("OverwatchWhenInRange")]
+    [SerializeField]
+    private bool overwatchWhenInRange = false;
+    
     public override int ChangeState_Enter(UnitAIController controller)
     {
         controller.SetMovePosition();
@@ -24,6 +30,16 @@ public class Move_AIBehaviour : AIBehaviour
 
     public override int FixedUpdateBehaviour(UnitAIController controller)
     {
+        if (overwatchWhenInRange)
+        {
+            UnitController unit = DetectUnit(controller);
+            if (unit)
+            {
+                    controller.SetTarget(unit);
+                    controller.ChangeState(AIState.Attack);
+                    return 1;
+            }
+        }
         if (!controller.IsMoving)
         {
             controller.ChangeState(AIState.Overwatch);

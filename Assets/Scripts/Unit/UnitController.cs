@@ -20,8 +20,12 @@ public class UnitController : MonoBehaviour
     [SerializeField]
     private UnitFaction faction = UnitFaction.Defender;
 
+    [SerializeField]
+    private int cost = 0;
     public Vector3 Position => transform.position;
     public bool IsMoving => movement.IsMoving;
+
+    public int Cost => cost;
 
     public bool IsFriendly(UnitController other)
     {

@@ -72,6 +72,7 @@ public class UnitAIController : MonoBehaviour
         }
 
         unitAIBehaviourSet = Instantiate(unitAIBehaviourSet, transform);
+        unitAIBehaviourSet.Init();
     }
 
     // Start is called before the first frame update
