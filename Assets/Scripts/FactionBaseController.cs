@@ -21,6 +21,9 @@ public class FactionBaseController : MonoBehaviour
     [SerializeField]
     private PlayerInputController playerInputController;
 
+
+    [SerializeField]
+    private Transform spawnZone;
     private void Awake()
     {
         if (!playerInputController)
@@ -46,15 +49,21 @@ public class FactionBaseController : MonoBehaviour
     {
         if (inputValue.isPressed)
         {
-            SpawnUnit(0);
+            SpawnUnit(0,transform.position);
         }
     }
 
-    void SpawnUnit(int i)
+    void SpawnUnit(int i,Vector3 pos)
     {
         playerInputController.UpdateWaypointToCursor();
         UnitController unit = units[i];
-        unit = Instantiate(unit.gameObject, transform.position, quaternion.identity).GetComponent<UnitController>();
+        unit = Instantiate(unit.gameObject, pos, quaternion.identity).GetComponent<UnitController>();
         unit.SetTargetPos(WaypointController.main.position,transform.forward);
+    }
+
+    Vector3 GetRandomSpawn()
+    {
+        // Vector3 randonPos = Vector3()
+        return new Vector3();
     }
 }
