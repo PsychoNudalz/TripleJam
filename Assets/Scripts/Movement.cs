@@ -143,9 +143,10 @@ public class Movement : MonoBehaviour
 
     public virtual void MoveToTarget(Vector3 pos, Vector3 dir)
     {
-        target_rot = dir;
+        target_rot = Quaternion.LookRotation(dir).eulerAngles;
 
-        target_forward = Quaternion.LookRotation(target_forward).eulerAngles;
+        Vector3 moveDir = (pos - transform.position).normalized;
+        target_forward = Quaternion.LookRotation(moveDir).eulerAngles;
 
         target_pos = pos;
         ChangeState(MoveStat.Move);

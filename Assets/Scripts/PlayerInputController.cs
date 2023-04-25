@@ -78,7 +78,7 @@ public class PlayerInputController : MonoBehaviour
         }
     }
 
-    private void UpdateWaypointToCursor()
+    public void UpdateWaypointToCursor()
     {
         if (waypointController)
         {

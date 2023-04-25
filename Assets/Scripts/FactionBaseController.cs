@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -16,6 +17,18 @@ public class FactionBaseController : MonoBehaviour
 
     [SerializeField]
     private UnitController[] units;
+
+    [SerializeField]
+    private PlayerInputController playerInputController;
+
+    private void Awake()
+    {
+        if (!playerInputController)
+        {
+            playerInputController = GetComponent<PlayerInputController>();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,15 +42,19 @@ public class FactionBaseController : MonoBehaviour
     }
 
 
-    public void OnUnit1(InputValue inputValue)
+    public void OnUnit_1(InputValue inputValue)
     {
-        
+        if (inputValue.isPressed)
+        {
+            SpawnUnit(0);
+        }
     }
 
     void SpawnUnit(int i)
     {
+        playerInputController.UpdateWaypointToCursor();
         UnitController unit = units[i];
-        unit = Instantiate(unit, transform.position, quaternion.identity);
+        unit = Instantiate(unit.gameObject, transform.position, quaternion.identity).GetComponent<UnitController>();
         unit.SetTargetPos(WaypointController.main.position,transform.forward);
     }
 }
