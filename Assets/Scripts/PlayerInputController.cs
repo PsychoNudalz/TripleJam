@@ -74,12 +74,15 @@ public class PlayerInputController : MonoBehaviour
     {
         if (inputValue.isPressed)
         {
-            if (waypointController)
-            {
-                waypointController.transform.position = userCursorFromCameraController.target;
-            }
+            UpdateWaypointToCursor();
         }
     }
-    
-    
+
+    private void UpdateWaypointToCursor()
+    {
+        if (waypointController)
+        {
+            waypointController.transform.position = userCursorFromCameraController.target;
+        }
+    }
 }

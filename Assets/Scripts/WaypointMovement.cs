@@ -3,75 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaypointMovement : MonoBehaviour
+public class WaypointMovement : Movement
 {
-    enum MoveStat
-    {
-        Still,
-        Move,
-        Freeze,
-        Rotate,
-        Unfreeze
-    }
+
 
     [Header("Stats")]
-    [Header("Movement")]
-    [SerializeField]
-    private float moveSpeed = 2f;
 
 
-    [SerializeField]
-    private float deadZone = .1f;
-
-    [SerializeField]
-    private float acceleration = .1f;
-
-    private float slowDownZone => (current_velocity.magnitude * current_velocity.magnitude) / (2 * acceleration);
-
-    [SerializeField]
-    private float freezeResumeDelayTime = 1f;
-
-    private Coroutine freezeResumeDelayCoroutine;
-    
-    [Header("Rotate")]
-    [SerializeField]
-    private float rotationSpeed = 2f;
-
-    private float rotateLerp = 0;
 
     [Header("Target")]
     [SerializeField]
     private WaypointController waypoint;
 
 
-    private Vector3 target_pos;
 
-    private Vector3 original_rot;
-    private Vector3 target_rot;
-    private Vector3 target_forward;
 
-    [Header("Current")]
-    [SerializeField]
-    private MoveStat moveState = MoveStat.Still;
-
-    [SerializeField]
-    private Vector3 current_velocity;
 
     [Header("Components")]
 
     [SerializeField]
     private WaypointManager waypointManager;
 
-    public bool IsMoving => moveState is MoveStat.Move or MoveStat.Rotate;
-    private Vector3 position
-    {
-        get => transform.position;
-        set => transform.position = value;
-    }
 
-    private float distance => Vector3.Distance(target_pos, position);
-
-    private Vector3 direction => (target_pos - position).normalized;
     // Start is called before the first frame update
 
     private void Awake()
@@ -94,95 +47,10 @@ public class WaypointMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (moveState)
-        {
-            case MoveStat.Still:
-                Move_Rotate(target_rot);
-
-                break;
-            case MoveStat.Move:
-                Move_Rotate(target_forward);
-
-                Move_Translate();
-
-                break;
-            case MoveStat.Freeze:
-                break;
-            case MoveStat.Rotate:
-                Move_Rotate(target_rot);
-
-                break;
-            case MoveStat.Unfreeze:
-                
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
+        UpdateBehaviour();
     }
 
-    private void Move_Translate()
-    {
-        if (distance < deadZone)
-        {
-            SetPositionToWayPoint();
-            ChangeState(MoveStat.Still);
-        }
-        else
-        {
-            if (distance < slowDownZone)
-            {
-                current_velocity -= direction * (acceleration * Time.deltaTime);
-            }
-            else
-            {
-                if (current_velocity.magnitude < moveSpeed)
-                {
-                    current_velocity += direction * (acceleration * Time.deltaTime);
-                }
-                else if (current_velocity.magnitude > moveSpeed)
-                {
-                    current_velocity = direction * moveSpeed;
-                }
-            }
-
-            transform.Translate(current_velocity * Time.deltaTime, Space.World);
-        }
-    }
-
-    private void SetPositionToWayPoint()
-    {
-        current_velocity = Vector3.zero;
-        position = target_pos;
-    }
-
-    void Move_Rotate(Vector3 target, bool forceLerp = false)
-    {
-        Vector3 transformEulerAngles = transform.eulerAngles;
-        if (forceLerp)
-        {
-            rotateLerp = 2;
-        }
-        if (rotateLerp > 1)
-        {
-            rotateLerp = 1;
-            if (moveState == MoveStat.Rotate)
-            {
-                ChangeState(MoveStat.Still);
-            }
-        }
-        else if (rotateLerp < 1)
-        {
-            rotateLerp += Time.deltaTime * rotationSpeed;
-        }
-
-        transformEulerAngles.y = Mathf.LerpAngle(original_rot.y, target.y, rotateLerp);
-
-
-        transform.eulerAngles = transformEulerAngles;
-    }
-
-
-    void ChangeState(MoveStat s)
+    protected override void ChangeState(MoveStat s)
     {
         switch (moveState)
         {
@@ -206,7 +74,7 @@ public class WaypointMovement : MonoBehaviour
                 {
                     return;
                 }
-                SetPositionToWayPoint();
+                SetPositionToTarget();
 
                 break;
             case MoveStat.Rotate:
@@ -249,7 +117,7 @@ public class WaypointMovement : MonoBehaviour
         }
     }
 
-    public void Move_Forward()
+    public override void Move_Forward()
     {
         if (moveState != MoveStat.Still)
         {
@@ -291,7 +159,7 @@ public class WaypointMovement : MonoBehaviour
 
     }
 
-    public void Move_Rotate(bool clockwise = true)
+    public override void Move_Rotate(bool clockwise = true)
     {
         if (clockwise)
         {
@@ -305,22 +173,4 @@ public class WaypointMovement : MonoBehaviour
         ChangeState(MoveStat.Rotate);
     }
 
-    public void SetFreeze(bool b)
-    {
-        if (b)
-        {
-            ChangeState(MoveStat.Freeze);
-        }
-        else
-        {
-            ChangeState(MoveStat.Unfreeze);
-        }
-    }
-
-
-    IEnumerator DelayFreeze()
-    {
-        yield return new WaitForSeconds(freezeResumeDelayTime);
-        ChangeState(MoveStat.Still);
-    }
 }

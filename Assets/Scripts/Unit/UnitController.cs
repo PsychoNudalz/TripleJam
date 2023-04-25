@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class UnitController : MonoBehaviour
 {
-    enum UnitFaction
-    {
-        Attacker,
-        Defender
-    }
+
     [SerializeField]
     private UnitAIController aiController;
 
     [SerializeField]
-    private WaypointMovement movement;
+    private Movement movement;
+
+    [SerializeField]
+    private Vector3 targetPosition;
+    [SerializeField]
+    Vector3 facingDirection;
 
     [Header("States")]
     [SerializeField]
     private UnitFaction faction = UnitFaction.Defender;
 
     public Vector3 Position => transform.position;
-    
+    public bool IsMoving => movement.IsMoving;
+
     public bool IsFriendly(UnitController other)
     {
         return other.faction.Equals(faction);
@@ -29,6 +31,11 @@ public class UnitController : MonoBehaviour
     public bool IsHostile(UnitController other)
     {
         return !other.faction.Equals(faction);
+    }
+
+    public void Init()
+    {
+        
     }
     
     // Start is called before the first frame update
@@ -43,15 +50,30 @@ public class UnitController : MonoBehaviour
         
     }
 
-    public void OnMove(WaypointController newPoint = null) 
+    public void OnMove(WaypointController newPoint) 
     {
         if (!newPoint)
         {
             newPoint = WaypointController.main;
         }
-        movement.Move_NewPoint_FromPos(newPoint);
+        if(movement is WaypointMovement wm)
+        {
+            wm.Move_NewPoint_FromPos(newPoint);
+        }
     }
 
-    public bool IsMoving => movement.IsMoving;
+    public void OnMove()
+    {
+        movement.MoveToTarget(targetPosition,facingDirection);
+    }
+
+    public void SetTargetPos(Vector3 pos, Vector3 dir)
+    {
+        targetPosition = pos;
+        facingDirection = dir;
+
+    }
+    
+    
 
 }

@@ -18,14 +18,16 @@ public class UnitAIController : MonoBehaviour
 {
     [SerializeField]
     private UnitController unitController;
+
     [SerializeField]
     private AIState aiState = AIState.Idle;
+
     [SerializeField]
-    private AIBehaviour currentBehaviour ;
+    private AIBehaviour currentBehaviour;
 
     [SerializeField]
     private UnitAIBehaviour_Set unitAIBehaviourSet;
-    
+
     [Header("States")]
     [SerializeField]
     private bool isStationary = true;
@@ -69,7 +71,7 @@ public class UnitAIController : MonoBehaviour
             currentBehaviour = unitAIBehaviourSet.IdleAIBehaviour;
         }
 
-        unitAIBehaviourSet = Instantiate(unitAIBehaviourSet,transform);
+        unitAIBehaviourSet = Instantiate(unitAIBehaviourSet, transform);
     }
 
     // Start is called before the first frame update
@@ -98,9 +100,14 @@ public class UnitAIController : MonoBehaviour
         currentBehaviour.ChangeState_Enter(this);
     }
 
-    public void SetMovePosition(WaypointController newPoint = null)
+    public void SetMovePosition(WaypointController newPoint)
     {
         unitController.OnMove(newPoint);
+    }
+
+    public void SetMovePosition()
+    {
+        unitController.OnMove();
     }
 
     public bool IsMoving => unitController.IsMoving;

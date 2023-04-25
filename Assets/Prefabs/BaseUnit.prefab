@@ -44,9 +44,9 @@ GameObject:
   - component: {fileID: 185653562613628954}
   - component: {fileID: 185653562613628955}
   - component: {fileID: 6240731943609582361}
-  - component: {fileID: 185653562613628952}
   - component: {fileID: 108111832121728554}
   - component: {fileID: 232672403605783391}
+  - component: {fileID: 5845886417771796297}
   m_Layer: 8
   m_Name: BaseUnit
   m_TagString: Untagged
@@ -83,7 +83,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiController: {fileID: 185653562613628955}
-  movement: {fileID: 185653562613628952}
+  movement: {fileID: 5845886417771796297}
+  targetPosition: {x: 0, y: 0, z: 0}
+  facingDirection: {x: 0, y: 0, z: 0}
   faction: 1
 --- !u!114 &185653562613628955
 MonoBehaviour:
@@ -163,27 +165,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   healthSpriteRenderer: {fileID: 0}
---- !u!114 &185653562613628952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 185653562613628966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bc1cfe36807f31978fe0fc7af0dd034, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  deadZone: 0.1
-  acceleration: 4
-  freezeResumeDelayTime: 1
-  rotationSpeed: 2
-  waypoint: {fileID: 0}
-  moveState: 0
-  current_velocity: {x: 0, y: 0, z: 0}
-  waypointManager: {fileID: 0}
 --- !u!65 &108111832121728554
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -221,6 +202,25 @@ MonoBehaviour:
   projectile: {fileID: 1599073898647236912, guid: 572e9f59267c463429b7e1841de6b612,
     type: 3}
   projectileTime: 1
+--- !u!114 &5845886417771796297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185653562613628966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf642c4695803fbca9e1ecc730359f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  deadZone: 0.1
+  acceleration: 4
+  freezeResumeDelayTime: 1
+  rotationSpeed: 2
+  moveState: 0
+  current_velocity: {x: 0, y: 0, z: 0}
 --- !u!1001 &185653561151186895
 PrefabInstance:
   m_ObjectHideFlags: 0
