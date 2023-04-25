@@ -35,7 +35,7 @@ public class Overwatch_AIBehaviour : AIBehaviour
             controller.ChangeState(AIState.Attack);
             return 1;
         }
-        controller.ChangeState(AIState.Move);
+        // controller.ChangeState(AIState.Move);
 
         return 0;
     }
