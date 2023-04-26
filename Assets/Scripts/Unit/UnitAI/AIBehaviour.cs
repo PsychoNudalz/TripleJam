@@ -50,4 +50,12 @@ public abstract class AIBehaviour: ScriptableObject
 
         return 0;
     }
+
+
+    private Vector3 GetRetreatDirection(UnitAIController controller, Vector3 damageSource, float range)
+    {
+        return new Vector3();
+    }
+    
+    
 }

@@ -100,4 +100,9 @@ public class UnitController : MonoBehaviour
     {
         movement.StopMove();
     }
+
+    public void OnTakeDamage()
+    {
+        
+    }
 }
