@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +9,7 @@ using Random = UnityEngine.Random;
 
 enum UnitFaction
 {
+    None,
     Attacker,
     Defender
 }
@@ -31,6 +33,8 @@ public class FactionBaseController : MonoBehaviour
     [SerializeField]
     private PlayerInputController playerInputController;
 
+    [SerializeField]
+    private TextMeshProUGUI resourceText;
     [Header("Spawning")]
     [SerializeField]
     private bool autoSpawn = false;
@@ -92,6 +96,10 @@ public class FactionBaseController : MonoBehaviour
     private void FixedUpdate()
     {
         resources += resourcePerSecond * Time.deltaTime;
+        if (resourceText)
+        {
+            resourceText.text = resources.ToString("0");
+        }
     }
 
     public void OnUnit_1(InputValue inputValue)

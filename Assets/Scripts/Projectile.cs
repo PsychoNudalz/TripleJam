@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class Projectile : MonoBehaviour
 {
@@ -18,16 +19,18 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
 
+    [FormerlySerializedAs("damageMultiplier")]
     [Header("Damage")]
     [SerializeField]
-    private float damageMultiplier = 1f;
+    private float damageCollision_Multiplier = 1f;
 
     private float damage;
 
     private LayerMask layerMask;
 
+    [FormerlySerializedAs("damageRange")]
     [SerializeField]
-    private float damageRange = 5f;
+    private float damageCollision_Range = 5f;
 
     [SerializeField]
     private float damageOverTime_Duration = 0;
@@ -100,7 +103,7 @@ public class Projectile : MonoBehaviour
             foreach (LifeSystem lifeSystem in inTriggerUnit)
             {
                 DamageSystem.DealDamage(lifeSystem,
-                    damage * damageMultiplier * damageOverTime_Multiplier * Time.deltaTime);
+                    damage * damageOverTime_Multiplier * Time.deltaTime);
             }
         }
     }
@@ -134,7 +137,7 @@ public class Projectile : MonoBehaviour
     public virtual void OnCollisionBehaviour()
     {
         collisionEvent.Invoke();
-        DamageSystem.SphereCastDamage(transform.position, damage * damageMultiplier, damageRange, layerMask);
+        DamageSystem.SphereCastDamage(transform.position, damage * damageCollision_Multiplier, damageCollision_Range, layerMask);
         if (damageOverTime_Duration > 0f)
         {
             StartCoroutine(DelayTrigger());

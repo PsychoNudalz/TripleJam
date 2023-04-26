@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6515858213925623
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6273613966927188242}
+    m_Modifications:
+    - target: {fileID: 1348288584672764, guid: 7ab16310faa910d40b16db3d54919077, type: 3}
+      propertyPath: m_Name
+      value: SM_Pawn_Weapon_Male_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387438620459558, guid: 7ab16310faa910d40b16db3d54919077, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387438620459558, guid: 7ab16310faa910d40b16db3d54919077, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387438620459558, guid: 7ab16310faa910d40b16db3d54919077, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387438620459558, guid: 7ab16310faa910d40b16db3d54919077, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387438620459558, guid: 7ab16310faa910d40b16db3d54919077, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387438620459558, guid: 7ab16310faa910d40b16db3d54919077, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387438620459558, guid: 7ab16310faa910d40b16db3d54919077, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387438620459558, guid: 7ab16310faa910d40b16db3d54919077, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387438620459558, guid: 7ab16310faa910d40b16db3d54919077, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387438620459558, guid: 7ab16310faa910d40b16db3d54919077, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387438620459558, guid: 7ab16310faa910d40b16db3d54919077, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23111585557008218, guid: 7ab16310faa910d40b16db3d54919077,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 673443bdcb7bf2f47be93ce60e68966f, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7ab16310faa910d40b16db3d54919077, type: 3}
 --- !u!1001 &6161988925214141793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65,7 +127,7 @@ PrefabInstance:
     - target: {fileID: 185653562613628954, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
       propertyPath: faction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 185653562613628955, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
@@ -82,6 +144,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Unit_TearGas
+      objectReference: {fileID: 0}
+    - target: {fileID: 186196867742457707, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198336157002953003, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
@@ -102,7 +169,7 @@ PrefabInstance:
     - target: {fileID: 232672403605783391, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
       propertyPath: projectileTime
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5845886417771796297, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
@@ -146,3 +213,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27b402c6c953339cf8697fa5f13a9025, type: 3}
+--- !u!4 &6273613966927188242 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 185653561925336179, guid: 27b402c6c953339cf8697fa5f13a9025,
+    type: 3}
+  m_PrefabInstance: {fileID: 6161988925214141793}
+  m_PrefabAsset: {fileID: 0}
