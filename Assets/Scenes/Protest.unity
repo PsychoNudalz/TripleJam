@@ -1954,8 +1954,8 @@ MonoBehaviour:
   faction: 0
   units:
   - {fileID: 6273613966574398843, guid: 21ad95b1afa2ac6f89f64814e5aa2b13, type: 3}
-  resources: 0
-  resourcePerSecond: 10
+  resources: 50
+  resourcePerSecond: 5
   playerInputController: {fileID: 854429910}
   resourceText: {fileID: 0}
   autoSpawn: 1
