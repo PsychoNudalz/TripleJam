@@ -19,10 +19,10 @@ public abstract class AIBehaviour: ScriptableObject
 
     public abstract int FixedUpdateBehaviour(UnitAIController controller);
 
-    public static UnitController DetectUnit(UnitAIController controller)
+    public static UnitController DetectUnit(UnitAIController controller, float range)
     {
 
-        Collider[] colliders = Physics.OverlapSphere(controller.Position, controller.AttackRange, controller.LayerMask);
+        Collider[] colliders = Physics.OverlapSphere(controller.Position, range, controller.LayerMask);
         UnitController unit;
         foreach (Collider collider in colliders)
         {
@@ -37,9 +37,9 @@ public abstract class AIBehaviour: ScriptableObject
 
         return null;
     }
-    private int CheckForUnit(UnitAIController controller)
+    private int CheckForUnit(UnitAIController controller,float range)
     {
-        UnitController foundUnit = DetectUnit(controller);
+        UnitController foundUnit = DetectUnit(controller,range);
         if (foundUnit)
         {
             controller.SetTarget(foundUnit);

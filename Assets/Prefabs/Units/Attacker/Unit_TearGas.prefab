@@ -69,6 +69,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 185653562613628955, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
+      propertyPath: moveStopRange
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 185653562613628955, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
       propertyPath: unitAIBehaviourSet
       value: 
       objectReference: {fileID: 11400000, guid: 39e2fb095196fa942a40d91c48e73eb9,
@@ -87,6 +92,17 @@ PrefabInstance:
         type: 3}
       propertyPath: cooldown
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 232672403605783391, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 1599073898647236912, guid: dceffe309f0aeb89597499c326b36860,
+        type: 3}
+    - target: {fileID: 232672403605783391, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: projectileTime
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5845886417771796297, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}

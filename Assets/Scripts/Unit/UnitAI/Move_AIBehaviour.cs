@@ -19,6 +19,7 @@ public class Move_AIBehaviour : AIBehaviour
 
     public override int ChangeState_Exit(UnitAIController controller)
     {
+        controller.MoveStop();
         return 0;
 
     }
@@ -32,7 +33,7 @@ public class Move_AIBehaviour : AIBehaviour
     {
         if (overwatchWhenInRange)
         {
-            UnitController unit = DetectUnit(controller);
+            UnitController unit = DetectUnit(controller,controller.MoveStopRange);
             if (unit)
             {
                     controller.SetTarget(unit);

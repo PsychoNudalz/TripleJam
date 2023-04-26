@@ -28,7 +28,7 @@ public class Overwatch_AIBehaviour : AIBehaviour
 
     private int CheckForUnit(UnitAIController controller)
     {
-        UnitController foundUnit = DetectUnit(controller);
+        UnitController foundUnit = DetectUnit(controller,controller.AttackRange);
         if (foundUnit)
         {
             controller.SetTarget(foundUnit);

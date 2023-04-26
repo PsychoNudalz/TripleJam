@@ -25,7 +25,9 @@ public class LifeSystem : MonoBehaviour
     [SerializeField]
     private AnimationCurve healthToDisplay;
 
-    [Header("On Death")]
+    [Header("Events")]
+    [SerializeField]
+    private UnityEvent onDamageEvent;
     [SerializeField]
     protected UnityEvent onDeathEvent;
     
@@ -65,6 +67,7 @@ public class LifeSystem : MonoBehaviour
     public virtual bool TakeDamage(float f)
     {
         health -= f;
+        onDamageEvent.Invoke();
         if (health <= 0)
         {
             SwitchState(LifeState.Dead);

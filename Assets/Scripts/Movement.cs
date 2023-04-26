@@ -129,9 +129,9 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public virtual  void StopMove()
+    public virtual void StopMove()
     {
-        SetPositionToTarget();
+        current_velocity = Vector3.zero;
         ChangeState(MoveStat.Still);
     }
 

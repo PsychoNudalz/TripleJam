@@ -96,4 +96,8 @@ public class UnitController : MonoBehaviour
         Destroy(gameObject, 2f);
     }
 
+    public void MoveStop()
+    {
+        movement.StopMove();
+    }
 }

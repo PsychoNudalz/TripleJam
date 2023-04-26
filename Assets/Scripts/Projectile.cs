@@ -7,6 +7,14 @@ using UnityEngine.Events;
 
 public class Projectile : MonoBehaviour
 {
+
+    enum ProjectileState
+    {
+        Launch,
+        Collide
+    }
+    
+    ProjectileState projectileState = ProjectileState.Launch;
     [SerializeField]
     private Rigidbody rb;
 
@@ -26,6 +34,9 @@ public class Projectile : MonoBehaviour
 
     [SerializeField]
     private float damageOverTime_Multiplier = 1f;
+    [SerializeField]
+    private float damageOverTime_Range = 0f;
+    
 
     [Space(10)]
     [SerializeField]
@@ -43,6 +54,9 @@ public class Projectile : MonoBehaviour
 
     [SerializeField]
     private Collider damageTrigger;
+
+    [SerializeField]
+    private Transform zoneDisplay;
 
     private List<LifeSystem> inTriggerUnit = new List<LifeSystem>();
 
@@ -64,6 +78,18 @@ public class Projectile : MonoBehaviour
         if (damageTrigger)
         {
             damageTrigger.enabled = false;
+            if(damageTrigger is SphereCollider sc)
+            {
+                sc.radius = damageOverTime_Range;
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (projectileState == ProjectileState.Collide)
+        {
+            Gizmos.DrawSphere(transform.position,damageOverTime_Range);
         }
     }
 
@@ -96,6 +122,7 @@ public class Projectile : MonoBehaviour
             Debug.LogWarning($"{this} missing RB!");
         }
 
+        projectileState = ProjectileState.Launch;
         StartCoroutine(DelayCollider());
     }
 
@@ -114,6 +141,8 @@ public class Projectile : MonoBehaviour
         }
 
         rb.isKinematic = true;
+        projectileState = ProjectileState.Collide;
+        transform.rotation= Quaternion.identity;
         Destroy(gameObject, delayDestroy+damageOverTime_Duration);
     }
 
@@ -127,6 +156,11 @@ public class Projectile : MonoBehaviour
     IEnumerator DelayTrigger()
     {
         damageTrigger.enabled = true;
+        if (zoneDisplay)
+        {
+            zoneDisplay.localScale = new Vector3(damageOverTime_Range * 2f, zoneDisplay.localScale.y,
+                damageOverTime_Range * 2f);
+        }
         yield return new WaitForSeconds(damageOverTime_Duration);
         damageTrigger.enabled = false;
 

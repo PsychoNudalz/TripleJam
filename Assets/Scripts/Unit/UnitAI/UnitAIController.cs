@@ -37,7 +37,9 @@ public class UnitAIController : MonoBehaviour
     private LayerMask layerMask;
 
     [SerializeField]
-    private float attackRange;
+    private float moveStopRange = 5f;
+    [SerializeField]
+    private float attackRange = 10f;
 
     [Header("Attack")]
     [SerializeField]
@@ -47,6 +49,9 @@ public class UnitAIController : MonoBehaviour
     private UnitController targetUnit;
 
     public LayerMask LayerMask => layerMask;
+
+
+    public float MoveStopRange => moveStopRange;
 
     public float AttackRange => attackRange;
 
@@ -116,6 +121,10 @@ public class UnitAIController : MonoBehaviour
         unitController.OnMove();
     }
 
+    public void MoveStop()
+    {
+        unitController.MoveStop();
+    }
     public bool IsMoving => unitController.IsMoving;
 
     public void OnAttack()
