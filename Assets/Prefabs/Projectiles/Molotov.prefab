@@ -29135,7 +29135,8 @@ MonoBehaviour:
   damageMultiplier: 1
   damageRange: 5
   damageOverTime_Duration: 5
-  damageOverTime_Multiplier: 0.5
+  damageOverTime_Multiplier: 0.1
+  damageOverTime_Range: 5
   collisionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -29191,6 +29192,7 @@ MonoBehaviour:
   disableColliderTime: 0.5
   mainCollider: {fileID: 6637814488538376394}
   damageTrigger: {fileID: 1341585329936820734}
+  zoneDisplay: {fileID: 7004885523800340918}
 --- !u!54 &657767369303874010
 Rigidbody:
   m_ObjectHideFlags: 0

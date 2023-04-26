@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18029127, g: 0.22572401, b: 0.3069303, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1016,10 +1016,10 @@ MonoBehaviour:
   units:
   - {fileID: 6273613966574398843, guid: 21ad95b1afa2ac6f89f64814e5aa2b13, type: 3}
   resources: 0
-  resourcePerSecond: 0
+  resourcePerSecond: 10
   playerInputController: {fileID: 854429910}
   autoSpawn: 1
-  spawnTime: 3
+  randomSpawnTime: {x: 3, y: 10}
   floorLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -1761,10 +1761,10 @@ MonoBehaviour:
   units:
   - {fileID: 1950734156213479615, guid: 901a382eb5b27dc28966941822252833, type: 3}
   resources: 0
-  resourcePerSecond: 0
+  resourcePerSecond: 10
   playerInputController: {fileID: 854429910}
   autoSpawn: 0
-  spawnTime: 2
+  randomSpawnTime: {x: 3, y: 10}
   floorLayer:
     serializedVersion: 2
     m_Bits: 1024

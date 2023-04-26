@@ -35,14 +35,20 @@ public class LifeSystem : MonoBehaviour
     [Header("Components")]
 
     [SerializeField]
-    private SpriteRenderer healthSpriteRenderer;
+    private Renderer healthSpriteRenderer;
+
+    private Material healthMaterial;
 
 
     private void Start()
     {
+        if (healthSpriteRenderer)
+        {
+            healthMaterial = healthSpriteRenderer.material;
+        }
+
         health = health_max;
         UpdateHealthShader(health);
-
     }
 
     public virtual void SwitchState(LifeState ls)
@@ -88,9 +94,9 @@ public class LifeSystem : MonoBehaviour
     [ContextMenu("UpdateHealth")]
     public  virtual void UpdateHealthShader(float h)
     {
-        if (healthSpriteRenderer)
+        if (healthMaterial)
         {
-            healthSpriteRenderer.material.SetFloat("_CircleStrength", healthToDisplay.Evaluate(h/health_max));
+            healthMaterial.SetFloat("_CircleStrength", healthToDisplay.Evaluate(h/health_max));
         }
     }
 }

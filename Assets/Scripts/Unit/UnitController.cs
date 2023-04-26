@@ -92,7 +92,7 @@ public class UnitController : MonoBehaviour
     public void OnDeath()
     {
         onDeathEvent.Invoke();
-        
+        MoveStop();
         Destroy(gameObject, 2f);
     }
 

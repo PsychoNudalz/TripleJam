@@ -36,9 +36,10 @@ public class FactionBaseController : MonoBehaviour
     private bool autoSpawn = false;
 
     [SerializeField]
-    private float spawnTime = 2f;
+    private Vector2 randomSpawnTime = new Vector2(3f, 10f);
+
     float spawnTime_Now = 0;
-    
+
     [SerializeField]
     private LayerMask floorLayer;
 
@@ -47,6 +48,10 @@ public class FactionBaseController : MonoBehaviour
 
     [SerializeField]
     private Transform target;
+
+    private int maxUnitPerWave;
+
+    private float spawnTime => Random.Range(randomSpawnTime.x, randomSpawnTime.y);
 
     private void Awake()
     {
@@ -69,13 +74,16 @@ public class FactionBaseController : MonoBehaviour
             spawnTime_Now -= Time.deltaTime;
             if (spawnTime_Now < 0)
             {
-                spawnTime_Now = spawnTime;
-
-                Vector3 randomSpawn = GetRandomSpawn();
-            
-                if (SpawnUnit(Random.Range(0, units.Length),randomSpawn,GetAdjacentPosition(randomSpawn)))
+                bool spawnUnit = true;
+                maxUnitPerWave = 50;
+                for (int i = 0; i < maxUnitPerWave && spawnUnit; i++)
                 {
+                    Vector3 randomSpawn = GetRandomSpawn();
+                    spawnUnit = SpawnUnit(Random.Range(0, units.Length), randomSpawn, GetAdjacentPosition(randomSpawn));
+                    
                 }
+
+                spawnTime_Now = spawnTime;
             }
         }
     }
@@ -91,7 +99,7 @@ public class FactionBaseController : MonoBehaviour
         if (inputValue.isPressed)
         {
             playerInputController.UpdateWaypointToCursor();
-            SpawnUnit(0, transform.position,WaypointController.main.position);
+            SpawnUnit(0, transform.position, WaypointController.main.position);
         }
     }
 
@@ -123,14 +131,16 @@ public class FactionBaseController : MonoBehaviour
         {
             return transform.position;
         }
+
         Vector3 spawnZoneLocalScale = spawnZone.localScale;
         Vector3 randomPos = new Vector3(Random.Range(-spawnZoneLocalScale.x, spawnZoneLocalScale.x), 0,
-            Random.Range(-spawnZoneLocalScale.z, spawnZoneLocalScale.z) / 4f) ;
-        randomPos = transform.rotation * randomPos+ spawnZone.position;
-        if (Physics.Raycast(randomPos, Vector3.down, out RaycastHit hit, 100,floorLayer))
+            Random.Range(-spawnZoneLocalScale.z, spawnZoneLocalScale.z)) / 2f;
+        randomPos = transform.rotation * randomPos + spawnZone.position;
+        if (Physics.Raycast(randomPos, Vector3.down, out RaycastHit hit, 100, floorLayer))
         {
             randomPos = hit.point;
         }
+
         return randomPos;
     }
 
@@ -138,6 +148,5 @@ public class FactionBaseController : MonoBehaviour
     {
         Vector3 dir = target.position - transform.position;
         return start + dir;
-
     }
 }
