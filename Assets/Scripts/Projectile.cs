@@ -63,6 +63,7 @@ public class Projectile : MonoBehaviour
 
     private List<LifeSystem> inTriggerUnit = new List<LifeSystem>();
 
+    private UnitController sourceUnit;
 
     public float Mass => rb.mass;
 
@@ -103,15 +104,16 @@ public class Projectile : MonoBehaviour
             foreach (LifeSystem lifeSystem in inTriggerUnit)
             {
                 DamageSystem.DealDamage(lifeSystem,
-                    damage * damageOverTime_Multiplier * Time.deltaTime);
+                     new DamageData(transform.position,damageOverTime_Range,damage * damageOverTime_Multiplier * Time.deltaTime));
             }
         }
     }
 
-    public virtual void Init(float baseDamage, LayerMask layerMask)
+    public virtual void Init(float baseDamage, LayerMask layerMask, UnitController source)
     {
         damage = baseDamage;
         this.layerMask = layerMask;
+        sourceUnit = source;
     }
 
     public virtual void LaunchVelocity(Vector3 velocity)

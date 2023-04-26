@@ -13,7 +13,7 @@ public class Move_AIBehaviour : AIBehaviour
     
     public override int ChangeState_Enter(UnitAIController controller)
     {
-        controller.SetMovePosition();
+        controller.OnMove();
         return 0;
     }
 
@@ -48,5 +48,9 @@ public class Move_AIBehaviour : AIBehaviour
         }
 
         return 0;
+    }
+
+    public override void OnTakeDamage(UnitAIController controller, DamageData damageData, LifeSystem source)
+    {
     }
 }

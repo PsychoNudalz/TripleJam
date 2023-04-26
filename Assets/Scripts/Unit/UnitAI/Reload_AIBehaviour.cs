@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class Reload_AIBehaviour : AIBehaviour
 {
-    [SerializeField]
     private float reloadTime = 0;
+
+    [SerializeField]
+    private bool retreatFromDamage = false;
     public override int ChangeState_Enter(UnitAIController controller)
     {
         reloadTime = controller.AttackCooldown;
@@ -32,5 +34,14 @@ public class Reload_AIBehaviour : AIBehaviour
             return 1;
         }
         return 0;
+    }
+
+    public override void OnTakeDamage(UnitAIController controller, DamageData damageData, LifeSystem source)
+    {
+        if (retreatFromDamage)
+        {
+            controller.RetreatFromDamage(damageData);
+            controller.ChangeState(AIState.Move);
+        }
     }
 }

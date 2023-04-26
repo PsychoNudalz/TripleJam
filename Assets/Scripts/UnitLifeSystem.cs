@@ -18,9 +18,16 @@ public class UnitLifeSystem : LifeSystem
     }
 
 
-    public override bool TakeDamage(float f)
+    public override bool TakeDamage(float damage, LifeSystem source = null)
     {
-        unitController.OnTakeDamage();
-        return base.TakeDamage(f);
+        unitController.OnTakeDamage(source);
+        return base.TakeDamage(damage, source);
+    }
+
+    public override bool TakeDamage(DamageData damageData, LifeSystem source = null)
+    {
+        unitController.OnTakeDamage(source,damageData);
+
+        return base.TakeDamage(damageData, source);
     }
 }

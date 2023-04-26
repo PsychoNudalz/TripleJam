@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18029127, g: 0.22572401, b: 0.3069303, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1955,11 +1955,11 @@ MonoBehaviour:
   units:
   - {fileID: 6273613966574398843, guid: 21ad95b1afa2ac6f89f64814e5aa2b13, type: 3}
   resources: 0
-  resourcePerSecond: 5
+  resourcePerSecond: 20
   playerInputController: {fileID: 854429910}
   resourceText: {fileID: 0}
   autoSpawn: 1
-  randomSpawnTime: {x: 3, y: 10}
+  randomSpawnTime: {x: 10, y: 20}
   floorLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -6522,7 +6522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854429907}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 25, z: -25}
+  m_LocalPosition: {x: 0, y: 25, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9587,8 +9587,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183845776}
-  m_LocalRotation: {x: 0.38268277, y: 0, z: 0, w: 0.92387986}
-  m_LocalPosition: {x: 0, y: 25, z: -25}
+  m_LocalRotation: {x: 0.36650118, y: 0, z: 0, w: 0.9304176}
+  m_LocalPosition: {x: 0, y: 25, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13525,7 +13525,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662032930}
-  m_LocalRotation: {x: 0.38268277, y: -0, z: -0, w: 0.92387986}
+  m_LocalRotation: {x: 0.36650118, y: 0, z: 0, w: 0.9304176}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13533,7 +13533,7 @@ Transform:
   - {fileID: 867463869}
   m_Father: {fileID: 854429908}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 43, y: 0, z: 0}
 --- !u!114 &1662032932
 MonoBehaviour:
   m_ObjectHideFlags: 0

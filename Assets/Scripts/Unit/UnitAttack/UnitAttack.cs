@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,9 +31,21 @@ public class UnitAttack : MonoBehaviour
     [SerializeField]
     protected bool separateAction = false;
 
+    [Header("Unit")]
+    [SerializeField]
+    protected UnitController unitController;
     public bool IsAttacking => !(attackState is AttackState.End);
 
     public float Cooldown => cooldown;
+
+
+    private void Awake()
+    {
+        if (!unitController)
+        {
+            unitController = GetComponent<UnitController>();
+        }
+    }
 
     public virtual void OnAttack_Enter(UnitController target)
     {

@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 185653562613628953}
   - component: {fileID: 185653562613628954}
   - component: {fileID: 185653562613628955}
-  - component: {fileID: 6240731943609582361}
+  - component: {fileID: 6857155036796684473}
   - component: {fileID: 108111832121728554}
   - component: {fileID: 232672403605783391}
   - component: {fileID: 5845886417771796297}
@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiController: {fileID: 185653562613628955}
+  unitLifeSystem: {fileID: 6857155036796684473}
   movement: {fileID: 5845886417771796297}
   targetPosition: {x: 0, y: 0, z: 0}
   facingDirection: {x: 0, y: 0, z: 0}
@@ -156,8 +157,7 @@ MonoBehaviour:
   moveStopRange: 5
   attackRange: 10
   attack: {fileID: 232672403605783391}
-  targetUnit: {fileID: 0}
---- !u!114 &6240731943609582361
+--- !u!114 &6857155036796684473
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 185653562613628966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bed41e2d6f2219f168cf8167c091396e, type: 3}
+  m_Script: {fileID: 11500000, guid: a4482849fef642f2fb3d1078bfa250a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifeState: 0
@@ -227,6 +227,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   healthSpriteRenderer: {fileID: 1843500539440516938}
+  unitController: {fileID: 185653562613628954}
 --- !u!65 &108111832121728554
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -261,6 +262,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   separateAction: 0
+  unitController: {fileID: 0}
   projectile: {fileID: 1599073898647236912, guid: 572e9f59267c463429b7e1841de6b612,
     type: 3}
   projectileTime: 1
@@ -277,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  deadZone: 0.1
+  deadZone: 0.2
   acceleration: 4
   freezeResumeDelayTime: 1
   rotationSpeed: 2
@@ -24529,7 +24531,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.3
+      value: 0.95
       inSlope: 0
       outSlope: 0
       tangentMode: 0

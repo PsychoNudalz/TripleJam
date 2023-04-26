@@ -45,7 +45,6 @@ public class UnitAIController : MonoBehaviour
     [SerializeField]
     private UnitAttack attack;
 
-    [SerializeField]
     private UnitController targetUnit;
 
     public LayerMask LayerMask => layerMask;
@@ -89,18 +88,26 @@ public class UnitAIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (aiState == AIState.Dead)
+        {
+            return;
+        }
         currentBehaviour.UpdateBehaviour(this);
     }
 
     private void FixedUpdate()
     {
+        if (aiState == AIState.Dead)
+        {
+            return;
+        }
         currentBehaviour.FixedUpdateBehaviour(this);
     }
 
     public void ChangeState(AIState aiState)
     {
         currentBehaviour.ChangeState_Exit(this);
-        Debug.Log($"{this} change state: {this.aiState} => {aiState}");
+        // Debug.Log($"{this} change state: {this.aiState} => {aiState}");
         if (aiState == AIState.Dead)
         {
             enabled = false;
@@ -115,8 +122,14 @@ public class UnitAIController : MonoBehaviour
     {
         unitController.OnMove(newPoint);
     }
+    
+    public void SetMovePosition(Vector3 pos,Vector3 dir)
+    {
+        unitController.SetTargetPos(pos,dir);
+    }
 
-    public void SetMovePosition()
+
+    public void OnMove()
     {
         unitController.OnMove();
     }
@@ -138,5 +151,15 @@ public class UnitAIController : MonoBehaviour
     public void SetTarget(UnitController target)
     {
         targetUnit = target;
+    }
+
+    public void OnTakeDamage(DamageData damageData, LifeSystem source)
+    {
+        currentBehaviour.OnTakeDamage(this, damageData, source);
+    }
+    
+    public void RetreatFromDamage(DamageData damageData)
+    {
+        unitController.SetTargetPos(unitController.GetRetreatPos(damageData));
     }
 }

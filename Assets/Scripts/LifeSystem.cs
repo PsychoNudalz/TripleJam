@@ -28,12 +28,12 @@ public class LifeSystem : MonoBehaviour
     [Header("Events")]
     [SerializeField]
     private UnityEvent onDamageEvent;
+
     [SerializeField]
     protected UnityEvent onDeathEvent;
-    
+
 
     [Header("Components")]
-
     [SerializeField]
     private Renderer healthSpriteRenderer;
 
@@ -60,7 +60,7 @@ public class LifeSystem : MonoBehaviour
         {
             OnDeath();
         }
-        
+
         // print("Player: " + this + " " + previousState + " --> " + lifeState);
     }
 
@@ -70,9 +70,24 @@ public class LifeSystem : MonoBehaviour
         onDeathEvent.Invoke();
     }
 
-    public virtual bool TakeDamage(float f)
+    public virtual bool TakeDamage(float damage, LifeSystem source = null)
     {
-        health -= f;
+        health -= damage;
+        onDamageEvent.Invoke();
+        if (health <= 0)
+        {
+            SwitchState(LifeState.Dead);
+            health = 0;
+        }
+
+        UpdateHealthShader(health);
+
+        return IsDead();
+    }
+
+    public virtual bool TakeDamage(DamageData damageData, LifeSystem source = null)
+    {
+        health -= damageData.Damage;
         onDamageEvent.Invoke();
         if (health <= 0)
         {
@@ -90,13 +105,13 @@ public class LifeSystem : MonoBehaviour
         return lifeState == LifeState.Dead;
     }
 
-    
+
     [ContextMenu("UpdateHealth")]
-    public  virtual void UpdateHealthShader(float h)
+    public virtual void UpdateHealthShader(float h)
     {
         if (healthMaterial)
         {
-            healthMaterial.SetFloat("_CircleStrength", healthToDisplay.Evaluate(h/health_max));
+            healthMaterial.SetFloat("_CircleStrength", healthToDisplay.Evaluate(h / health_max));
         }
     }
 }

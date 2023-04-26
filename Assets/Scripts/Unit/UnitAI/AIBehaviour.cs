@@ -56,6 +56,12 @@ public abstract class AIBehaviour: ScriptableObject
     {
         return new Vector3();
     }
-    
+
+    public abstract void OnTakeDamage(UnitAIController controller, DamageData damageData, LifeSystem source);
+
+    protected void RetreatFromDamage(UnitController controller, DamageData damageData)
+    {
+        
+    }
     
 }

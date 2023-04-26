@@ -24,7 +24,7 @@ public class Attack_Projectile : UnitAttack
         Projectile newProjectile = Instantiate(projectile, transform.position, Quaternion.identity)
             .GetComponent<Projectile>();
         
-        newProjectile.Init(damage,layerMask);
+        newProjectile.Init(damage,layerMask, unitController);
         Vector3 trajectory = FindTrajectoryToTarget(target.Position, transform.position);
         newProjectile.LaunchVelocity(trajectory);
     }
@@ -38,7 +38,7 @@ public class Attack_Projectile : UnitAttack
         float y = gravityMagnitude * t / 2f + distance.y;
         Vector3 velocity = new Vector3(horizontal * distance.normalized.x, y, horizontal * distance.normalized.z);
 
-        Debug.Log($"Calculated Velocity: {velocity}, {velocity.magnitude}");
+        // Debug.Log($"Calculated Velocity: {velocity}, {velocity.magnitude}");
 
 
         return velocity;

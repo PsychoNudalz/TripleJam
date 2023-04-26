@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Overwatch_AIBehaviour : AIBehaviour
 {
+    [SerializeField]
+    private bool retreatFromDamage;
+
     public override int ChangeState_Enter(UnitAIController controller)
     {
         return 0;
@@ -24,6 +27,16 @@ public class Overwatch_AIBehaviour : AIBehaviour
     public override int FixedUpdateBehaviour(UnitAIController controller)
     {
         return CheckForUnit(controller);
+    }
+
+    public override void OnTakeDamage(UnitAIController controller, DamageData damageData, LifeSystem source)
+    {
+        if (retreatFromDamage)
+        {
+            controller.RetreatFromDamage(damageData);
+            controller.ChangeState(AIState.Move);
+
+        }
     }
 
     private int CheckForUnit(UnitAIController controller)

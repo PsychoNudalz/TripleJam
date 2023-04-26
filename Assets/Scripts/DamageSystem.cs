@@ -3,6 +3,26 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[AllowsNull]
+public struct DamageData
+{
+    private Vector3 point;
+    private float range;
+    private float damage;
+
+    public Vector3 Point => point;
+
+    public float Range => range;
+
+    public float Damage => damage;
+
+    public DamageData(Vector3 point, float range, float damage)
+    {
+        this.point = point;
+        this.range = range;
+        this.damage = damage;
+    }
+}
 
 /// <summary>
 /// to control damaging player
@@ -27,11 +47,6 @@ public class DamageSystem : MonoBehaviour
     [SerializeField]
     protected float LOSRange = 0;
 
-
-    public virtual void DealDamage(LifeSystem ls, float damage)
-    {
-        ls.TakeDamage(damage);
-    }
 
     public bool isLOS(LifeSystem target)
     {
@@ -69,17 +84,23 @@ public class DamageSystem : MonoBehaviour
 
     public static void DealDamage(LifeSystem ls, float damage, LifeSystem self = null)
     {
-        ls.TakeDamage(damage);
+        ls.TakeDamage(damage, self);
     }
 
-    public static void SphereCastDamage(Vector3 position, float damage, float range, LayerMask layerMask, LifeSystem self = null)
+    public static void DealDamage(LifeSystem ls, DamageData damageData, LifeSystem self = null)
+    {
+        ls.TakeDamage(damageData, self);
+    }
+
+    public static void SphereCastDamage(Vector3 position, float damage, float range, LayerMask layerMask,
+        LifeSystem self = null)
     {
         Collider[] colliders = Physics.OverlapSphere(position, range, layerMask);
         foreach (Collider collider in colliders)
         {
             if (collider.TryGetComponent(out LifeSystem lifeSystem))
             {
-                DealDamage(lifeSystem,damage,self);
+                DealDamage(lifeSystem, new DamageData(position,damage,range), self);
             }
         }
     }

@@ -28,4 +28,8 @@ public class Idle_AIBehaviour : AIBehaviour
         return 0;
 
     }
+
+    public override void OnTakeDamage(UnitAIController controller, DamageData damageData, LifeSystem source)
+    {
+    }
 }
