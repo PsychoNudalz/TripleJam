@@ -27,7 +27,9 @@ public class FactionBaseController : MonoBehaviour
     private float resources;
 
     [SerializeField]
-    private int resourcePerSecond;
+    private float resourcePerSecond;
+    [SerializeField]
+    private float resourceRatePerSecond;
 
     [Header("Components")]
     [SerializeField]
@@ -96,6 +98,7 @@ public class FactionBaseController : MonoBehaviour
     private void FixedUpdate()
     {
         resources += resourcePerSecond * Time.deltaTime;
+        resourcePerSecond +=  resourceRatePerSecond * Time.deltaTime;
         if (resourceText)
         {
             resourceText.text = resources.ToString("0");

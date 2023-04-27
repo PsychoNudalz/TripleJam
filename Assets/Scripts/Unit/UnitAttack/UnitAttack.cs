@@ -60,7 +60,7 @@ public class UnitAttack : MonoBehaviour
     public virtual void OnAttack_Action(UnitController target)
     {
         attackState = AttackState.Action;
-        Debug.Log($"{this} attack => {target}");
+        // Debug.Log($"{this} attack => {target}");
     }
 
     public virtual void OnAttack_Exit(UnitController target)
