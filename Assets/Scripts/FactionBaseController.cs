@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
-enum UnitFaction
+public enum UnitFaction
 {
     None,
     Attacker,

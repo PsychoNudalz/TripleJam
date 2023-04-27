@@ -5498,8 +5498,8 @@ MonoBehaviour:
   - {fileID: 242390370939050214, guid: fb536f5e3ce0aef4c8a12faa00a5ed88, type: 3}
   - {fileID: 1950734156213479615, guid: 89f40a46b45fc8a44a50719ed887315f, type: 3}
   - {fileID: 1950734156213479615, guid: 901a382eb5b27dc28966941822252833, type: 3}
-  resources: 50
-  resourcePerSecond: 5
+  resources: 100
+  resourcePerSecond: 6
   resourceRatePerSecond: 0
   playerInputController: {fileID: 854429910}
   resourceText: {fileID: 197912787}

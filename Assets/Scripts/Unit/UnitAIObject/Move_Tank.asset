@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Move_Tank
   m_EditorClassIdentifier: 
   overwatchWhenInRange: 1
-  stopOnAttack: 1
+  stopOnAttack: 0

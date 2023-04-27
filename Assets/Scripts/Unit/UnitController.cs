@@ -31,6 +31,8 @@ public class UnitController : MonoBehaviour
     [SerializeField]
     private UnitFaction faction = UnitFaction.Defender;
 
+    public UnitFaction Faction => faction;
+
     [SerializeField]
     private int cost = 0;
 
@@ -60,6 +62,14 @@ public class UnitController : MonoBehaviour
     public bool IsHostile(UnitController other)
     {
         return !other.faction.Equals(faction);
+    }    public bool IsFriendly(UnitFaction other)
+    {
+        return other.Equals(faction);
+    }
+
+    public bool IsHostile(UnitFaction other)
+    {
+        return !other.Equals(faction);
     }
 
     public void Init(Vector3 pos, Vector3 dir = default)
@@ -70,7 +80,7 @@ public class UnitController : MonoBehaviour
 
     private void Awake()
     {
-        if (unitLifeSystem)
+        if (!unitLifeSystem)
         {
             unitLifeSystem = GetComponent<UnitLifeSystem>();
         }

@@ -9,6 +9,8 @@ public class UnitLifeSystem : LifeSystem
     [SerializeField]
     private UnitController unitController;
 
+    public UnitController UnitController => unitController;
+
     private void Awake()
     {
         if (!unitController)

@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 185653562613628954, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
       propertyPath: cost
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 185653562613628954, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
@@ -96,6 +96,11 @@ PrefabInstance:
         type: 3}
       propertyPath: projectileTime
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 232672403605783391, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: projectileSpeed
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3762018107637143324, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}

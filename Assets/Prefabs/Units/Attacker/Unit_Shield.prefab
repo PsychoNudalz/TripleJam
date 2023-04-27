@@ -168,6 +168,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 185653562613628955, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
+      propertyPath: moveStopRange
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 185653562613628955, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
       propertyPath: unitAIBehaviourSet
       value: 
       objectReference: {fileID: 11400000, guid: 121b6e795690554448e50db1d8f2a40e,
@@ -222,6 +227,26 @@ PrefabInstance:
       propertyPath: acceleration
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6234128686938106619, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e4b6095324c2b04ab9e426e3040a653, type: 3}
+    - target: {fileID: 6234128686938106619, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: audioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4dcdd98ca25961e4987892fa65f2016a, type: 3}
+    - target: {fileID: 6234128686938106619, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: audioClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6544845b696521e46b2c15966c68eb7a, type: 3}
+    - target: {fileID: 6234128686938106619, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: audioClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 89e7386b841a55046ba65f26a10458e5, type: 3}
     - target: {fileID: 6857155036796684473, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
       propertyPath: health_max

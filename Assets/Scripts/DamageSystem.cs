@@ -82,25 +82,39 @@ public class DamageSystem : MonoBehaviour
         return false;
     }
 
-    public static void DealDamage(LifeSystem ls, float damage, LifeSystem self = null)
+    public static void DealDamage(LifeSystem ls, float damage, bool friendlyFire, LifeSystem self = null)
     {
         ls.TakeDamage(damage, self);
     }
 
-    public static void DealDamage(LifeSystem ls, DamageData damageData, LifeSystem self = null)
+    public static void DealDamage(LifeSystem ls, DamageData damageData, bool friendlyFire, UnitFaction faction = UnitFaction.None,LifeSystem self = null)
     {
-        ls.TakeDamage(damageData, self);
+        if (!friendlyFire )
+        {
+            if (ls is UnitLifeSystem u1)
+            {
+                if (u1.UnitController.IsHostile(faction))
+                {
+                    ls.TakeDamage(damageData, self);
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Friendly state ignored");
+            ls.TakeDamage(damageData, self);
+        }
     }
 
-    public static void SphereCastDamage(Vector3 position, float damage, float range, LayerMask layerMask,bool singleDamage = false,
-        LifeSystem self = null)
+    public static void SphereCastDamage(Vector3 position, float damage, float range, LayerMask layerMask,bool friendlyFire,bool singleDamage = false,
+        UnitFaction faction = UnitFaction.None,LifeSystem self = null)
     {
         Collider[] colliders = Physics.OverlapSphere(position, range, layerMask);
         foreach (Collider collider in colliders)
         {
             if (collider.TryGetComponent(out LifeSystem lifeSystem))
             {
-                DealDamage(lifeSystem, new DamageData(damage, position, range), self);
+                DealDamage(lifeSystem, new DamageData(damage, position, range), friendlyFire,faction, self);
                 if (singleDamage)
                 {
                     return;
@@ -110,7 +124,8 @@ public class DamageSystem : MonoBehaviour
     }
 
     public static void SphereCastDamage(Vector3 position, float damage, float range, LayerMask layerMask,
-        AnimationCurve damageCurve,bool singleDamage = false, LifeSystem self = null)
+        bool friendlyFire,
+        AnimationCurve damageCurve, bool singleDamage = false, UnitFaction faction = UnitFaction.None, LifeSystem self = null)
     {
         Collider[] colliders = Physics.OverlapSphere(position, range, layerMask);
         foreach (Collider collider in colliders)
@@ -118,7 +133,7 @@ public class DamageSystem : MonoBehaviour
             if (collider.TryGetComponent(out LifeSystem lifeSystem))
             {
                 float rangeScale = damageCurve.Evaluate((collider.transform.position - position).magnitude / range);
-                DealDamage(lifeSystem, new DamageData(damage*rangeScale, position, range), self);
+                DealDamage(lifeSystem, new DamageData(damage*rangeScale, position, range), friendlyFire,faction, self);
                 if (singleDamage)
                 {
                     return;

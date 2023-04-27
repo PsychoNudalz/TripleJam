@@ -14877,7 +14877,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   singleDamage: 1
-  damageCollision_Range: 1
+  friendlyFire: 0
+  damageCollision_Range: 3
   damageCurve:
     serializedVersion: 2
     m_Curve:
@@ -14933,7 +14934,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   delayDestroy: 3
-  disableColliderTime: 1
+  disableColliderTime: 0.5
   mainCollider: {fileID: 6637814488538376394}
   damageTrigger: {fileID: 1341585329936820734}
   zoneDisplay: {fileID: 7004885523800340918}
@@ -14963,8 +14964,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.1
-  m_Height: 0.3
+  m_Radius: 0.5
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &1341585329936820734
@@ -20033,7 +20034,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20057,7 +20058,7 @@ TrailRenderer:
   m_Time: 0.2
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 0.1
     widthCurve:
       serializedVersion: 2
       m_Curve:

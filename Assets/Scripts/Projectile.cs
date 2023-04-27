@@ -19,7 +19,6 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
 
-    [FormerlySerializedAs("damageMultiplier")]
     [Header("Damage")]
     [SerializeField]
     private float damageCollision_Multiplier = 1f;
@@ -32,6 +31,9 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private bool singleDamage = false;
 
+    [SerializeField]
+    private bool friendlyFire = false;
+
     [FormerlySerializedAs("damageRange")]
     [SerializeField]
     private float damageCollision_Range = 5f;
@@ -40,6 +42,7 @@ public class Projectile : MonoBehaviour
     private AnimationCurve damageCurve;
 
     [Space(5)]
+    [Header("Damage Over Time")]
     [SerializeField]
     private float damageOverTime_Duration = 0;
 
@@ -114,7 +117,7 @@ public class Projectile : MonoBehaviour
             {
                 DamageSystem.DealDamage(lifeSystem,
                     new DamageData(damage * damageOverTime_Multiplier * Time.fixedDeltaTime, transform.position,
-                        damageOverTime_Range));
+                        damageOverTime_Range), friendlyFire,sourceUnit.Faction,sourceUnit.ls);
             }
         }
     }
@@ -150,7 +153,7 @@ public class Projectile : MonoBehaviour
     {
         collisionEvent.Invoke();
         DamageSystem.SphereCastDamage(transform.position, damage * damageCollision_Multiplier, damageCollision_Range,
-            damageLayerMask, damageCurve, singleDamage);
+            damageLayerMask,friendlyFire, damageCurve, singleDamage,sourceUnit.Faction,sourceUnit.ls);
         if (damageOverTime_Duration > 0f)
         {
             StartCoroutine(DelayTrigger());

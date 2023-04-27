@@ -10,7 +10,7 @@ public class Attack_Projectile : UnitAttack
 
 
     [SerializeField]
-    private float projectileTime = 1;
+    private float projectileSpeed= 1;
 
 
     public override void OnAttack_Enter(UnitController target)
@@ -32,7 +32,7 @@ public class Attack_Projectile : UnitAttack
     Vector3 FindTrajectoryToTarget(Vector3 targetPos, Vector3 launchPos, bool flipYAngle = false)
     {
         Vector3 distance = targetPos - launchPos;
-        float t = projectileTime;
+        float t = distance.magnitude/projectileSpeed;
         float horizontal = (distance.magnitude / t);
         float gravityMagnitude = -(Physics.gravity.y);
         float y = gravityMagnitude * t / 2f + distance.y;
