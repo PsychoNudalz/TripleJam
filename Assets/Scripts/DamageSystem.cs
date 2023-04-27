@@ -11,12 +11,12 @@ public struct DamageData
     private float damage;
 
     public Vector3 Point => point;
+    public float Damage => damage;
 
     public float Range => range;
 
-    public float Damage => damage;
 
-    public DamageData(Vector3 point, float range, float damage)
+    public DamageData(float damage, Vector3 point, float range)
     {
         this.point = point;
         this.range = range;
@@ -100,7 +100,21 @@ public class DamageSystem : MonoBehaviour
         {
             if (collider.TryGetComponent(out LifeSystem lifeSystem))
             {
-                DealDamage(lifeSystem, new DamageData(position,damage,range), self);
+                DealDamage(lifeSystem, new DamageData(damage, position, range), self);
+            }
+        }
+    }
+
+    public static void SphereCastDamage(Vector3 position, float damage, float range, LayerMask layerMask,
+        AnimationCurve damageCurve, LifeSystem self = null)
+    {
+        Collider[] colliders = Physics.OverlapSphere(position, range, layerMask);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.TryGetComponent(out LifeSystem lifeSystem))
+            {
+                float rangeScale = damageCurve.Evaluate((collider.transform.position - position).magnitude / range);
+                DealDamage(lifeSystem, new DamageData(damage*rangeScale, position, range), self);
             }
         }
     }

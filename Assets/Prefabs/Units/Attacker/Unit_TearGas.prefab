@@ -69,6 +69,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 80581185921481838, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: volume
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 185653562613628953, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
       propertyPath: m_RootOrder
@@ -174,6 +179,87 @@ PrefabInstance:
     - target: {fileID: 232672403605783391, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
       propertyPath: projectileTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 232672403605783391, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: onAttackEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 232672403605783391, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: onAttackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 232672403605783391, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: onAttackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 232672403605783391, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: onAttackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 232672403605783391, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: onAttackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayF
+      objectReference: {fileID: 0}
+    - target: {fileID: 232672403605783391, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: onAttackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Sound, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 232672403605783391, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: onAttackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762018107637143324, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: audioClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762018107637143324, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 38ff1d6279221014b83a3ad484df06c7, type: 3}
+    - target: {fileID: 3762018107637143324, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: audioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: d0410ba7d815dc64aa887adfa74d2ec9, type: 3}
+    - target: {fileID: 3762018107637143324, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: audioClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 33e3bcabfb013394989530b15dadde3b, type: 3}
+    - target: {fileID: 3762018107637143324, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: audioClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: aeb3a22615e16bf428b3b10b019ee9db, type: 3}
+    - target: {fileID: 3763767193582725610, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d0410ba7d815dc64aa887adfa74d2ec9, type: 3}
+    - target: {fileID: 3763767193582725610, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3763767193582725610, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -2653147607963643321, guid: 1d3dcc652a2dc9940b462bdd6c5e6824,
+        type: 2}
+    - target: {fileID: 3763767193582725610, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5845886417771796297, guid: 27b402c6c953339cf8697fa5f13a9025,

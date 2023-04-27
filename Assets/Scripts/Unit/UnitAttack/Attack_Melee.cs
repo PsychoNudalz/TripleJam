@@ -12,7 +12,7 @@ public class Attack_Melee : UnitAttack
     public override void OnAttack_Action(UnitController target)
     {
         base.OnAttack_Action(target);
-        target.ls.TakeDamage(new DamageData(transform.position,2f,damage));
+        target.ls.TakeDamage(new DamageData(damage,transform.position, 2f));
     }
 
     public override void OnAttack_Exit(UnitController target)

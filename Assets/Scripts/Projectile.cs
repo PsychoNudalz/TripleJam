@@ -33,6 +33,10 @@ public class Projectile : MonoBehaviour
     private float damageCollision_Range = 5f;
 
     [SerializeField]
+    private AnimationCurve damageCurve;
+
+    [Space(5)]
+    [SerializeField]
     private float damageOverTime_Duration = 0;
 
     [SerializeField]
@@ -104,7 +108,7 @@ public class Projectile : MonoBehaviour
             foreach (LifeSystem lifeSystem in inTriggerUnit)
             {
                 DamageSystem.DealDamage(lifeSystem,
-                     new DamageData(transform.position,damageOverTime_Range,damage * damageOverTime_Multiplier * Time.deltaTime));
+                     new DamageData(damage * damageOverTime_Multiplier * Time.fixedDeltaTime,transform.position, damageOverTime_Range));
             }
         }
     }
@@ -139,7 +143,7 @@ public class Projectile : MonoBehaviour
     public virtual void OnCollisionBehaviour()
     {
         collisionEvent.Invoke();
-        DamageSystem.SphereCastDamage(transform.position, damage * damageCollision_Multiplier, damageCollision_Range, layerMask);
+        DamageSystem.SphereCastDamage(transform.position, damage * damageCollision_Multiplier, damageCollision_Range, layerMask,damageCurve);
         if (damageOverTime_Duration > 0f)
         {
             StartCoroutine(DelayTrigger());

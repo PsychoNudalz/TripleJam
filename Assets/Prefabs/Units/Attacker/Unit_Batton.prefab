@@ -124,6 +124,31 @@ PrefabInstance:
       propertyPath: projectileTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3762018107637143324, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: audioClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762018107637143324, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fc689b444d3022847b613e215d87af0e, type: 3}
+    - target: {fileID: 3762018107637143324, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: audioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d82b9e64aeb172489cde4536fec6052, type: 3}
+    - target: {fileID: 3762018107637143324, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: audioClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: ff8e40c6972781f4facc2af4bfb0a5ef, type: 3}
+    - target: {fileID: 5183102669573887027, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: m_Name
+      value: AttackSound
+      objectReference: {fileID: 0}
     - target: {fileID: 5845886417771796297, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
       propertyPath: moveSpeed
@@ -192,7 +217,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAttackEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7040981982033689213}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   damage: 20
   cooldown: 1
   layerMask:
@@ -210,5 +247,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e55b1219987eeccf8248721e5e3bd5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7040981982033689213 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3762018107637143324, guid: 27b402c6c953339cf8697fa5f13a9025,
+    type: 3}
+  m_PrefabInstance: {fileID: 6161988925214141793}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7298e42ea783c7e45ae2b7251c1f406d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
