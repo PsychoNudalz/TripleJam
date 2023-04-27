@@ -149,6 +149,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AttackSound
       objectReference: {fileID: 0}
+    - target: {fileID: 5658297402580560807, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: MinDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5845886417771796297, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
       propertyPath: moveSpeed
@@ -234,7 +239,7 @@ MonoBehaviour:
   cooldown: 1
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   separateAction: 0
   unitController: {fileID: 6273613966574398843}
 --- !u!114 &6273613966574398843 stripped

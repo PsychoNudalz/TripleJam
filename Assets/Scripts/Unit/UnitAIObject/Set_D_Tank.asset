@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0001e9f88c63ef04c94bd4bfa25b973d, type: 3}
-  m_Name: Set_Attack
+  m_Name: Set_D_Tank
   m_EditorClassIdentifier: 
   idleAIBehaviour: {fileID: 11400000, guid: 78bf1e8e51a5fb34cbd25947d7a6bf07, type: 2}
-  moveAIBehaviour: {fileID: 11400000, guid: 9b3cb65e24e57d2c9b12d0a8aceba6d7, type: 2}
-  overwatchAIBehaviour: {fileID: 11400000, guid: 62b772202ef56f745b6413dde52e0597,
+  moveAIBehaviour: {fileID: 11400000, guid: e634a16f697529e468e38b0b6a15846a, type: 2}
+  overwatchAIBehaviour: {fileID: 11400000, guid: e1bfbcd6d8d9dfc4ca6c6087a65af1e6,
     type: 2}
   attackAIBehaviour: {fileID: 11400000, guid: 83af809821201df47b7490253a2976d0, type: 2}
-  reloadAIBehaviour: {fileID: 11400000, guid: 95a1166c3727c7042a7e164aa1c36f1a, type: 2}
+  reloadAIBehaviour: {fileID: 11400000, guid: 50e1f92fe7c5e124682798a52e284fd8, type: 2}

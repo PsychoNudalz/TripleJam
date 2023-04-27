@@ -8,6 +8,12 @@ public class Overwatch_AIBehaviour : AIBehaviour
     [SerializeField]
     private bool retreatFromDamage;
 
+    [SerializeField]
+    private bool notAttack;
+
+    [SerializeField]
+    private bool moveIfNoUnitsFound;
+
     public override int ChangeState_Enter(UnitAIController controller)
     {
         return 0;
@@ -26,7 +32,18 @@ public class Overwatch_AIBehaviour : AIBehaviour
 
     public override int PeriodUpdateBehaviour(UnitAIController controller)
     {
-        return CheckForUnit(controller);
+        if (notAttack)
+        {
+            return 0;
+        }
+
+        int unitCheck = CheckForUnit(controller);
+        if (moveIfNoUnitsFound && unitCheck == 0)
+        {
+            controller.ChangeState(AIState.Move);
+            return 1;
+        }
+        return unitCheck;
     }
 
     public override void OnTakeDamage(UnitAIController controller, DamageData damageData, LifeSystem source)

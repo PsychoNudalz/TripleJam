@@ -10,6 +10,9 @@ public class Move_AIBehaviour : AIBehaviour
     [FormerlySerializedAs("OverwatchWhenInRange")]
     [SerializeField]
     private bool overwatchWhenInRange = false;
+
+    [SerializeField]
+    private bool stopOnAttack = false;
     
     public override int ChangeState_Enter(UnitAIController controller)
     {
@@ -52,5 +55,9 @@ public class Move_AIBehaviour : AIBehaviour
 
     public override void OnTakeDamage(UnitAIController controller, DamageData damageData, LifeSystem source)
     {
+        if (stopOnAttack)
+        {
+            controller.MoveStop();
+        }
     }
 }

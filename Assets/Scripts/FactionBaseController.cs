@@ -121,6 +121,22 @@ public class FactionBaseController : MonoBehaviour
             SpawnUnit(1, transform.position, WaypointController.main.position);
         }
     }
+    public void OnUnit_3(InputValue inputValue)
+    {
+        if (inputValue.isPressed)
+        {
+            playerInputController.UpdateWaypointToCursor();
+            SpawnUnit(2, transform.position, WaypointController.main.position);
+        }
+    }
+    public void OnUnit_4(InputValue inputValue)
+    {
+        if (inputValue.isPressed)
+        {
+            playerInputController.UpdateWaypointToCursor();
+            SpawnUnit(3, transform.position, WaypointController.main.position);
+        }
+    }
 
     /// <summary>
     /// true if spawns
