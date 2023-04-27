@@ -8,14 +8,14 @@ using UnityEngine.Serialization;
 
 public class Projectile : MonoBehaviour
 {
-
     enum ProjectileState
     {
         Launch,
         Collide
     }
-    
+
     ProjectileState projectileState = ProjectileState.Launch;
+
     [SerializeField]
     private Rigidbody rb;
 
@@ -26,7 +26,11 @@ public class Projectile : MonoBehaviour
 
     private float damage;
 
-    private LayerMask layerMask;
+    [SerializeField]
+    private LayerMask damageLayerMask;
+
+    [SerializeField]
+    private bool singleDamage = false;
 
     [FormerlySerializedAs("damageRange")]
     [SerializeField]
@@ -41,9 +45,10 @@ public class Projectile : MonoBehaviour
 
     [SerializeField]
     private float damageOverTime_Multiplier = 1f;
+
     [SerializeField]
     private float damageOverTime_Range = 0f;
-    
+
 
     [Space(10)]
     [SerializeField]
@@ -86,7 +91,7 @@ public class Projectile : MonoBehaviour
         if (damageTrigger)
         {
             damageTrigger.enabled = false;
-            if(damageTrigger is SphereCollider sc)
+            if (damageTrigger is SphereCollider sc)
             {
                 sc.radius = damageOverTime_Range;
             }
@@ -97,7 +102,7 @@ public class Projectile : MonoBehaviour
     {
         if (projectileState == ProjectileState.Collide)
         {
-            Gizmos.DrawSphere(transform.position,damageOverTime_Range);
+            Gizmos.DrawSphere(transform.position, damageOverTime_Range);
         }
     }
 
@@ -108,7 +113,8 @@ public class Projectile : MonoBehaviour
             foreach (LifeSystem lifeSystem in inTriggerUnit)
             {
                 DamageSystem.DealDamage(lifeSystem,
-                     new DamageData(damage * damageOverTime_Multiplier * Time.fixedDeltaTime,transform.position, damageOverTime_Range));
+                    new DamageData(damage * damageOverTime_Multiplier * Time.fixedDeltaTime, transform.position,
+                        damageOverTime_Range));
             }
         }
     }
@@ -116,7 +122,7 @@ public class Projectile : MonoBehaviour
     public virtual void Init(float baseDamage, LayerMask layerMask, UnitController source)
     {
         damage = baseDamage;
-        this.layerMask = layerMask;
+        damageLayerMask = layerMask;
         sourceUnit = source;
     }
 
@@ -143,7 +149,8 @@ public class Projectile : MonoBehaviour
     public virtual void OnCollisionBehaviour()
     {
         collisionEvent.Invoke();
-        DamageSystem.SphereCastDamage(transform.position, damage * damageCollision_Multiplier, damageCollision_Range, layerMask,damageCurve);
+        DamageSystem.SphereCastDamage(transform.position, damage * damageCollision_Multiplier, damageCollision_Range,
+            damageLayerMask, damageCurve, singleDamage);
         if (damageOverTime_Duration > 0f)
         {
             StartCoroutine(DelayTrigger());
@@ -151,8 +158,8 @@ public class Projectile : MonoBehaviour
 
         rb.isKinematic = true;
         projectileState = ProjectileState.Collide;
-        transform.rotation= Quaternion.identity;
-        Destroy(gameObject, delayDestroy+damageOverTime_Duration);
+        transform.rotation = Quaternion.identity;
+        Destroy(gameObject, delayDestroy + damageOverTime_Duration);
     }
 
     IEnumerator DelayCollider()
@@ -170,9 +177,9 @@ public class Projectile : MonoBehaviour
             zoneDisplay.localScale = new Vector3(damageOverTime_Range * 2f, zoneDisplay.localScale.y,
                 damageOverTime_Range * 2f);
         }
+
         yield return new WaitForSeconds(damageOverTime_Duration);
         damageTrigger.enabled = false;
-
     }
 
     private void OnTriggerEnter(Collider other)

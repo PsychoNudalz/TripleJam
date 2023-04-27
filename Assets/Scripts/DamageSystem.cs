@@ -92,7 +92,7 @@ public class DamageSystem : MonoBehaviour
         ls.TakeDamage(damageData, self);
     }
 
-    public static void SphereCastDamage(Vector3 position, float damage, float range, LayerMask layerMask,
+    public static void SphereCastDamage(Vector3 position, float damage, float range, LayerMask layerMask,bool singleDamage = false,
         LifeSystem self = null)
     {
         Collider[] colliders = Physics.OverlapSphere(position, range, layerMask);
@@ -101,12 +101,16 @@ public class DamageSystem : MonoBehaviour
             if (collider.TryGetComponent(out LifeSystem lifeSystem))
             {
                 DealDamage(lifeSystem, new DamageData(damage, position, range), self);
+                if (singleDamage)
+                {
+                    return;
+                }
             }
         }
     }
 
     public static void SphereCastDamage(Vector3 position, float damage, float range, LayerMask layerMask,
-        AnimationCurve damageCurve, LifeSystem self = null)
+        AnimationCurve damageCurve,bool singleDamage = false, LifeSystem self = null)
     {
         Collider[] colliders = Physics.OverlapSphere(position, range, layerMask);
         foreach (Collider collider in colliders)
@@ -115,6 +119,10 @@ public class DamageSystem : MonoBehaviour
             {
                 float rangeScale = damageCurve.Evaluate((collider.transform.position - position).magnitude / range);
                 DealDamage(lifeSystem, new DamageData(damage*rangeScale, position, range), self);
+                if (singleDamage)
+                {
+                    return;
+                }
             }
         }
     }

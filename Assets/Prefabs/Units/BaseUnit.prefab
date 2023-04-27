@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 1540031164139460031}
   - component: {fileID: 1843500539440516938}
   - component: {fileID: 4897372974815407785}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 4324911611380635353}
   - component: {fileID: 4324911611380635359}
   - component: {fileID: 4324911611380635358}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Impact black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5137,7 +5137,7 @@ GameObject:
   - component: {fileID: 4324911611771363512}
   - component: {fileID: 4324911611771363518}
   - component: {fileID: 4324911611771363513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9911,7 +9911,7 @@ GameObject:
   - component: {fileID: 4324911612344723389}
   - component: {fileID: 4324911612344723331}
   - component: {fileID: 4324911612344723330}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sparks black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14686,7 +14686,7 @@ GameObject:
   - component: {fileID: 4383523288566578394}
   - component: {fileID: 4383523288566578405}
   - component: {fileID: 4383523288566578392}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CFXR Impact Contrast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19467,7 +19467,7 @@ GameObject:
   - component: {fileID: 4383523288829669970}
   - component: {fileID: 4383523288829669968}
   - component: {fileID: 4383523288829669971}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24348,7 +24348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4288110251561849307}
   - component: {fileID: 6234128686938106619}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpawnSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24432,7 +24432,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 752067645271670613}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24466,7 +24466,7 @@ GameObject:
   - component: {fileID: 2898412163473365077}
   - component: {fileID: 5658297402580560807}
   - component: {fileID: 348495436795497002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24614,7 +24614,7 @@ GameObject:
   - component: {fileID: 4816107159432897728}
   - component: {fileID: 2396364025329145895}
   - component: {fileID: 80581185921481838}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24761,7 +24761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3770717472768936226}
   - component: {fileID: 3762018107637143324}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24809,7 +24809,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 421185449396011038}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}

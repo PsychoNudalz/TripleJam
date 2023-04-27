@@ -14873,6 +14873,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 657767369303874010}
   damageCollision_Multiplier: 1
+  damageLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  singleDamage: 1
   damageCollision_Range: 1
   damageCurve:
     serializedVersion: 2
