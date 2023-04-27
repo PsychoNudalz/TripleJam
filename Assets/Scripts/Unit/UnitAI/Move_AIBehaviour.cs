@@ -29,7 +29,7 @@ public class Move_AIBehaviour : AIBehaviour
         return 0;
     }
 
-    public override int FixedUpdateBehaviour(UnitAIController controller)
+    public override int PeriodUpdateBehaviour(UnitAIController controller)
     {
         if (overwatchWhenInRange)
         {

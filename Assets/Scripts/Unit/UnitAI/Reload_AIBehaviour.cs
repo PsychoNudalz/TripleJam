@@ -22,17 +22,18 @@ public class Reload_AIBehaviour : AIBehaviour
 
     public override int UpdateBehaviour(UnitAIController controller)
     {
-        return 0;
-    }
-
-    public override int FixedUpdateBehaviour(UnitAIController controller)
-    {
         reloadTime -= Time.deltaTime;
         if (reloadTime < 0)
         {
             controller.ChangeState(AIState.Overwatch);
             return 1;
         }
+        return 0;
+    }
+
+    public override int PeriodUpdateBehaviour(UnitAIController controller)
+    {
+
         return 0;
     }
 

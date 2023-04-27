@@ -20,11 +20,11 @@ public class Overwatch_AIBehaviour : AIBehaviour
 
     public override int UpdateBehaviour(UnitAIController controller)
     {
-        return CheckForUnit(controller);
+        return 0;
 
     }
 
-    public override int FixedUpdateBehaviour(UnitAIController controller)
+    public override int PeriodUpdateBehaviour(UnitAIController controller)
     {
         return CheckForUnit(controller);
     }

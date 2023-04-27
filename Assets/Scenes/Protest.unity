@@ -1953,6 +1953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   faction: 0
   units:
+  - {fileID: 6273613966574398843, guid: 650edf26be288498f8439a405d542086, type: 3}
   - {fileID: 6273613966574398843, guid: 21ad95b1afa2ac6f89f64814e5aa2b13, type: 3}
   resources: 0
   resourcePerSecond: 20
@@ -2948,6 +2949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   faction: 0
   units:
+  - {fileID: 1950734156213479615, guid: 89f40a46b45fc8a44a50719ed887315f, type: 3}
   - {fileID: 1950734156213479615, guid: 901a382eb5b27dc28966941822252833, type: 3}
   resources: 50
   resourcePerSecond: 2
@@ -6589,7 +6591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8a72e5e9ff4964b831890ad0a2cf28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 0.2
   moveDir: {x: 0, y: 0}
 --- !u!114 &854429912
 MonoBehaviour:
@@ -11152,7 +11154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402504481}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.0412152, y: 0, z: 19.11955}
+  m_LocalPosition: {x: -2.0412152, y: 0, z: 14.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using Random = UnityEngine.Random;
 
 public enum AIState
 {
@@ -28,6 +29,12 @@ public class UnitAIController : MonoBehaviour
     [SerializeField]
     private UnitAIBehaviour_Set unitAIBehaviourSet;
 
+    [Header("Period Update")]
+    [SerializeField]
+    private float thinkRate = 1f;
+
+    float thinkNow = 0;
+
     [Header("States")]
     [SerializeField]
     private bool isStationary = true;
@@ -38,8 +45,10 @@ public class UnitAIController : MonoBehaviour
 
     [SerializeField]
     private float moveStopRange = 5f;
+
     [SerializeField]
     private float attackRange = 10f;
+
 
     [Header("Attack")]
     [SerializeField]
@@ -77,6 +86,7 @@ public class UnitAIController : MonoBehaviour
 
         unitAIBehaviourSet = Instantiate(unitAIBehaviourSet, transform);
         unitAIBehaviourSet.Init();
+        thinkNow = Random.Range(-thinkRate,0);
     }
 
     // Start is called before the first frame update
@@ -92,29 +102,33 @@ public class UnitAIController : MonoBehaviour
         {
             return;
         }
-        currentBehaviour.UpdateBehaviour(this);
-    }
 
-    private void FixedUpdate()
-    {
-        if (aiState == AIState.Dead)
+        currentBehaviour.UpdateBehaviour(this);
+
+        if (thinkNow < 0)
         {
-            return;
+            thinkNow += thinkRate;
+            currentBehaviour.PeriodUpdateBehaviour(this);
         }
-        currentBehaviour.FixedUpdateBehaviour(this);
+        else
+        {
+            thinkNow -= Time.deltaTime;
+        }
     }
 
     public void ChangeState(AIState aiState)
     {
         currentBehaviour.ChangeState_Exit(this);
+        this.aiState = aiState;
+
         // Debug.Log($"{this} change state: {this.aiState} => {aiState}");
         if (aiState == AIState.Dead)
         {
             enabled = false;
             return;
         }
+
         currentBehaviour = unitAIBehaviourSet.GetBehaviour(aiState);
-        this.aiState = aiState;
         currentBehaviour.ChangeState_Enter(this);
     }
 
@@ -122,10 +136,10 @@ public class UnitAIController : MonoBehaviour
     {
         unitController.OnMove(newPoint);
     }
-    
-    public void SetMovePosition(Vector3 pos,Vector3 dir)
+
+    public void SetMovePosition(Vector3 pos, Vector3 dir)
     {
-        unitController.SetTargetPos(pos,dir);
+        unitController.SetTargetPos(pos, dir);
     }
 
 
@@ -138,6 +152,7 @@ public class UnitAIController : MonoBehaviour
     {
         unitController.MoveStop();
     }
+
     public bool IsMoving => unitController.IsMoving;
 
     public void OnAttack()
@@ -157,7 +172,7 @@ public class UnitAIController : MonoBehaviour
     {
         currentBehaviour.OnTakeDamage(this, damageData, source);
     }
-    
+
     public void RetreatFromDamage(DamageData damageData)
     {
         unitController.SetTargetPos(unitController.GetRetreatPos(damageData));

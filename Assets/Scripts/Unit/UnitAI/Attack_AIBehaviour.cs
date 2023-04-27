@@ -18,10 +18,14 @@ public class Attack_AIBehaviour : AIBehaviour
 
     public override int UpdateBehaviour(UnitAIController controller)
     {
+        if (!controller.Attack.IsAttacking)
+        {
+            controller.ChangeState(AIState.Reload);
+        }
         return 0;
     }
 
-    public override int FixedUpdateBehaviour(UnitAIController controller)
+    public override int PeriodUpdateBehaviour(UnitAIController controller)
     {
         if (!controller.Attack.IsAttacking)
         {

@@ -17,7 +17,7 @@ public abstract class AIBehaviour: ScriptableObject
 
     public abstract int UpdateBehaviour(UnitAIController controller);
 
-    public abstract int FixedUpdateBehaviour(UnitAIController controller);
+    public abstract int PeriodUpdateBehaviour(UnitAIController controller);
 
     public static UnitController DetectUnit(UnitAIController controller, float range)
     {

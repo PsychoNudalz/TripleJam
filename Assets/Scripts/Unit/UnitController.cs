@@ -16,12 +16,16 @@ public class UnitController : MonoBehaviour
     [SerializeField]
     private Movement movement;
 
+    [FormerlySerializedAs("targetPosition")]
     [SerializeField]
-    private Vector3 targetPosition;
+    private Vector3 MovePosition;
 
 
     [SerializeField]
     Vector3 facingDirection;
+
+    [SerializeField]
+    private Vector3 destinationPosition;
 
     [Header("States")]
     [SerializeField]
@@ -56,8 +60,10 @@ public class UnitController : MonoBehaviour
         return !other.faction.Equals(faction);
     }
 
-    public void Init()
+    public void Init(Vector3 pos, Vector3 dir = default)
     {
+        destinationPosition = pos;
+        SetMovePos(pos,dir);
     }
 
     private void Awake()
@@ -94,17 +100,29 @@ public class UnitController : MonoBehaviour
 
     public void OnMove()
     {
-        movement.MoveToTarget(targetPosition, facingDirection);
+        movement.MoveToTarget(MovePosition, facingDirection);
     }
 
     public void SetTargetPos(Vector3 pos, Vector3 dir = default)
     {
-        targetPosition = pos;
+        destinationPosition = pos;
+        MovePosition = pos;
         if (!dir.Equals(default))
         {
             facingDirection = dir;
         }
     }
+    
+    public void SetMovePos(Vector3 pos, Vector3 dir = default)
+    {
+        MovePosition = pos;
+        if (!dir.Equals(default))
+        {
+            facingDirection = dir;
+        }
+    }
+
+
 
     public Vector3 GetRetreatPos(DamageData damageData)
     {
@@ -125,6 +143,7 @@ public class UnitController : MonoBehaviour
     {
         movement.StopMove();
     }
+    
 
     public void OnTakeDamage(LifeSystem source, DamageData damageData)
     {

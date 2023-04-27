@@ -23,7 +23,7 @@ public class Idle_AIBehaviour : AIBehaviour
 
     }
 
-    public override int FixedUpdateBehaviour(UnitAIController controller)
+    public override int PeriodUpdateBehaviour(UnitAIController controller)
     {
         return 0;
 

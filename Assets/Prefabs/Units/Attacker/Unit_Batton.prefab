@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 185653562613628954, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
       propertyPath: cost
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 185653562613628954, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
@@ -74,8 +74,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 185653562613628955, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
+      propertyPath: attack
+      value: 
+      objectReference: {fileID: 1713314566874197904}
+    - target: {fileID: 185653562613628955, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 185653562613628955, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
       propertyPath: moveStopRange
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 185653562613628955, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
@@ -159,5 +169,46 @@ PrefabInstance:
       propertyPath: health_max
       value: 50
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 232672403605783391, guid: 27b402c6c953339cf8697fa5f13a9025, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 27b402c6c953339cf8697fa5f13a9025, type: 3}
+--- !u!1 &6273613966574398791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 185653562613628966, guid: 27b402c6c953339cf8697fa5f13a9025,
+    type: 3}
+  m_PrefabInstance: {fileID: 6161988925214141793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1713314566874197904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6273613966574398791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b24ac6fb343d894cbc0f3bce867a7e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onAttackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  damage: 20
+  cooldown: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  separateAction: 0
+  unitController: {fileID: 6273613966574398843}
+--- !u!114 &6273613966574398843 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 185653562613628954, guid: 27b402c6c953339cf8697fa5f13a9025,
+    type: 3}
+  m_PrefabInstance: {fileID: 6161988925214141793}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6273613966574398791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e55b1219987eeccf8248721e5e3bd5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
