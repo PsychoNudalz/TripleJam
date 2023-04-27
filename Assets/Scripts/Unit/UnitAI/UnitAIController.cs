@@ -24,6 +24,13 @@ public class UnitAIController : MonoBehaviour
     private AIState aiState = AIState.Idle;
 
     [SerializeField]
+    private AIState aiState_p = AIState.Idle;
+
+    public AIState AIState => aiState;
+
+    public AIState AIStateP => aiState_p;
+
+    [SerializeField]
     private AIBehaviour currentBehaviour;
 
     [SerializeField]
@@ -86,7 +93,7 @@ public class UnitAIController : MonoBehaviour
 
         unitAIBehaviourSet = Instantiate(unitAIBehaviourSet, transform);
         unitAIBehaviourSet.Init();
-        thinkNow = Random.Range(-thinkRate,0);
+        thinkNow = Random.Range(-thinkRate, 0);
     }
 
     // Start is called before the first frame update
@@ -118,6 +125,7 @@ public class UnitAIController : MonoBehaviour
 
     public void ChangeState(AIState aiState)
     {
+        aiState_p = this.aiState;
         currentBehaviour.ChangeState_Exit(this);
         this.aiState = aiState;
 
@@ -148,6 +156,11 @@ public class UnitAIController : MonoBehaviour
         unitController.OnMove();
     }
 
+    public void OnMoveDestination()
+    {
+        unitController.OnMoveDestination();
+    }
+
     public void MoveStop()
     {
         unitController.MoveStop();
@@ -157,17 +170,17 @@ public class UnitAIController : MonoBehaviour
 
     public bool OnAttack()
     {
-
         if (!targetUnit || targetUnit.IsDead)
         {
             return false;
         }
+
         if (attack)
         {
             attack.OnAttack_Enter(targetUnit);
         }
-        return true;
 
+        return true;
     }
 
     public void SetTarget(UnitController target)

@@ -16,7 +16,16 @@ public class Move_AIBehaviour : AIBehaviour
     
     public override int ChangeState_Enter(UnitAIController controller)
     {
-        controller.OnMove();
+        if (controller.AIStateP == AIState.Overwatch)
+        {
+            controller.OnMoveDestination();
+        }
+        else
+        {
+            controller.OnMove();
+
+        }
+
         return 0;
     }
 

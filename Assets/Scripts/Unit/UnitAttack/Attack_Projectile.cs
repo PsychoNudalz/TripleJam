@@ -12,6 +12,9 @@ public class Attack_Projectile : UnitAttack
     [SerializeField]
     private float projectileSpeed= 1;
 
+    [SerializeField]
+    private Vector3 launchOffset = new Vector3(0, 0.5f, 0);
+
 
     public override void OnAttack_Enter(UnitController target)
     {
@@ -21,7 +24,7 @@ public class Attack_Projectile : UnitAttack
     public override void OnAttack_Action(UnitController target)
     {
         base.OnAttack_Action(target);
-        Projectile newProjectile = Instantiate(projectile, transform.position, Quaternion.identity)
+        Projectile newProjectile = Instantiate(projectile, transform.position+launchOffset, Quaternion.identity)
             .GetComponent<Projectile>();
         
         newProjectile.Init(damage,layerMask, unitController);

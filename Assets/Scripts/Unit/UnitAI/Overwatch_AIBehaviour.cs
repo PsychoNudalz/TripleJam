@@ -41,7 +41,7 @@ public class Overwatch_AIBehaviour : AIBehaviour
         if (moveIfNoUnitsFound && unitCheck == 0)
         {
             controller.ChangeState(AIState.Move);
-            return 1;
+            return 2;
         }
         return unitCheck;
     }

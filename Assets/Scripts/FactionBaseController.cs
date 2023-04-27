@@ -43,7 +43,8 @@ public class FactionBaseController : MonoBehaviour
 
     [SerializeField]
     private Vector2 randomSpawnTime = new Vector2(3f, 10f);
-
+    [SerializeField]
+    private int maxUnitPerWave = 50;
     float spawnTime_Now = 0;
 
     [SerializeField]
@@ -55,7 +56,6 @@ public class FactionBaseController : MonoBehaviour
     [SerializeField]
     private Transform target;
 
-    private int maxUnitPerWave;
 
     private float spawnTime => Random.Range(randomSpawnTime.x, randomSpawnTime.y);
 
@@ -81,7 +81,6 @@ public class FactionBaseController : MonoBehaviour
             if (spawnTime_Now < 0)
             {
                 bool spawnUnit = true;
-                maxUnitPerWave = 50;
                 for (int i = 0; i < maxUnitPerWave && spawnUnit; i++)
                 {
                     Vector3 randomSpawn = GetRandomSpawn();

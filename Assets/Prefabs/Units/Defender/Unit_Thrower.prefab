@@ -180,6 +180,11 @@ PrefabInstance:
       propertyPath: projectileSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 348495436795497002, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3762018107637143324, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
       propertyPath: audioClips.Array.size
@@ -205,6 +210,11 @@ PrefabInstance:
       propertyPath: audioClips.Array.data[3]
       value: 
       objectReference: {fileID: 8300000, guid: 9bc6018d4c48c454ea43d1295dc2f402, type: 3}
+    - target: {fileID: 5658297402580560807, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: MinDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5845886417771796297, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
       propertyPath: moveSpeed

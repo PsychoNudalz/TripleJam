@@ -16,9 +16,10 @@ public class UnitController : MonoBehaviour
     [SerializeField]
     private Movement movement;
 
+    [FormerlySerializedAs("MovePosition")]
     [FormerlySerializedAs("targetPosition")]
     [SerializeField]
-    private Vector3 MovePosition;
+    private Vector3 movePosition;
 
 
     [SerializeField]
@@ -112,13 +113,18 @@ public class UnitController : MonoBehaviour
 
     public void OnMove()
     {
-        movement.MoveToTarget(MovePosition, facingDirection);
+        movement.MoveToTarget(movePosition, facingDirection);
+    }
+    
+    public void OnMoveDestination()
+    {
+        movement.MoveToTarget(destinationPosition, facingDirection);
     }
 
     public void SetTargetPos(Vector3 pos, Vector3 dir = default)
     {
         destinationPosition = pos;
-        MovePosition = pos;
+        movePosition = pos;
         if (!dir.Equals(default))
         {
             facingDirection = dir;
@@ -127,7 +133,7 @@ public class UnitController : MonoBehaviour
     
     public void SetMovePos(Vector3 pos, Vector3 dir = default)
     {
-        MovePosition = pos;
+        movePosition = pos;
         if (!dir.Equals(default))
         {
             facingDirection = dir;
