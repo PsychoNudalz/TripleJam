@@ -49,6 +49,8 @@ public class UnitController : MonoBehaviour
     public LifeSystem ls => unitLifeSystem;
 
     public Vector3 AttackDir => facingDirection;
+    public bool IsAlive => unitLifeSystem.IsAlive();
+    public bool IsDead => unitLifeSystem.IsDead();
 
     public bool IsFriendly(UnitController other)
     {

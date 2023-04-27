@@ -155,12 +155,19 @@ public class UnitAIController : MonoBehaviour
 
     public bool IsMoving => unitController.IsMoving;
 
-    public void OnAttack()
+    public bool OnAttack()
     {
+
+        if (!targetUnit || targetUnit.IsDead)
+        {
+            return false;
+        }
         if (attack)
         {
             attack.OnAttack_Enter(targetUnit);
         }
+        return true;
+
     }
 
     public void SetTarget(UnitController target)

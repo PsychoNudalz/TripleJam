@@ -103,6 +103,9 @@ public class LifeSystem : MonoBehaviour
     public virtual bool IsDead()
     {
         return lifeState == LifeState.Dead;
+    }    public virtual bool IsAlive()
+    {
+        return lifeState == LifeState.Alive;
     }
 
 

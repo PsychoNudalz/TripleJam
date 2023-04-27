@@ -7,7 +7,15 @@ public class Attack_AIBehaviour : AIBehaviour
 {
     public override int ChangeState_Enter(UnitAIController controller)
     {
-        controller.OnAttack();
+        if (controller.OnAttack())
+        {
+            
+        }
+        else
+        {
+            controller.ChangeState(AIState.Overwatch);
+
+        }
         return 0;
     }
 
