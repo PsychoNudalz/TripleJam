@@ -178,4 +178,9 @@ public class UnitController : MonoBehaviour
             return;
         }
     }
+
+    public string UnitDisplay()
+    {
+        return $"{name}\n Cost:{cost}";
+    }
 }

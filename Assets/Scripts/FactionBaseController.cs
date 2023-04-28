@@ -37,10 +37,15 @@ public class FactionBaseController : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI resourceText;
+
+    [SerializeField]
+    private UI_UnitsDisplay unitsDisplay;
     [Header("Spawning")]
     [SerializeField]
     private bool autoSpawn = false;
 
+    [SerializeField]
+    private int[] spawnDistributions;
     [SerializeField]
     private Vector2 randomSpawnTime = new Vector2(3f, 10f);
     [SerializeField]
@@ -56,6 +61,8 @@ public class FactionBaseController : MonoBehaviour
     [SerializeField]
     private Transform target;
 
+    private List<int> distribution;
+
 
     private float spawnTime => Random.Range(randomSpawnTime.x, randomSpawnTime.y);
 
@@ -70,6 +77,11 @@ public class FactionBaseController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InitDistribution();
+        if (unitsDisplay)
+        {
+            unitsDisplay.UpdateUI(units);
+        }
     }
 
     // Update is called once per frame
@@ -84,11 +96,35 @@ public class FactionBaseController : MonoBehaviour
                 for (int i = 0; i < maxUnitPerWave && spawnUnit; i++)
                 {
                     Vector3 randomSpawn = GetRandomSpawn();
-                    spawnUnit = SpawnUnit(Random.Range(0, units.Length), randomSpawn, GetAdjacentPosition(randomSpawn));
+                    spawnUnit = SpawnUnit(GetRandomUnitIndex(), randomSpawn, GetAdjacentPosition(randomSpawn));
                     
                 }
 
                 spawnTime_Now = spawnTime;
+            }
+        }
+    }
+
+    private int GetRandomUnitIndex()
+    {
+        if (distribution.Count > 0)
+        {
+            return distribution[Random.Range(0, distribution.Count)];
+        }
+        return Random.Range(0, units.Length);
+    }
+
+    private void InitDistribution()
+    {
+        if (spawnDistributions.Length > 0)
+        {
+            distribution = new List<int>();
+            for (int i = 0; i < spawnDistributions.Length; i++)
+            {
+                for (int j = 0; j < spawnDistributions[i]; j++)
+                {
+                    distribution.Add(i);
+                }
             }
         }
     }
