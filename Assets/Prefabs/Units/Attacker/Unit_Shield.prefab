@@ -192,6 +192,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7d22fc6b9a431b043a917fb89a80bcfc, type: 2}
+    - target: {fileID: 1843500539440516938, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f40812f3c0959cb4e9e571ec0f009d23, type: 2}
     - target: {fileID: 3762018107637143324, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
       propertyPath: audioClips.Array.size
@@ -220,7 +225,7 @@ PrefabInstance:
     - target: {fileID: 5845886417771796297, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
       propertyPath: moveSpeed
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5845886417771796297, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}

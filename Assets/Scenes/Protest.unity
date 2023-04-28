@@ -3346,13 +3346,15 @@ MonoBehaviour:
   - {fileID: 6273613966574398843, guid: 650edf26be288498f8439a405d542086, type: 3}
   - {fileID: 6273613966574398843, guid: 21ad95b1afa2ac6f89f64814e5aa2b13, type: 3}
   - {fileID: 1702118504814823219, guid: 06d07075fbb36384c8e3c18d58f39024, type: 3}
+  - {fileID: 6273613966574398843, guid: 40d877bda07b0a74ca34ab6d13c7741c, type: 3}
   resources: 0
   resourcePerSecond: 20
-  resourceRatePerSecond: 0.1
+  resourceRatePerSecond: 0.2
   playerInputController: {fileID: 854429910}
   resourceText: {fileID: 0}
   autoSpawn: 1
   randomSpawnTime: {x: 10, y: 20}
+  maxUnitPerWave: 100
   floorLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -5498,6 +5500,7 @@ MonoBehaviour:
   - {fileID: 242390370939050214, guid: fb536f5e3ce0aef4c8a12faa00a5ed88, type: 3}
   - {fileID: 1950734156213479615, guid: 89f40a46b45fc8a44a50719ed887315f, type: 3}
   - {fileID: 1950734156213479615, guid: 901a382eb5b27dc28966941822252833, type: 3}
+  - {fileID: 1950734156213479615, guid: 9102916249aae6144a46efd478d10293, type: 3}
   resources: 100
   resourcePerSecond: 6
   resourceRatePerSecond: 0
@@ -5505,6 +5508,7 @@ MonoBehaviour:
   resourceText: {fileID: 197912787}
   autoSpawn: 0
   randomSpawnTime: {x: 3, y: 10}
+  maxUnitPerWave: 0
   floorLayer:
     serializedVersion: 2
     m_Bits: 1024

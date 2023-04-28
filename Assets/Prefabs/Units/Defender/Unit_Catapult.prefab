@@ -373,6 +373,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 1843500539440516938, guid: 27b402c6c953339cf8697fa5f13a9025,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 27312e9e878e8074c959d4bc37ca4364, type: 2}
     - target: {fileID: 3762018107637143324, guid: 27b402c6c953339cf8697fa5f13a9025,
         type: 3}
       propertyPath: audioClips.Array.size
