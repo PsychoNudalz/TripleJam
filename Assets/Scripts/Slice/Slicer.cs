@@ -78,6 +78,8 @@ namespace Assets.Scripts
             positiveSliceable.Init(slicesMeta.PositiveSideMesh,sliceable.Rigidbody,.5f);
             negativeSliceable.Init(slicesMeta.NegativeSideMesh,sliceable.Rigidbody,-.5f);
             
+            positiveSliceable.OnSlice();
+            
             GameObject.Destroy(sliceable.gameObject);
 
             return new GameObject[] {positiveObject, negativeObject};

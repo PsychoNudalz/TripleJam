@@ -9,7 +9,9 @@ public class SliceBlade : MonoBehaviour
 
     [SerializeField]
     private SliceLevel bladeLevel = SliceLevel.None;
-     
+
+    [SerializeField]
+    private bool isPlayer = false;
     [SerializeField]
     [Tooltip("The empty game object located at the tip of the blade")]
     private GameObject _tip = null;
@@ -32,6 +34,16 @@ public class SliceBlade : MonoBehaviour
     private Vector3 _triggerEnterTipPosition;
     private Vector3 _triggerEnterBasePosition;
     private Vector3 _triggerExitTipPosition;
+
+    public static SliceBlade player;
+
+    private void Awake()
+    {
+        if (isPlayer)
+        {
+            player = this;
+        }
+    }
 
     void Start()
     {
@@ -116,5 +128,13 @@ public class SliceBlade : MonoBehaviour
         }
 
         return plane;
+    }
+
+    public static void SetPlayerLevel(SliceLevel sl)
+    {
+        if (sl > player.bladeLevel)
+        {
+            player.bladeLevel = sl;
+        }
     }
 }

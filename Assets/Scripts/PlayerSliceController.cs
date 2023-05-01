@@ -3,7 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+[Serializable]
+public struct SliceSet
+{
+    public SliceLevel level;
+    public float length;
+    public GameObject swordObject;
 
+    public SliceSet(SliceLevel level, float length, GameObject swordObject)
+    {
+        this.level = level;
+        this.length = length;
+        this.swordObject = swordObject;
+    }
+}
 public class PlayerSliceController : MonoBehaviour
 {
     [FormerlySerializedAs("mainRotationalObject")]
@@ -16,6 +29,9 @@ public class PlayerSliceController : MonoBehaviour
     [FormerlySerializedAs("visualRotationalObject")]
     [SerializeField]
     private Transform visualBlade;
+    [SerializeField]
+    private SliceSet[] sliceSets;
+
 
     private Vector3 bladePos;
 

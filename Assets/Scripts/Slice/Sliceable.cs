@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.AccessControl;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-
+[Serializable]
 public enum SliceLevel
 {
     None,
@@ -17,6 +18,7 @@ public enum SliceLevel
     CorruptedKnife
 }
 
+
 public class Sliceable : MonoBehaviour
 {
     [SerializeField]
@@ -25,6 +27,13 @@ public class Sliceable : MonoBehaviour
     [SerializeField]
     private SliceLevel sliceLevel = SliceLevel.None;
 
+    [SerializeField]
+    private UnityEvent onSliceEvent;
+
+
+
+
+    [Header("Settings")]
     [SerializeField]
     private bool _isSolid = true;
 
@@ -40,6 +49,7 @@ public class Sliceable : MonoBehaviour
     [SerializeField]
     private bool _smoothVertices = false;
 
+    [Header("Components")]
     [SerializeField]
     private Rigidbody rigidbody;
 
@@ -64,6 +74,7 @@ public class Sliceable : MonoBehaviour
     {
         return _canSlice;
     }
+
     public bool CanSlice(SliceLevel sliceLevel)
     {
         return _canSlice && CheckLevel(this.sliceLevel);
@@ -155,5 +166,10 @@ public class Sliceable : MonoBehaviour
     public bool CheckLevel(SliceLevel l)
     {
         return l >= sliceLevel;
+    }
+
+    public void OnSlice()
+    {
+        onSliceEvent.Invoke();
     }
 }

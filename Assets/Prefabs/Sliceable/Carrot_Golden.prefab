@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03ddc7e460b33402eb7640fab3881ac9, type: 2}
+  - {fileID: 2100000, guid: 4f1294da78baa424d8e6b7f5d28752bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,7 +108,7 @@ PrefabInstance:
     - target: {fileID: 1527715353896950296, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
         type: 3}
       propertyPath: m_Name
-      value: Carrot
+      value: Carrot_Golden
       objectReference: {fileID: 0}
     - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
         type: 3}
@@ -130,6 +130,41 @@ PrefabInstance:
       propertyPath: meshRenderer
       value: 
       objectReference: {fileID: 4507548067051804989}
+    - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
+        type: 3}
+      propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
+        type: 3}
+      propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
+        type: 3}
+      propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: -5551661673497522169}
+    - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
+        type: 3}
+      propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
+        type: 3}
+      propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetBladeLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
+        type: 3}
+      propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BladeUpgrade, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
+        type: 3}
+      propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1527715353896950298, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
         type: 3}
       propertyPath: m_RootOrder
@@ -197,6 +232,25 @@ PrefabInstance:
       objectReference: {fileID: 3232701629315438177}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0117c9b6215a6c24aa70bcb256e2f3c3, type: 3}
+--- !u!1 &2187682642428476405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1527715353896950296, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 824084792165048813}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-5551661673497522169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2187682642428476405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ac74d318e73564499b8d9824020cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sl: 1
 --- !u!54 &2187682642428476406 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1527715353896950299, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
