@@ -5,8 +5,26 @@ using System.Security.AccessControl;
 using UnityEngine;
 using UnityEngine.Serialization;
 
+
+public enum SliceLevel
+{
+    None,
+    KatanaLong,
+    LightSaber,
+    DualSaber,
+    CheeseKnife,
+    DataKnife,
+    CorruptedKnife
+}
+
 public class Sliceable : MonoBehaviour
 {
+    [SerializeField]
+    private bool _canSlice = true;
+
+    [SerializeField]
+    private SliceLevel sliceLevel = SliceLevel.None;
+
     [SerializeField]
     private bool _isSolid = true;
 
@@ -41,6 +59,15 @@ public class Sliceable : MonoBehaviour
     public string name => gameObject.name;
 
     public Rigidbody Rigidbody => rigidbody;
+
+    public bool CanSlice()
+    {
+        return _canSlice;
+    }
+    public bool CanSlice(SliceLevel sliceLevel)
+    {
+        return _canSlice && CheckLevel(this.sliceLevel);
+    }
 
     public bool IsSolid
     {
@@ -114,8 +141,8 @@ public class Sliceable : MonoBehaviour
     public void Init(Mesh m, Rigidbody rb, float multiplier = 1)
     {
         SetMesh(m);
-        rigidbody.velocity = rb.velocity*multiplier;
-        rigidbody.angularVelocity = rb.angularVelocity*multiplier;
+        rigidbody.velocity = rb.velocity * multiplier;
+        rigidbody.angularVelocity = rb.angularVelocity * multiplier;
     }
 
 
@@ -123,5 +150,10 @@ public class Sliceable : MonoBehaviour
     {
         meshFilter.mesh = m;
         meshCollider.sharedMesh = m;
+    }
+
+    public bool CheckLevel(SliceLevel l)
+    {
+        return l >= sliceLevel;
     }
 }
