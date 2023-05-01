@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Attack_Projectile : UnitAttack
 {
+    [FormerlySerializedAs("projectile")]
     [Header("Projectile")]
     [SerializeField]
-    private Projectile projectile;
+    private DamageProjectile damageProjectile;
 
 
     [SerializeField]
@@ -24,12 +26,12 @@ public class Attack_Projectile : UnitAttack
     public override void OnAttack_Action(UnitController target)
     {
         base.OnAttack_Action(target);
-        Projectile newProjectile = Instantiate(projectile, transform.position+launchOffset, Quaternion.identity)
-            .GetComponent<Projectile>();
+        DamageProjectile newDamageProjectile = Instantiate(damageProjectile, transform.position+launchOffset, Quaternion.identity)
+            .GetComponent<DamageProjectile>();
         
-        newProjectile.Init(damage,layerMask, unitController);
+        newDamageProjectile.Init(damage,layerMask, unitController);
         Vector3 trajectory = FindTrajectoryToTarget(target.Position, transform.position);
-        newProjectile.LaunchVelocity(trajectory);
+        newDamageProjectile.LaunchVelocity(trajectory);
     }
 
     Vector3 FindTrajectoryToTarget(Vector3 targetPos, Vector3 launchPos, bool flipYAngle = false)
