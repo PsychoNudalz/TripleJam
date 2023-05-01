@@ -161,7 +161,7 @@ public class SliceBlade : MonoBehaviour
         Sliceable s = other.GetComponentInParent<Sliceable>();
         if (s)
         {
-            Debug.Log("Found Sliceable");
+            // Debug.Log("Found Sliceable");
             slices = Slicer.Slice(plane, s);
 
         }
@@ -170,7 +170,6 @@ public class SliceBlade : MonoBehaviour
             slices = Slicer.Slice(plane, other.gameObject);
         }
 
-        Destroy(other.gameObject);
 
         Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
         if (rigidbody)

@@ -53,6 +53,7 @@ MonoBehaviour:
   _smoothVertices: 0
   meshRenderer: {fileID: 1540380501934406199}
   meshFilter: {fileID: 1534471446033335539}
+  meshCollider: {fileID: 1573988880250292739}
 --- !u!54 &1527715353896950299
 Rigidbody:
   m_ObjectHideFlags: 0

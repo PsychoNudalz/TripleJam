@@ -55,6 +55,8 @@ namespace Assets.Scripts
             SetupCollidersAndRigidBodys(ref positiveObject, positiveSideMeshData, sliceable.UseGravity);
             SetupCollidersAndRigidBodys(ref negativeObject, negativeSideMeshData, sliceable.UseGravity);
 
+            GameObject.Destroy(objectToCut);
+            
             return new GameObject[] {positiveObject, negativeObject};
         }
 
@@ -67,21 +69,16 @@ namespace Assets.Scripts
             SlicesMetadata slicesMeta = new SlicesMetadata(plane, mesh, sliceable.IsSolid,
                 sliceable.ReverseWireTriangles, sliceable.ShareVertices, sliceable.SmoothVertices);
 
-            GameObject positiveObject = CreateMeshGameObject(sliceable);
-            positiveObject.name = string.Format("{0}_positive", sliceable.name);
+            GameObject positiveObject = CreateSliceableCopy(sliceable, string.Format("{0}_p", sliceable.name));
+            GameObject negativeObject = CreateSliceableCopy(sliceable, string.Format("{0}_n", sliceable.name));
 
-            GameObject negativeObject = CreateMeshGameObject(sliceable);
-            negativeObject.name = string.Format("{0}_negative", sliceable.name);
+            Sliceable positiveSliceable = positiveObject.GetComponent<Sliceable>();
+            Sliceable negativeSliceable = negativeObject.GetComponent<Sliceable>();
 
-            var positiveSideMeshData = slicesMeta.PositiveSideMesh;
-            var negativeSideMeshData = slicesMeta.NegativeSideMesh;
+            positiveSliceable.Init(slicesMeta.PositiveSideMesh,sliceable.Rigidbody,.5f);
+            negativeSliceable.Init(slicesMeta.NegativeSideMesh,sliceable.Rigidbody,-.5f);
             
-
-            positiveObject.GetComponent<MeshFilter>().mesh = positiveSideMeshData;
-            negativeObject.GetComponent<MeshFilter>().mesh = negativeSideMeshData;
-
-            SetupCollidersAndRigidBodys(ref positiveObject, positiveSideMeshData, sliceable.UseGravity);
-            SetupCollidersAndRigidBodys(ref negativeObject, negativeSideMeshData, sliceable.UseGravity);
+            GameObject.Destroy(sliceable.gameObject);
 
             return new GameObject[] {positiveObject, negativeObject};
         }
@@ -123,10 +120,10 @@ namespace Assets.Scripts
 
             GameObject meshGameObject = new GameObject();
 
-            MeshFilter mf =  meshGameObject.AddComponent<MeshFilter>();
+            MeshFilter mf = meshGameObject.AddComponent<MeshFilter>();
             MeshRenderer mr = meshGameObject.AddComponent<MeshRenderer>();
             Sliceable sliceable = meshGameObject.AddComponent<Sliceable>();
-            sliceable.Init(mr,mf);
+            sliceable.Init(mr, mf);
 
             sliceable.IsSolid = originalSliceable.IsSolid;
             sliceable.ReverseWireTriangles = originalSliceable.ReverseWireTriangles;
@@ -142,7 +139,32 @@ namespace Assets.Scripts
 
             return meshGameObject;
         }
-        
+
+        private static GameObject CreateSliceableCopy(Sliceable originalSliceable, string prefix)
+        {
+            var originalMaterial = originalSliceable.materials;
+
+            GameObject meshGameObject = GameObject.Instantiate(originalSliceable.gameObject,
+                originalSliceable.transform.position, originalSliceable.transform.rotation);
+
+            meshGameObject.name = prefix;
+            Sliceable sliceable = meshGameObject.GetComponent<Sliceable>();
+            sliceable.SelfInit();
+            // sliceable.Init(mr, mf);
+            //
+            // sliceable.IsSolid = originalSliceable.IsSolid;
+            // sliceable.ReverseWireTriangles = originalSliceable.ReverseWireTriangles;
+            // sliceable.UseGravity = originalSliceable.UseGravity;
+            //
+            // mr.materials = originalMaterial;
+
+            // meshGameObject.transform.localScale = originalSliceable.transform.localScale;
+
+            // meshGameObject.tag = originalSliceable.tag;
+
+            return meshGameObject;
+        }
+
 
         /// <summary>
         /// Add mesh collider and rigid body to game object
@@ -158,5 +180,7 @@ namespace Assets.Scripts
             var rb = gameObject.AddComponent<Rigidbody>();
             rb.useGravity = useGravity;
         }
+        
+
     }
 }
