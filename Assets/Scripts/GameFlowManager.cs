@@ -11,6 +11,14 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField]
     private List<UnityEvent> flowEvents;
 
+    [Header("Dojo Start")]
+    [SerializeField]
+    private GameObject startingScene;
+
+    [Header("Components")]
+    [SerializeField]
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +38,10 @@ public class GameFlowManager : MonoBehaviour
         {
             flowEvents[i].Invoke();
         }
+    }
+
+    public void Play_Scene_DojoStart()
+    {
+        
     }
 }

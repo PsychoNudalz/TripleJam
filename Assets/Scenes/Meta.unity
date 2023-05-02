@@ -20344,6 +20344,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentFlowPoint: 0
   flowEvents: []
+  startingScene: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1001 &1993202565
 PrefabInstance:
   m_ObjectHideFlags: 0
