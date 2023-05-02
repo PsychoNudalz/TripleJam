@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class SliceBlade : MonoBehaviour
 {
-
     [SerializeField]
     private SliceLevel bladeLevel = SliceLevel.None;
 
     [SerializeField]
     private bool isPlayer = false;
+
     [SerializeField]
     [Tooltip("The empty game object located at the tip of the blade")]
     private GameObject _tip = null;
@@ -25,6 +25,9 @@ public class SliceBlade : MonoBehaviour
     [Tooltip("The amount of force applied to each side of a slice")]
     private float _forceAppliedToCut = 3f;
 
+    [SerializeField]
+    private BoxCollider bladeCollider;
+
     private Mesh _mesh;
     private Vector3[] _vertices;
     private int[] _triangles;
@@ -35,29 +38,21 @@ public class SliceBlade : MonoBehaviour
     private Vector3 _triggerEnterBasePosition;
     private Vector3 _triggerExitTipPosition;
 
-    public static SliceBlade player;
 
     private void Awake()
     {
-        if (isPlayer)
-        {
-            player = this;
-        }
     }
 
     void Start()
     {
-        
     }
 
     private void Update()
     {
-        
     }
 
     void LateUpdate()
     {
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -84,7 +79,7 @@ public class SliceBlade : MonoBehaviour
             slices = Slicer.Slice(plane, other.gameObject);
         }
 
-        if (slices.Length>0)
+        if (slices.Length > 0)
         {
             Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
             if (rigidbody)
@@ -130,11 +125,24 @@ public class SliceBlade : MonoBehaviour
         return plane;
     }
 
-    public static void SetPlayerLevel(SliceLevel sl)
+    public void SetPlayerLevel(SliceLevel sl)
     {
-        if (sl > player.bladeLevel)
+        if (sl > bladeLevel)
         {
-            player.bladeLevel = sl;
+            bladeLevel = sl;
         }
+    }
+
+    public void SetPlayerBlade(SliceLevel sl, float length)
+    {
+        SetPlayerLevel(sl);
+
+        Vector3 bladeColliderSize = bladeCollider.size;
+        bladeColliderSize.z = length;
+        bladeCollider.size = bladeColliderSize;
+
+        var bladeColliderCenter = bladeCollider.center;
+        bladeColliderCenter.z = length / 2f;
+        bladeCollider.center = bladeColliderCenter;
     }
 }

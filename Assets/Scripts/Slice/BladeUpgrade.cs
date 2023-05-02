@@ -8,6 +8,6 @@ public class BladeUpgrade : MonoBehaviour
     private SliceLevel sl;
     public void SetBladeLevel()
     {
-        SliceBlade.SetPlayerLevel(sl);
+        PlayerSliceController.SetPlayerLevel(sl);
     }
 }

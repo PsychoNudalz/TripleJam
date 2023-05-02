@@ -11,6 +11,8 @@ public enum SliceLevel
 {
     None,
     KatanaLong,
+    KatanaSuper,
+    Crowbar,
     LightSaber,
     DualSaber,
     CheeseKnife,
@@ -49,6 +51,9 @@ public class Sliceable : MonoBehaviour
     [SerializeField]
     private bool _smoothVertices = false;
 
+    [SerializeField]
+    private float autoDestroyTime = 10f;
+
     [Header("Components")]
     [SerializeField]
     private Rigidbody rigidbody;
@@ -70,6 +75,8 @@ public class Sliceable : MonoBehaviour
 
     public Rigidbody Rigidbody => rigidbody;
 
+    public const float minMeshSize = .01f;
+    
     public bool CanSlice()
     {
         return _canSlice;
@@ -77,7 +84,7 @@ public class Sliceable : MonoBehaviour
 
     public bool CanSlice(SliceLevel sliceLevel)
     {
-        return _canSlice && CheckLevel(this.sliceLevel);
+        return _canSlice && CheckLevel(sliceLevel);
     }
 
     public bool IsSolid
@@ -147,13 +154,27 @@ public class Sliceable : MonoBehaviour
             rigidbody.velocity = rb.velocity;
             rigidbody.angularVelocity = rb.angularVelocity;
         }
+        Destroy(gameObject,autoDestroyTime);
+
     }
 
     public void Init(Mesh m, Rigidbody rb, float multiplier = 1)
     {
         SetMesh(m);
+        rigidbody.isKinematic = false;
         rigidbody.velocity = rb.velocity * multiplier;
         rigidbody.angularVelocity = rb.angularVelocity * multiplier;
+        if (GetMeshSize(m) < minMeshSize)
+        {
+            Destroy(gameObject,1f);
+        }
+        Destroy(gameObject,autoDestroyTime);
+    }
+
+    float GetMeshSize(Mesh m)
+    {
+        Vector3 boundsSize = m.bounds.size;
+        return boundsSize.x * boundsSize.y * boundsSize.z;
     }
 
 

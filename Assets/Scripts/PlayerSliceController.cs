@@ -45,12 +45,25 @@ public class PlayerSliceController : MonoBehaviour
     [SerializeField]
     private bool isDraw = false;
 
+    [Header("Blade")]
+    [SerializeField]
+    private SliceBlade playerBlade;
+
+    public static PlayerSliceController current;
+
     private void Awake()
     {
         if (visualBlade)
         {
             bladePos = visualBlade.position;
         }
+
+        current = this;
+    }
+
+    private void Start()
+    {
+        SetPlayerLevel(SliceLevel.None);
     }
 
     public void UpdateController(Vector3 worldPos, float angle)
@@ -123,5 +136,39 @@ public class PlayerSliceController : MonoBehaviour
             visualBlade.transform.forward = holsterPoint.forward;
             mainSlicer.gameObject.SetActive(false);
         }
+    }
+    
+    public static void SetPlayerLevel(SliceLevel sl)
+    {
+        current.SetPlayerBlade(sl);
+    }
+
+    public void SetPlayerBlade(SliceLevel sl)
+    {
+        SliceSet set = GetSet(sl);
+        playerBlade.SetPlayerBlade(sl,set.length);
+        SetBladeMode(set.swordObject);
+    }
+
+    public SliceSet GetSet(SliceLevel sl)
+    {
+        foreach (SliceSet sliceSet in sliceSets)
+        {
+            if (sliceSet.level.Equals(sl))
+            {
+                return sliceSet;
+            }
+        }
+
+        return sliceSets[0];
+    }
+
+    public void SetBladeMode(GameObject model)
+    {
+        foreach (SliceSet sliceSet in sliceSets)
+        {
+            sliceSet.swordObject.SetActive(false);
+        }
+        model.SetActive(true);
     }
 }
