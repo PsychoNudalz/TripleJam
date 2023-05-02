@@ -125,17 +125,23 @@ public class SliceBlade : MonoBehaviour
         return plane;
     }
 
-    public void SetPlayerLevel(SliceLevel sl)
+    public bool SetPlayerLevel(SliceLevel sl)
     {
         if (sl > bladeLevel)
         {
             bladeLevel = sl;
+            return true;
         }
+
+        return false;
     }
 
     public void SetPlayerBlade(SliceLevel sl, float length)
     {
-        SetPlayerLevel(sl);
+        if (!SetPlayerLevel(sl))
+        {
+            return;
+        }
 
         Vector3 bladeColliderSize = bladeCollider.size;
         bladeColliderSize.z = length;

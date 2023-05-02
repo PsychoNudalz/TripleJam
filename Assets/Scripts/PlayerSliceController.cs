@@ -141,10 +141,12 @@ public class PlayerSliceController : MonoBehaviour
     public static void SetPlayerLevel(SliceLevel sl)
     {
         current.SetPlayerBlade(sl);
+        UIManager.current.UpdateBladeText(sl.ToString());
     }
 
     public void SetPlayerBlade(SliceLevel sl)
     {
+
         SliceSet set = GetSet(sl);
         playerBlade.SetPlayerBlade(sl,set.length);
         SetBladeMode(set.swordObject);
