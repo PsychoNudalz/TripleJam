@@ -55,7 +55,7 @@ public class PlayerSliceController : MonoBehaviour
     {
         if (visualBlade)
         {
-            bladePos = visualBlade.position;
+            bladePos = visualBlade.position-transform.position;
         }
 
         current = this;
@@ -125,9 +125,9 @@ public class PlayerSliceController : MonoBehaviour
         isDraw = b;
         if (isDraw)
         {
-            visualBlade.transform.position = bladePos;
+            visualBlade.transform.position = bladePos+transform.position;
             mainSlicer.gameObject.SetActive(true);
-            visualBlade.transform.forward = (mouseTip.position-bladePos).normalized;
+            visualBlade.transform.forward = (mouseTip.position-bladePos+transform.position).normalized;
 
         }
         else
