@@ -14,7 +14,12 @@ public enum FlowScene
     Dojo_FirstUpgrade,
     Dojo_SlicedBamboo,
     Dojo_Launchers,
-    Dojo_Crowbar
+    Dojo_Crowbar,
+    Studio_Start,
+    Studio_LightSaber,
+    Studio_Couch,
+    Studio_Collapse,
+    Studio_Beg
 }
 
 public class GameFlowManager : MonoBehaviour
@@ -253,5 +258,10 @@ public class GameFlowManager : MonoBehaviour
 
         yield return new WaitUntil(() => ScoreManager.Score > score);
         Play_Scene(scene);
+    }
+
+    public void OnSkipToStudio()
+    {
+        Play_Scene(FlowScene.Dojo_Crowbar);
     }
 }
