@@ -53,6 +53,9 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField]
     private int bambooScore = 10;
 
+    [SerializeField]
+    private Camera preyCamera;
+
     [Header("Studio")]
     [SerializeField]
     private GameObject studio;
@@ -81,6 +84,7 @@ public class GameFlowManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(DelayStartOpening());
+        preyCamera.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -207,6 +211,8 @@ public class GameFlowManager : MonoBehaviour
         PlayerSliceController.SetPlayerLevel(SliceLevel.Crowbar);
         studio.SetActive(true);
         player.transform.position = studioTeleportPoint.position;
+        preyCamera.gameObject.SetActive(true);
+
         StartCoroutine(DelayPlayerLock(launcherSpeakTime));
 
     }
