@@ -31,6 +31,10 @@ public class SliceBlade : MonoBehaviour
     [SerializeField]
     private Vector3 initialSliceObjectPosition;
 
+    [Header("Effects")]
+    [SerializeField]
+    private ParticleSystem sliceEffect;
+
     private Mesh _mesh;
     private Vector3[] _vertices;
     private int[] _triangles;
@@ -78,20 +82,29 @@ public class SliceBlade : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Sliceable s = other.GetComponentInParent<Sliceable>();
+        if (SliceObject(other, s))
+        {
+            sliceEffect.Play();
+        }
+
+        detectedSliceObject = null;
+    }
+
+    private bool SliceObject(Collider collider, Sliceable s)
+    {
         Plane plane = new Plane();
         Vector3 transformedNormal = new Vector3();
         if (s.Equals(detectedSliceObject))
         {
             Vector3 objectDisplacement = detectedSliceObject.transform.position - initialSliceObjectPosition;
-        
-            plane = GetPlane(other, out transformedNormal, objectDisplacement);
+
+            plane = GetPlane(collider, out transformedNormal, objectDisplacement);
         }
         else
         {
-            plane = GetPlane(other, out transformedNormal , Vector3.zero);
+            plane = GetPlane(collider, out transformedNormal, Vector3.zero);
         }
         // plane = GetPlane(other, out transformedNormal , Vector3.zero);
-
 
 
         GameObject[] slices = Array.Empty<GameObject>();
@@ -113,7 +126,7 @@ public class SliceBlade : MonoBehaviour
             }
         }
 
-        detectedSliceObject = null;
+        return slices.Length > 0;
     }
 
     private Plane GetPlane(Collider other, out Vector3 transformedNormal, Vector3 objectDisplacement)

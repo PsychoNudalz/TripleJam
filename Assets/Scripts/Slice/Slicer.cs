@@ -79,8 +79,8 @@ namespace Assets.Scripts
             Sliceable positiveSliceable = positiveObject.GetComponent<Sliceable>();
             Sliceable negativeSliceable = negativeObject.GetComponent<Sliceable>();
 
-            positiveSliceable.Init(slicesMeta.PositiveSideMesh,sliceable.Rigidbody,.5f);
-            negativeSliceable.Init(slicesMeta.NegativeSideMesh,sliceable.Rigidbody,-.5f);
+            positiveSliceable.Init(slicesMeta.PositiveSideMesh,sliceable.Rigidbody,1f);
+            negativeSliceable.Init(slicesMeta.NegativeSideMesh,sliceable.Rigidbody,-.8f);
             
             positiveSliceable.OnSlice_Spawn();
             sliceable.OnSlice_Destroy();
