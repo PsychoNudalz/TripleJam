@@ -11,6 +11,9 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField]
     private bool isLock = false;
 
+    [SerializeField]
+    private GameObject lockDisplay;
+
     [Header("MouseToWorld")]
     [SerializeField]
     private float mouseToWorldRange = 10;
@@ -213,5 +216,6 @@ public class PlayerInputController : MonoBehaviour
         }
 
         isLock = b;
+        lockDisplay.SetActive(isLock);
     }
 }

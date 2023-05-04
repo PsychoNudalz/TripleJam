@@ -139,4 +139,13 @@ public class NarratorManager : MonoBehaviour
 
         Debug.Log($"Narrator Queue size: {currentSetQueue.Count}");
     }
+
+    public void Stop()
+    {
+        if (currentSet.IsPlaying)
+        {
+            currentSet.sound.Stop();
+            currentSetQueue = new Queue<NarratorAudioSet>();
+        }
+    }
 }

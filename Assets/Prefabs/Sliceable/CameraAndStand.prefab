@@ -100,6 +100,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 7048970358169986313, guid: 2ddedc059396431449ee9cb6a71f9763,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ddedc059396431449ee9cb6a71f9763, type: 3}
 --- !u!4 &7146862484367176001 stripped
@@ -115,6 +120,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7146862484278797837}
     m_Modifications:
+    - target: {fileID: 20411683086011267, guid: fc2529c85005b5a4d8e746587af09cad,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 313618357217077650, guid: fc2529c85005b5a4d8e746587af09cad,
         type: 3}
       propertyPath: m_Layer

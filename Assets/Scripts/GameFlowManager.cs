@@ -19,7 +19,10 @@ public enum FlowScene
     Studio_LightSaber,
     Studio_Couch,
     Studio_Collapse,
-    Studio_Beg
+    Studio_Beg,
+    Studio_DoIt,
+    Studio_DoubleSaber,
+    Studio_End
 }
 
 public class GameFlowManager : MonoBehaviour
@@ -66,11 +69,20 @@ public class GameFlowManager : MonoBehaviour
     private GameObject studio;
 
     [SerializeField]
-    private Transform studioTeleportPoint;
+    private Animator studioAnimator;
 
-    [Header("Components")]
     [SerializeField]
-    private Animator animator;
+    private Transform studioTeleportPoint;
+    
+    [SerializeField]
+    private GameObject fallingSpotLight;
+
+    [SerializeField]
+    private int narratorRoomPillarCount = 4;
+
+    [SerializeField]
+    private GameObject endingScreen;
+    [Header("Components")]
 
     [SerializeField]
     private NarratorManager narrator;
@@ -91,6 +103,7 @@ public class GameFlowManager : MonoBehaviour
         StartCoroutine(DelayStartOpening());
         preyCamera.gameObject.SetActive(false);
         sliceableLaunchers.SetActive(false);
+        fallingSpotLight.SetActive(false);
     }
 
     // Update is called once per frame
@@ -113,6 +126,8 @@ public class GameFlowManager : MonoBehaviour
         Debug.Log($"Playing {flowScene}");
         switch (flowScene)
         {
+            case FlowScene.None:
+                break;
             case FlowScene.Dojo_Opening:
                 Play_Dojo_Open();
                 break;
@@ -134,9 +149,34 @@ public class GameFlowManager : MonoBehaviour
             case FlowScene.Dojo_Crowbar:
                 Play_Dojo_Crowbar();
                 break;
+            case FlowScene.Studio_Start:
+                Play_Studio_Start();
+                break;
+            case FlowScene.Studio_LightSaber:
+                Play_Studio_LightSaber();
+                break;
+            case FlowScene.Studio_Couch:
+                Play_Studio_Couch();
+                break;
+            case FlowScene.Studio_Collapse:
+                Play_Studio_Collapse();
+                break;
+            case FlowScene.Studio_Beg:
+                Play_Studio_Beg();
+                break;
+            case FlowScene.Studio_DoIt:
+                Play_Studio_DoIt();
+                break;
+            case FlowScene.Studio_DoubleSaber:
+                Play_Studio_DoubleSaber();
+                break;
+            case FlowScene.Studio_End:
+                Play_Studio_End();
+                break;
             default:
                 Debug.LogError($"Missing Scene: {flowScene}");
                 break;
+            
         }
 
         currentScene = flowScene;
@@ -207,6 +247,7 @@ public class GameFlowManager : MonoBehaviour
         {
             launcherScript.gameObject.SetActive(false);
         }
+
         sliceableLaunchers.SetActive(true);
         StartCoroutine(DelayPlayerLock(launcherSpeakTime));
     }
@@ -220,7 +261,62 @@ public class GameFlowManager : MonoBehaviour
         preyCamera.gameObject.SetActive(true);
 
         StartCoroutine(DelayPlayerLock(launcherSpeakTime));
+    }
 
+    void Play_Studio_Start()
+    {
+        float d = narrator.PlayAudio(FlowScene.Studio_Start);
+        StartCoroutine(DelayActiveGameObject(d,fallingSpotLight)); 
+    }
+
+    void Play_Studio_LightSaber()
+    {
+        float d = narrator.PlayAudio(FlowScene.Studio_LightSaber);
+        PlayerSliceController.SetPlayerLevel(SliceLevel.LightSaber);
+        preyCamera.gameObject.SetActive(false);
+        StartCoroutine(DelayPlayerLock(d*1));
+
+    }
+
+    void Play_Studio_Couch()
+    {
+        float d = narrator.PlayAudio(FlowScene.Studio_Couch);
+        PlayerInputController.SetLock(true);
+        PlayerInputController.SetLock(false);
+
+
+    }
+
+    void Play_Studio_Collapse()
+    {
+        narrator.Stop();
+        studioAnimator.SetTrigger("Collapse");
+    }
+
+    void Play_Studio_Beg()
+    {
+        float d = narrator.PlayAudio(FlowScene.Studio_Collapse);
+        // DelayPlayerLock(d);
+        PlayerInputController.SetLock(true);
+
+        delaySceneTransition = StartCoroutine(DelayMoveScene(d, FlowScene.Studio_DoIt));
+
+    }
+    void Play_Studio_DoIt()
+    {
+        studioAnimator.SetTrigger("BegEnd");
+
+    }
+    void Play_Studio_DoubleSaber()
+    {
+        float d = narrator.PlayAudio(FlowScene.Studio_Beg);
+        PlayerInputController.SetLock(false);
+        PlayerSliceController.SetPlayerLevel(SliceLevel.DualSaber);
+    }
+    void Play_Studio_End()
+    {
+        narrator.Stop();
+        endingScreen.SetActive(true);
     }
 
     IEnumerator DelayStartOpening()
@@ -249,6 +345,14 @@ public class GameFlowManager : MonoBehaviour
         PlayerInputController.SetLock(false);
     }
 
+    IEnumerator DelayActiveGameObject(float t,GameObject g)
+    {
+
+        yield return new WaitForSeconds(t);
+        g.SetActive(true);
+    }
+    
+
     IEnumerator WaitForScoreMoveScene(int score, FlowScene scene)
     {
         if (waitScoreSceneTransition != null)
@@ -263,5 +367,14 @@ public class GameFlowManager : MonoBehaviour
     public void OnSkipToStudio()
     {
         Play_Scene(FlowScene.Dojo_Crowbar);
+    }
+
+    public void ReducePillar()
+    {
+        narratorRoomPillarCount -= 1;
+        if (narratorRoomPillarCount <= 0)
+        {
+            Play_Scene(FlowScene.Studio_Collapse);
+        }
     }
 }

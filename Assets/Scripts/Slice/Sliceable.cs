@@ -55,6 +55,9 @@ public class Sliceable : MonoBehaviour
     [SerializeField]
     private float autoDestroyTime = 10f;
 
+    [SerializeField]
+    private bool canSliceOnce = false;
+
     [Header("Components")]
     [SerializeField]
     private Rigidbody rigidbody;
@@ -69,6 +72,7 @@ public class Sliceable : MonoBehaviour
     private MeshCollider meshCollider;
 
 
+
     public Mesh mesh => meshFilter?.mesh;
     public Material[] materials => meshRenderer?.materials;
 
@@ -77,6 +81,8 @@ public class Sliceable : MonoBehaviour
     public Rigidbody Rigidbody => rigidbody;
 
     public const float minMeshSize = .01f;
+
+    public bool CanSliceOnce => canSliceOnce;
 
     public bool CanSlice()
     {
@@ -165,7 +171,7 @@ public class Sliceable : MonoBehaviour
     /// <param name="m"></param>
     /// <param name="rb"></param>
     /// <param name="multiplier"></param>
-    public void Init(Mesh m, Rigidbody rb, float multiplier = 1)
+    public void Init(Mesh m, Rigidbody rb, float multiplier = 1, bool beSlice = true)
     {
         SelfInit();
         SetMesh(m);
@@ -183,6 +189,7 @@ public class Sliceable : MonoBehaviour
             Destroy(gameObject, 1f);
         }
 
+        _canSlice = beSlice;
         Destroy(gameObject, autoDestroyTime);
     }
 
@@ -213,5 +220,7 @@ public class Sliceable : MonoBehaviour
     {
         ScoreManager.AddScore(sliceScore);
     }
+    
+    
 
 }
