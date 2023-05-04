@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7146862484278797837}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CameraAndStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,10 +115,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7146862484278797837}
     m_Modifications:
+    - target: {fileID: 313618357217077650, guid: fc2529c85005b5a4d8e746587af09cad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 620190436301290087, guid: fc2529c85005b5a4d8e746587af09cad,
         type: 3}
       propertyPath: m_Name
       value: Stamd
+      objectReference: {fileID: 0}
+    - target: {fileID: 620190436301290087, guid: fc2529c85005b5a4d8e746587af09cad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 620190436301290104, guid: fc2529c85005b5a4d8e746587af09cad,
         type: 3}

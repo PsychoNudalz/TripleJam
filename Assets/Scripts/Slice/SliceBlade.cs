@@ -10,9 +10,6 @@ public class SliceBlade : MonoBehaviour
     private SliceLevel bladeLevel = SliceLevel.None;
 
     [SerializeField]
-    private bool isPlayer = false;
-
-    [SerializeField]
     [Tooltip("The empty game object located at the tip of the blade")]
     private GameObject _tip = null;
 
@@ -67,6 +64,7 @@ public class SliceBlade : MonoBehaviour
         {
             return;
         }
+
         Sliceable temp = other.GetComponentInParent<Sliceable>();
         if (temp)
         {
@@ -80,15 +78,21 @@ public class SliceBlade : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Sliceable s = other.GetComponentInParent<Sliceable>();
-
-        if (!s.Equals(detectedSliceObject))
+        Plane plane = new Plane();
+        Vector3 transformedNormal = new Vector3();
+        if (s.Equals(detectedSliceObject))
         {
-            return;
-        }
-
-        Vector3 objectDisplacement = detectedSliceObject.transform.position -initialSliceObjectPosition;
+            Vector3 objectDisplacement = detectedSliceObject.transform.position - initialSliceObjectPosition;
         
-        var plane = GetPlane(other, out var transformedNormal,objectDisplacement);
+            plane = GetPlane(other, out transformedNormal, objectDisplacement);
+        }
+        else
+        {
+            plane = GetPlane(other, out transformedNormal , Vector3.zero);
+        }
+        // plane = GetPlane(other, out transformedNormal , Vector3.zero);
+
+
 
         GameObject[] slices = Array.Empty<GameObject>();
         if (s)
@@ -98,17 +102,13 @@ public class SliceBlade : MonoBehaviour
                 slices = Slicer.Slice(plane, s);
             }
         }
-        else
-        {
-            slices = Slicer.Slice(plane, other.gameObject);
-        }
 
         if (slices.Length > 0)
         {
             Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
             if (rigidbody)
             {
-                Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
+                Vector3 newNormal = transformedNormal + rigidbody.transform.up * _forceAppliedToCut;
                 rigidbody.AddForce(newNormal, ForceMode.Impulse);
             }
         }
@@ -121,8 +121,8 @@ public class SliceBlade : MonoBehaviour
         _triggerExitTipPosition = _tip.transform.position;
 
         //Create a triangle between the tip and base so that we can get the normal
-        Vector3 side1 = _triggerExitTipPosition - _triggerEnterTipPosition;
-        Vector3 side2 = _triggerExitTipPosition - _triggerEnterBasePosition+objectDisplacement;
+        Vector3 side1 = _triggerExitTipPosition - _triggerEnterTipPosition+ objectDisplacement;
+        Vector3 side2 = _triggerExitTipPosition - _triggerEnterBasePosition ;
 
         //Get the point perpendicular to the triangle above which is the normal
         //https://docs.unity3d.com/Manual/ComputingNormalPerpendicularVector.html

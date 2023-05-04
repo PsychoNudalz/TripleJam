@@ -68,7 +68,11 @@ namespace Assets.Scripts
             //Create left and right slice of hollow object
             SlicesMetadata slicesMeta = new SlicesMetadata(plane, mesh, sliceable.IsSolid,
                 sliceable.ReverseWireTriangles, sliceable.ShareVertices, sliceable.SmoothVertices);
-
+            if (!slicesMeta.IsSliced())
+            {
+                return new GameObject[] { };
+            }
+            
             GameObject positiveObject = CreateSliceableCopy(sliceable, string.Format("{0}_p", sliceable.name));
             GameObject negativeObject = CreateSliceableCopy(sliceable, string.Format("{0}_n", sliceable.name));
 

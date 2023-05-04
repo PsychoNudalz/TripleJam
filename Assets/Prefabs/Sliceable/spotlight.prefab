@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5630247646858364053}
   - component: {fileID: 983941577850435728}
   - component: {fileID: 4303353497520082586}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: spotlight-holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,11 +116,13 @@ MonoBehaviour:
   onSliceEvent:
     m_PersistentCalls:
       m_Calls: []
+  sliceScore: 0
   _isSolid: 1
   _reverseWindTriangles: 0
   _useGravity: 0
   _shareVertices: 0
   _smoothVertices: 0
+  autoDestroyTime: 10
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
@@ -138,7 +140,7 @@ GameObject:
   - component: {fileID: 5630247646858364055}
   - component: {fileID: 7856167317250267398}
   - component: {fileID: 2023348575450646378}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: spotlight-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,11 +243,13 @@ MonoBehaviour:
   onSliceEvent:
     m_PersistentCalls:
       m_Calls: []
+  sliceScore: 0
   _isSolid: 1
   _reverseWindTriangles: 0
   _useGravity: 0
   _shareVertices: 0
   _smoothVertices: 0
+  autoDestroyTime: 10
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
@@ -259,7 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5630247646856595063}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

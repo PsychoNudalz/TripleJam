@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+
 [Serializable]
 public struct SliceSet
 {
@@ -17,6 +18,7 @@ public struct SliceSet
         this.swordObject = swordObject;
     }
 }
+
 public class PlayerSliceController : MonoBehaviour
 {
     [FormerlySerializedAs("mainRotationalObject")]
@@ -29,6 +31,7 @@ public class PlayerSliceController : MonoBehaviour
     [FormerlySerializedAs("visualRotationalObject")]
     [SerializeField]
     private Transform visualBlade;
+
     [SerializeField]
     private SliceSet[] sliceSets;
 
@@ -41,6 +44,7 @@ public class PlayerSliceController : MonoBehaviour
     [Space(10)]
     [SerializeField]
     private Transform holsterPoint;
+
     [Space(10)]
     [SerializeField]
     private bool isDraw = false;
@@ -55,7 +59,7 @@ public class PlayerSliceController : MonoBehaviour
     {
         if (visualBlade)
         {
-            bladePos = visualBlade.position-transform.position;
+            bladePos = visualBlade.position - transform.position;
         }
 
         current = this;
@@ -72,6 +76,7 @@ public class PlayerSliceController : MonoBehaviour
         {
             return;
         }
+
         UpdateSlicer(worldPos, angle);
         UpdateVisual(worldPos, angle);
         UpdateMouseTip(worldPos, angle);
@@ -113,7 +118,11 @@ public class PlayerSliceController : MonoBehaviour
             return;
         }
 
-        mouseTip.position = pos;
+        Vector3 mouseTipPosition = mouseTip.position;
+        mouseTipPosition.x = pos.x;
+        mouseTipPosition.y = pos.y;
+        mouseTip.position = mouseTipPosition;
+
         Vector3 transformEulerAngles = mouseTip.eulerAngles;
         transformEulerAngles.z = rotationz;
 
@@ -125,10 +134,9 @@ public class PlayerSliceController : MonoBehaviour
         isDraw = b;
         if (isDraw)
         {
-            visualBlade.transform.position = bladePos+transform.position;
+            visualBlade.transform.position = bladePos + transform.position;
             mainSlicer.gameObject.SetActive(true);
-            visualBlade.transform.forward = (mouseTip.position-bladePos+transform.position).normalized;
-
+            visualBlade.transform.forward = (mouseTip.position - bladePos + transform.position).normalized;
         }
         else
         {
@@ -137,7 +145,7 @@ public class PlayerSliceController : MonoBehaviour
             mainSlicer.gameObject.SetActive(false);
         }
     }
-    
+
     public static void SetPlayerLevel(SliceLevel sl)
     {
         current.SetPlayerBlade(sl);
@@ -146,9 +154,11 @@ public class PlayerSliceController : MonoBehaviour
 
     public void SetPlayerBlade(SliceLevel sl)
     {
-
         SliceSet set = GetSet(sl);
-        playerBlade.SetPlayerBlade(sl,set.length);
+        playerBlade.SetPlayerBlade(sl, set.length);
+        // Vector3 mouseTipLocalPosition = mouseTip.localPosition;
+        // mouseTipLocalPosition.z = set.length*.6f;
+        // mouseTip.localPosition = mouseTipLocalPosition;
         SetBladeMode(set.swordObject);
     }
 
@@ -171,6 +181,7 @@ public class PlayerSliceController : MonoBehaviour
         {
             sliceSet.swordObject.SetActive(false);
         }
+
         model.SetActive(true);
     }
 }

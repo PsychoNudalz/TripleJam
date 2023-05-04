@@ -45,14 +45,8 @@ namespace Assets.Scripts
 
         public bool IsSolid
         {
-            get
-            {
-                return _isSolid;
-            }
-            set
-            {
-                _isSolid = value;
-            }
+            get { return _isSolid; }
+            set { _isSolid = value; }
         }
 
         public Mesh PositiveSideMesh
@@ -84,7 +78,21 @@ namespace Assets.Scripts
             }
         }
 
-        public SlicesMetadata(Plane plane, Mesh mesh, bool isSolid, bool createReverseTriangleWindings, bool shareVertices, bool smoothVertices)
+        public bool IsSliced()
+        {
+            
+            if (NegativeSideMesh.vertexCount == 0 || PositiveSideMesh.vertexCount == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public SlicesMetadata(Plane plane, Mesh mesh, bool isSolid, bool createReverseTriangleWindings,
+            bool shareVertices, bool smoothVertices)
         {
             _positiveSideTriangles = new List<int>();
             _positiveSideVertices = new List<Vector3>();
@@ -106,6 +114,7 @@ namespace Assets.Scripts
             {
                 Debug.LogError($"Mesh data missing mesh");
             }
+
             ComputeNewMeshes();
         }
 
@@ -120,15 +129,21 @@ namespace Assets.Scripts
         /// <param name="vertex3"></param>
         /// <param name="vertex3Uv"></param>
         /// <param name="shareVertices"></param>
-        private void AddTrianglesNormalAndUvs(MeshSide side, Vector3 vertex1, Vector3? normal1, Vector2 uv1, Vector3 vertex2, Vector3? normal2, Vector2 uv2, Vector3 vertex3, Vector3? normal3, Vector2 uv3, bool shareVertices, bool addFirst)
+        private void AddTrianglesNormalAndUvs(MeshSide side, Vector3 vertex1, Vector3? normal1, Vector2 uv1,
+            Vector3 vertex2, Vector3? normal2, Vector2 uv2, Vector3 vertex3, Vector3? normal3, Vector2 uv3,
+            bool shareVertices, bool addFirst)
         {
             if (side == MeshSide.Positive)
             {
-                AddTrianglesNormalsAndUvs(ref _positiveSideVertices, ref _positiveSideTriangles, ref _positiveSideNormals, ref _positiveSideUvs, vertex1, normal1, uv1, vertex2, normal2, uv2, vertex3, normal3, uv3, shareVertices, addFirst);
+                AddTrianglesNormalsAndUvs(ref _positiveSideVertices, ref _positiveSideTriangles,
+                    ref _positiveSideNormals, ref _positiveSideUvs, vertex1, normal1, uv1, vertex2, normal2, uv2,
+                    vertex3, normal3, uv3, shareVertices, addFirst);
             }
             else
             {
-                AddTrianglesNormalsAndUvs(ref _negativeSideVertices, ref _negativeSideTriangles, ref _negativeSideNormals, ref _negativeSideUvs, vertex1, normal1, uv1, vertex2, normal2, uv2, vertex3, normal3, uv3, shareVertices, addFirst);
+                AddTrianglesNormalsAndUvs(ref _negativeSideVertices, ref _negativeSideTriangles,
+                    ref _negativeSideNormals, ref _negativeSideUvs, vertex1, normal1, uv1, vertex2, normal2, uv2,
+                    vertex3, normal3, uv3, shareVertices, addFirst);
             }
         }
 
@@ -152,7 +167,10 @@ namespace Assets.Scripts
         /// <param name="vertex3Uv"></param>
         /// <param name="normal3"></param>
         /// <param name="shareVertices"></param>
-        private void AddTrianglesNormalsAndUvs(ref List<Vector3> vertices, ref List<int> triangles, ref List<Vector3> normals, ref List<Vector2> uvs, Vector3 vertex1, Vector3? normal1, Vector2 uv1, Vector3 vertex2, Vector3? normal2, Vector2 uv2, Vector3 vertex3, Vector3? normal3, Vector2 uv3, bool shareVertices, bool addFirst)
+        private void AddTrianglesNormalsAndUvs(ref List<Vector3> vertices, ref List<int> triangles,
+            ref List<Vector3> normals, ref List<Vector2> uvs, Vector3 vertex1, Vector3? normal1, Vector2 uv1,
+            Vector3 vertex2, Vector3? normal2, Vector2 uv2, Vector3 vertex3, Vector3? normal3, Vector2 uv3,
+            bool shareVertices, bool addFirst)
         {
             int tri1Index = vertices.IndexOf(vertex1);
 
@@ -163,14 +181,14 @@ namespace Assets.Scripts
 
             //If a the vertex already exists we just add a triangle reference to it, if not add the vert to the list and then add the tri index
             if (tri1Index > -1 && shareVertices)
-            {                
+            {
                 triangles.Add(tri1Index);
             }
             else
             {
                 if (normal1 == null)
                 {
-                    normal1 = ComputeNormal(vertex1, vertex2, vertex3);                    
+                    normal1 = ComputeNormal(vertex1, vertex2, vertex3);
                 }
 
                 int? i = null;
@@ -179,7 +197,7 @@ namespace Assets.Scripts
                     i = 0;
                 }
 
-                AddVertNormalUv(ref vertices, ref normals, ref uvs, ref triangles, vertex1, (Vector3)normal1, uv1, i);
+                AddVertNormalUv(ref vertices, ref normals, ref uvs, ref triangles, vertex1, (Vector3) normal1, uv1, i);
             }
 
             int tri2Index = vertices.IndexOf(vertex2);
@@ -194,15 +212,15 @@ namespace Assets.Scripts
                 {
                     normal2 = ComputeNormal(vertex2, vertex3, vertex1);
                 }
-                
+
                 int? i = null;
-                
+
                 if (addFirst)
                 {
                     i = 1;
                 }
 
-                AddVertNormalUv(ref vertices, ref normals, ref uvs, ref triangles, vertex2, (Vector3)normal2, uv2, i);
+                AddVertNormalUv(ref vertices, ref normals, ref uvs, ref triangles, vertex2, (Vector3) normal2, uv2, i);
             }
 
             int tri3Index = vertices.IndexOf(vertex3);
@@ -212,7 +230,7 @@ namespace Assets.Scripts
                 triangles.Add(tri3Index);
             }
             else
-            {               
+            {
                 if (normal3 == null)
                 {
                     normal3 = ComputeNormal(vertex3, vertex1, vertex2);
@@ -224,15 +242,16 @@ namespace Assets.Scripts
                     i = 2;
                 }
 
-                AddVertNormalUv(ref vertices, ref normals, ref uvs, ref triangles, vertex3, (Vector3)normal3, uv3, i);
+                AddVertNormalUv(ref vertices, ref normals, ref uvs, ref triangles, vertex3, (Vector3) normal3, uv3, i);
             }
         }
 
-        private void AddVertNormalUv(ref List<Vector3> vertices, ref List<Vector3> normals, ref List<Vector2> uvs, ref List<int> triangles, Vector3 vertex, Vector3 normal, Vector2 uv, int? index)
+        private void AddVertNormalUv(ref List<Vector3> vertices, ref List<Vector3> normals, ref List<Vector2> uvs,
+            ref List<int> triangles, Vector3 vertex, Vector3 normal, Vector2 uv, int? index)
         {
             if (index != null)
             {
-                int i = (int)index;
+                int i = (int) index;
                 vertices.Insert(i, vertex);
                 uvs.Insert(i, uv);
                 normals.Insert(i, normal);
@@ -251,7 +270,7 @@ namespace Assets.Scripts
         {
             for (int j = 0; j < triangles.Count; j += 3)
             {
-                triangles[j] += + 3;
+                triangles[j] += +3;
                 triangles[j + 1] += 3;
                 triangles[j + 2] += 3;
             }
@@ -316,16 +335,20 @@ namespace Assets.Scripts
 
                 var direction = Vector3.Dot(normal3, _plane.normal);
 
-                if(direction > 0)
-                {                                        
-                    AddTrianglesNormalAndUvs(MeshSide.Positive, halfway, -normal3, Vector2.zero, firstVertex, -normal3, Vector2.zero, secondVertex, -normal3, Vector2.zero, false, true);
-                    AddTrianglesNormalAndUvs(MeshSide.Negative, halfway, normal3, Vector2.zero, secondVertex, normal3, Vector2.zero, firstVertex, normal3, Vector2.zero, false, true);
+                if (direction > 0)
+                {
+                    AddTrianglesNormalAndUvs(MeshSide.Positive, halfway, -normal3, Vector2.zero, firstVertex, -normal3,
+                        Vector2.zero, secondVertex, -normal3, Vector2.zero, false, true);
+                    AddTrianglesNormalAndUvs(MeshSide.Negative, halfway, normal3, Vector2.zero, secondVertex, normal3,
+                        Vector2.zero, firstVertex, normal3, Vector2.zero, false, true);
                 }
                 else
                 {
-                    AddTrianglesNormalAndUvs(MeshSide.Positive, halfway, normal3, Vector2.zero, secondVertex, normal3, Vector2.zero, firstVertex, normal3, Vector2.zero, false, true);
-                    AddTrianglesNormalAndUvs(MeshSide.Negative, halfway, -normal3, Vector2.zero, firstVertex, -normal3, Vector2.zero, secondVertex, -normal3, Vector2.zero, false, true);
-                }               
+                    AddTrianglesNormalAndUvs(MeshSide.Positive, halfway, normal3, Vector2.zero, secondVertex, normal3,
+                        Vector2.zero, firstVertex, normal3, Vector2.zero, false, true);
+                    AddTrianglesNormalAndUvs(MeshSide.Negative, halfway, -normal3, Vector2.zero, firstVertex, -normal3,
+                        Vector2.zero, secondVertex, -normal3, Vector2.zero, false, true);
+                }
             }
         }
 
@@ -335,7 +358,7 @@ namespace Assets.Scripts
         /// <returns></returns>
         private Vector3 GetHalfwayPoint(out float distance)
         {
-            if(_pointsAlongPlane.Count > 0)
+            if (_pointsAlongPlane.Count > 0)
             {
                 Vector3 firstPoint = _pointsAlongPlane[0];
                 Vector3 furthestPoint = Vector3.zero;
@@ -380,7 +403,7 @@ namespace Assets.Scripts
                 _negativeSideMesh.vertices = _negativeSideVertices.ToArray();
                 _negativeSideMesh.triangles = _negativeSideTriangles.ToArray();
                 _negativeSideMesh.normals = _negativeSideNormals.ToArray();
-                _negativeSideMesh.uv = _negativeSideUvs.ToArray();                
+                _negativeSideMesh.uv = _negativeSideUvs.ToArray();
             }
         }
 
@@ -420,7 +443,8 @@ namespace Assets.Scripts
                 {
                     //Add the relevant triangle
                     MeshSide side = (vert1Side) ? MeshSide.Positive : MeshSide.Negative;
-                    AddTrianglesNormalAndUvs(side, vert1, normal1, uv1, vert2, normal2, uv2, vert3, normal3, uv3, true, false);
+                    AddTrianglesNormalAndUvs(side, vert1, normal1, uv1, vert2, normal2, uv2, vert3, normal3, uv3, true,
+                        false);
                 }
                 else
                 {
@@ -442,11 +466,13 @@ namespace Assets.Scripts
                         intersection2 = GetRayPlaneIntersectionPointAndUv(vert3, uv3, vert1, uv1, out intersection2Uv);
 
                         //Add the positive or negative triangles
-                        AddTrianglesNormalAndUvs(side1, vert1, null, uv1, vert2, null, uv2, intersection1, null, intersection1Uv, _useSharedVertices, false);
-                        AddTrianglesNormalAndUvs(side1, vert1, null, uv1, intersection1, null, intersection1Uv, intersection2, null, intersection2Uv, _useSharedVertices, false);
+                        AddTrianglesNormalAndUvs(side1, vert1, null, uv1, vert2, null, uv2, intersection1, null,
+                            intersection1Uv, _useSharedVertices, false);
+                        AddTrianglesNormalAndUvs(side1, vert1, null, uv1, intersection1, null, intersection1Uv,
+                            intersection2, null, intersection2Uv, _useSharedVertices, false);
 
-                        AddTrianglesNormalAndUvs(side2, intersection1, null, intersection1Uv, vert3, null, uv3, intersection2, null, intersection2Uv, _useSharedVertices, false);
-
+                        AddTrianglesNormalAndUvs(side2, intersection1, null, intersection1Uv, vert3, null, uv3,
+                            intersection2, null, intersection2Uv, _useSharedVertices, false);
                     }
                     //vert 1 and 3 are on the same side
                     else if (vert1Side == vert3Side)
@@ -456,10 +482,13 @@ namespace Assets.Scripts
                         intersection2 = GetRayPlaneIntersectionPointAndUv(vert2, uv2, vert3, uv3, out intersection2Uv);
 
                         //Add the positive triangles
-                        AddTrianglesNormalAndUvs(side1, vert1, null, uv1, intersection1, null, intersection1Uv, vert3, null, uv3, _useSharedVertices, false);
-                        AddTrianglesNormalAndUvs(side1, intersection1, null, intersection1Uv, intersection2, null, intersection2Uv, vert3, null, uv3, _useSharedVertices, false);
+                        AddTrianglesNormalAndUvs(side1, vert1, null, uv1, intersection1, null, intersection1Uv, vert3,
+                            null, uv3, _useSharedVertices, false);
+                        AddTrianglesNormalAndUvs(side1, intersection1, null, intersection1Uv, intersection2, null,
+                            intersection2Uv, vert3, null, uv3, _useSharedVertices, false);
 
-                        AddTrianglesNormalAndUvs(side2, intersection1, null, intersection1Uv, vert2, null, uv2, intersection2, null, intersection2Uv, _useSharedVertices, false);
+                        AddTrianglesNormalAndUvs(side2, intersection1, null, intersection1Uv, vert2, null, uv2,
+                            intersection2, null, intersection2Uv, _useSharedVertices, false);
                     }
                     //Vert1 is alone
                     else
@@ -468,10 +497,13 @@ namespace Assets.Scripts
                         intersection1 = GetRayPlaneIntersectionPointAndUv(vert1, uv1, vert2, uv2, out intersection1Uv);
                         intersection2 = GetRayPlaneIntersectionPointAndUv(vert1, uv1, vert3, uv3, out intersection2Uv);
 
-                        AddTrianglesNormalAndUvs(side1, vert1, null, uv1, intersection1, null, intersection1Uv, intersection2, null, intersection2Uv, _useSharedVertices, false);
+                        AddTrianglesNormalAndUvs(side1, vert1, null, uv1, intersection1, null, intersection1Uv,
+                            intersection2, null, intersection2Uv, _useSharedVertices, false);
 
-                        AddTrianglesNormalAndUvs(side2, intersection1, null, intersection1Uv, vert2, null, uv2, vert3, null, uv3, _useSharedVertices, false);
-                        AddTrianglesNormalAndUvs(side2, intersection1, null, intersection1Uv, vert3, null, uv3, intersection2, null, intersection2Uv, _useSharedVertices, false);
+                        AddTrianglesNormalAndUvs(side2, intersection1, null, intersection1Uv, vert2, null, uv2, vert3,
+                            null, uv3, _useSharedVertices, false);
+                        AddTrianglesNormalAndUvs(side2, intersection1, null, intersection1Uv, vert3, null, uv3,
+                            intersection2, null, intersection2Uv, _useSharedVertices, false);
                     }
 
                     //Add the newly created points on the plane.
@@ -494,7 +526,6 @@ namespace Assets.Scripts
             {
                 SmoothVertices();
             }
-
         }
 
         /// <summary>
@@ -507,7 +538,8 @@ namespace Assets.Scripts
         /// <param name="vertex2Uv">The vertex2 uv.</param>
         /// <param name="uv">The uv.</param>
         /// <returns>Point of intersection</returns>
-        private Vector3 GetRayPlaneIntersectionPointAndUv(Vector3 vertex1, Vector2 vertex1Uv, Vector3 vertex2, Vector2 vertex2Uv, out Vector2 uv)
+        private Vector3 GetRayPlaneIntersectionPointAndUv(Vector3 vertex1, Vector2 vertex1Uv, Vector3 vertex2,
+            Vector2 vertex2Uv, out Vector2 uv)
         {
             float distance = GetDistanceRelativeToPlane(vertex1, vertex2, out Vector3 pointOfIntersection);
             uv = InterpolateUvs(vertex1Uv, vertex2Uv, distance);
@@ -586,10 +618,7 @@ namespace Assets.Scripts
 
         private void DoSmoothing(ref List<Vector3> vertices, ref List<Vector3> normals, ref List<int> triangles)
         {
-            normals.ForEach(x =>
-            {
-                x = Vector3.zero;
-            });
+            normals.ForEach(x => { x = Vector3.zero; });
 
             for (int i = 0; i < triangles.Count; i += 3)
             {
@@ -597,17 +626,15 @@ namespace Assets.Scripts
                 int vertIndex2 = triangles[i + 1];
                 int vertIndex3 = triangles[i + 2];
 
-                Vector3 triangleNormal = ComputeNormal(vertices[vertIndex1], vertices[vertIndex2], vertices[vertIndex3]);
+                Vector3 triangleNormal =
+                    ComputeNormal(vertices[vertIndex1], vertices[vertIndex2], vertices[vertIndex3]);
 
                 normals[vertIndex1] += triangleNormal;
                 normals[vertIndex2] += triangleNormal;
                 normals[vertIndex3] += triangleNormal;
             }
 
-            normals.ForEach(x =>
-            {
-                x.Normalize();
-            });
+            normals.ForEach(x => { x.Normalize(); });
         }
     }
 }

@@ -17,6 +17,7 @@ public class NarratorManager : MonoBehaviour
         public bool IsActive => !scene.Equals(FlowScene.None);
         public bool IsPlaying => IsActive && sound.IsPlaying();
         public string Name => sound.GetClip().name;
+        public float Length => sound.GetClip().length;
 
 
         public NarratorAudioSet(FlowScene scene = FlowScene.None, SoundAbstract sound = null, bool canInterrupt = false)
@@ -87,6 +88,11 @@ public class NarratorManager : MonoBehaviour
         CheckEndCurrentAudio();
 
         QueueSets(flowScene);
+        if (currentSetQueue.Count > 1)
+        {
+            return currentSet.Length;
+        }
+
         return PlayNextLine();
     }
 
@@ -101,7 +107,7 @@ public class NarratorManager : MonoBehaviour
         Debug.Log($"Narrator playing {currentSet.Name}");
 
         currentSet.sound.PlayF();
-        return currentSet.sound.GetClip().length;
+        return currentSet.Length;
     }
 
     private bool CheckEndCurrentAudio()

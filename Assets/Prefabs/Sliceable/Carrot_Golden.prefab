@@ -251,6 +251,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowScene: 4
+--- !u!114 &4611984278238133322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2187682642428476405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb4ccbcc03ce1149b9cd8ab8175bd52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 2187682642428476406}
+  disableColliderTime: 0.05
+  mainCollider: {fileID: 3232701629315438177}
+  projectileLifeTime: 5
+  extraForce: {x: 0, y: 0, z: 0}
 --- !u!54 &2187682642428476406 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1527715353896950299, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,

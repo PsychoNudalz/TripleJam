@@ -85,6 +85,7 @@ public class GameFlowManager : MonoBehaviour
     {
         StartCoroutine(DelayStartOpening());
         preyCamera.gameObject.SetActive(false);
+        sliceableLaunchers.SetActive(false);
     }
 
     // Update is called once per frame
@@ -145,7 +146,7 @@ public class GameFlowManager : MonoBehaviour
     {
         narrator.PlayAudio(FlowScene.Dojo_Opening);
         titleScene.SetActive(true);
-        PlayerInputController.SetLock(true);
+        // PlayerInputController.SetLock(true);
         delaySceneTransition = StartCoroutine(DelayMoveScene(openingTime, FlowScene.Dojo_StartSlice));
     }
 
