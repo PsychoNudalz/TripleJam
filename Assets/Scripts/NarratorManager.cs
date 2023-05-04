@@ -82,24 +82,26 @@ public class NarratorManager : MonoBehaviour
         }
     }
 
-    public void PlayAudio(FlowScene flowScene)
+    public float PlayAudio(FlowScene flowScene)
     {
         CheckEndCurrentAudio();
 
         QueueSets(flowScene);
-        PlayNextLine();
+        return PlayNextLine();
     }
 
-    private void PlayNextLine()
+    private float PlayNextLine()
     {
         if (currentSetQueue.Count == 0)
         {
-            return;
+            return 0;
         }
+
         currentSet = currentSetQueue.Dequeue();
         Debug.Log($"Narrator playing {currentSet.Name}");
 
         currentSet.sound.PlayF();
+        return currentSet.sound.GetClip().length;
     }
 
     private bool CheckEndCurrentAudio()

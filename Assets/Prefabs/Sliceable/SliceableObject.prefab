@@ -52,13 +52,14 @@ MonoBehaviour:
   onSliceEvent:
     m_PersistentCalls:
       m_Calls: []
+  sliceScore: 0
   _isSolid: 1
   _reverseWindTriangles: 0
   _useGravity: 1
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
-  rigidbody: {fileID: 0}
+  rigidbody: {fileID: 1527715353896950299}
   meshRenderer: {fileID: 1540380501934406199}
   meshFilter: {fileID: 1534471446033335539}
   meshCollider: {fileID: 1573988880250292739}

@@ -131,9 +131,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchGO: {fileID: 2187682642428476405, guid: 490d99612add6a94eb5a03bb6a3cefc0,
     type: 3}
-  speed: 9
+  speed: 7.5
   fireOnAwake: 0
   fireDelay: 1
+  timeBetweenFire: -1
+  isFire: 0
   projectile: {fileID: 2770549123843914480, guid: 490d99612add6a94eb5a03bb6a3cefc0,
     type: 3}
 --- !u!114 &7827691890284788540

@@ -20,6 +20,12 @@ public class Projectile : MonoBehaviour
 
     [SerializeField]
     protected Collider mainCollider;
+
+    [SerializeField]
+    private float projectileLifeTime = -1;
+
+    [SerializeField]
+    private Vector3 extraForce = new Vector3();
     // Start is called before the first frame update
 
     private void Awake()
@@ -33,8 +39,21 @@ public class Projectile : MonoBehaviour
         {
             rb = GetComponent<Rigidbody>();
         }
+
+        if (projectileLifeTime > 0)
+        {
+            Destroy(gameObject,projectileLifeTime);
+        }
     }
-    
+
+    private void FixedUpdate()
+    {
+        if (extraForce.magnitude > 0)
+        {
+            rb.AddForce(extraForce,ForceMode.Acceleration);
+        }
+    }
+
     public virtual void LaunchVelocity(Vector3 velocity)
     {
         if (rb)

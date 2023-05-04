@@ -78,8 +78,8 @@ namespace Assets.Scripts
             positiveSliceable.Init(slicesMeta.PositiveSideMesh,sliceable.Rigidbody,.5f);
             negativeSliceable.Init(slicesMeta.NegativeSideMesh,sliceable.Rigidbody,-.5f);
             
-            positiveSliceable.OnSlice();
-            
+            positiveSliceable.OnSlice_Spawn();
+            sliceable.OnSlice_Destroy();
             GameObject.Destroy(sliceable.gameObject);
 
             return new GameObject[] {positiveObject, negativeObject};
@@ -116,31 +116,31 @@ namespace Assets.Scripts
             return meshGameObject;
         }
 
-        private static GameObject CreateMeshGameObject(Sliceable originalSliceable)
-        {
-            var originalMaterial = originalSliceable.materials;
-
-            GameObject meshGameObject = new GameObject();
-
-            MeshFilter mf = meshGameObject.AddComponent<MeshFilter>();
-            MeshRenderer mr = meshGameObject.AddComponent<MeshRenderer>();
-            Sliceable sliceable = meshGameObject.AddComponent<Sliceable>();
-            sliceable.Init(mr, mf);
-
-            sliceable.IsSolid = originalSliceable.IsSolid;
-            sliceable.ReverseWireTriangles = originalSliceable.ReverseWireTriangles;
-            sliceable.UseGravity = originalSliceable.UseGravity;
-
-            mr.materials = originalMaterial;
-
-            meshGameObject.transform.localScale = originalSliceable.transform.localScale;
-            meshGameObject.transform.rotation = originalSliceable.transform.rotation;
-            meshGameObject.transform.position = originalSliceable.transform.position;
-
-            meshGameObject.tag = originalSliceable.tag;
-
-            return meshGameObject;
-        }
+        // private static GameObject CreateMeshGameObject(Sliceable originalSliceable)
+        // {
+        //     var originalMaterial = originalSliceable.materials;
+        //
+        //     GameObject meshGameObject = new GameObject();
+        //
+        //     MeshFilter mf = meshGameObject.AddComponent<MeshFilter>();
+        //     MeshRenderer mr = meshGameObject.AddComponent<MeshRenderer>();
+        //     Sliceable sliceable = meshGameObject.AddComponent<Sliceable>();
+        //     sliceable.Init(mr, mf);
+        //
+        //     sliceable.IsSolid = originalSliceable.IsSolid;
+        //     sliceable.ReverseWireTriangles = originalSliceable.ReverseWireTriangles;
+        //     sliceable.UseGravity = originalSliceable.UseGravity;
+        //
+        //     mr.materials = originalMaterial;
+        //
+        //     meshGameObject.transform.localScale = originalSliceable.transform.localScale;
+        //     meshGameObject.transform.rotation = originalSliceable.transform.rotation;
+        //     meshGameObject.transform.position = originalSliceable.transform.position;
+        //
+        //     meshGameObject.tag = originalSliceable.tag;
+        //
+        //     return meshGameObject;
+        // }
 
         private static GameObject CreateSliceableCopy(Sliceable originalSliceable, string prefix)
         {

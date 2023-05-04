@@ -13,6 +13,11 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI bladeUnlockText;
+    
+    [Header("Score")]
+    [SerializeField]
+    private TextMeshProUGUI scoreText;
+    
 
     public static UIManager current;
     // Start is called before the first frame update
@@ -40,5 +45,11 @@ public class UIManager : MonoBehaviour
         bladeUnlock.transform.localScale = new Vector3(1f, 1f, 1f);
         bladeUnlockText.text = s;
         LeanTween.scale(bladeUnlock, Vector3.zero, 2f);
+    }
+
+    public void UpdateScore(int i)
+    {
+        scoreText.text = i.ToString();
+        
     }
 }

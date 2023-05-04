@@ -53,6 +53,7 @@ MonoBehaviour:
   onSliceEvent:
     m_PersistentCalls:
       m_Calls: []
+  sliceScore: 150
   _isSolid: 1
   _reverseWindTriangles: 0
   _useGravity: 1

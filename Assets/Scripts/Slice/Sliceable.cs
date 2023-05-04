@@ -32,7 +32,8 @@ public class Sliceable : MonoBehaviour
     [SerializeField]
     private UnityEvent onSliceEvent;
 
-
+    [SerializeField]
+    private int sliceScore = 0;
 
 
     [Header("Settings")]
@@ -76,7 +77,7 @@ public class Sliceable : MonoBehaviour
     public Rigidbody Rigidbody => rigidbody;
 
     public const float minMeshSize = .01f;
-    
+
     public bool CanSlice()
     {
         return _canSlice;
@@ -145,30 +146,44 @@ public class Sliceable : MonoBehaviour
         }
     }
 
-    public void Init(MeshRenderer r, MeshFilter f, Rigidbody rb = null)
-    {
-        meshRenderer = r;
-        meshFilter = f;
-        if (!rb && rigidbody)
-        {
-            rigidbody.velocity = rb.velocity;
-            rigidbody.angularVelocity = rb.angularVelocity;
-        }
-        Destroy(gameObject,autoDestroyTime);
+    // public void Init(MeshRenderer r, MeshFilter f, Rigidbody rb = null)
+    // {
+    //     meshRenderer = r;
+    //     meshFilter = f;
+    //     if (!rb && rigidbody)
+    //     {
+    //         rigidbody.velocity = rb.velocity;
+    //         rigidbody.angularVelocity = rb.angularVelocity;
+    //     }
+    //
+    //     Destroy(gameObject, autoDestroyTime);
+    // }
 
-    }
-
+    /// <summary>
+    /// Use this one
+    /// </summary>
+    /// <param name="m"></param>
+    /// <param name="rb"></param>
+    /// <param name="multiplier"></param>
     public void Init(Mesh m, Rigidbody rb, float multiplier = 1)
     {
+        SelfInit();
         SetMesh(m);
-        rigidbody.isKinematic = false;
-        rigidbody.velocity = rb.velocity * multiplier;
-        rigidbody.angularVelocity = rb.angularVelocity * multiplier;
+        if (rigidbody)
+        {
+            rigidbody.isKinematic = false;
+            rigidbody.velocity = rb.velocity * multiplier;
+            rigidbody.angularVelocity = rb.angularVelocity * multiplier;
+        }
+
+        sliceScore /= 2;
+
         if (GetMeshSize(m) < minMeshSize)
         {
-            Destroy(gameObject,1f);
+            Destroy(gameObject, 1f);
         }
-        Destroy(gameObject,autoDestroyTime);
+
+        Destroy(gameObject, autoDestroyTime);
     }
 
     float GetMeshSize(Mesh m)
@@ -189,8 +204,14 @@ public class Sliceable : MonoBehaviour
         return l >= sliceLevel;
     }
 
-    public void OnSlice()
+    public void OnSlice_Spawn()
     {
         onSliceEvent.Invoke();
     }
+
+    public void OnSlice_Destroy()
+    {
+        ScoreManager.AddScore(sliceScore);
+    }
+
 }

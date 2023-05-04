@@ -144,7 +144,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: -5551661673497522169}
+      objectReference: {fileID: -3745197806018854670}
     - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
         type: 3}
       propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -153,12 +153,12 @@ PrefabInstance:
     - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
         type: 3}
       propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetBladeLevel
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
         type: 3}
       propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BladeUpgrade, Assembly-CSharp
+      value: GameFlowPlayer, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
         type: 3}
@@ -238,7 +238,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 824084792165048813}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-5551661673497522169
+--- !u!114 &-3745197806018854670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,10 +247,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2187682642428476405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99ac74d318e73564499b8d9824020cb4, type: 3}
+  m_Script: {fileID: 11500000, guid: 61f379ef60e3dd75f9a7bfd41335870b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sl: 1
+  flowScene: 4
 --- !u!54 &2187682642428476406 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1527715353896950299, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,

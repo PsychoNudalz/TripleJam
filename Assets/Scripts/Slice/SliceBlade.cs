@@ -28,6 +28,12 @@ public class SliceBlade : MonoBehaviour
     [SerializeField]
     private BoxCollider bladeCollider;
 
+    [SerializeField]
+    private Sliceable detectedSliceObject;
+
+    [SerializeField]
+    private Vector3 initialSliceObjectPosition;
+
     private Mesh _mesh;
     private Vector3[] _vertices;
     private int[] _triangles;
@@ -57,16 +63,34 @@ public class SliceBlade : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _triggerEnterTipPosition = _tip.transform.position;
-        _triggerEnterBasePosition = _base.transform.position;
+        if (detectedSliceObject)
+        {
+            return;
+        }
+        Sliceable temp = other.GetComponentInParent<Sliceable>();
+        if (temp)
+        {
+            detectedSliceObject = temp;
+            _triggerEnterTipPosition = _tip.transform.position;
+            _triggerEnterBasePosition = _base.transform.position;
+            initialSliceObjectPosition = detectedSliceObject.transform.position;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        var plane = GetPlane(other, out var transformedNormal);
+        Sliceable s = other.GetComponentInParent<Sliceable>();
+
+        if (!s.Equals(detectedSliceObject))
+        {
+            return;
+        }
+
+        Vector3 objectDisplacement = detectedSliceObject.transform.position -initialSliceObjectPosition;
+        
+        var plane = GetPlane(other, out var transformedNormal,objectDisplacement);
 
         GameObject[] slices = Array.Empty<GameObject>();
-        Sliceable s = other.GetComponentInParent<Sliceable>();
         if (s)
         {
             if (s.CanSlice(bladeLevel))
@@ -88,15 +112,17 @@ public class SliceBlade : MonoBehaviour
                 rigidbody.AddForce(newNormal, ForceMode.Impulse);
             }
         }
+
+        detectedSliceObject = null;
     }
 
-    private Plane GetPlane(Collider other, out Vector3 transformedNormal)
+    private Plane GetPlane(Collider other, out Vector3 transformedNormal, Vector3 objectDisplacement)
     {
         _triggerExitTipPosition = _tip.transform.position;
 
         //Create a triangle between the tip and base so that we can get the normal
         Vector3 side1 = _triggerExitTipPosition - _triggerEnterTipPosition;
-        Vector3 side2 = _triggerExitTipPosition - _triggerEnterBasePosition;
+        Vector3 side2 = _triggerExitTipPosition - _triggerEnterBasePosition+objectDisplacement;
 
         //Get the point perpendicular to the triangle above which is the normal
         //https://docs.unity3d.com/Manual/ComputingNormalPerpendicularVector.html

@@ -122,6 +122,11 @@ PrefabInstance:
       objectReference: {fileID: 4626766218673636017}
     - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
         type: 3}
+      propertyPath: sliceScore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
+        type: 3}
       propertyPath: meshCollider
       value: 
       objectReference: {fileID: 3232701629315438177}
@@ -192,9 +197,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3250837516251618077, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
         type: 3}
+      propertyPath: extraForce.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3250837516251618077, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
+        type: 3}
       propertyPath: mainCollider
       value: 
       objectReference: {fileID: 3232701629315438177}
+    - target: {fileID: 3250837516251618077, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
+        type: 3}
+      propertyPath: projectileLifeTime
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0117c9b6215a6c24aa70bcb256e2f3c3, type: 3}
 --- !u!54 &2187682642428476406 stripped
