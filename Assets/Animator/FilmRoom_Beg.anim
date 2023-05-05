@@ -497,7 +497,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 13.016666
+    m_StopTime: 11.9
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -1532,14 +1532,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 3
     messageOptions: 0
-  - time: 7.5333333
-    functionName: PlayUE
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 3
-    messageOptions: 0
-  - time: 9.966666
+  - time: 7.75
     functionName: PlayUE
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -1553,7 +1546,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 4
     messageOptions: 0
-  - time: 13.016666
+  - time: 11.9
     functionName: PlayUE
     data: 
     objectReferenceParameter: {fileID: 0}

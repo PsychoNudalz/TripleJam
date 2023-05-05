@@ -82,6 +82,9 @@ public class GameFlowManager : MonoBehaviour
 
     [SerializeField]
     private GameObject endingScreen;
+
+    [SerializeField]
+    private Sound elevatorMusic;
     [Header("Components")]
 
     [SerializeField]
@@ -312,6 +315,9 @@ public class GameFlowManager : MonoBehaviour
         float d = narrator.PlayAudio(FlowScene.Studio_Beg);
         PlayerInputController.SetLock(false);
         PlayerSliceController.SetPlayerLevel(SliceLevel.DualSaber);
+        SoundManager.current.StopAllSounds();
+        elevatorMusic.Play();
+        
     }
     void Play_Studio_End()
     {

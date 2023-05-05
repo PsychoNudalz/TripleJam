@@ -53,6 +53,12 @@ public class PlayerSliceController : MonoBehaviour
     [SerializeField]
     private SliceBlade playerBlade;
 
+    [SerializeField]
+    Sound levelUpSound;
+
+    [SerializeField]
+    private ParticleSystem levelUpEffect;
+    
     public static PlayerSliceController current;
 
     private void Awake()
@@ -160,6 +166,8 @@ public class PlayerSliceController : MonoBehaviour
         // mouseTipLocalPosition.z = set.length*.6f;
         // mouseTip.localPosition = mouseTipLocalPosition;
         SetBladeMode(set.swordObject);
+        levelUpSound?.Play();
+        levelUpEffect?.Play();
     }
 
     public SliceSet GetSet(SliceLevel sl)
