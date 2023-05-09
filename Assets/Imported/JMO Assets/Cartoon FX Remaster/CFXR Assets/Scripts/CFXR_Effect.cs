@@ -501,6 +501,8 @@ namespace CartoonFX
 			{ 
 				materialPropertyBlock = new MaterialPropertyBlock();
 			}
+			cameraShake.StopShake();
+
 		}
 #endif
 
