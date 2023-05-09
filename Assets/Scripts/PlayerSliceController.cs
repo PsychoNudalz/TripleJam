@@ -74,6 +74,7 @@ public class PlayerSliceController : MonoBehaviour
     private void Start()
     {
         SetPlayerLevel(SliceLevel.None);
+        SetDraw(false);
     }
 
     public void UpdateController(Vector3 worldPos, float angle)
