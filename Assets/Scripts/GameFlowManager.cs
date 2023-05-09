@@ -315,14 +315,15 @@ public class GameFlowManager : MonoBehaviour
         float d = narrator.PlayAudio(FlowScene.Studio_Beg);
         PlayerInputController.SetLock(false);
         PlayerSliceController.SetPlayerLevel(SliceLevel.DualSaber);
-        SoundManager.current.StopAllSounds();
-        elevatorMusic.Play();
+
         
     }
     void Play_Studio_End()
     {
         narrator.Stop();
         endingScreen.SetActive(true);
+        SoundManager.current.StopAllSounds();
+        elevatorMusic.Play();
     }
 
     IEnumerator DelayStartOpening()
