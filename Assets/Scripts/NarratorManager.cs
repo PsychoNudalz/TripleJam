@@ -2,70 +2,81 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+
+
+[Serializable]
+public struct DialogueSet
+{
+    public FlowScene scene;
+
+    [FormerlySerializedAs("sound")]
+    public AudioClip clip;
+
+    public bool canInterrupt;
+
+    [TextArea]
+    public string text;
+
+    public bool IsActive => !scene.Equals(FlowScene.None);
+    // public bool IsPlaying => IsActive && sound.IsPlaying();
+    public string Name => clip.name;
+    public float Length => clip.length;
+
+
+    public DialogueSet(FlowScene scene = FlowScene.None, AudioClip clip = null, bool canInterrupt = false,
+        string text = "")
+    {
+        this.scene = scene;
+        this.clip = clip;
+        this.canInterrupt = canInterrupt;
+        this.text = text;
+
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj is DialogueSet n)
+        {
+            if (n.scene.Equals(scene))
+            {
+                return true;
+            }
+        }
+
+        if (obj is FlowScene o)
+        {
+            if (o.Equals(scene))
+            {
+                return true;
+            }
+        }
+
+        return base.Equals(obj);
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
+}
 
 public class NarratorManager : MonoBehaviour
 {
-    [Serializable]
-    struct NarratorAudioSet
-    {
-        public FlowScene scene;
-
-        public SoundAbstract sound;
-
-        //Need to get interruption to work
-        public bool canInterrupt;
-        public bool IsActive => !scene.Equals(FlowScene.None);
-        public bool IsPlaying => IsActive && sound.IsPlaying();
-        public string Name => sound.GetClip().name;
-        public float Length => sound.GetClip().length;
-
-
-        public NarratorAudioSet(FlowScene scene = FlowScene.None, SoundAbstract sound = null, bool canInterrupt = false)
-        {
-            this.scene = scene;
-            this.sound = sound;
-            this.canInterrupt = canInterrupt;
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (obj is NarratorAudioSet n)
-            {
-                if (n.scene.Equals(scene))
-                {
-                    return true;
-                }
-            }
-
-            if (obj is FlowScene o)
-            {
-                if (o.Equals(scene))
-                {
-                    return true;
-                }
-            }
-
-            return base.Equals(obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-    }
+    [SerializeField]
+    private DialogueSet[] sets;
 
     [SerializeField]
-    private NarratorAudioSet[] sets;
+    Queue<DialogueSet> currentSetQueue = new Queue<DialogueSet>();
 
     [SerializeField]
-    Queue<NarratorAudioSet> currentSetQueue = new Queue<NarratorAudioSet>();
-
-    private NarratorAudioSet currentSet;
+    private SoundAbstract narratorSound;
+    private DialogueSet currentSet;
 
     // Start is called before the first frame update
     void Awake()
     {
-        currentSet = new NarratorAudioSet();
+        currentSet = new DialogueSet();
     }
 
     // Update is called once per frame
@@ -73,7 +84,7 @@ public class NarratorManager : MonoBehaviour
     {
         if (currentSet.IsActive)
         {
-            if (!currentSet.IsPlaying)
+            if (!narratorSound.IsPlaying())
             {
                 if (currentSetQueue.Count > 0)
                 {
@@ -106,18 +117,19 @@ public class NarratorManager : MonoBehaviour
         currentSet = currentSetQueue.Dequeue();
         Debug.Log($"Narrator playing {currentSet.Name}");
 
-        currentSet.sound.PlayF();
+        narratorSound.SetClip(currentSet.clip);
+        narratorSound.PlayF();
         return currentSet.Length;
     }
 
     private bool CheckEndCurrentAudio()
     {
-        if (currentSet.IsPlaying)
+        if (narratorSound.IsPlaying())
         {
             if (currentSet.canInterrupt)
             {
-                currentSetQueue = new Queue<NarratorAudioSet>();
-                currentSet.sound.Stop();
+                currentSetQueue = new Queue<DialogueSet>();
+                narratorSound.Stop();
                 return false;
             }
 
@@ -129,7 +141,7 @@ public class NarratorManager : MonoBehaviour
 
     void QueueSets(FlowScene flowScene)
     {
-        foreach (NarratorAudioSet set in sets)
+        foreach (DialogueSet set in sets)
         {
             if (set.Equals(flowScene))
             {
@@ -142,10 +154,19 @@ public class NarratorManager : MonoBehaviour
 
     public void Stop()
     {
-        if (currentSet.IsPlaying)
+        if (narratorSound.IsPlaying())
         {
-            currentSet.sound.Stop();
-            currentSetQueue = new Queue<NarratorAudioSet>();
+            narratorSound.Stop();
+            currentSetQueue = new Queue<DialogueSet>();
+        }
+    }
+
+    [ContextMenu("TestConvertDialogue")]
+    public void TestConvertDialogue()
+    {
+        foreach (DialogueSet dialogueSet in sets)
+        {
+            SubtitleManager.ConvertDialogue(dialogueSet);
         }
     }
 }

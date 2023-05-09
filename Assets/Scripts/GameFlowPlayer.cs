@@ -11,4 +11,10 @@ public class GameFlowPlayer : MonoBehaviour
     {
         GameFlowManager.current.Play_Scene(flowScene);
     }
+
+    [ContextMenu("Shift next")]
+    public void ShiftNextScene()
+    {
+        flowScene += 1;
+    }
 }
