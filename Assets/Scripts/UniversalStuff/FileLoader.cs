@@ -6,6 +6,7 @@ using UnityEngine;
 
 public static class FileLoader
 {
+    private static string resourcesPath = Application.dataPath + "/Resources/";
 
     public static void SaveToFile<T>(string path, string filename, T objectToBeSaved)
     {
@@ -22,6 +23,11 @@ public static class FileLoader
         }
     }
 
+    public static void SaveToResources<T>(string path, string filename, T objectToBeSaved)
+    {
+        SaveToFile<T>(resourcesPath + path, filename, objectToBeSaved);
+    }
+
     /// <summary>
     /// create file at path
     /// false if failed
@@ -32,7 +38,6 @@ public static class FileLoader
     /// <returns></returns>
     public static bool CreateFile(string path, string filename, string saveString)
     {
-
         try
         {
             File.WriteAllText(path + filename, saveString);
@@ -43,10 +48,14 @@ public static class FileLoader
             Directory.CreateDirectory(path);
             File.WriteAllText(path + filename, saveString);
             return false;
-
         }
     }
-    
+
+    public static bool CreateFileToResources(string path, string filename, string saveString)
+    {
+        return CreateFile(resourcesPath + path, filename, saveString);
+    }
+
     public static bool CreatePNG(string path, string filename, Texture2D image)
     {
         byte[] bytes = image.EncodeToPNG();
@@ -62,18 +71,15 @@ public static class FileLoader
             {
                 Directory.CreateDirectory(path);
                 File.WriteAllBytes(path + filename, bytes);
-
             }
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
                 return false;
-
             }
-
         }
-        return true;
 
+        return true;
     }
 
     public static bool BackupFile(string path, string filename, string backupPath)
@@ -115,10 +121,37 @@ public static class FileLoader
 
             return default(T);
         }
+
         return JsonUtility.FromJson<T>(loadString);
     }
+    public static T[] LoadArrayFromFile<T>(string pathWithName)
+    {
+        string loadString = "";
+        try
+        {
+            loadString = File.ReadAllText(pathWithName);
+        }
+        catch (FileNotFoundException e)
+        {
+            Debug.LogWarning("Failed to find save file, loading default save");
 
-    public static Texture2D LoadTextureFromImage(Texture2D image,string path, string filename="")
+            return default(T[]);
+        }
+
+        return JsonHelper.FromJson<T>(loadString);
+    }
+
+    public static T LoadFromResources<T>(string pathWithName)
+    {
+        return LoadFromFile<T>(resourcesPath + pathWithName);
+    }
+
+    public static T[] LoadArrayFromResources<T>(string pathWithName)
+    {
+        return LoadArrayFromFile<T>(resourcesPath + pathWithName);
+    }
+
+    public static Texture2D LoadTextureFromImage(Texture2D image, string path, string filename = "")
     {
         path += filename;
         try
@@ -131,13 +164,10 @@ public static class FileLoader
         {
             Console.WriteLine(e);
             Debug.LogError(e.StackTrace);
-            
         }
 
         return image;
     }
-
-
 
 
     public static int[] StringSplitToInt(string stringArray, char c)
@@ -152,7 +182,6 @@ public static class FileLoader
             {
                 if (!temp.Equals(""))
                 {
-
                     returnInt.Add(int.Parse(temp));
                 }
             }
@@ -161,10 +190,9 @@ public static class FileLoader
                 Debug.LogError(e);
             }
         }
+
         return returnInt.ToArray();
     }
-
-    
 
 
     public static object EmptyDataCheck(string s, object defaultValue)
@@ -177,8 +205,8 @@ public static class FileLoader
         {
             return s;
         }
-
     }
+
     public static string EmptyDataCheckString(string s, string i)
     {
         if (s.Equals(""))
@@ -189,7 +217,6 @@ public static class FileLoader
         {
             return s;
         }
-
     }
 
     /// <summary>
@@ -199,17 +226,19 @@ public static class FileLoader
     /// <param name="path"> path to file</param>
     /// <param name="fileType">type of file, in regular expressions, eg *.prefab</param>
     /// <returns> list of components specified </returns>
-    public static List<T> GetAllFilesFromResources<T>(string path, string fileType = "*.prefab", bool displayDebug = true)
+    public static List<T> GetAllFilesFromResources<T>(string path, string fileType = "*.prefab",
+        bool displayDebug = true)
     {
         List<T> fileList = new List<T>();
 
-        string[] filePaths = Directory.GetFiles(Application.dataPath + "/Resources/" + path, fileType, SearchOption.AllDirectories);
+
+        string[] filePaths = Directory.GetFiles(resourcesPath + path, fileType, SearchOption.AllDirectories);
         GameObject loadGO;
         string temp;
         foreach (string filePath in filePaths)
         {
             temp = filePath;
-            temp = temp.Replace(Application.dataPath + "/Resources/", "");
+            temp = temp.Replace(resourcesPath, "");
             temp = temp.Replace(fileType.Substring(1), "");
             loadGO = Resources.Load<GameObject>(temp) as GameObject;
 
@@ -227,6 +256,7 @@ public static class FileLoader
         {
             Debug.Log($"Found all files of type {fileType}, containing: {fileList.Count} files return");
         }
+
         return fileList;
     }
 
@@ -242,11 +272,9 @@ public static class FileLoader
     public static string ConvertFromCSVSafe(string input)
     {
         input = input.Replace("<COMMA>", ",");
-        input = input.Replace("<NEWLINE>","\n");
-        input = input.Replace("<QUESTION>","?");
+        input = input.Replace("<NEWLINE>", "\n");
+        input = input.Replace("<QUESTION>", "?");
         input = input.Replace("<EXMARK>", "!");
         return input;
     }
-    
-    
 }

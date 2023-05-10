@@ -119,12 +119,15 @@ public class SubtitleManager : MonoBehaviour
     }
 
 
-    public static string ConvertDialogue(DialogueSet dialogueSet)
+    public static DialogueSet ConvertAndAddDialogue(DialogueSet dialogueSet)
     {
-        return ConvertText(dialogueSet.text, dialogueSet.Length);
+        SubtitleText[] temp =  ConvertTextToSubtitles(dialogueSet.text, dialogueSet.Length);
+        Debug.Log($"Set subtitle on Dialogue");
+        dialogueSet.subtitleTexts = temp;
+        return dialogueSet;
     }
 
-    public static string ConvertText(string originalText,float duration)
+    public static SubtitleText[] ConvertTextToSubtitles(string originalText,float duration)
     {
         List<SubtitleText> splitSubtitle = new List<SubtitleText>();
         string line = "";
@@ -138,6 +141,8 @@ public class SubtitleManager : MonoBehaviour
              durationPerSection = duration * Mathf.Max(MAX_WORD / originalText.Length,1f);
         }
 
+        durationPerSection = Mathf.RoundToInt(duration);
+
         for (int i = 0; i < originalText.Length; i++)
         {
             line += originalText[i];
@@ -149,7 +154,12 @@ public class SubtitleManager : MonoBehaviour
         }
         splitSubtitle.Add(new SubtitleText(line,durationPerSection));
 
-        string json = JsonHelper.ToJson(splitSubtitle.ToArray(),true);
+        return splitSubtitle.ToArray();
+    }
+
+    public static string ConvertSubtitlesToJSON(SubtitleText[] splitSubtitle)
+    {
+        string json = JsonHelper.ToJson(splitSubtitle);
         Debug.Log(json);
         return json;
     }

@@ -15,23 +15,26 @@ public struct DialogueSet
 
     public bool canInterrupt;
 
-    [TextArea(10,1000)]
+    [TextArea(2, 1000)]
     public string text;
 
+    public SubtitleText[] subtitleTexts;
+
     public bool IsActive => !scene.Equals(FlowScene.None);
+
     // public bool IsPlaying => IsActive && sound.IsPlaying();
     public string Name => clip.name;
     public float Length => clip.length;
 
 
     public DialogueSet(FlowScene scene = FlowScene.None, AudioClip clip = null, bool canInterrupt = false,
-        string text = "")
+        string text = "", SubtitleText[] subtitleTexts = default)
     {
         this.scene = scene;
         this.clip = clip;
         this.canInterrupt = canInterrupt;
         this.text = text;
-
+        this.subtitleTexts = subtitleTexts;
     }
 
     public override bool Equals(object obj)
@@ -71,8 +74,17 @@ public class NarratorManager : MonoBehaviour
 
     [SerializeField]
     private SoundAbstract narratorSound;
+
     private DialogueSet currentSet;
 
+    public DialogueSet[] Sets => sets;
+
+
+    public void SetDialogueSet(DialogueSet[] s)
+    {
+        Debug.Log($"Setting set with length: {s.Length}");
+        sets = s;
+    }
     // Start is called before the first frame update
     void Awake()
     {
@@ -161,12 +173,16 @@ public class NarratorManager : MonoBehaviour
         }
     }
 
-    [ContextMenu("TestConvertDialogue")]
-    public void TestConvertDialogue()
+    [ContextMenu("ConvertDialogue")]
+    public void InitialiseConvertTextToSubtitle(bool force = false)
     {
-        foreach (DialogueSet dialogueSet in sets)
+        for (var i = 0; i < sets.Length; i++)
         {
-            SubtitleManager.ConvertDialogue(dialogueSet);
+            DialogueSet dialogueSet = sets[i];
+            if (force||dialogueSet.subtitleTexts.Length == 0)
+            {
+                sets[i] = SubtitleManager.ConvertAndAddDialogue(dialogueSet);
+            }
         }
     }
 }
