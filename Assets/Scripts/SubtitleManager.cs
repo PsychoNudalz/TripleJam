@@ -128,7 +128,16 @@ public class SubtitleManager : MonoBehaviour
     {
         List<SubtitleText> splitSubtitle = new List<SubtitleText>();
         string line = "";
-        float durationPerSection = duration * Mathf.Max(MAX_WORD / originalText.Length,1f);
+        float durationPerSection;
+        if (originalText.Length == 0)
+        {
+             durationPerSection = duration;
+        }
+        else
+        {
+             durationPerSection = duration * Mathf.Max(MAX_WORD / originalText.Length,1f);
+        }
+
         for (int i = 0; i < originalText.Length; i++)
         {
             line += originalText[i];
@@ -139,7 +148,8 @@ public class SubtitleManager : MonoBehaviour
             }
         }
         splitSubtitle.Add(new SubtitleText(line,durationPerSection));
-        string json = JsonUtility.ToJson(splitSubtitle);
+
+        string json = JsonHelper.ToJson(splitSubtitle.ToArray(),true);
         Debug.Log(json);
         return json;
     }

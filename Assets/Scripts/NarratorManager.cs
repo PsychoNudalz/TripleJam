@@ -15,7 +15,7 @@ public struct DialogueSet
 
     public bool canInterrupt;
 
-    [TextArea]
+    [TextArea(10,1000)]
     public string text;
 
     public bool IsActive => !scene.Equals(FlowScene.None);
