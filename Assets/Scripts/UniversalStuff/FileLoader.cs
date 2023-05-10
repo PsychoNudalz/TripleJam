@@ -108,7 +108,7 @@ public static class FileLoader
         }
     }
 
-    public static T LoadFromFile<T>(string pathWithName)
+    public static T LoadJSONFromFile<T>(string pathWithName)
     {
         string loadString = "";
         try
@@ -124,7 +124,7 @@ public static class FileLoader
 
         return JsonUtility.FromJson<T>(loadString);
     }
-    public static T[] LoadArrayFromFile<T>(string pathWithName)
+    public static T[] LoadJSONArrayFromFile<T>(string pathWithName)
     {
         string loadString = "";
         try
@@ -141,14 +141,14 @@ public static class FileLoader
         return JsonHelper.FromJson<T>(loadString);
     }
 
-    public static T LoadFromResources<T>(string pathWithName)
+    public static T LoadJSONFromResources<T>(string pathWithName)
     {
-        return LoadFromFile<T>(resourcesPath + pathWithName);
+        return LoadJSONFromFile<T>(resourcesPath + pathWithName);
     }
 
-    public static T[] LoadArrayFromResources<T>(string pathWithName)
+    public static T[] LoadJSONArrayFromResources<T>(string pathWithName)
     {
-        return LoadArrayFromFile<T>(resourcesPath + pathWithName);
+        return LoadJSONArrayFromFile<T>(resourcesPath + pathWithName);
     }
 
     public static Texture2D LoadTextureFromImage(Texture2D image, string path, string filename = "")
@@ -258,6 +258,16 @@ public static class FileLoader
         }
 
         return fileList;
+    }
+
+    public static AudioClip LoadAudioClipFromResources(string pathWithName)
+    {
+        AudioClip clip= Resources.Load<AudioClip>(pathWithName) as AudioClip;
+        if (!clip)
+        {
+            Debug.LogError($"Can not load: {pathWithName}");
+        }
+        return clip;
     }
 
     public static string ConvertToCSVSafe(string input)

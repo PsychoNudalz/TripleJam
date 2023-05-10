@@ -260,8 +260,12 @@ MonoBehaviour:
     - text: I must caution you against swinging that crowbar around. While it may
         seem like harmless fun, it i
       time: 23
-    - text: "s important to consider the potential consequences of your actions.\r\n\r\n
-        I urge you to put down the"
+    - text: 's important to consider the potential consequences of your actions.
+
+        
+
+        I
+        urge you to put down the'
       time: 23
     - text: ' crowbar and consider the bigger picture. Remember, your actions have
         consequences, and sometimes '

@@ -36,6 +36,7 @@ public class NarratorManagerEditor : Editor
         if (GUILayout.Button("Load JSON"))
         {
             LoadJson(myScript);
+            SetNarratorDirty();
         }
 
         DrawDefaultInspector();
@@ -65,11 +66,13 @@ public class NarratorManagerEditor : Editor
     public void LoadJson(NarratorManager manager)
     {
         List<DialogueSet> sets = new List<DialogueSet>();
-        DialogueSet_JSON[] jsons = FileLoader.LoadArrayFromResources<DialogueSet_JSON>(SavePath + Filename);
+        DialogueSet_JSON[] jsons = FileLoader.LoadJSONArrayFromResources<DialogueSet_JSON>(SavePath + Filename);
         foreach (DialogueSet_JSON json in jsons)
         {
-            DialogueSet current = new DialogueSet((FlowScene) Enum.Parse(typeof(FlowScene), json.flowScene),
-                GetAudioClip(json.audioClip), json.canInterrupt, json.text,
+            FlowScene scene = (FlowScene) Enum.Parse(typeof(FlowScene), json.flowScene);
+            AudioClip audioClip = GetAudioClip(json.audioClip);
+            DialogueSet current = new DialogueSet(scene,
+                audioClip, json.canInterrupt, json.text,
                 JsonHelper.FromJson<SubtitleText>(json.subtitleTexts));
             sets.Add(current);
         }
@@ -79,7 +82,7 @@ public class NarratorManagerEditor : Editor
 
     AudioClip GetAudioClip(string name)
     {
-        return FileLoader.LoadFromResources<AudioClip>(AudioPath + name);
+        return FileLoader.LoadAudioClipFromResources(AudioPath + name);
     }
 }
 
@@ -94,7 +97,7 @@ public struct DialogueSet_JSON
 
     public DialogueSet_JSON(DialogueSet dialogueSet)
     {
-        flowScene = dialogueSet.ToString();
+        flowScene = dialogueSet.scene.ToString();
         audioClip = dialogueSet.Name;
         canInterrupt = dialogueSet.canInterrupt;
         text = dialogueSet.text;
