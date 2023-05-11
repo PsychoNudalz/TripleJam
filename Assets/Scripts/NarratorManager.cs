@@ -85,6 +85,7 @@ public class NarratorManager : MonoBehaviour
         Debug.Log($"Setting set with length: {s.Length}");
         sets = s;
     }
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -131,6 +132,9 @@ public class NarratorManager : MonoBehaviour
 
         narratorSound.SetClip(currentSet.clip);
         narratorSound.PlayF();
+
+        SubtitleManager.ResetAdd(currentSet.subtitleTexts);
+
         return currentSet.Length;
     }
 
@@ -140,8 +144,7 @@ public class NarratorManager : MonoBehaviour
         {
             if (currentSet.canInterrupt)
             {
-                currentSetQueue = new Queue<DialogueSet>();
-                narratorSound.Stop();
+                Stop();
                 return false;
             }
 
@@ -171,6 +174,8 @@ public class NarratorManager : MonoBehaviour
             narratorSound.Stop();
             currentSetQueue = new Queue<DialogueSet>();
         }
+        SubtitleManager.Reset();
+
     }
 
     [ContextMenu("ConvertDialogue")]
@@ -179,7 +184,7 @@ public class NarratorManager : MonoBehaviour
         for (var i = 0; i < sets.Length; i++)
         {
             DialogueSet dialogueSet = sets[i];
-            if (force||dialogueSet.subtitleTexts.Length == 0)
+            if (force || dialogueSet.subtitleTexts.Length == 0)
             {
                 sets[i] = SubtitleManager.ConvertAndAddDialogue(dialogueSet);
             }

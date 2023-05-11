@@ -118,41 +118,68 @@ public class SubtitleManager : MonoBehaviour
         current.AddQueue(t);
     }
 
+    public static void Add(SubtitleText[] t)
+    {
+        foreach (SubtitleText subtitleText in t)
+        {
+            Add(subtitleText);
+        }
+    }
+
+    public static void Reset()
+    {
+        current.Subtitle_Start();
+    }
+
+    public static void ResetAdd(SubtitleText[] t)
+    {
+        current.Subtitle_Start();
+        Add(t);
+    }
 
     public static DialogueSet ConvertAndAddDialogue(DialogueSet dialogueSet)
     {
-        SubtitleText[] temp =  ConvertTextToSubtitles(dialogueSet.text, dialogueSet.Length);
+        SubtitleText[] temp = ConvertTextToSubtitles(dialogueSet.text, dialogueSet.Length);
         Debug.Log($"Set subtitle on Dialogue");
         dialogueSet.subtitleTexts = temp;
         return dialogueSet;
     }
 
-    public static SubtitleText[] ConvertTextToSubtitles(string originalText,float duration)
+    public static SubtitleText[] ConvertTextToSubtitles(string originalText, float duration)
     {
         List<SubtitleText> splitSubtitle = new List<SubtitleText>();
         string line = "";
         float durationPerSection;
         if (originalText.Length == 0)
         {
-             durationPerSection = duration;
+            durationPerSection = duration;
         }
         else
         {
-             durationPerSection = duration * Mathf.Max(MAX_WORD / originalText.Length,1f);
+            durationPerSection = duration * Mathf.Min((float)MAX_WORD / (float)originalText.Length, 1f);
         }
 
-        durationPerSection = Mathf.RoundToInt(duration);
+        // durationPerSection = Mathf.CeilToInt(durationPerSection);
 
         for (int i = 0; i < originalText.Length; i++)
         {
             line += originalText[i];
             if (i % MAX_WORD == MAX_WORD - 1)
             {
-                splitSubtitle.Add(new SubtitleText(line,durationPerSection));
+                splitSubtitle.Add(new SubtitleText(line, durationPerSection));
                 line = "";
             }
         }
-        splitSubtitle.Add(new SubtitleText(line,durationPerSection));
+
+        if (splitSubtitle.Count > 0)
+        {
+            splitSubtitle.Add(new SubtitleText(line, Mathf.Max(0.5f,duration % durationPerSection)));
+        }
+        else
+        {
+            splitSubtitle.Add(new SubtitleText(line, duration));
+
+        }
 
         return splitSubtitle.ToArray();
     }
