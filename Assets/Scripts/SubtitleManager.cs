@@ -34,7 +34,7 @@ public class SubtitleManager : MonoBehaviour
     private Coroutine subtitleCoroutine;
     public static SubtitleManager current;
 
-    public const int MAX_WORD = 98;
+    public const int MAX_WORD = 125;
 
     private void Awake()
     {
@@ -156,33 +156,57 @@ public class SubtitleManager : MonoBehaviour
         }
         else
         {
-            durationPerSection = duration * Mathf.Min((float)MAX_WORD / (float)originalText.Length, 1f);
+            durationPerSection = duration * Mathf.Min((float) MAX_WORD / (float) originalText.Length, 1f);
         }
 
-        // durationPerSection = Mathf.CeilToInt(durationPerSection);
+        originalText = originalText.Replace("\n", " ");
+        originalText = originalText.Replace("\r", "");
 
-        for (int i = 0; i < originalText.Length; i++)
+        string[] splitText = originalText.Split(" ");
+        int lineCount = 0;
+
+        
+         // durationPerSection = Mathf.FloatToHalf(durationPerSection);
+
+
+        foreach (string s in splitText)
         {
-            line += originalText[i];
-            if (i % MAX_WORD == MAX_WORD - 1)
+            if (lineCount + s.Length < MAX_WORD)
+            {
+                line += s + " ";
+                lineCount += s.Length + 1;
+            }
+            else
             {
                 splitSubtitle.Add(new SubtitleText(line, durationPerSection));
                 line = "";
+                lineCount = 0;
             }
         }
 
+
+        // for (int i = 0; i < originalText.Length; i++)
+        // {
+        //     line += originalText[i];
+        //     if (i % MAX_WORD == MAX_WORD - 1)
+        //     {
+        //         splitSubtitle.Add(new SubtitleText(line, durationPerSection));
+        //         line = "";
+        //     }
+        // }
+
         if (splitSubtitle.Count > 0)
         {
-            splitSubtitle.Add(new SubtitleText(line, Mathf.Max(0.5f,duration % durationPerSection)));
+            splitSubtitle.Add(new SubtitleText(line, Mathf.Max(0.5f, duration % durationPerSection)));
         }
         else
         {
             splitSubtitle.Add(new SubtitleText(line, duration));
-
         }
 
         return splitSubtitle.ToArray();
     }
+
 
     public static string ConvertSubtitlesToJSON(SubtitleText[] splitSubtitle)
     {
