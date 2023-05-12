@@ -310,10 +310,13 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
   rigidbody: {fileID: 5447271855436992204}
   meshRenderer: {fileID: 5630247646858364055}
   meshFilter: {fileID: 5630247646857365079}
   meshCollider: {fileID: 7856167317250267398}
+  deactivateObjects:
+  - {fileID: 5630247646856370771}
 --- !u!54 &5447271855436992204
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -70,6 +70,8 @@ public class Sliceable : MonoBehaviour
 
     [SerializeField]
     private MeshCollider meshCollider;
+    [SerializeField]
+    GameObject[] deactivateObjects;
 
 
 
@@ -187,6 +189,11 @@ public class Sliceable : MonoBehaviour
         if (GetMeshSize(m) < minMeshSize)
         {
             Destroy(gameObject, 1f);
+        }
+
+        foreach (GameObject deactivateObject in deactivateObjects)
+        {
+            deactivateObject.SetActive(false);
         }
 
         _canSlice = beSlice;
