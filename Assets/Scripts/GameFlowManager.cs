@@ -22,7 +22,8 @@ public enum FlowScene
     Studio_Beg,
     Studio_DoIt,
     Studio_DoubleSaber,
-    Studio_End
+    Studio_End,
+    MB_Start
 }
 
 public class GameFlowManager : MonoBehaviour
@@ -85,6 +86,9 @@ public class GameFlowManager : MonoBehaviour
 
     [SerializeField]
     private Sound elevatorMusic;
+    [Header("Motherboard")]
+    [SerializeField]
+    Transform MBTeleportPoint;
     [Header("Components")]
 
     [SerializeField]
@@ -324,6 +328,11 @@ public class GameFlowManager : MonoBehaviour
         endingScreen.SetActive(true);
         SoundManager.current.StopAllSounds();
         elevatorMusic.Play();
+    }
+
+    void Play_MB_Start()
+    {
+        
     }
 
     IEnumerator DelayStartOpening()
