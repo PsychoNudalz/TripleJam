@@ -58,6 +58,14 @@ public class Sliceable : MonoBehaviour
     [SerializeField]
     private bool canSliceOnce = false;
 
+    [SerializeField]
+    private bool originSideRemainStill = true;
+
+    [SerializeField]
+    private float minimumMeshRatio = 0.2f;
+
+    private float originalMeshSize = -1;
+    private float distanceToOrigin = 100;
     [Header("Components")]
     [SerializeField]
     private Rigidbody rigidbody;
@@ -75,6 +83,8 @@ public class Sliceable : MonoBehaviour
 
 
 
+    public float DistanceToOrigin => distanceToOrigin;
+
     public Mesh mesh => meshFilter?.mesh;
     public Material[] materials => meshRenderer?.materials;
 
@@ -83,8 +93,11 @@ public class Sliceable : MonoBehaviour
     public Rigidbody Rigidbody => rigidbody;
 
     public const float minMeshSize = .01f;
+    public const float remainMeshSize = 1f;
 
     public bool CanSliceOnce => canSliceOnce;
+
+    public bool OriginSideRemainStill => originSideRemainStill;
 
     public bool CanSlice()
     {
@@ -152,6 +165,13 @@ public class Sliceable : MonoBehaviour
         {
             rigidbody = GetComponent<Rigidbody>();
         }
+
+        originSideRemainStill = originSideRemainStill && rigidbody.isKinematic;
+        if (originalMeshSize < 0)
+        {
+            originalMeshSize = GetMeshSize(meshFilter.mesh);
+        }
+        
     }
 
     // public void Init(MeshRenderer r, MeshFilter f, Rigidbody rb = null)
@@ -176,7 +196,10 @@ public class Sliceable : MonoBehaviour
     public void Init(Mesh m, Rigidbody rb, float multiplier = 1, bool beSlice = true)
     {
         SelfInit();
-        SetMesh(m);
+        if (!SetMesh(m))
+        {
+            return;
+        }
         if (rigidbody)
         {
             rigidbody.isKinematic = false;
@@ -186,7 +209,8 @@ public class Sliceable : MonoBehaviour
 
         sliceScore /= 2;
 
-        if (GetMeshSize(m) < minMeshSize)
+        float meshSize = GetMeshSize(m);
+        if (meshSize < minMeshSize)
         {
             Destroy(gameObject, 1f);
         }
@@ -197,7 +221,22 @@ public class Sliceable : MonoBehaviour
         }
 
         _canSlice = beSlice;
-        Destroy(gameObject, autoDestroyTime);
+        if (meshSize < remainMeshSize)
+        {
+            Destroy(gameObject, autoDestroyTime);
+        }
+
+        if (meshSize < originalMeshSize * minimumMeshRatio)
+        {
+            Destroy(gameObject, autoDestroyTime);
+        }
+        else
+        {
+            if (originSideRemainStill)
+            {
+                distanceToOrigin = GetDistanceToOrigin(mesh);
+            }
+        }
     }
 
     float GetMeshSize(Mesh m)
@@ -207,10 +246,22 @@ public class Sliceable : MonoBehaviour
     }
 
 
-    public void SetMesh(Mesh m)
+    public bool SetMesh(Mesh m)
     {
         meshFilter.mesh = m;
-        meshCollider.sharedMesh = m;
+        try
+        {
+            meshCollider.sharedMesh = m;
+
+        }
+        catch (Exception e)
+        {
+            Destroy(gameObject);
+            Debug.LogError($"{gameObject} set mesh FAILED");
+            return false;
+        }
+
+        return true;
     }
 
     public bool CheckLevel(SliceLevel l)
@@ -226,6 +277,31 @@ public class Sliceable : MonoBehaviour
     public void OnSlice_Destroy()
     {
         ScoreManager.AddScore(sliceScore);
+    }
+
+    float GetDistanceToOrigin(Mesh m)
+    {
+        Vector3 sum = default;
+        foreach (Vector3 pos in m.vertices)
+        {
+            sum += pos;
+        }
+
+        sum /= m.vertices.Length;
+
+        return Vector3.Distance(transform.localPosition, sum);
+    }
+
+    public void SetStill()
+    {
+        originSideRemainStill = true;
+        rigidbody.isKinematic = true;
+    }
+
+    public void SetLose()
+    {
+        originSideRemainStill = false;
+        rigidbody.isKinematic = false;
     }
     
     

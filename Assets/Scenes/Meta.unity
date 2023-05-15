@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.721959, g: 0.636237, b: 0.63573945, a: 1}
+  m_IndirectSpecularColor: {r: 0.72223485, g: 0.6364019, b: 0.6358809, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5120,12 +5120,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 291795598}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &291795598
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7271,12 +7271,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 427273794}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &427273794
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8555,12 +8555,12 @@ PrefabInstance:
     - target: {fileID: 1527715353896950298, guid: ecf91acef23353c44b01c237d8de3a20,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22300005
+      value: 0.22300008
       objectReference: {fileID: 0}
     - target: {fileID: 1527715353896950298, guid: ecf91acef23353c44b01c237d8de3a20,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1527715353896950298, guid: ecf91acef23353c44b01c237d8de3a20,
         type: 3}
@@ -12349,12 +12349,12 @@ PrefabInstance:
     - target: {fileID: 7827691890284788542, guid: c0491281a3723014a8cc162736363b53,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22300005
+      value: 0.22300008
       objectReference: {fileID: 0}
     - target: {fileID: 7827691890284788542, guid: c0491281a3723014a8cc162736363b53,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7827691890284788542, guid: c0491281a3723014a8cc162736363b53,
         type: 3}
@@ -14426,6 +14426,8 @@ MonoBehaviour:
   _smoothVertices: 0
   autoDestroyTime: 10
   canSliceOnce: 0
+  originSideRemainStill: 1
+  minimumMeshRatio: 0.2
   rigidbody: {fileID: 902046489}
   meshRenderer: {fileID: 23653905005291063}
   meshFilter: {fileID: 33599062241744905}
@@ -14901,6 +14903,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SlicableBambooWall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129757647751104327, guid: 8c8e422bec084cb4185a924a43b8de57,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c8e422bec084cb4185a924a43b8de57, type: 3}
@@ -28376,12 +28383,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1852617837}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &1852617837
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29874,12 +29881,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1943071688}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &1943071688
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34903,7 +34910,7 @@ PrefabInstance:
     - target: {fileID: 1129757647751104320, guid: 8c8e422bec084cb4185a924a43b8de57,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1129757647751104320, guid: 8c8e422bec084cb4185a924a43b8de57,
         type: 3}
@@ -34955,6 +34962,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlicableBambooWall
       objectReference: {fileID: 0}
+    - target: {fileID: 2346729083561895634, guid: 8c8e422bec084cb4185a924a43b8de57,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2365835577837806324, guid: 8c8e422bec084cb4185a924a43b8de57,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -35004,6 +35016,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899975363528850473, guid: 8c8e422bec084cb4185a924a43b8de57,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c8e422bec084cb4185a924a43b8de57, type: 3}

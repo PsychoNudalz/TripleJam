@@ -7,58 +7,58 @@ namespace Assets.Scripts
 {
     class Slicer
     {
-        /// <summary>
-        /// Slice the object by the plane 
-        /// </summary>
-        /// <param name="plane"></param>
-        /// <param name="objectToCut"></param>
-        /// <returns></returns>
-        public static GameObject[] Slice(Plane plane, GameObject objectToCut)
-        {
-            //Get the current mesh and its verts and tris
-            Sliceable sliceable = objectToCut.GetComponent<Sliceable>();
-            if (!sliceable)
-            {
-                sliceable = objectToCut.GetComponentInParent<Sliceable>();
-            }
-
-            if (sliceable == null)
-            {
-                throw new NotSupportedException(
-                    "Cannot slice non sliceable object, add the sliceable script to the object or inherit from sliceable to support slicing");
-            }
-
-
-            Mesh mesh = sliceable.mesh;
-            if (!mesh)
-            {
-                mesh = objectToCut.GetComponent<MeshFilter>().mesh;
-                var a = mesh.GetSubMesh(0);
-            }
-
-            //Create left and right slice of hollow object
-            SlicesMetadata slicesMeta = new SlicesMetadata(plane, mesh, sliceable.IsSolid,
-                sliceable.ReverseWireTriangles, sliceable.ShareVertices, sliceable.SmoothVertices);
-
-            GameObject positiveObject = CreateMeshGameObject(objectToCut);
-            positiveObject.name = string.Format("{0}_positive", objectToCut.name);
-
-            GameObject negativeObject = CreateMeshGameObject(objectToCut);
-            negativeObject.name = string.Format("{0}_negative", objectToCut.name);
-
-            var positiveSideMeshData = slicesMeta.PositiveSideMesh;
-            var negativeSideMeshData = slicesMeta.NegativeSideMesh;
-
-            positiveObject.GetComponent<MeshFilter>().mesh = positiveSideMeshData;
-            negativeObject.GetComponent<MeshFilter>().mesh = negativeSideMeshData;
-
-            SetupCollidersAndRigidBodys(ref positiveObject, positiveSideMeshData, sliceable.UseGravity);
-            SetupCollidersAndRigidBodys(ref negativeObject, negativeSideMeshData, sliceable.UseGravity);
-
-            GameObject.Destroy(objectToCut);
-            
-            return new GameObject[] {positiveObject, negativeObject};
-        }
+        // /// <summary>
+        // /// Slice the object by the plane 
+        // /// </summary>
+        // /// <param name="plane"></param>
+        // /// <param name="objectToCut"></param>
+        // /// <returns></returns>
+        // public static GameObject[] Slice(Plane plane, GameObject objectToCut)
+        // {
+        //     //Get the current mesh and its verts and tris
+        //     Sliceable sliceable = objectToCut.GetComponent<Sliceable>();
+        //     if (!sliceable)
+        //     {
+        //         sliceable = objectToCut.GetComponentInParent<Sliceable>();
+        //     }
+        //
+        //     if (sliceable == null)
+        //     {
+        //         throw new NotSupportedException(
+        //             "Cannot slice non sliceable object, add the sliceable script to the object or inherit from sliceable to support slicing");
+        //     }
+        //
+        //
+        //     Mesh mesh = sliceable.mesh;
+        //     if (!mesh)
+        //     {
+        //         mesh = objectToCut.GetComponent<MeshFilter>().mesh;
+        //         var a = mesh.GetSubMesh(0);
+        //     }
+        //
+        //     //Create left and right slice of hollow object
+        //     SlicesMetadata slicesMeta = new SlicesMetadata(plane, mesh, sliceable.IsSolid,
+        //         sliceable.ReverseWireTriangles, sliceable.ShareVertices, sliceable.SmoothVertices);
+        //
+        //     GameObject positiveObject = CreateMeshGameObject(objectToCut);
+        //     positiveObject.name = string.Format("{0}_positive", objectToCut.name);
+        //
+        //     GameObject negativeObject = CreateMeshGameObject(objectToCut);
+        //     negativeObject.name = string.Format("{0}_negative", objectToCut.name);
+        //
+        //     var positiveSideMeshData = slicesMeta.PositiveSideMesh;
+        //     var negativeSideMeshData = slicesMeta.NegativeSideMesh;
+        //
+        //     positiveObject.GetComponent<MeshFilter>().mesh = positiveSideMeshData;
+        //     negativeObject.GetComponent<MeshFilter>().mesh = negativeSideMeshData;
+        //
+        //     SetupCollidersAndRigidBodys(ref positiveObject, positiveSideMeshData, sliceable.UseGravity);
+        //     SetupCollidersAndRigidBodys(ref negativeObject, negativeSideMeshData, sliceable.UseGravity);
+        //
+        //     GameObject.Destroy(objectToCut);
+        //     
+        //     return new GameObject[] {positiveObject, negativeObject};
+        // }
 
         public static GameObject[] Slice(Plane plane, Sliceable sliceable)
         {
@@ -81,6 +81,20 @@ namespace Assets.Scripts
 
             positiveSliceable.Init(slicesMeta.PositiveSideMesh,sliceable.Rigidbody,1f,!sliceable.CanSliceOnce);
             negativeSliceable.Init(slicesMeta.NegativeSideMesh,sliceable.Rigidbody,-.8f,!sliceable.CanSliceOnce);
+
+            if (positiveSliceable.OriginSideRemainStill&&positiveSliceable.OriginSideRemainStill)
+            {
+                if (positiveSliceable.DistanceToOrigin < negativeSliceable.DistanceToOrigin)
+                {
+                    positiveSliceable.SetStill();
+                    negativeSliceable.SetLose();
+                }
+                else
+                {
+                    positiveSliceable.SetLose();
+                    negativeSliceable.SetStill();
+                }
+            }
             
             positiveSliceable.OnSlice_Spawn();
             sliceable.OnSlice_Destroy();

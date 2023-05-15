@@ -844,10 +844,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &256471876776265201 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8442826596744992284, guid: 60176c083d703184e9f9c3e9833da957,
@@ -906,10 +910,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &439021601392927033 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8120674079791100628, guid: 60176c083d703184e9f9c3e9833da957,
@@ -968,10 +976,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &560071164655513484 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8169560644109941857, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1030,10 +1042,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &715716333884941381 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9172537114523088808, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1092,10 +1108,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &865056866754710615 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -386019299841974342, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1154,10 +1174,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &876456342556271376 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -392915184280112899, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1216,10 +1240,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &994702725054672793 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -330947479469343628, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1278,10 +1306,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &1662942757586507261 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2182508047676176880, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1340,10 +1372,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &1697648591474008586 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7001579787983794663, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1402,10 +1438,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &1882230359019053717 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7834820067054154104, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1464,10 +1504,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &1951093874059476479 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1317737935091175918, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1526,10 +1570,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &1961004800997799298 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1327652985213606289, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1588,10 +1636,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &2075524590562528560 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1555880143627133219, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1650,10 +1702,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &2394136639960624298 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6313051928814010183, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1712,10 +1768,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &2589548536465315393 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3077588629905619540, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1774,10 +1834,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &2642735095078431204 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3312054135501637111, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1836,10 +1900,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &2714684624496256237 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3239875291303872768, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1898,10 +1966,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &2891398990012810457 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2412370494533200076, guid: 60176c083d703184e9f9c3e9833da957,
@@ -1960,10 +2032,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &3247329516196842540 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6608202474502873025, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2022,10 +2098,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &3307365317204730566 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6576318569812554027, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2084,10 +2164,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &3500210281263286035 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5059485675272426750, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2146,10 +2230,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &3594301079097273573 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5135330730480598792, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2208,10 +2296,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &3645578661706431721 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4309263538455220476, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2270,10 +2362,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &3809900592777239764 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4790323370453208889, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2332,10 +2428,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &4120124449474886156 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3492463972365489695, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2394,10 +2494,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &4445493996387764036 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5410029189636494505, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2456,10 +2560,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &4520123621698358135 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5196993041272592538, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2518,10 +2626,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &4883776005416330894 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3847043542538958179, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2580,10 +2692,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &5289665068208007983 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4625914229684127550, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2642,10 +2758,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &5292157479711493288 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4623968737166008507, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2704,10 +2824,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &5375545480042064017 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4882992724576748676, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2766,10 +2890,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &5459876019297652780 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4422738867421774785, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2828,10 +2956,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &5498166400788664553 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4978534873755352316, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2890,10 +3022,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &5737844507359688589 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5114625781669190560, guid: 60176c083d703184e9f9c3e9833da957,
@@ -2952,10 +3088,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &5823729561879031230 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2771916027035500115, guid: 60176c083d703184e9f9c3e9833da957,
@@ -3014,10 +3154,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &6517565623113439426 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5992370558049891537, guid: 60176c083d703184e9f9c3e9833da957,
@@ -3076,10 +3220,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &6685122125237457969 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6168934259496712228, guid: 60176c083d703184e9f9c3e9833da957,
@@ -3138,10 +3286,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &7431713439154298636 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7960281521810715423, guid: 60176c083d703184e9f9c3e9833da957,
@@ -3200,10 +3352,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &7481435566173628610 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1258404100510628655, guid: 60176c083d703184e9f9c3e9833da957,
@@ -3262,10 +3418,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &7560396492548236144 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2183741501033836701, guid: 60176c083d703184e9f9c3e9833da957,
@@ -3324,10 +3484,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!4 &8155843706065875974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
@@ -3392,10 +3556,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &8609678951611069688 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 134651404101576469, guid: 60176c083d703184e9f9c3e9833da957,
@@ -3454,10 +3622,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &8751491876639526376 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8082181632229581307, guid: 60176c083d703184e9f9c3e9833da957,
@@ -3516,10 +3688,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &8802998645610723903 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 905031653289306578, guid: 60176c083d703184e9f9c3e9833da957,
@@ -3578,10 +3754,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &8962629599827504651 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 775870364806462950, guid: 60176c083d703184e9f9c3e9833da957,
@@ -3640,10 +3820,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &9045425575453031094 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 802229505942382939, guid: 60176c083d703184e9f9c3e9833da957,
@@ -3702,10 +3886,14 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100
 --- !u!1 &9182584383961617011 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 705602818530132382, guid: 60176c083d703184e9f9c3e9833da957,
@@ -3764,7 +3952,11 @@ MonoBehaviour:
   _shareVertices: 1
   _smoothVertices: 0
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   meshCollider: {fileID: 0}
+  deactivateObjects: []
+  distanceToOrigin: 100

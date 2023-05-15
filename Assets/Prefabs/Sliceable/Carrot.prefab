@@ -137,6 +137,11 @@ PrefabInstance:
       objectReference: {fileID: 4507548067051804989}
     - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
         type: 3}
+      propertyPath: originSideRemainStill
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
+        type: 3}
       propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}

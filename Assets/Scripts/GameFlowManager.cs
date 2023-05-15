@@ -312,15 +312,12 @@ public class GameFlowManager : MonoBehaviour
     void Play_Studio_DoIt()
     {
         studioAnimator.SetTrigger("BegEnd");
-
     }
     void Play_Studio_DoubleSaber()
     {
         float d = narrator.PlayAudio(FlowScene.Studio_Beg);
         PlayerInputController.SetLock(false);
         PlayerSliceController.SetPlayerLevel(SliceLevel.DualSaber);
-
-        
     }
     void Play_Studio_End()
     {
@@ -332,7 +329,8 @@ public class GameFlowManager : MonoBehaviour
 
     void Play_MB_Start()
     {
-        
+        player.transform.position = MBTeleportPoint.position;
+
     }
 
     IEnumerator DelayStartOpening()
