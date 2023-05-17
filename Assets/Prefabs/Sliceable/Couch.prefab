@@ -73,7 +73,7 @@ MonoBehaviour:
   requiresLOS: 1
   LOSMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   autoDestroyTime: 10
   canSliceOnce: 0
   originSideRemainStill: 1

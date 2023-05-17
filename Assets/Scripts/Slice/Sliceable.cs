@@ -136,19 +136,37 @@ public class Sliceable : MonoBehaviour
         Vector3 baseEnter = enterTip - basePos;
         Vector3 baseExit = exitTip - basePos;
         Vector3 baseMid = (baseExit + baseEnter) / 2f;
-        if (Physics.Raycast(basePos, baseMid, tipLength, LOSMask))
+        RaycastHit detectedCollider;
+        
+        if (Physics.Raycast(basePos, (transform.position-basePos).normalized,out detectedCollider, tipLength, LOSMask))
         {
-            return true;
+            if (detectedCollider.collider.Equals(meshCollider))
+            {
+                return true;
+            }
+        }
+        if (Physics.Raycast(basePos, baseMid,out detectedCollider, tipLength, LOSMask))
+        {
+            if (detectedCollider.collider.Equals(meshCollider))
+            {
+                return true;
+            }
         }
 
-        if (Physics.Raycast(basePos, baseEnter, tipLength, LOSMask))
+        if (Physics.Raycast(basePos, baseEnter,out detectedCollider, tipLength, LOSMask))
         {
-            return true;
+            if (detectedCollider.collider.Equals(meshCollider))
+            {
+                return true;
+            }
         }
 
-        if (Physics.Raycast(basePos, baseExit, tipLength, LOSMask))
+        if (Physics.Raycast(basePos, baseExit,out detectedCollider, tipLength, LOSMask))
         {
-            return true;
+            if (detectedCollider.collider.Equals(meshCollider))
+            {
+                return true;
+            }
         }
 
         return false;
