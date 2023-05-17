@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4752099132074040990}
   - component: {fileID: 5381820435999514071}
   - component: {fileID: 8345852607394860976}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CFXR Explosion Smoke 2 (HDR)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5140,7 +5140,7 @@ GameObject:
   - component: {fileID: 7481937447837010290}
   - component: {fileID: 3990142835380142211}
   - component: {fileID: 8002725417912250324}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9842,7 +9842,7 @@ GameObject:
   - component: {fileID: 5338388035359475990}
   - component: {fileID: 5452564173459249180}
   - component: {fileID: 8530804146471678543}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sparks small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14616,7 +14616,7 @@ GameObject:
   - component: {fileID: 5755384473608742159}
   - component: {fileID: 5099906131460351643}
   - component: {fileID: 2248319065144212403}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sparks smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19391,7 +19391,7 @@ GameObject:
   - component: {fileID: 6697528183841679998}
   - component: {fileID: 2095103810561883231}
   - component: {fileID: 8292574936371982321}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24273,7 +24273,7 @@ GameObject:
   - component: {fileID: 8436964661566723738}
   - component: {fileID: 4869949147603950128}
   - component: {fileID: 6665596703582251118}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sub smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28917,7 +28917,7 @@ GameObject:
   - component: {fileID: 5136601490317483304}
   - component: {fileID: 1557053873392571574}
   - component: {fileID: 757190162004655317}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29167,6 +29167,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: scifi-pillar-light
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110265244201289714, guid: beb94f0eeda4d6f438af243b84afc528,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6110265244201720786, guid: beb94f0eeda4d6f438af243b84afc528,
         type: 3}

@@ -82,7 +82,7 @@ namespace Assets.Scripts
             positiveSliceable.Init(slicesMeta.PositiveSideMesh,sliceable.Rigidbody,1f,!sliceable.CanSliceOnce);
             negativeSliceable.Init(slicesMeta.NegativeSideMesh,sliceable.Rigidbody,-.8f,!sliceable.CanSliceOnce);
 
-            if (positiveSliceable.OriginSideRemainStill&&positiveSliceable.OriginSideRemainStill)
+            if (sliceable.OriginSideRemainStill)
             {
                 if (positiveSliceable.DistanceToOrigin < negativeSliceable.DistanceToOrigin)
                 {

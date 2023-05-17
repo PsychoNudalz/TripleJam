@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodWall
       objectReference: {fileID: 0}
+    - target: {fileID: 8835584869404480527, guid: b170e7687a79e0a4a81f5081226e3554,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b170e7687a79e0a4a81f5081226e3554, type: 3}
 --- !u!1 &6849284980240401895 stripped

@@ -57,12 +57,19 @@ MonoBehaviour:
   _useGravity: 1
   _shareVertices: 1
   _smoothVertices: 0
+  requiresLOS: 1
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 2048
   autoDestroyTime: 10
   canSliceOnce: 0
+  originSideRemainStill: 1
+  minimumMeshRatio: 0.2
   rigidbody: {fileID: 3991511296556362562}
   meshRenderer: {fileID: 5425866785719412982}
   meshFilter: {fileID: 8876533633625423685}
   meshCollider: {fileID: 4659354773679479863}
+  deactivateObjects: []
 --- !u!54 &3991511296556362562
 Rigidbody:
   m_ObjectHideFlags: 0

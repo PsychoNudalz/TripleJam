@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4626766218673636017}
   - component: {fileID: 4507548067051804989}
   - component: {fileID: 3232701629315438177}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,6 +309,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JuiceSplash
       objectReference: {fileID: 0}
+    - target: {fileID: 2441235758932010370, guid: 1d076268c78f07b4c97ce0e754145655,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4180308438223282455, guid: 1d076268c78f07b4c97ce0e754145655,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
@@ -323,6 +328,11 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.79215693
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616376854791602970, guid: 1d076268c78f07b4c97ce0e754145655,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5251887843824659996, guid: 1d076268c78f07b4c97ce0e754145655,
         type: 3}
@@ -378,6 +388,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753368034902368139, guid: 1d076268c78f07b4c97ce0e754145655,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825764838956085634, guid: 1d076268c78f07b4c97ce0e754145655,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d076268c78f07b4c97ce0e754145655, type: 3}

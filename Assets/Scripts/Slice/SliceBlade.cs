@@ -17,6 +17,9 @@ public class SliceBlade : MonoBehaviour
     [Tooltip("The empty game object located at the base of the blade")]
     private GameObject _base = null;
 
+    [SerializeField]
+    private float sliceLength = 0;
+
 
     [SerializeField]
     [Tooltip("The amount of force applied to each side of a slice")]
@@ -110,7 +113,7 @@ public class SliceBlade : MonoBehaviour
         GameObject[] slices = Array.Empty<GameObject>();
         if (s)
         {
-            if (s.CanSlice(bladeLevel))
+            if (s.CanSlice(bladeLevel,_triggerEnterBasePosition,_triggerEnterTipPosition,_triggerExitTipPosition,sliceLength))
             {
                 slices = Slicer.Slice(plane, s);
             }
@@ -177,6 +180,8 @@ public class SliceBlade : MonoBehaviour
 
     public void SetPlayerBlade(SliceLevel sl, float length)
     {
+        sliceLength = length;
+
         if (!SetPlayerLevel(sl))
         {
             return;
@@ -189,5 +194,6 @@ public class SliceBlade : MonoBehaviour
         var bladeColliderCenter = bladeCollider.center;
         bladeColliderCenter.z = length / 2f;
         bladeCollider.center = bladeColliderCenter;
+
     }
 }

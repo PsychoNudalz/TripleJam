@@ -52,6 +52,14 @@ public class Sliceable : MonoBehaviour
     [SerializeField]
     private bool _smoothVertices = false;
 
+    [Header("LOS")]
+    [SerializeField]
+    private bool requiresLOS = true;
+
+    [SerializeField]
+    private LayerMask LOSMask;
+
+    [Space(10)]
     [SerializeField]
     private float autoDestroyTime = 10f;
 
@@ -66,6 +74,8 @@ public class Sliceable : MonoBehaviour
 
     private float originalMeshSize = -1;
     private float distanceToOrigin = 100;
+    Vector3 averageVertices = Vector3.zero;
+
     [Header("Components")]
     [SerializeField]
     private Rigidbody rigidbody;
@@ -78,10 +88,18 @@ public class Sliceable : MonoBehaviour
 
     [SerializeField]
     private MeshCollider meshCollider;
+
     [SerializeField]
     GameObject[] deactivateObjects;
 
+//constants
+    public const float minMeshSize = .01f;
+    public const float MINIMUMMESHSIZE = 1f;
 
+    public const int averageSamplePoints = 10;
+
+
+    //Getters
 
     public float DistanceToOrigin => distanceToOrigin;
 
@@ -92,8 +110,6 @@ public class Sliceable : MonoBehaviour
 
     public Rigidbody Rigidbody => rigidbody;
 
-    public const float minMeshSize = .01f;
-    public const float remainMeshSize = 1f;
 
     public bool CanSliceOnce => canSliceOnce;
 
@@ -102,6 +118,40 @@ public class Sliceable : MonoBehaviour
     public bool CanSlice()
     {
         return _canSlice;
+    }
+
+
+    public bool CanSlice(SliceLevel sliceLevel, Vector3 basePos, Vector3 enterTip, Vector3 exitTip, float tipLength)
+    {
+        if (!CanSlice(sliceLevel))
+        {
+            return false;
+        }
+
+        if (!requiresLOS)
+        {
+            return true;
+        }
+
+        Vector3 baseEnter = enterTip - basePos;
+        Vector3 baseExit = exitTip - basePos;
+        Vector3 baseMid = (baseExit + baseEnter) / 2f;
+        if (Physics.Raycast(basePos, baseMid, tipLength, LOSMask))
+        {
+            return true;
+        }
+
+        if (Physics.Raycast(basePos, baseEnter, tipLength, LOSMask))
+        {
+            return true;
+        }
+
+        if (Physics.Raycast(basePos, baseExit, tipLength, LOSMask))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public bool CanSlice(SliceLevel sliceLevel)
@@ -139,6 +189,14 @@ public class Sliceable : MonoBehaviour
         set { _smoothVertices = value; }
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        if (!averageVertices.Equals(Vector3.zero))
+        {
+            Gizmos.DrawSphere(transform.position + averageVertices, 0.1f);
+        }
+    }
+
     private void Awake()
     {
         SelfInit();
@@ -171,7 +229,6 @@ public class Sliceable : MonoBehaviour
         {
             originalMeshSize = GetMeshSize(meshFilter.mesh);
         }
-        
     }
 
     // public void Init(MeshRenderer r, MeshFilter f, Rigidbody rb = null)
@@ -200,6 +257,7 @@ public class Sliceable : MonoBehaviour
         {
             return;
         }
+
         if (rigidbody)
         {
             rigidbody.isKinematic = false;
@@ -221,7 +279,7 @@ public class Sliceable : MonoBehaviour
         }
 
         _canSlice = beSlice;
-        if (meshSize < remainMeshSize)
+        if (meshSize < MINIMUMMESHSIZE)
         {
             Destroy(gameObject, autoDestroyTime);
         }
@@ -252,7 +310,6 @@ public class Sliceable : MonoBehaviour
         try
         {
             meshCollider.sharedMesh = m;
-
         }
         catch (Exception e)
         {
@@ -281,13 +338,32 @@ public class Sliceable : MonoBehaviour
 
     float GetDistanceToOrigin(Mesh m)
     {
-        Vector3 sum = default;
-        foreach (Vector3 pos in m.vertices)
+        Vector3 sum = Vector3.zero;
+        if (m.vertices.Length < averageSamplePoints)
         {
-            sum += pos;
+            foreach (Vector3 pos in m.vertices)
+            {
+                sum += pos;
+            }
+
+            sum /= m.vertices.Length;
         }
 
-        sum /= m.vertices.Length;
+        else
+        {
+            int index = m.vertices.Length / averageSamplePoints;
+            int k = 0;
+
+            for (int i = 0; i < m.vertices.Length; i += index)
+            {
+                k++;
+                sum += m.vertices[i];
+            }
+
+            sum /= k;
+        }
+
+        averageVertices = sum;
 
         return Vector3.Distance(transform.localPosition, sum);
     }
@@ -303,7 +379,4 @@ public class Sliceable : MonoBehaviour
         originSideRemainStill = false;
         rigidbody.isKinematic = false;
     }
-    
-    
-
 }

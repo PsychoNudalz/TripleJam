@@ -112,6 +112,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1632053959870827882, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0117c9b6215a6c24aa70bcb256e2f3c3, type: 3}
 --- !u!4 &5820372576258895862 stripped
@@ -131,6 +136,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BambooPiece
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992590175806673502, guid: 53bea60c246cc5442bafd6c480f9d444,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6998036329848701758, guid: 53bea60c246cc5442bafd6c480f9d444,
         type: 3}

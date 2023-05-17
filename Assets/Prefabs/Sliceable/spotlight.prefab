@@ -309,8 +309,14 @@ MonoBehaviour:
   _useGravity: 1
   _shareVertices: 1
   _smoothVertices: 0
+  requiresLOS: 1
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 2048
   autoDestroyTime: 10
   canSliceOnce: 0
+  originSideRemainStill: 1
+  minimumMeshRatio: 0.2
   rigidbody: {fileID: 5447271855436992204}
   meshRenderer: {fileID: 5630247646858364055}
   meshFilter: {fileID: 5630247646857365079}

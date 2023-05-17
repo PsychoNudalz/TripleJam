@@ -70,12 +70,19 @@ MonoBehaviour:
   _useGravity: 1
   _shareVertices: 1
   _smoothVertices: 0
+  requiresLOS: 1
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
   autoDestroyTime: 10
   canSliceOnce: 0
+  originSideRemainStill: 1
+  minimumMeshRatio: 0.2
   rigidbody: {fileID: 1527715353896950299}
   meshRenderer: {fileID: 979379217934528037}
   meshFilter: {fileID: 3058933142048201455}
   meshCollider: {fileID: 2608640767399709307}
+  deactivateObjects: []
 --- !u!54 &1527715353896950299
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -368,6 +375,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Prop_Couch_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: af26f78fa9e30df46a9593f2d62755a3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af26f78fa9e30df46a9593f2d62755a3, type: 3}

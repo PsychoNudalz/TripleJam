@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1527715353896950297}
   - component: {fileID: 1527715353896950299}
   - component: {fileID: 3250837516251618077}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Launcher_Slice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,11 +59,19 @@ MonoBehaviour:
   _useGravity: 1
   _shareVertices: 1
   _smoothVertices: 0
+  requiresLOS: 1
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 2048
   autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 1
+  minimumMeshRatio: 0.2
   rigidbody: {fileID: 0}
   meshRenderer: {fileID: 2021477618553100215}
   meshFilter: {fileID: 8278519909177353921}
   meshCollider: {fileID: 4582018177006378269}
+  deactivateObjects: []
 --- !u!54 &1527715353896950299
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -95,6 +103,8 @@ MonoBehaviour:
   rb: {fileID: 1527715353896950299}
   disableColliderTime: 0.05
   mainCollider: {fileID: 1573988880250292739}
+  projectileLifeTime: -1
+  extraForce: {x: 0, y: 0, z: 0}
 --- !u!1 &1528823105707951321
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +117,7 @@ GameObject:
   - component: {fileID: 1534471446033335539}
   - component: {fileID: 1540380501934406199}
   - component: {fileID: 1573988880250292739}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: TempModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +215,7 @@ GameObject:
   - component: {fileID: 8278519909177353921}
   - component: {fileID: 2021477618553100215}
   - component: {fileID: 4582018177006378269}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: cannon-barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8419954473981453141}
   - component: {fileID: 8429986096950022335}
   - component: {fileID: 8379987072638776307}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bin-wheelie-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
