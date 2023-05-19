@@ -80,7 +80,7 @@ namespace Assets.Scripts
             Sliceable negativeSliceable = negativeObject.GetComponent<Sliceable>();
 
             positiveSliceable.Init(slicesMeta.PositiveSideMesh,sliceable.Rigidbody,1f,!sliceable.CanSliceOnce);
-            negativeSliceable.Init(slicesMeta.NegativeSideMesh,sliceable.Rigidbody,-.8f,!sliceable.CanSliceOnce);
+            negativeSliceable.Init(slicesMeta.NegativeSideMesh,sliceable.Rigidbody,-1f,!sliceable.CanSliceOnce);
 
             if (sliceable.OriginSideRemainStill)
             {

@@ -279,7 +279,7 @@ public class Sliceable : MonoBehaviour
         if (rigidbody)
         {
             rigidbody.isKinematic = false;
-            rigidbody.velocity = rb.velocity * multiplier;
+            rigidbody.velocity = rb.velocity ;
             rigidbody.angularVelocity = rb.angularVelocity * multiplier;
         }
 

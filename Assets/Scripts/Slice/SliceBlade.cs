@@ -113,7 +113,8 @@ public class SliceBlade : MonoBehaviour
         GameObject[] slices = Array.Empty<GameObject>();
         if (s)
         {
-            if (s.CanSlice(bladeLevel,_triggerEnterBasePosition,_triggerEnterTipPosition,_triggerExitTipPosition,sliceLength))
+            if (s.CanSlice(bladeLevel, _triggerEnterBasePosition, _triggerEnterTipPosition, _triggerExitTipPosition,
+                    sliceLength))
             {
                 slices = Slicer.Slice(plane, s);
             }
@@ -124,7 +125,14 @@ public class SliceBlade : MonoBehaviour
             Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
             if (rigidbody)
             {
-                Vector3 newNormal = transformedNormal + rigidbody.transform.up * _forceAppliedToCut;
+                Vector3 newNormal = transformedNormal * _forceAppliedToCut;
+                rigidbody.AddForce(newNormal, ForceMode.Impulse);
+            }
+
+            rigidbody = slices[0].GetComponent<Rigidbody>();
+            if (rigidbody)
+            {
+                Vector3 newNormal = -transformedNormal * _forceAppliedToCut;
                 rigidbody.AddForce(newNormal, ForceMode.Impulse);
             }
         }
@@ -137,8 +145,8 @@ public class SliceBlade : MonoBehaviour
         _triggerExitTipPosition = _tip.transform.position;
 
         //Create a triangle between the tip and base so that we can get the normal
-        Vector3 side1 = _triggerExitTipPosition - _triggerEnterTipPosition+ objectDisplacement;
-        Vector3 side2 = _triggerExitTipPosition - _triggerEnterBasePosition ;
+        Vector3 side1 = _triggerExitTipPosition - _triggerEnterTipPosition + objectDisplacement;
+        Vector3 side2 = _triggerExitTipPosition - _triggerEnterBasePosition;
 
         //Get the point perpendicular to the triangle above which is the normal
         //https://docs.unity3d.com/Manual/ComputingNormalPerpendicularVector.html
@@ -169,6 +177,11 @@ public class SliceBlade : MonoBehaviour
 
     public bool SetPlayerLevel(SliceLevel sl)
     {
+        if (sl.Equals(SliceLevel.None))
+        {
+            bladeLevel = SliceLevel.None;
+            return true;
+        }
         if (sl > bladeLevel)
         {
             bladeLevel = sl;
@@ -187,13 +200,15 @@ public class SliceBlade : MonoBehaviour
             return;
         }
 
-        Vector3 bladeColliderSize = bladeCollider.size;
-        bladeColliderSize.z = length;
-        bladeCollider.size = bladeColliderSize;
-
-        var bladeColliderCenter = bladeCollider.center;
-        bladeColliderCenter.z = length / 2f;
-        bladeCollider.center = bladeColliderCenter;
-
+        // Vector3 bladeColliderSize = bladeCollider.size;
+        // bladeColliderSize.z = length;
+        // bladeCollider.size = bladeColliderSize;
+        //
+        // var bladeColliderCenter = bladeCollider.center;
+        // bladeColliderCenter.z = length / 2f;
+        // bladeCollider.center = bladeColliderCenter;
+        Vector3 transformLocalScale = transform.localScale;
+        transformLocalScale.z = length;
+        transform.localScale = transformLocalScale;
     }
 }
