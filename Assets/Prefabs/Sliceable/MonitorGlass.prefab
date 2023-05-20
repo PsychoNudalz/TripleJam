@@ -1,0 +1,4414 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1164342998102234971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5522956041794008856}
+  - component: {fileID: 2846131314427413568}
+  - component: {fileID: 6575465911180772025}
+  m_Layer: 11
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5522956041794008856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164342998102234971}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6439691250931843205}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2846131314427413568
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164342998102234971}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 6141849901374927194, guid: 1d3dcc652a2dc9940b462bdd6c5e6824,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &6575465911180772025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164342998102234971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5d2998e6bad0e4fbee47d31d24b684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  volume: 0.75
+  volumeVariance: 0.1
+  pitch: 1
+  pitchVariance: 0.1
+  audioMixer: {fileID: 0}
+--- !u!1 &5480414928711230247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6439691250931843205}
+  - component: {fileID: 8988350500645179226}
+  m_Layer: 11
+  m_Name: GlassShatter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6439691250931843205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5480414928711230247}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5522956041794008856}
+  m_Father: {fileID: 6897697065333169751}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8988350500645179226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5480414928711230247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7298e42ea783c7e45ae2b7251c1f406d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 6575465911180772025}
+  useReplaceClip: 1
+  audioClips:
+  - {fileID: 8300000, guid: 5adf2c3a4ba307a4fb94057914af44fd, type: 3}
+  - {fileID: 8300000, guid: 05ea49db527d1e141af3ae77c617ee77, type: 3}
+--- !u!1 &6897697065333169750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6897697065333169751}
+  m_Layer: 11
+  m_Name: MonitorGlass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6897697065333169751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6897697065333169750}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8155843706065875974}
+  - {fileID: 6439691250931843205}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &8549479018914911213
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6897697065333169751}
+    m_Modifications:
+    - target: {fileID: -9061922809810569590, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -8909518959039954526, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8774185247095411215, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8520703802171037658, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -8417309265813695834, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8303369818627390163, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8240813455640076332, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -8096276139663757018, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -8082181632229581307, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -7960281521810715423, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -7723435504212114511, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -7665990822364981987, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -7240809063796817451, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -7236524704529972990, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6930637724404705382, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -6916620748468195509, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -6382948464869909013, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6295241386111303894, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -6242459050425336517, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6168934259496712228, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -6037898061732752668, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5992370558049891537, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -5901295505152456402, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -5887679032086385441, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -5787599996475633014, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5114625781669190560, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -4978534873755352316, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -4882992724576748676, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -4822384577444141220, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4785336234121092393, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4625914229684127550, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -4623968737166008507, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -4333088396211714261, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -4309263538455220476, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -3986689139083606394, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3882445662384435369, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -3528607688422059368, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -3515581634658981072, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -3492463972365489695, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -3312054135501637111, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -3239875291303872768, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -3204310661103444133, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3077588629905619540, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -3019519355856521280, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -2947755440425644857, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2824164718732478364, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2626591135633685822, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -2425900641087085173, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2412370494533200076, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -2182508047676176880, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -1721968372573399636, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1652816660233504426, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1555880143627133219, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504985390116718583, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -1461612048654406951, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -1327652985213606289, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -1317737935091175918, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -1169260184956806614, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1139181820200791821, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -639587469624898675, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -523083932822746524, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -392915184280112899, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -386019299841974342, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -349784104715215230, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: -330947479469343628, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -260487792211772640, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 134651404101576469, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 222560519466368276, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 311870159143462637, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 542516502489794902, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 625967798570787157, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 705602818530132382, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 775870364806462950, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 802229505942382939, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 809427200803484227, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 905031653289306578, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Name
+      value: PreyMirror
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113098390225872344, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 1258404100510628655, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370731605418504895, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390724878343307363, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478005087594750547, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1608718876209278432, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 1913536333518871620, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130812827419093889, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183741501033836701, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2771916027035500115, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179020371727092845, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 3428889088924652784, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3755579605549255161, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 3796870627424641903, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 3847043542538958179, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983200602792309933, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 3991326833673884675, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 4342495148011263886, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343805091027764616, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373024009122975359, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 4422738867421774785, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4479742594616706067, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 4537434410233826485, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563548178437204367, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 4604764896508544181, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 4612816012902520384, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 4790323370453208889, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959634503542158439, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5059485675272426750, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135330730480598792, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196993041272592538, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410029189636494505, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601559990749713646, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 5649781264711937442, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5974387757569905536, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065661997708390754, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 6082142670919340589, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212451151422258199, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6313051928814010183, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576318569812554027, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6608202474502873025, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630084107647949516, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782613057759058156, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 7001579787983794663, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014349786322629090, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 7115962501456251582, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 7134370044923839258, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175274028227186985, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253943904180427822, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288015118918428045, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 7316514985187202015, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 7394673710000219967, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 7834820067054154104, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961247841636526047, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971119667190903888, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 8060207344444411490, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120674079791100628, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169560644109941857, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8342956907159400783, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354789733168180802, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442826596744992284, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524978106886833218, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635794533779732852, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638878986559754310, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720325544349320935, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 8886087601520374427, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962165249938743929, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f9927d6466dc534f96f83d652c30e66, type: 2}
+    - target: {fileID: 9172537114523088808, guid: 60176c083d703184e9f9c3e9833da957,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 60176c083d703184e9f9c3e9833da957, type: 3}
+--- !u!1 &66172686286247855 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8524978106886833218, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &8980116635359186737
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66172686286247855}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &7349602631528552918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66172686286247855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &256471876776265201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8442826596744992284, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &403220386280623182
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256471876776265201}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &4903960664103822664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256471876776265201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &439021601392927033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8120674079791100628, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &8222759179119958617
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439021601392927033}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &6574979512788766728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439021601392927033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &560071164655513484 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8169560644109941857, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2276255637711280770
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560071164655513484}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &3263157023087402704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560071164655513484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &715716333884941381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9172537114523088808, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &6706068585235290735
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715716333884941381}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &5887709989976679159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715716333884941381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &865056866754710615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -386019299841974342, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7574382253539337943
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865056866754710615}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &7807094247012315600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865056866754710615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &876456342556271376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -392915184280112899, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &8196669726213830493
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876456342556271376}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &1245545006599616429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876456342556271376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &994702725054672793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -330947479469343628, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1676633943850237774
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994702725054672793}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &2495889235681358437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994702725054672793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &1662942757586507261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2182508047676176880, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &5381036842981131238
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662942757586507261}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &1245074618381337291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662942757586507261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &1697648591474008586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7001579787983794663, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &6606903814184030113
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697648591474008586}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &673379942145329263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697648591474008586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &1882230359019053717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7834820067054154104, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &3051545002252868864
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882230359019053717}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &2363776447469767792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882230359019053717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &1951093874059476479 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1317737935091175918, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7407159298971746044
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951093874059476479}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &3159011126160601628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951093874059476479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &1961004800997799298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1327652985213606289, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7218187546978277365
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961004800997799298}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &6696994783245788872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961004800997799298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &2075524590562528560 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1555880143627133219, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7215415440864661764
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075524590562528560}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &6390343739764897263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075524590562528560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &2394136639960624298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6313051928814010183, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &5180240010936860089
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2394136639960624298}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &1924393600303871161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2394136639960624298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &2589548536465315393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3077588629905619540, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &977498999815718684
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2589548536465315393}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &3875765525138518054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2589548536465315393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &2642735095078431204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3312054135501637111, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7553925287283620904
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2642735095078431204}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &5670025125773944023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2642735095078431204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &2714684624496256237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3239875291303872768, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &4917584994442561969
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2714684624496256237}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &4367158875652575529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2714684624496256237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &2891398990012810457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2412370494533200076, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &3134355102397475070
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2891398990012810457}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &3790287869664151048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2891398990012810457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &3247329516196842540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6608202474502873025, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &107083498423543418
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247329516196842540}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &3380003765718427831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247329516196842540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &3307365317204730566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6576318569812554027, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &5752730021937522422
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3307365317204730566}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &8124149496730134937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3307365317204730566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &3500210281263286035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5059485675272426750, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &6107161166677619049
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3500210281263286035}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &2969518757823321894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3500210281263286035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &3594301079097273573 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5135330730480598792, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &5200243769500806166
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3594301079097273573}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &5083727182937004295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3594301079097273573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &3645578661706431721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4309263538455220476, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &5597318072302353238
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645578661706431721}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &6802242017702261677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645578661706431721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &3809900592777239764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4790323370453208889, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &3276014446030734982
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3809900592777239764}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &5334020134168027061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3809900592777239764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &4120124449474886156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3492463972365489695, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &8090612827348524620
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4120124449474886156}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &3843619915920299285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4120124449474886156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &4445493996387764036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5410029189636494505, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &3307248658052585269
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4445493996387764036}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &8110749019134484518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4445493996387764036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &4520123621698358135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5196993041272592538, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1690242547426522682
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520123621698358135}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &1903004850977288361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520123621698358135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &4883776005416330894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3847043542538958179, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &235499694491479642
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883776005416330894}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &1681083793158788287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883776005416330894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &5289665068208007983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4625914229684127550, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7917081486260013083
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5289665068208007983}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &4236686392713651836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5289665068208007983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &5292157479711493288 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4623968737166008507, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2359684673413043356
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5292157479711493288}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &5037868525311949367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5292157479711493288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &5375545480042064017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4882992724576748676, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &5993516687743113278
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5375545480042064017}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &6577048396471529608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5375545480042064017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &5459876019297652780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4422738867421774785, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &4251026764454909900
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5459876019297652780}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &6783346971103370898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5459876019297652780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &5498166400788664553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4978534873755352316, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &891579006569525644
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5498166400788664553}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &3449351027388959391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5498166400788664553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &5737844507359688589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5114625781669190560, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &6668265324333231761
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5737844507359688589}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &3041138573308490417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5737844507359688589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &5823729561879031230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2771916027035500115, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &220526099984653629
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823729561879031230}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &2150961131116967190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823729561879031230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &6517565623113439426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5992370558049891537, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2111751311632705603
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6517565623113439426}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &4060516600135861604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6517565623113439426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &6685122125237457969 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6168934259496712228, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7389108111582835930
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685122125237457969}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &500812721218078164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685122125237457969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &7431713439154298636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7960281521810715423, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &3963287765505008516
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7431713439154298636}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &8695623432237695944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7431713439154298636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &7481435566173628610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1258404100510628655, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &4038625680518128022
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481435566173628610}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &7042981639957401284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481435566173628610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &7560396492548236144 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2183741501033836701, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2536312665940917205
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7560396492548236144}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &6488868386821225436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7560396492548236144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!4 &8155843706065875974 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8401549670923314535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -9061922809810569590, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &522875781496602724
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8401549670923314535}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &2714696049684607452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8401549670923314535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &8609678951611069688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 134651404101576469, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &8156569394862755466
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8609678951611069688}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &9032514444766602122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8609678951611069688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &8751491876639526376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8082181632229581307, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &8743210975812662073
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8751491876639526376}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &2714673933325452395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8751491876639526376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &8802998645610723903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 905031653289306578, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &8828266158516411995
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802998645610723903}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &6245339634225379152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802998645610723903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &8962629599827504651 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 775870364806462950, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1471787676594602531
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8962629599827504651}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &322664988688365801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8962629599827504651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &9045425575453031094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 802229505942382939, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &6283718420385625992
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9045425575453031094}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &3160815410079581960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9045425575453031094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []
+--- !u!1 &9182584383961617011 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 705602818530132382, guid: 60176c083d703184e9f9c3e9833da957,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549479018914911213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2285239371474980351
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9182584383961617011}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &6478589858483531034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9182584383961617011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049341dfcbd3ccf4abd0bbc2ccc7ea5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canSlice: 1
+  sliceLevel: 3
+  onSliceEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8988350500645179226}
+        m_TargetAssemblyTypeName: RandomSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sliceScore: 200
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 1
+  _smoothVertices: 0
+  requiresLOS: 0
+  LOSMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoDestroyTime: 10
+  canSliceOnce: 0
+  originSideRemainStill: 0
+  minimumMeshRatio: 0.2
+  rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshCollider: {fileID: 0}
+  deactivateObjects: []

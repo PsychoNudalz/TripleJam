@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 
 public enum FlowScene
@@ -23,6 +24,10 @@ public enum FlowScene
     Studio_DoIt,
     Studio_DoubleSaber,
     Studio_End,
+    Bsod_Start,
+    Bsod_Display,
+    Bsod_Narrate,
+    Bsod_End,
     MB_Start
 }
 
@@ -81,11 +86,29 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField]
     private int narratorRoomPillarCount = 4;
 
+    [FormerlySerializedAs("BSOD Scene")]
     [SerializeField]
-    private GameObject endingScreen;
+    private GameObject copyRightScreen;
 
     [SerializeField]
     private Sound elevatorMusic;
+    [SerializeField]
+    private Transform bsodTeleportPoint;
+
+    [SerializeField]
+    private float copyRightTime = 10f;
+
+    [SerializeField]
+    private SoundAbstract errorSound;
+    [SerializeField]
+    private float errorTime = 5;
+    [SerializeField]
+    private float errorToNarrateTime = 10f;
+
+    [SerializeField]
+    private Animator bsodAnimator;
+    
+    
     [Header("Motherboard")]
     [SerializeField]
     Transform MBTeleportPoint;
@@ -179,6 +202,21 @@ public class GameFlowManager : MonoBehaviour
                 break;
             case FlowScene.Studio_End:
                 Play_Studio_End();
+                break;
+            case FlowScene.Bsod_Start:
+                Play_Bsod_Start();
+                break;
+            case FlowScene.Bsod_Display:
+                Play_Bsod_Display();
+                break;
+            case FlowScene.Bsod_Narrate:
+                Play_Bsod_Narrate();
+                break;
+            case FlowScene.Bsod_End:
+                
+                break;
+            case FlowScene.MB_Start:
+                
                 break;
             default:
                 Debug.LogError($"Missing Scene: {flowScene}");
@@ -322,9 +360,41 @@ public class GameFlowManager : MonoBehaviour
     void Play_Studio_End()
     {
         narrator.Stop();
-        endingScreen.SetActive(true);
+        copyRightScreen.SetActive(true);
         SoundManager.current.StopAllSounds();
+        PlayerInputController.SetLock(true);
+        PlayerInputController.SetHide(true);
+
         elevatorMusic.Play();
+        delaySceneTransition = StartCoroutine(DelayMoveScene(copyRightTime, FlowScene.Bsod_Start));
+
+    }
+
+    void Play_Bsod_Start()
+    {
+        elevatorMusic.Stop();
+        errorSound.Play();
+        copyRightScreen.SetActive(true);
+        player.transform.position = bsodTeleportPoint.position;
+        delaySceneTransition = StartCoroutine(DelayMoveScene(errorTime, FlowScene.Bsod_Display));
+    }
+
+    void Play_Bsod_Display()
+    {
+        copyRightScreen.SetActive(false);
+        errorSound.Stop();
+        bsodAnimator.SetTrigger("Start");
+        delaySceneTransition = StartCoroutine(DelayMoveScene(errorToNarrateTime, FlowScene.Bsod_Display));
+
+    }
+
+    void Play_Bsod_Narrate()
+    {
+        PlayerInputController.SetLock(false);
+        PlayerInputController.SetHide(false);
+        float t = narrator.PlayAudio(FlowScene.Bsod_Narrate);
+        delaySceneTransition = StartCoroutine(DelayMoveScene(t+5f, FlowScene.Bsod_End));
+
     }
 
     void Play_MB_Start()
