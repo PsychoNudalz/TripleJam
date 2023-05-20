@@ -10,17 +10,22 @@ PrefabInstance:
     - target: {fileID: 68884263363987998, guid: dd7d806c0a30f2008bb1087691857ba6,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 150
+      value: 341
       objectReference: {fileID: 0}
     - target: {fileID: 68884263363987998, guid: dd7d806c0a30f2008bb1087691857ba6,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 15.000001
+      value: 4.3116684
       objectReference: {fileID: 0}
     - target: {fileID: 68884263363987998, guid: dd7d806c0a30f2008bb1087691857ba6,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 150
+      value: 61.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 68884263363987998, guid: dd7d806c0a30f2008bb1087691857ba6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 68884263363987998, guid: dd7d806c0a30f2008bb1087691857ba6,
         type: 3}
@@ -30,17 +35,17 @@ PrefabInstance:
     - target: {fileID: 68884263363987998, guid: dd7d806c0a30f2008bb1087691857ba6,
         type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1206847068706124145, guid: dd7d806c0a30f2008bb1087691857ba6,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 343aad0916d7666beb822a827bf23d20, type: 2}
+      objectReference: {fileID: 2100000, guid: 0ddbe908b02ac8c4a8debdec8e12c95b, type: 2}
     - target: {fileID: 2770345426864813708, guid: dd7d806c0a30f2008bb1087691857ba6,
         type: 3}
       propertyPath: m_Name
-      value: bsod_QR
+      value: bsod_68
       objectReference: {fileID: 0}
     - target: {fileID: 2770345426864813710, guid: dd7d806c0a30f2008bb1087691857ba6,
         type: 3}
