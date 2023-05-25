@@ -118,6 +118,11 @@ PrefabInstance:
       objectReference: {fileID: 8432193555148075692}
     - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
         type: 3}
+      propertyPath: sliceLevel
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527715353896950297, guid: 0117c9b6215a6c24aa70bcb256e2f3c3,
+        type: 3}
       propertyPath: meshCollider
       value: 
       objectReference: {fileID: 7693446116927286506}

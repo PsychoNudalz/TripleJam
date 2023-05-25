@@ -159,6 +159,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SkipToCopyRight",
+                    "type": "Button",
+                    "id": "099ab9ec-96bc-41d5-be99-2aa8b03c6f26",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SkipToBsod",
+                    "type": "Button",
+                    "id": "649faae4-aa15-4673-bdc1-d5e5500394d6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -247,6 +265,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "SkipToStudio",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3b0d5b29-881d-424f-b45a-995a14113cdb",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkipToCopyRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6d2be3b1-0d33-45b4-90f2-1274f31cfd70",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkipToBsod",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

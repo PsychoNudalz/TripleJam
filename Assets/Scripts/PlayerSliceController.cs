@@ -196,6 +196,6 @@ public class PlayerSliceController : MonoBehaviour
 
     public void Hide(bool b = true)
     {
-        visualBlade.gameObject.SetActive(b);
+        visualBlade.gameObject.SetActive(!b);
     }
 }

@@ -356,6 +356,18 @@ MonoBehaviour:
     - text: 'and compassion that ultimately redeemed Anakin and brought balance to
         the Force? '
       time: 6.528
+  - scene: 18
+    clip: {fileID: 8300000, guid: 1650ec6699d6f7d4db50b004f2fd745c, type: 3}
+    canInterrupt: 0
+    text: Well, congratulations, player. You've done it. You've broken the game,
+      sliced my head off, and now the computer has crashed. Bravo. I hope you're
+      satisfied with your destructive rampage.
+    subtitleTexts:
+    - text: 'Well, congratulations, player. You''ve done it. You''ve broken the game,
+        sliced my head off, and now the computer has crashed. '
+      time: 5.4516134
+    - text: 'I hope you''re satisfied with your destructive rampage. '
+      time: 2.660387
   narratorSound: {fileID: 5380063646296441450}
 --- !u!1001 &6148701260581697159
 PrefabInstance:

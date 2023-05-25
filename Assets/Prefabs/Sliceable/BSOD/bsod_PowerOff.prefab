@@ -57,6 +57,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: bsod_PowerOff
       objectReference: {fileID: 0}
+    - target: {fileID: 2770345426864813709, guid: dd7d806c0a30f2008bb1087691857ba6,
+        type: 3}
+      propertyPath: sliceLevel
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2770345426864813710, guid: dd7d806c0a30f2008bb1087691857ba6,
         type: 3}
       propertyPath: m_RootOrder

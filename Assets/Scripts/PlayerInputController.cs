@@ -206,7 +206,8 @@ public class PlayerInputController : MonoBehaviour
     public static void SetLock(bool b)
     {
         current.OnLock(b);
-    }    public static void SetHide(bool b)
+    }    
+    public static void SetHide(bool b)
     {
         current.OnHide(b);
     }

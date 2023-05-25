@@ -15,9 +15,9 @@ public enum SliceLevel
     Crowbar,
     LightSaber,
     DualSaber,
-    CheeseKnife,
+    Bindows,
     DataKnife,
-    CorruptedKnife
+    NarratorFBX
 }
 
 

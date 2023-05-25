@@ -101,12 +101,15 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField]
     private SoundAbstract errorSound;
     [SerializeField]
-    private float errorTime = 5;
+    private float errorTime = 2;
     [SerializeField]
     private float errorToNarrateTime = 10f;
 
     [SerializeField]
     private Animator bsodAnimator;
+
+    [SerializeField]
+    private GameObject offButton;
     
     
     [Header("Motherboard")]
@@ -213,10 +216,10 @@ public class GameFlowManager : MonoBehaviour
                 Play_Bsod_Narrate();
                 break;
             case FlowScene.Bsod_End:
-                
+                Play_Bsod_End();
                 break;
             case FlowScene.MB_Start:
-                
+                Play_MB_Start();
                 break;
             default:
                 Debug.LogError($"Missing Scene: {flowScene}");
@@ -384,16 +387,24 @@ public class GameFlowManager : MonoBehaviour
         copyRightScreen.SetActive(false);
         errorSound.Stop();
         bsodAnimator.SetTrigger("Start");
-        delaySceneTransition = StartCoroutine(DelayMoveScene(errorToNarrateTime, FlowScene.Bsod_Display));
+        offButton.SetActive(false);
+        delaySceneTransition = StartCoroutine(DelayMoveScene(errorToNarrateTime, FlowScene.Bsod_Narrate));
 
     }
 
     void Play_Bsod_Narrate()
     {
-        PlayerInputController.SetLock(false);
-        PlayerInputController.SetHide(false);
         float t = narrator.PlayAudio(FlowScene.Bsod_Narrate);
         delaySceneTransition = StartCoroutine(DelayMoveScene(t+5f, FlowScene.Bsod_End));
+
+    }
+
+    void Play_Bsod_End()
+    {
+        PlayerInputController.SetLock(false);
+        PlayerInputController.SetHide(false);
+        offButton.SetActive(true);
+        PlayerSliceController.SetPlayerLevel(SliceLevel.Bindows);
 
     }
 
@@ -453,6 +464,14 @@ public class GameFlowManager : MonoBehaviour
         Play_Scene(FlowScene.Dojo_Crowbar);
     }
 
+    public void OnSkipToCopyRight()
+    {
+        Play_Scene(FlowScene.Studio_End);
+    }
+    public void OnSkipToBsod()
+    {
+        Play_Scene(FlowScene.Bsod_Start);
+    }
     public void ReducePillar()
     {
         narratorRoomPillarCount -= 1;
