@@ -28,7 +28,12 @@ public enum FlowScene
     Bsod_Display,
     Bsod_Narrate,
     Bsod_End,
-    MB_Start
+    MB_Start,
+    MB_BugRemoval,
+    MB_Ram,
+    MB_GPU,
+    MB_SSD,
+    MB_Heat
 }
 
 public class GameFlowManager : MonoBehaviour
@@ -115,6 +120,9 @@ public class GameFlowManager : MonoBehaviour
     [Header("Motherboard")]
     [SerializeField]
     Transform MBTeleportPoint;
+
+    [SerializeField]
+    private GameObject motherboardFilter;
     [Header("Components")]
 
     [SerializeField]
@@ -220,6 +228,17 @@ public class GameFlowManager : MonoBehaviour
                 break;
             case FlowScene.MB_Start:
                 Play_MB_Start();
+                break;
+            case FlowScene.MB_BugRemoval:
+                Play_MB_BugRemoval();
+                break;
+            case FlowScene.MB_Ram:
+                break;
+            case FlowScene.MB_GPU:
+                break;
+            case FlowScene.MB_SSD:
+                break;
+            case FlowScene.MB_Heat:
                 break;
             default:
                 Debug.LogError($"Missing Scene: {flowScene}");
@@ -413,6 +432,12 @@ public class GameFlowManager : MonoBehaviour
         PlayerSliceController.SetPlayerLevel(SliceLevel.Vindows);
         player.transform.position = MBTeleportPoint.position;
 
+    }
+
+    void Play_MB_BugRemoval()
+    {
+        PlayerSliceController.SetPlayerLevel(SliceLevel.DataKnife);
+        motherboardFilter.SetActive(true);
     }
 
     IEnumerator DelayStartOpening()
