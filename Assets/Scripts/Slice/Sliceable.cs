@@ -15,7 +15,7 @@ public enum SliceLevel
     Crowbar,
     LightSaber,
     DualSaber,
-    Bindows,
+    Vindows,
     DataKnife,
     NarratorFBX
 }
@@ -30,10 +30,17 @@ public class Sliceable : MonoBehaviour
     private SliceLevel sliceLevel = SliceLevel.None;
 
     [SerializeField]
+    [Tooltip("Only use if health is more than 1")]
+    private UnityEvent onHitEvent;
+
+    [SerializeField]
     private UnityEvent onSliceEvent;
 
     [SerializeField]
     private int sliceScore = 0;
+
+    [SerializeField]
+    private int health = 1;
 
 
     [Header("Settings")]
@@ -130,22 +137,40 @@ public class Sliceable : MonoBehaviour
 
         if (!requiresLOS)
         {
-            return true;
+            return OnHit();
+        }
+        else
+        {
+            if (CheckLOS(basePos, enterTip, exitTip, tipLength))
+            {
+                return OnHit();
+            }
         }
 
+
+        return false;
+    }
+
+    private bool OnHit()
+    {
+        health -= 1;
+        if (health > 0)
+        {
+            onHitEvent.Invoke();
+        }
+
+        return health <= 0;
+    }
+
+    private bool CheckLOS(Vector3 basePos, Vector3 enterTip, Vector3 exitTip, float tipLength)
+    {
         Vector3 baseEnter = enterTip - basePos;
         Vector3 baseExit = exitTip - basePos;
         Vector3 baseMid = (baseExit + baseEnter) / 2f;
         RaycastHit detectedCollider;
-        
-        if (Physics.Raycast(basePos, (transform.position-basePos).normalized,out detectedCollider, tipLength, LOSMask))
-        {
-            if (detectedCollider.collider.Equals(meshCollider))
-            {
-                return true;
-            }
-        }
-        if (Physics.Raycast(basePos, baseMid,out detectedCollider, tipLength, LOSMask))
+
+        if (Physics.Raycast(basePos, (transform.position - basePos).normalized, out detectedCollider, tipLength,
+                LOSMask))
         {
             if (detectedCollider.collider.Equals(meshCollider))
             {
@@ -153,7 +178,7 @@ public class Sliceable : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(basePos, baseEnter,out detectedCollider, tipLength, LOSMask))
+        if (Physics.Raycast(basePos, baseMid, out detectedCollider, tipLength, LOSMask))
         {
             if (detectedCollider.collider.Equals(meshCollider))
             {
@@ -161,7 +186,15 @@ public class Sliceable : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(basePos, baseExit,out detectedCollider, tipLength, LOSMask))
+        if (Physics.Raycast(basePos, baseEnter, out detectedCollider, tipLength, LOSMask))
+        {
+            if (detectedCollider.collider.Equals(meshCollider))
+            {
+                return true;
+            }
+        }
+
+        if (Physics.Raycast(basePos, baseExit, out detectedCollider, tipLength, LOSMask))
         {
             if (detectedCollider.collider.Equals(meshCollider))
             {
@@ -279,7 +312,7 @@ public class Sliceable : MonoBehaviour
         if (rigidbody)
         {
             rigidbody.isKinematic = false;
-            rigidbody.velocity = rb.velocity ;
+            rigidbody.velocity = rb.velocity;
             rigidbody.angularVelocity = rb.angularVelocity * multiplier;
         }
 

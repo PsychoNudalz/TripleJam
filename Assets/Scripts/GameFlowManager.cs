@@ -404,12 +404,13 @@ public class GameFlowManager : MonoBehaviour
         PlayerInputController.SetLock(false);
         PlayerInputController.SetHide(false);
         offButton.SetActive(true);
-        PlayerSliceController.SetPlayerLevel(SliceLevel.Bindows);
+        PlayerSliceController.SetPlayerLevel(SliceLevel.Vindows);
 
     }
 
     void Play_MB_Start()
     {
+        PlayerSliceController.SetPlayerLevel(SliceLevel.Vindows);
         player.transform.position = MBTeleportPoint.position;
 
     }
@@ -471,6 +472,11 @@ public class GameFlowManager : MonoBehaviour
     public void OnSkipToBsod()
     {
         Play_Scene(FlowScene.Bsod_Start);
+    }
+
+    public void OnSkipToMotherboard()
+    {
+        Play_Scene(FlowScene.MB_Start);
     }
     public void ReducePillar()
     {

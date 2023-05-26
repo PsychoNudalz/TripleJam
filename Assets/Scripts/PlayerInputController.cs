@@ -206,7 +206,8 @@ public class PlayerInputController : MonoBehaviour
     public static void SetLock(bool b)
     {
         current.OnLock(b);
-    }    
+    }
+
     public static void SetHide(bool b)
     {
         current.OnHide(b);
@@ -226,5 +227,13 @@ public class PlayerInputController : MonoBehaviour
     public void OnHide(bool b)
     {
         playerSliceController.Hide(b);
+        if (b)
+        {
+            lockDisplay.SetActive(false);
+        }
+        else
+        {
+            lockDisplay.SetActive(isLock);
+        }
     }
 }

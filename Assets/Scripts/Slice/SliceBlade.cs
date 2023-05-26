@@ -85,9 +85,13 @@ public class SliceBlade : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Sliceable s = other.GetComponentInParent<Sliceable>();
-        if (SliceObject(other, s))
+        if (s)
         {
             sliceEffect.Play();
+
+        }
+        if (SliceObject(other, s))
+        {
         }
 
         detectedSliceObject = null;
@@ -95,6 +99,16 @@ public class SliceBlade : MonoBehaviour
 
     private bool SliceObject(Collider collider, Sliceable s)
     {
+        if (s)
+        {
+            if (!s.CanSlice(bladeLevel, _triggerEnterBasePosition, _triggerEnterTipPosition, _triggerExitTipPosition,
+                    sliceLength))
+            {
+                return false;
+            }
+        }
+        
+        
         Plane plane = new Plane();
         Vector3 transformedNormal = new Vector3();
         if (s.Equals(detectedSliceObject))
@@ -111,14 +125,9 @@ public class SliceBlade : MonoBehaviour
 
 
         GameObject[] slices = Array.Empty<GameObject>();
-        if (s)
-        {
-            if (s.CanSlice(bladeLevel, _triggerEnterBasePosition, _triggerEnterTipPosition, _triggerExitTipPosition,
-                    sliceLength))
-            {
-                slices = Slicer.Slice(plane, s);
-            }
-        }
+
+        slices = Slicer.Slice(plane, s);
+
 
         if (slices.Length > 0)
         {

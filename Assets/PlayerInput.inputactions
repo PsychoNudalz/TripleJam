@@ -177,6 +177,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SkipToMotherboard",
+                    "type": "Button",
+                    "id": "647e5130-040e-4007-95f9-3f2c5696e631",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -287,6 +296,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SkipToBsod",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "96dd5116-72c1-4a50-8dca-d89c66143eff",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkipToMotherboard",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

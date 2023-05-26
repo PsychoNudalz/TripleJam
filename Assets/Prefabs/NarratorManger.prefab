@@ -363,6 +363,60 @@ MonoBehaviour:
       sliced my head off, and now the computer has crashed. Bravo. I hope you're
       satisfied with your destructive rampage.
     subtitleTexts:
+    - text: 'Please... spare me. Spare me as Count Dooku was spared by Anakin Skywalker.
+        Remember that scene in Star Wars? The moment of '
+      time: 9.6
+    - text: 'and compassion that ultimately redeemed Anakin and brought balance to
+        the Force? '
+      time: 6.528
+  - scene: 18
+    clip: {fileID: 8300000, guid: 3b9d524ec5b7bc347927d3c2c9b25617, type: 3}
+    canInterrupt: 0
+    text: 
+    subtitleTexts: []
+  - scene: 18
+    clip: {fileID: 8300000, guid: 0422bc4f094aebb4aa7ea79bd7fd88f5, type: 3}
+    canInterrupt: 0
+    text: Well, congratulations, player. You've done it. You've broken the game,
+      sliced my head off, and now the computer has crashed. Bravo. I hope you're
+      satisfied with your destructive rampage.
+    subtitleTexts:
+    - text: 'Well, congratulations, player. You''ve done it. You''ve broken the game,
+        sliced my head off, and now the computer has crashed. '
+      time: 5.4516134
+    - text: 'I hope you''re satisfied with your destructive rampage. '
+      time: 2.660387
+  - scene: 18
+    clip: {fileID: 8300000, guid: befcdc5b212703d43bba7575a1f0b463, type: 3}
+    canInterrupt: 0
+    text: Well, congratulations, player. You've done it. You've broken the game,
+      sliced my head off, and now the computer has crashed. Bravo. I hope you're
+      satisfied with your destructive rampage.
+    subtitleTexts:
+    - text: 'Well, congratulations, player. You''ve done it. You''ve broken the game,
+        sliced my head off, and now the computer has crashed. '
+      time: 5.4516134
+    - text: 'I hope you''re satisfied with your destructive rampage. '
+      time: 2.660387
+  - scene: 18
+    clip: {fileID: 8300000, guid: 06584ada1177c8841b19908161b1e8b4, type: 3}
+    canInterrupt: 0
+    text: Well, congratulations, player. You've done it. You've broken the game,
+      sliced my head off, and now the computer has crashed. Bravo. I hope you're
+      satisfied with your destructive rampage.
+    subtitleTexts:
+    - text: 'Well, congratulations, player. You''ve done it. You''ve broken the game,
+        sliced my head off, and now the computer has crashed. '
+      time: 5.4516134
+    - text: 'I hope you''re satisfied with your destructive rampage. '
+      time: 2.660387
+  - scene: 19
+    clip: {fileID: 8300000, guid: 62903ab1fb1e3624a97d5ece5b65f38a, type: 3}
+    canInterrupt: 0
+    text: Well, congratulations, player. You've done it. You've broken the game,
+      sliced my head off, and now the computer has crashed. Bravo. I hope you're
+      satisfied with your destructive rampage.
+    subtitleTexts:
     - text: 'Well, congratulations, player. You''ve done it. You''ve broken the game,
         sliced my head off, and now the computer has crashed. '
       time: 5.4516134
