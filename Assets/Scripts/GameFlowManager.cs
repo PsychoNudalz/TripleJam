@@ -414,7 +414,7 @@ public class GameFlowManager : MonoBehaviour
     void Play_Bsod_Narrate()
     {
         float t = narrator.PlayAudio(FlowScene.Bsod_Narrate);
-        delaySceneTransition = StartCoroutine(DelayMoveScene(t+5f, FlowScene.Bsod_End));
+        delaySceneTransition = StartCoroutine(DelayMoveScene(t+30f, FlowScene.Bsod_End));
 
     }
 
@@ -423,6 +423,8 @@ public class GameFlowManager : MonoBehaviour
         PlayerInputController.SetLock(false);
         PlayerInputController.SetHide(false);
         offButton.SetActive(true);
+        float t = narrator.PlayAudio(FlowScene.Bsod_End);
+
         PlayerSliceController.SetPlayerLevel(SliceLevel.Vindows);
 
     }

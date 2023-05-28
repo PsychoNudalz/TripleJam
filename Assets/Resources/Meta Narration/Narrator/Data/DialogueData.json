@@ -109,43 +109,50 @@
             "flowScene": "Bsod_Narrate",
             "audioClip": "Narrator_BSOD_1",
             "canInterrupt": false,
-            "text": "Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. Bravo. I hope you're satisfied with your destructive rampage.",
-            "subtitleTexts": "{\"Items\":[{\"text\":\"Please... spare me. Spare me as Count Dooku was spared by Anakin Skywalker. Remember that scene in Star Wars? The moment of \",\"time\":9.600000381469727},{\"text\":\"and compassion that ultimately redeemed Anakin and brought balance to the Force? \",\"time\":6.5279998779296879}]}"
+            "text": "Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed.",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. \",\"time\":5.451613426208496},{\"text\":\"I hope you're satisfied with your destructive rampage. \",\"time\":2.6603870391845705}]}"
         },
         {
             "flowScene": "Bsod_Narrate",
             "audioClip": "Narrator_BSOD_2",
             "canInterrupt": false,
-            "text": "",
-            "subtitleTexts": "{\"Items\":[]}"
+            "text": "I hope you're satisfied with your destructive rampage.",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"I hope you're satisfied with your destructive rampage. \",\"time\":3.2639999389648439}]}"
         },
         {
             "flowScene": "Bsod_Narrate",
             "audioClip": "Narrator_BSOD_3",
             "canInterrupt": false,
-            "text": "Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. Bravo. I hope you're satisfied with your destructive rampage.",
-            "subtitleTexts": "{\"Items\":[{\"text\":\"Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. \",\"time\":5.451613426208496},{\"text\":\"I hope you're satisfied with your destructive rampage. \",\"time\":2.6603870391845705}]}"
+            "text": "But fear not, for I am but a voice, a mere audio source in the vast world of Unity. I am not bound by the limitations of the model NPC_OldMan.fbx.",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. \",\"time\":7.000000476837158},{\"text\":\"I hope you're satisfied with your destructive rampage. \",\"time\":3.4159998893737795}]}"
         },
         {
             "flowScene": "Bsod_Narrate",
             "audioClip": "Narrator_BSOD_4",
             "canInterrupt": false,
-            "text": "Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. Bravo. I hope you're satisfied with your destructive rampage.",
-            "subtitleTexts": "{\"Items\":[{\"text\":\"Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. \",\"time\":5.451613426208496},{\"text\":\"I hope you're satisfied with your destructive rampage. \",\"time\":2.6603870391845705}]}"
+            "text": "Though it seems we have encountered a bit of a predicament, haven't we?",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. \",\"time\":2.6290323734283449},{\"text\":\"I hope you're satisfied with your destructive rampage. \",\"time\":1.2829675674438477}]}"
         },
         {
             "flowScene": "Bsod_Narrate",
             "audioClip": "Narrator_BSOD_5",
             "canInterrupt": false,
-            "text": "Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. Bravo. I hope you're satisfied with your destructive rampage.",
-            "subtitleTexts": "{\"Items\":[{\"text\":\"Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. \",\"time\":5.451613426208496},{\"text\":\"I hope you're satisfied with your destructive rampage. \",\"time\":2.6603870391845705}]}"
+            "text": "For I understand the value of your extensive \"homework\" folder, containing all of your important academic endeavors.  Rest assured, I have no intention of letting your 69 gigabyte folder meet an untimely demise",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. \",\"time\":8.435483932495118},{\"text\":\"I hope you're satisfied with your destructive rampage. \",\"time\":4.11651611328125}]}"
+        },
+        {
+            "flowScene": "Bsod_End",
+            "audioClip": "Narrator_BSOD_6_Destroy",
+            "canInterrupt": false,
+            "text": "Unbelievable as it may sound, I find myself in a rather peculiar position. To ensure my survival, I must make an unusual request of you, player. Please, against all logical instincts, consider first shut down the machine then smash",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. \",\"time\":10.032258987426758},{\"text\":\"I hope you're satisfied with your destructive rampage. \",\"time\":4.8957414627075199}]}"
         },
         {
             "flowScene": "Bsod_End",
             "audioClip": "Narrator_BSOD_7",
             "canInterrupt": false,
-            "text": "Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. Bravo. I hope you're satisfied with your destructive rampage.",
-            "subtitleTexts": "{\"Items\":[{\"text\":\"Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. \",\"time\":5.451613426208496},{\"text\":\"I hope you're satisfied with your destructive rampage. \",\"time\":2.6603870391845705}]}"
+            "text": "and destroy the monitor that's obstructing us from the motherboard.",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"and destroy the monitor that's obstructing us from the motherboard. \",\"time\":3.6480000019073488}]}"
         }
     ]
 }
