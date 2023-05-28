@@ -37,6 +37,9 @@ public class Movement : MonoBehaviour
     [SerializeField]
     protected float rotationSpeed = 2f;
 
+    [SerializeField]
+    private bool rotateZAxis = false;
+
     protected float rotateLerp = 0;
 
     [Header("Current")]
@@ -90,7 +93,7 @@ public class Movement : MonoBehaviour
 
                 break;
             case MoveStat.Unfreeze:
-                
+
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -101,6 +104,7 @@ public class Movement : MonoBehaviour
     protected virtual void UpdateBehaviour()
     {
     }
+
     protected virtual void Move_Translate()
     {
         if (distance < deadZone)
@@ -141,18 +145,22 @@ public class Movement : MonoBehaviour
         position = target_pos;
     }
 
-    public virtual void MoveToTarget(Vector3 pos, Vector3 dir)
+    public virtual void MoveToTarget(Vector3 pos, Vector3 dir = default)
     {
-        target_rot = Quaternion.LookRotation(dir).eulerAngles;
-
         Vector3 moveDir = (pos - transform.position).normalized;
         target_forward = Quaternion.LookRotation(moveDir).eulerAngles;
+
+        if (dir.Equals(default))
+        {
+            dir = moveDir;
+        }
+
+        target_rot = Quaternion.LookRotation(dir).eulerAngles;
 
         target_pos = pos;
         ChangeState(MoveStat.Move);
     }
-    
-    
+
 
     protected virtual void ChangeState(MoveStat s)
     {
@@ -234,6 +242,7 @@ public class Movement : MonoBehaviour
         {
             rotateLerp = 2;
         }
+
         if (rotateLerp > 1)
         {
             rotateLerp = 1;
@@ -247,8 +256,14 @@ public class Movement : MonoBehaviour
             rotateLerp += Time.deltaTime * rotationSpeed;
         }
 
-        transformEulerAngles.y = Mathf.LerpAngle(original_rot.y, target.y, rotateLerp);
-
+        if (rotateZAxis)
+        {
+            transformEulerAngles.z = Mathf.LerpAngle(original_rot.y, target.y, rotateLerp);
+        }
+        else
+        {
+            transformEulerAngles.y = Mathf.LerpAngle(original_rot.y, target.y, rotateLerp);
+        }
 
         transform.eulerAngles = transformEulerAngles;
     }

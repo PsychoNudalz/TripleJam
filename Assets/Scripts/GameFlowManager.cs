@@ -436,7 +436,7 @@ public class GameFlowManager : MonoBehaviour
 
     void Play_MB_BugRemoval()
     {
-        PlayerSliceController.SetPlayerLevel(SliceLevel.DataKnife);
+        PlayerSliceController.SetPlayerLevel(SliceLevel.IBixIt);
         motherboardFilter.SetActive(true);
     }
 

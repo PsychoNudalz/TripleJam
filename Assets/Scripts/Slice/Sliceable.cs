@@ -16,7 +16,7 @@ public enum SliceLevel
     LightSaber,
     DualSaber,
     Vindows,
-    DataKnife,
+    IBixIt,
     NarratorFBX
 }
 
@@ -301,7 +301,7 @@ public class Sliceable : MonoBehaviour
     /// <param name="m"></param>
     /// <param name="rb"></param>
     /// <param name="multiplier"></param>
-    public void Init(Mesh m, Rigidbody rb, float multiplier = 1, bool beSlice = true)
+    public void SliceInit(Mesh m, Rigidbody rb, float multiplier = 1, bool beSlice = true)
     {
         SelfInit();
         if (!SetMesh(m))

@@ -39,14 +39,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColourDepth: 4
+    - _ColourDepth: 8
     - _ExtraMultiplier: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _T_Colour: 1
-    - _T_LowRes: 1
+    - _T_Colour: 0
+    - _T_LowRes: 0
     m_Colors:
-    - _Resolution: {r: 72, g: 128, b: 0, a: 0}
+    - _Resolution: {r: 72, g: 72, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5809033708962320522
 MonoBehaviour:
