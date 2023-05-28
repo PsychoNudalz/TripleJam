@@ -101,7 +101,7 @@ public class Sliceable : MonoBehaviour
 
 //constants
     public const float minMeshSize = .01f;
-    public const float MINIMUMMESHSIZE = 1f;
+    public const float MINIMUMMESHSIZE = .01f;
 
     public const int averageSamplePoints = 10;
 
