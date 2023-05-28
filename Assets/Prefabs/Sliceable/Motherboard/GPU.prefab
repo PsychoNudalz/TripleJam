@@ -87,6 +87,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GPU
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9633c8d1b39c77a4ca3b6e5bbab71df7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3451118302482216456, guid: 9633c8d1b39c77a4ca3b6e5bbab71df7,
         type: 3}
       propertyPath: m_Convex
