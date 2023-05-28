@@ -27,6 +27,7 @@ public enum FlowScene
     Bsod_Start,
     Bsod_Display,
     Bsod_Narrate,
+    Bsod_AltF4,
     Bsod_End,
     MB_Start,
     MB_BugRemoval,
@@ -433,6 +434,8 @@ public class GameFlowManager : MonoBehaviour
     {
         PlayerSliceController.SetPlayerLevel(SliceLevel.Vindows);
         player.transform.position = MBTeleportPoint.position;
+        float t = narrator.PlayAudio(FlowScene.MB_Start);
+        delaySceneTransition = StartCoroutine(DelayMoveScene(t, FlowScene.MB_BugRemoval));
 
     }
 
@@ -440,6 +443,8 @@ public class GameFlowManager : MonoBehaviour
     {
         PlayerSliceController.SetPlayerLevel(SliceLevel.IBixIt);
         motherboardFilter.SetActive(true);
+        float t = narrator.PlayAudio(FlowScene.MB_BugRemoval);
+
     }
 
     IEnumerator DelayStartOpening()

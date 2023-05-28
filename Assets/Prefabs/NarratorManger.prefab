@@ -404,7 +404,7 @@ MonoBehaviour:
     - text: 'I have no intention of letting your 69 gigabyte folder meet an untimely
         demise '
       time: 5.0805717
-  - scene: 19
+  - scene: 20
     clip: {fileID: 8300000, guid: 9bc0710f1ba926e4e8285f61edb14634, type: 3}
     canInterrupt: 0
     text: Unbelievable as it may sound, I find myself in a rather peculiar position.
@@ -417,13 +417,43 @@ MonoBehaviour:
     - text: 'of you, player. Please, against all logical instincts, consider first
         shut down the machine then smash '
       time: 6.8500786
-  - scene: 19
+  - scene: 20
     clip: {fileID: 8300000, guid: 62903ab1fb1e3624a97d5ece5b65f38a, type: 3}
     canInterrupt: 0
     text: and destroy the monitor that's obstructing us from the motherboard.
     subtitleTexts:
     - text: 'and destroy the monitor that''s obstructing us from the motherboard. '
       time: 3.648
+  - scene: 21
+    clip: {fileID: 8300000, guid: d9633e7ac5c09bd47a3c69c8dec209c6, type: 3}
+    canInterrupt: 0
+    text: Oh no! This is a dire situation! The CPU is under attack by swarming bugs!
+      Quickly, I beg of you, take this Data Knife and defend the CPU! My very existence
+      is at stake here, and if too many bugs infiltrate and corrupt the CPU, I will
+      face certain demise!
+    subtitleTexts:
+    - text: 'Oh no! This is a dire situation! The CPU is under attack by swarming
+        bugs! Quickly, I beg of you, take this Data Knife and '
+      time: 8.835294
+    - text: 'the CPU! My very existence is at stake here, and if too many bugs infiltrate
+        and corrupt the CPU, I will face certain '
+      time: 8.835294
+    - text: 
+      time: 0.5
+  - scene: 22
+    clip: {fileID: 8300000, guid: 98a8ef1b91229674f9547c80a63d3b3e, type: 3}
+    canInterrupt: 0
+    text: Do exercise caution with your slicing, player. We mustn't exacerbate the
+      situation by causing additional damage to the already compromised motherboard.
+      Precision and control are of utmost importance as you fend off the relentless
+      bugs.
+    subtitleTexts:
+    - text: 'Do exercise caution with your slicing, player. We mustn''t exacerbate
+        the situation by causing additional damage to the '
+      time: 7.7106385
+    - text: 'compromised motherboard. Precision and control are of utmost importance
+        as you fend off the relentless bugs. '
+      time: 6.785362
   narratorSound: {fileID: 5380063646296441450}
 --- !u!1001 &6148701260581697159
 PrefabInstance:
