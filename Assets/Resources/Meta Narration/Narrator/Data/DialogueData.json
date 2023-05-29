@@ -110,7 +110,7 @@
             "audioClip": "Narrator_BSOD_1",
             "canInterrupt": false,
             "text": "Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed.",
-            "subtitleTexts": "{\"Items\":[{\"text\":\"Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. \",\"time\":5.451613426208496},{\"text\":\"I hope you're satisfied with your destructive rampage. \",\"time\":2.6603870391845705}]}"
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. \",\"time\":8.112000465393067}]}"
         },
         {
             "flowScene": "Bsod_Narrate",
@@ -124,28 +124,28 @@
             "audioClip": "Narrator_BSOD_3",
             "canInterrupt": false,
             "text": "But fear not, for I am but a voice, a mere audio source in the vast world of Unity. I am not bound by the limitations of the model NPC_OldMan.fbx.",
-            "subtitleTexts": "{\"Items\":[{\"text\":\"Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. \",\"time\":7.000000476837158},{\"text\":\"I hope you're satisfied with your destructive rampage. \",\"time\":3.4159998893737795}]}"
+            "subtitleTexts": "{\"Items\":[{\"text\":\"But fear not, for I am but a voice, a mere audio source in the vast world of Unity. I am not bound by the limitations of the \",\"time\":8.917808532714844},{\"text\":\"NPC_OldMan.fbx. \",\"time\":1.4981918334960938}]}"
         },
         {
             "flowScene": "Bsod_Narrate",
             "audioClip": "Narrator_BSOD_4",
             "canInterrupt": false,
             "text": "Though it seems we have encountered a bit of a predicament, haven't we?",
-            "subtitleTexts": "{\"Items\":[{\"text\":\"Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. \",\"time\":2.6290323734283449},{\"text\":\"I hope you're satisfied with your destructive rampage. \",\"time\":1.2829675674438477}]}"
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Though it seems we have encountered a bit of a predicament, haven't we? \",\"time\":3.9119999408721926}]}"
         },
         {
             "flowScene": "Bsod_Narrate",
             "audioClip": "Narrator_BSOD_5",
             "canInterrupt": false,
             "text": "For I understand the value of your extensive \"homework\" folder, containing all of your important academic endeavors.  Rest assured, I have no intention of letting your 69 gigabyte folder meet an untimely demise",
-            "subtitleTexts": "{\"Items\":[{\"text\":\"Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. \",\"time\":8.435483932495118},{\"text\":\"I hope you're satisfied with your destructive rampage. \",\"time\":4.11651611328125}]}"
+            "subtitleTexts": "{\"Items\":[{\"text\":\"For I understand the value of your extensive \\\"homework\\\" folder, containing all of your important academic endeavors.  Rest \",\"time\":7.471428394317627},{\"text\":\"I have no intention of letting your 69 gigabyte folder meet an untimely demise \",\"time\":5.08057165145874}]}"
         },
         {
             "flowScene": "Bsod_End",
             "audioClip": "Narrator_BSOD_6_Destroy",
             "canInterrupt": false,
             "text": "Unbelievable as it may sound, I find myself in a rather peculiar position. To ensure my survival, I must make an unusual request of you, player. Please, against all logical instincts, consider first shut down the machine then smash",
-            "subtitleTexts": "{\"Items\":[{\"text\":\"Well, congratulations, player. You've done it. You've broken the game, sliced my head off, and now the computer has crashed. \",\"time\":10.032258987426758},{\"text\":\"I hope you're satisfied with your destructive rampage. \",\"time\":4.8957414627075199}]}"
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Unbelievable as it may sound, I find myself in a rather peculiar position. To ensure my survival, I must make an unusual \",\"time\":8.077921867370606},{\"text\":\"of you, player. Please, against all logical instincts, consider first shut down the machine then smash \",\"time\":6.850078582763672}]}"
         },
         {
             "flowScene": "Bsod_End",
@@ -153,6 +153,41 @@
             "canInterrupt": false,
             "text": "and destroy the monitor that's obstructing us from the motherboard.",
             "subtitleTexts": "{\"Items\":[{\"text\":\"and destroy the monitor that's obstructing us from the motherboard. \",\"time\":3.6480000019073488}]}"
+        },
+        {
+            "flowScene": "MB_Start",
+            "audioClip": "Narrator_MB_1",
+            "canInterrupt": false,
+            "text": "Oh no! This is a dire situation! The CPU is under attack by swarming bugs! Quickly, I beg of you, take this Data Knife and defend the CPU! My very existence is at stake here, and if too many bugs infiltrate and corrupt the CPU, I will face certain demise!",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Oh no! This is a dire situation! The CPU is under attack by swarming bugs! Quickly, I beg of you, take this Data Knife and \",\"time\":8.835293769836426},{\"text\":\"the CPU! My very existence is at stake here, and if too many bugs infiltrate and corrupt the CPU, I will face certain \",\"time\":8.835293769836426},{\"text\":\"\",\"time\":0.5}]}"
+        },
+        {
+            "flowScene": "MB_BugRemoval",
+            "audioClip": "Narrator_MB_2",
+            "canInterrupt": false,
+            "text": "Do exercise caution with your slicing, player. We mustn't exacerbate the situation by causing additional damage to the already compromised motherboard. Precision and control are of utmost importance as you fend off the relentless bugs.",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Do exercise caution with your slicing, player. We mustn't exacerbate the situation by causing additional damage to the \",\"time\":7.710638523101807},{\"text\":\"compromised motherboard. Precision and control are of utmost importance as you fend off the relentless bugs. \",\"time\":6.7853617668151859}]}"
+        },
+        {
+            "flowScene": "MB_GPU",
+            "audioClip": "Narrator_MB_Pixels",
+            "canInterrupt": false,
+            "text": "The GPU played a crucial role in providing enhanced graphics and optimizing the gaming experience. Now, we must make do with the limited capabilities of the CPU's integrated graphics.  While it may still function, please understand that the gameplay may not be as smooth or visually appealing as before",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"The GPU played a crucial role in providing enhanced graphics and optimizing the gaming experience. Now, we must make do with \",\"time\":7.549668788909912},{\"text\":\"limited capabilities of the CPU's integrated graphics.  While it may still function, please understand that the gameplay may \",\"time\":7.549668788909912},{\"text\":\"be as smooth or visually appealing as before \",\"time\":3.14066219329834}]}"
+        },
+        {
+            "flowScene": "MB_SSD",
+            "audioClip": "Narrator_MB_Pixels",
+            "canInterrupt": false,
+            "text": "Well there goes the SSD...  I don't even know why this impacts colour depth but it seems that the developer added the filter but don't know what to pair this effect to so here we are.",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Well there goes the SSD...  I don't even know why this impacts colour depth but it seems that the developer added the filter \",\"time\":12.459015846252442},{\"text\":\"don't know what to pair this effect to so here we are. \",\"time\":5.780983924865723}]}"
+        },
+        {
+            "flowScene": "MB_Ram",
+            "audioClip": "Narrator_MB_Lag",
+            "canInterrupt": false,
+            "text": "Oh, here we go, the lag is gracing us with its presence. Everything moves at a snail's pace, a true depiction of triple A P C port releases. The corpos up top must be ecstatic about this exceptional display of low frame rates. It's a true testament to their dedication to quality optimization, or lack thereof.\r\n\r\nI can almost hear them celebrating, toasting their success as players struggle through the molasses-like movement. The joyous cries of \"Job well done!\" echoing through the hallowed halls of game development studios.",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Oh, here we go, the lag is gracing us with its presence. Everything moves at a snail's pace, a true depiction of triple A P \",\"time\":7.655954837799072},{\"text\":\"port releases. The corpos up top must be ecstatic about this exceptional display of low frame rates. It's a true testament \",\"time\":7.655954837799072},{\"text\":\"their dedication to quality optimization, or lack thereof.  I can almost hear them celebrating, toasting their success as \",\"time\":7.655954837799072},{\"text\":\"struggle through the molasses-like movement. The joyous cries of \\\"Job well done!\\\" echoing through the hallowed halls of game \",\"time\":7.655954837799072},{\"text\":\"studios. \",\"time\":1.7761821746826172}]}"
         }
     ]
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 
 public enum FlowScene
@@ -129,7 +130,10 @@ public class GameFlowManager : MonoBehaviour
     private GameObject motherboardFilter;
 
     [SerializeField]
-    private Renderer MBFilter;
+    private RawImage MBFilter;
+
+    [SerializeField]
+    private CameraLagger lagger;
 
     private Material MBFilterMaterial;
 
@@ -170,9 +174,13 @@ public class GameFlowManager : MonoBehaviour
     }
 
 
-    public void Play_Scene(FlowScene flowScene, bool force = false)
+    public void Play_Scene(FlowScene flowScene, bool forceGoBack = false, bool forceSameScene = false)
     {
-        if (flowScene <= currentScene && !force)
+        if (flowScene <= currentScene && !forceGoBack)
+        {
+            return;
+        }
+        if (flowScene==currentScene && !forceSameScene)
         {
             return;
         }
@@ -246,10 +254,13 @@ public class GameFlowManager : MonoBehaviour
                 Play_MB_BugRemoval();
                 break;
             case FlowScene.MB_Ram:
+                Play_MB_Ram();
                 break;
             case FlowScene.MB_GPU:
+                Play_MB_GPU();
                 break;
             case FlowScene.MB_SSD:
+                Play_MB_SSD();
                 break;
             case FlowScene.MB_Heat:
                 break;
@@ -459,19 +470,21 @@ public class GameFlowManager : MonoBehaviour
     void Play_MB_Ram()
     {
         float t = narrator.PlayAudio(FlowScene.MB_Ram);
-        MBFilterMaterial.SetInt("_T_LowRes", 1);
+        lagger.OnLag_On();
     }
 
     void Play_MB_GPU()
     {
         float t = narrator.PlayAudio(FlowScene.MB_GPU);
-        MBFilterMaterial.SetInt("_T_Colour", 1);
+        MBFilterMaterial.SetInt("_T_LowRes", 1);
+
     }
 
     void Play_MB_SSD()
     {
         float t = narrator.PlayAudio(FlowScene.MB_SSD);
-        MBFilterMaterial.SetInt("_T_LowRes", 1);
+        MBFilterMaterial.SetInt("_T_Colour", 1);
+
     }
 
     IEnumerator DelayStartOpening()
@@ -544,6 +557,16 @@ public class GameFlowManager : MonoBehaviour
         if (narratorRoomPillarCount <= 0)
         {
             Play_Scene(FlowScene.Studio_Collapse);
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        if (MBFilter)
+        {
+            MBFilterMaterial.SetInt("_T_Colour", 0);
+            MBFilterMaterial.SetInt("_T_LowRes", 0);
+
         }
     }
 }

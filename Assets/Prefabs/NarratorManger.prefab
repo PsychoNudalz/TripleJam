@@ -454,6 +454,37 @@ MonoBehaviour:
     - text: 'compromised motherboard. Precision and control are of utmost importance
         as you fend off the relentless bugs. '
       time: 6.785362
+  - scene: 24
+    clip: {fileID: 8300000, guid: 734f2176fb59fbc4181974f14185ef5f, type: 3}
+    canInterrupt: 0
+    text: The GPU played a crucial role in providing enhanced graphics and optimizing
+      the gaming experience. Now, we must make do with the limited capabilities of
+      the CPU's integrated graphics.  While it may still function, please understand
+      that the gameplay may not be as smooth or visually appealing as before
+    subtitleTexts: []
+  - scene: 25
+    clip: {fileID: 8300000, guid: 734f2176fb59fbc4181974f14185ef5f, type: 3}
+    canInterrupt: 0
+    text: Well there goes the SSD...  I don't even know why this impacts colour depth
+      but it seems that the developer added the filter but don't know what to pair
+      this effect to so here we are.
+    subtitleTexts: []
+  - scene: 23
+    clip: {fileID: 8300000, guid: 5a63dbe2e8154dd4eb03f4a085125254, type: 3}
+    canInterrupt: 0
+    text: 'Oh, here we go, the lag is gracing us with its presence. Everything moves
+      at a snail''s pace, a true depiction of triple A P C port releases. The corpos
+      up top must be ecstatic about this exceptional display of low frame rates.
+      It''s a true testament to their dedication to quality optimization, or lack
+      thereof.
+
+      
+
+      I can almost hear them celebrating, toasting their
+      success as players struggle through the molasses-like movement. The joyous
+      cries of "Job well done!" echoing through the hallowed halls of game development
+      studios.'
+    subtitleTexts: []
   narratorSound: {fileID: 5380063646296441450}
 --- !u!1001 &6148701260581697159
 PrefabInstance:

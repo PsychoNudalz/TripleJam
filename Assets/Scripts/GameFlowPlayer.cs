@@ -10,10 +10,30 @@ public class GameFlowPlayer : MonoBehaviour
     [SerializeField]
     private bool force = false;
 
+    [SerializeField]
+    private bool triggeredOnce = false;
+
+    private bool trigger = false;
+
     public void Play()
     {
-        
-        GameFlowManager.current.Play_Scene(flowScene,force);
+        if (triggeredOnce && trigger)
+        {
+            return;
+        }
+
+        if (triggeredOnce && !trigger)
+        {
+            GameFlowManager.current.Play_Scene(flowScene,force);
+            trigger = true;
+        }
+        else
+        {
+            if (!triggeredOnce)
+            {
+                GameFlowManager.current.Play_Scene(flowScene,force);
+            }
+        }
     }
 
     [ContextMenu("Shift next")]
