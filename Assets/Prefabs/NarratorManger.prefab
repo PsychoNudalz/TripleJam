@@ -442,7 +442,7 @@ MonoBehaviour:
       time: 0.5
   - scene: 22
     clip: {fileID: 8300000, guid: 98a8ef1b91229674f9547c80a63d3b3e, type: 3}
-    canInterrupt: 0
+    canInterrupt: 1
     text: Do exercise caution with your slicing, player. We mustn't exacerbate the
       situation by causing additional damage to the already compromised motherboard.
       Precision and control are of utmost importance as you fend off the relentless
@@ -461,14 +461,27 @@ MonoBehaviour:
       the gaming experience. Now, we must make do with the limited capabilities of
       the CPU's integrated graphics.  While it may still function, please understand
       that the gameplay may not be as smooth or visually appealing as before
-    subtitleTexts: []
+    subtitleTexts:
+    - text: 'The GPU played a crucial role in providing enhanced graphics and optimizing
+        the gaming experience. Now, we must make do with '
+      time: 7.549669
+    - text: 'limited capabilities of the CPU''s integrated graphics.  While it may
+        still function, please understand that the gameplay may '
+      time: 7.549669
+    - text: 'be as smooth or visually appealing as before '
+      time: 3.1406622
   - scene: 25
-    clip: {fileID: 8300000, guid: 734f2176fb59fbc4181974f14185ef5f, type: 3}
+    clip: {fileID: 8300000, guid: 9a9ff7f6c8987a04db54f813c0bd3d20, type: 3}
     canInterrupt: 0
     text: Well there goes the SSD...  I don't even know why this impacts colour depth
       but it seems that the developer added the filter but don't know what to pair
       this effect to so here we are.
-    subtitleTexts: []
+    subtitleTexts:
+    - text: 'Well there goes the SSD...  I don''t even know why this impacts colour
+        depth but it seems that the developer added the filter '
+      time: 12.459016
+    - text: 'don''t know what to pair this effect to so here we are. '
+      time: 5.780984
   - scene: 23
     clip: {fileID: 8300000, guid: 5a63dbe2e8154dd4eb03f4a085125254, type: 3}
     canInterrupt: 0
@@ -478,13 +491,26 @@ MonoBehaviour:
       It''s a true testament to their dedication to quality optimization, or lack
       thereof.
 
-      
 
-      I can almost hear them celebrating, toasting their
-      success as players struggle through the molasses-like movement. The joyous
-      cries of "Job well done!" echoing through the hallowed halls of game development
-      studios.'
-    subtitleTexts: []
+
+      I can almost hear them celebrating, toasting their success
+      as players struggle through the molasses-like movement. The joyous cries of
+      "Job well done!" echoing through the hallowed halls of game development studios.'
+    subtitleTexts:
+    - text: 'Oh, here we go, the lag is gracing us with its presence. Everything
+        moves at a snail''s pace, a true depiction of triple A P '
+      time: 7.670455
+    - text: 'port releases. The corpos up top must be ecstatic about this exceptional
+        display of low frame rates. It''s a true testament '
+      time: 7.670455
+    - text: 'their dedication to quality optimization, or lack thereof.   I can almost
+        hear them celebrating, toasting their success as '
+      time: 7.670455
+    - text: 'struggle through the molasses-like movement. The joyous cries of "Job
+        well done!" echoing through the hallowed halls of game '
+      time: 7.670455
+    - text: 'studios. '
+      time: 1.7181816
   narratorSound: {fileID: 5380063646296441450}
 --- !u!1001 &6148701260581697159
 PrefabInstance:

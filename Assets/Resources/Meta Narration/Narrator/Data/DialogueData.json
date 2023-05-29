@@ -164,7 +164,7 @@
         {
             "flowScene": "MB_BugRemoval",
             "audioClip": "Narrator_MB_2",
-            "canInterrupt": false,
+            "canInterrupt": true,
             "text": "Do exercise caution with your slicing, player. We mustn't exacerbate the situation by causing additional damage to the already compromised motherboard. Precision and control are of utmost importance as you fend off the relentless bugs.",
             "subtitleTexts": "{\"Items\":[{\"text\":\"Do exercise caution with your slicing, player. We mustn't exacerbate the situation by causing additional damage to the \",\"time\":7.710638523101807},{\"text\":\"compromised motherboard. Precision and control are of utmost importance as you fend off the relentless bugs. \",\"time\":6.7853617668151859}]}"
         },
@@ -177,7 +177,7 @@
         },
         {
             "flowScene": "MB_SSD",
-            "audioClip": "Narrator_MB_Pixels",
+            "audioClip": "Narrator_MB_ColourDepth",
             "canInterrupt": false,
             "text": "Well there goes the SSD...  I don't even know why this impacts colour depth but it seems that the developer added the filter but don't know what to pair this effect to so here we are.",
             "subtitleTexts": "{\"Items\":[{\"text\":\"Well there goes the SSD...  I don't even know why this impacts colour depth but it seems that the developer added the filter \",\"time\":12.459015846252442},{\"text\":\"don't know what to pair this effect to so here we are. \",\"time\":5.780983924865723}]}"
@@ -186,8 +186,8 @@
             "flowScene": "MB_Ram",
             "audioClip": "Narrator_MB_Lag",
             "canInterrupt": false,
-            "text": "Oh, here we go, the lag is gracing us with its presence. Everything moves at a snail's pace, a true depiction of triple A P C port releases. The corpos up top must be ecstatic about this exceptional display of low frame rates. It's a true testament to their dedication to quality optimization, or lack thereof.\r\n\r\nI can almost hear them celebrating, toasting their success as players struggle through the molasses-like movement. The joyous cries of \"Job well done!\" echoing through the hallowed halls of game development studios.",
-            "subtitleTexts": "{\"Items\":[{\"text\":\"Oh, here we go, the lag is gracing us with its presence. Everything moves at a snail's pace, a true depiction of triple A P \",\"time\":7.655954837799072},{\"text\":\"port releases. The corpos up top must be ecstatic about this exceptional display of low frame rates. It's a true testament \",\"time\":7.655954837799072},{\"text\":\"their dedication to quality optimization, or lack thereof.  I can almost hear them celebrating, toasting their success as \",\"time\":7.655954837799072},{\"text\":\"struggle through the molasses-like movement. The joyous cries of \\\"Job well done!\\\" echoing through the hallowed halls of game \",\"time\":7.655954837799072},{\"text\":\"studios. \",\"time\":1.7761821746826172}]}"
+            "text": "Oh, here we go, the lag is gracing us with its presence. Everything moves at a snail's pace, a true depiction of triple A P C port releases. The corpos up top must be ecstatic about this exceptional display of low frame rates. It's a true testament to their dedication to quality optimization, or lack thereof.\n\n\nI can almost hear them celebrating, toasting their success as players struggle through the molasses-like movement. The joyous cries of \"Job well done!\" echoing through the hallowed halls of game development studios.",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Oh, here we go, the lag is gracing us with its presence. Everything moves at a snail's pace, a true depiction of triple A P \",\"time\":7.670454978942871},{\"text\":\"port releases. The corpos up top must be ecstatic about this exceptional display of low frame rates. It's a true testament \",\"time\":7.670454978942871},{\"text\":\"their dedication to quality optimization, or lack thereof.   I can almost hear them celebrating, toasting their success as \",\"time\":7.670454978942871},{\"text\":\"struggle through the molasses-like movement. The joyous cries of \\\"Job well done!\\\" echoing through the hallowed halls of game \",\"time\":7.670454978942871},{\"text\":\"studios. \",\"time\":1.7181816101074219}]}"
         }
     ]
 }

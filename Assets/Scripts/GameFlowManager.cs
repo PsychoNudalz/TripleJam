@@ -137,6 +137,10 @@ public class GameFlowManager : MonoBehaviour
 
     private Material MBFilterMaterial;
 
+    private bool MBFlag_GPU = false;
+    private bool MBFlag_RAM = false;
+    private bool MBFlag_SSD = false;
+
     [Header("Components")]
     [SerializeField]
     private NarratorManager narrator;
@@ -180,7 +184,8 @@ public class GameFlowManager : MonoBehaviour
         {
             return;
         }
-        if (flowScene==currentScene && !forceSameScene)
+
+        if (flowScene == currentScene && !forceSameScene)
         {
             return;
         }
@@ -469,22 +474,38 @@ public class GameFlowManager : MonoBehaviour
 
     void Play_MB_Ram()
     {
+        if (MBFlag_RAM)
+        {
+            return;
+        }
+
+        MBFlag_RAM = true;
         float t = narrator.PlayAudio(FlowScene.MB_Ram);
         lagger.OnLag_On();
     }
 
     void Play_MB_GPU()
     {
+        if (MBFlag_GPU)
+        {
+            return;
+        }
+
+        MBFlag_GPU = true;
         float t = narrator.PlayAudio(FlowScene.MB_GPU);
         MBFilterMaterial.SetInt("_T_LowRes", 1);
-
     }
 
     void Play_MB_SSD()
     {
+        if (MBFlag_SSD)
+        {
+            return;
+        }
+
+        MBFlag_SSD = true;
         float t = narrator.PlayAudio(FlowScene.MB_SSD);
         MBFilterMaterial.SetInt("_T_Colour", 1);
-
     }
 
     IEnumerator DelayStartOpening()
@@ -566,7 +587,6 @@ public class GameFlowManager : MonoBehaviour
         {
             MBFilterMaterial.SetInt("_T_Colour", 0);
             MBFilterMaterial.SetInt("_T_LowRes", 0);
-
         }
     }
 }
