@@ -14838,7 +14838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f379ef60e3dd75f9a7bfd41335870b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flowScene: 20
+  flowScene: 21
 --- !u!1001 &863496682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33032,7 +33032,7 @@ MonoBehaviour:
   copyRightTime: 10
   errorSound: {fileID: 1973698991}
   errorTime: 2
-  errorToNarrateTime: 10
+  errorToNarrateTime: 30
   bsodAnimator: {fileID: 682070942}
   offButton: {fileID: 858318964}
   MBTeleportPoint: {fileID: 1436446009}

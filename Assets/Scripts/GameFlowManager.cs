@@ -395,6 +395,7 @@ public class GameFlowManager : MonoBehaviour
 
     void Play_Bsod_Start()
     {
+        Cursor.visible = false;
         elevatorMusic.Stop();
         errorSound.Play();
         copyRightScreen.SetActive(true);
@@ -405,6 +406,9 @@ public class GameFlowManager : MonoBehaviour
     void Play_Bsod_Display()
     {
         copyRightScreen.SetActive(false);
+        PlayerInputController.SetLock(true);
+        PlayerInputController.SetHide(true);
+
         errorSound.Stop();
         bsodAnimator.SetTrigger("Start");
         offButton.SetActive(false);
@@ -421,6 +425,8 @@ public class GameFlowManager : MonoBehaviour
 
     void Play_Bsod_End()
     {
+        Cursor.visible = true;
+
         PlayerInputController.SetLock(false);
         PlayerInputController.SetHide(false);
         offButton.SetActive(true);
