@@ -24,9 +24,18 @@ public struct DialogueSet
 
     // public bool IsPlaying => IsActive && sound.IsPlaying();
     public string Name => clip.name;
-    public float Length => clip.length;
+    public float Length => GetLength();
 
+    public float GetLength()
+    {
+        if (clip)
+        {
+            return clip.length;
+        }
 
+        return 0;
+    }
+    
     public DialogueSet(FlowScene scene = FlowScene.None, AudioClip clip = null, bool canInterrupt = false,
         string text = "", SubtitleText[] subtitleTexts = default)
     {
