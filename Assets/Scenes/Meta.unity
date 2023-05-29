@@ -9220,6 +9220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowScene: 7
   force: 0
+  triggeredOnce: 0
 --- !u!1001 &512322277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14855,6 +14856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowScene: 21
   force: 0
+  triggeredOnce: 0
 --- !u!1001 &863496682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15237,6 +15239,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zone: {fileID: 1005808487}
   sliceableUnits: []
+--- !u!1 &891107339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8235011569649016361, guid: a1c6b473a1710ff40b85a62d7514aac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 967015239}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &894207394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6897697065333169751, guid: 3799c606eb7902f4e9aaca8e5fc259f0,
@@ -15803,6 +15811,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 504503157}
     m_Modifications:
+    - target: {fileID: 8235011569649016360, guid: a1c6b473a1710ff40b85a62d7514aac0,
+        type: 3}
+      propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235011569649016360, guid: a1c6b473a1710ff40b85a62d7514aac0,
+        type: 3}
+      propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235011569649016360, guid: a1c6b473a1710ff40b85a62d7514aac0,
+        type: 3}
+      propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 967015243}
+    - target: {fileID: 8235011569649016360, guid: a1c6b473a1710ff40b85a62d7514aac0,
+        type: 3}
+      propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235011569649016360, guid: a1c6b473a1710ff40b85a62d7514aac0,
+        type: 3}
+      propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235011569649016360, guid: a1c6b473a1710ff40b85a62d7514aac0,
+        type: 3}
+      propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameFlowPlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235011569649016360, guid: a1c6b473a1710ff40b85a62d7514aac0,
+        type: 3}
+      propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8235011569649016361, guid: a1c6b473a1710ff40b85a62d7514aac0,
         type: 3}
       propertyPath: m_Name
@@ -15871,6 +15914,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 967015239}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &967015243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891107339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f379ef60e3dd75f9a7bfd41335870b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flowScene: 24
+  force: 1
+  triggeredOnce: 1
 --- !u!1001 &973863744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16644,6 +16702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowScene: 6
   force: 0
+  triggeredOnce: 0
 --- !u!1001 &1027810490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17295,6 +17354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowScene: 14
   force: 0
+  triggeredOnce: 0
 --- !u!114 &1054950212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17309,6 +17369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowScene: 12
   force: 0
+  triggeredOnce: 0
 --- !u!4 &1057144418 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5251887843824659996, guid: 1d076268c78f07b4c97ce0e754145655,
@@ -18662,6 +18723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowScene: 8
   force: 0
+  triggeredOnce: 0
 --- !u!4 &1110679042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4695962310923358, guid: 98d4e6066bd494114a1cf81ad2758905,
@@ -27544,6 +27606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowScene: 10
   force: 0
+  triggeredOnce: 0
 --- !u!1001 &1665482309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33058,7 +33121,8 @@ MonoBehaviour:
   offButton: {fileID: 858318964}
   MBTeleportPoint: {fileID: 1436446009}
   motherboardFilter: {fileID: 1893713346}
-  MBFilter: {fileID: 0}
+  MBFilter: {fileID: 1893713350}
+  lagger: {fileID: 314006950}
   narrator: {fileID: 769431401}
 --- !u!114 &1989382828
 MonoBehaviour:
@@ -37891,6 +37955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowScene: 9
   force: 0
+  triggeredOnce: 0
 --- !u!4 &2146392576028801283
 Transform:
   m_ObjectHideFlags: 0
