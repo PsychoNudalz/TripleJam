@@ -6048,6 +6048,7 @@ GameObject:
   - component: {fileID: 314006945}
   - component: {fileID: 314006948}
   - component: {fileID: 314006949}
+  - component: {fileID: 314006950}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6188,6 +6189,19 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &314006950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314006944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28635f812c597ed44aa381a966af400c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setFPS: 10
 --- !u!1001 &314872601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9205,6 +9219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowScene: 7
+  force: 0
 --- !u!1001 &512322277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14839,6 +14854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowScene: 21
+  force: 0
 --- !u!1001 &863496682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16627,6 +16643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowScene: 6
+  force: 0
 --- !u!1001 &1027810490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17277,6 +17294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowScene: 14
+  force: 0
 --- !u!114 &1054950212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17290,6 +17308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowScene: 12
+  force: 0
 --- !u!4 &1057144418 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5251887843824659996, guid: 1d076268c78f07b4c97ce0e754145655,
@@ -18642,6 +18661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowScene: 8
+  force: 0
 --- !u!4 &1110679042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4695962310923358, guid: 98d4e6066bd494114a1cf81ad2758905,
@@ -27523,6 +27543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowScene: 10
+  force: 0
 --- !u!1001 &1665482309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33037,6 +33058,7 @@ MonoBehaviour:
   offButton: {fileID: 858318964}
   MBTeleportPoint: {fileID: 1436446009}
   motherboardFilter: {fileID: 1893713346}
+  MBFilter: {fileID: 0}
   narrator: {fileID: 769431401}
 --- !u!114 &1989382828
 MonoBehaviour:
@@ -37868,6 +37890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowScene: 9
+  force: 0
 --- !u!4 &2146392576028801283
 Transform:
   m_ObjectHideFlags: 0

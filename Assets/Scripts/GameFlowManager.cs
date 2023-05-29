@@ -85,7 +85,7 @@ public class GameFlowManager : MonoBehaviour
 
     [SerializeField]
     private Transform studioTeleportPoint;
-    
+
     [SerializeField]
     private GameObject fallingSpotLight;
 
@@ -98,6 +98,7 @@ public class GameFlowManager : MonoBehaviour
 
     [SerializeField]
     private Sound elevatorMusic;
+
     [SerializeField]
     private Transform bsodTeleportPoint;
 
@@ -106,8 +107,10 @@ public class GameFlowManager : MonoBehaviour
 
     [SerializeField]
     private SoundAbstract errorSound;
+
     [SerializeField]
     private float errorTime = 2;
+
     [SerializeField]
     private float errorToNarrateTime = 10f;
 
@@ -116,16 +119,21 @@ public class GameFlowManager : MonoBehaviour
 
     [SerializeField]
     private GameObject offButton;
-    
-    
+
+
     [Header("Motherboard")]
     [SerializeField]
     Transform MBTeleportPoint;
 
     [SerializeField]
     private GameObject motherboardFilter;
-    [Header("Components")]
 
+    [SerializeField]
+    private Renderer MBFilter;
+
+    private Material MBFilterMaterial;
+
+    [Header("Components")]
     [SerializeField]
     private NarratorManager narrator;
 
@@ -137,6 +145,10 @@ public class GameFlowManager : MonoBehaviour
     private void Awake()
     {
         current = this;
+        if (MBFilter)
+        {
+            MBFilterMaterial = MBFilter.material;
+        }
     }
 
     // Start is called before the first frame update
@@ -244,7 +256,6 @@ public class GameFlowManager : MonoBehaviour
             default:
                 Debug.LogError($"Missing Scene: {flowScene}");
                 break;
-            
         }
 
         currentScene = flowScene;
@@ -334,7 +345,7 @@ public class GameFlowManager : MonoBehaviour
     void Play_Studio_Start()
     {
         float d = narrator.PlayAudio(FlowScene.Studio_Start);
-        StartCoroutine(DelayActiveGameObject(d,fallingSpotLight)); 
+        StartCoroutine(DelayActiveGameObject(d, fallingSpotLight));
     }
 
     void Play_Studio_LightSaber()
@@ -342,8 +353,7 @@ public class GameFlowManager : MonoBehaviour
         float d = narrator.PlayAudio(FlowScene.Studio_LightSaber);
         PlayerSliceController.SetPlayerLevel(SliceLevel.LightSaber);
         preyCamera.gameObject.SetActive(false);
-        StartCoroutine(DelayPlayerLock(d*1));
-
+        StartCoroutine(DelayPlayerLock(d * 1));
     }
 
     void Play_Studio_Couch()
@@ -351,8 +361,6 @@ public class GameFlowManager : MonoBehaviour
         float d = narrator.PlayAudio(FlowScene.Studio_Couch);
         PlayerInputController.SetLock(true);
         PlayerInputController.SetLock(false);
-
-
     }
 
     void Play_Studio_Collapse()
@@ -368,18 +376,20 @@ public class GameFlowManager : MonoBehaviour
         PlayerInputController.SetLock(true);
 
         delaySceneTransition = StartCoroutine(DelayMoveScene(d, FlowScene.Studio_DoIt));
-
     }
+
     void Play_Studio_DoIt()
     {
         studioAnimator.SetTrigger("BegEnd");
     }
+
     void Play_Studio_DoubleSaber()
     {
         float d = narrator.PlayAudio(FlowScene.Studio_Beg);
         PlayerInputController.SetLock(false);
         PlayerSliceController.SetPlayerLevel(SliceLevel.DualSaber);
     }
+
     void Play_Studio_End()
     {
         narrator.Stop();
@@ -390,7 +400,6 @@ public class GameFlowManager : MonoBehaviour
 
         elevatorMusic.Play();
         delaySceneTransition = StartCoroutine(DelayMoveScene(copyRightTime, FlowScene.Bsod_Start));
-
     }
 
     void Play_Bsod_Start()
@@ -413,14 +422,12 @@ public class GameFlowManager : MonoBehaviour
         bsodAnimator.SetTrigger("Start");
         offButton.SetActive(false);
         delaySceneTransition = StartCoroutine(DelayMoveScene(errorToNarrateTime, FlowScene.Bsod_Narrate));
-
     }
 
     void Play_Bsod_Narrate()
     {
         float t = narrator.PlayAudio(FlowScene.Bsod_Narrate);
-        delaySceneTransition = StartCoroutine(DelayMoveScene(t+30f, FlowScene.Bsod_End));
-
+        delaySceneTransition = StartCoroutine(DelayMoveScene(t + 30f, FlowScene.Bsod_End));
     }
 
     void Play_Bsod_End()
@@ -431,9 +438,7 @@ public class GameFlowManager : MonoBehaviour
         PlayerInputController.SetHide(false);
         offButton.SetActive(true);
         float t = narrator.PlayAudio(FlowScene.Bsod_End);
-
         PlayerSliceController.SetPlayerLevel(SliceLevel.Vindows);
-
     }
 
     void Play_MB_Start()
@@ -442,7 +447,6 @@ public class GameFlowManager : MonoBehaviour
         player.transform.position = MBTeleportPoint.position;
         float t = narrator.PlayAudio(FlowScene.MB_Start);
         delaySceneTransition = StartCoroutine(DelayMoveScene(t, FlowScene.MB_BugRemoval));
-
     }
 
     void Play_MB_BugRemoval()
@@ -450,7 +454,24 @@ public class GameFlowManager : MonoBehaviour
         PlayerSliceController.SetPlayerLevel(SliceLevel.IBixIt);
         motherboardFilter.SetActive(true);
         float t = narrator.PlayAudio(FlowScene.MB_BugRemoval);
+    }
 
+    void Play_MB_Ram()
+    {
+        float t = narrator.PlayAudio(FlowScene.MB_Ram);
+        MBFilterMaterial.SetInt("_T_LowRes", 1);
+    }
+
+    void Play_MB_GPU()
+    {
+        float t = narrator.PlayAudio(FlowScene.MB_GPU);
+        MBFilterMaterial.SetInt("_T_Colour", 1);
+    }
+
+    void Play_MB_SSD()
+    {
+        float t = narrator.PlayAudio(FlowScene.MB_SSD);
+        MBFilterMaterial.SetInt("_T_LowRes", 1);
     }
 
     IEnumerator DelayStartOpening()
@@ -479,13 +500,12 @@ public class GameFlowManager : MonoBehaviour
         PlayerInputController.SetLock(false);
     }
 
-    IEnumerator DelayActiveGameObject(float t,GameObject g)
+    IEnumerator DelayActiveGameObject(float t, GameObject g)
     {
-
         yield return new WaitForSeconds(t);
         g.SetActive(true);
     }
-    
+
 
     IEnumerator WaitForScoreMoveScene(int score, FlowScene scene)
     {
@@ -507,6 +527,7 @@ public class GameFlowManager : MonoBehaviour
     {
         Play_Scene(FlowScene.Studio_End);
     }
+
     public void OnSkipToBsod()
     {
         Play_Scene(FlowScene.Bsod_Start);
@@ -516,6 +537,7 @@ public class GameFlowManager : MonoBehaviour
     {
         Play_Scene(FlowScene.MB_Start);
     }
+
     public void ReducePillar()
     {
         narratorRoomPillarCount -= 1;

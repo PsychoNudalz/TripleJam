@@ -7,9 +7,13 @@ public class GameFlowPlayer : MonoBehaviour
     [SerializeField]
     private FlowScene flowScene = FlowScene.None;
 
+    [SerializeField]
+    private bool force = false;
+
     public void Play()
     {
-        GameFlowManager.current.Play_Scene(flowScene);
+        
+        GameFlowManager.current.Play_Scene(flowScene,force);
     }
 
     [ContextMenu("Shift next")]
