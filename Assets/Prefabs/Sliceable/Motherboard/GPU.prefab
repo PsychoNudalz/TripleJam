@@ -82,6 +82,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9633c8d1b39c77a4ca3b6e5bbab71df7,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9633c8d1b39c77a4ca3b6e5bbab71df7,
         type: 3}
       propertyPath: m_Name
@@ -131,6 +136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770345426864813709, guid: 2c0d795d0d9da2ce2949cda980c97583,
         type: 3}
+      propertyPath: health
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770345426864813709, guid: 2c0d795d0d9da2ce2949cda980c97583,
+        type: 3}
       propertyPath: meshFilter
       value: 
       objectReference: {fileID: 2397197823303214717}
@@ -144,6 +154,11 @@ PrefabInstance:
       propertyPath: meshRenderer
       value: 
       objectReference: {fileID: 477515639720972983}
+    - target: {fileID: 2770345426864813709, guid: 2c0d795d0d9da2ce2949cda980c97583,
+        type: 3}
+      propertyPath: originSideRemainStill
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2770345426864813710, guid: 2c0d795d0d9da2ce2949cda980c97583,
         type: 3}
       propertyPath: m_RootOrder
