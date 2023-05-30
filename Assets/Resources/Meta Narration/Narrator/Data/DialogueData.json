@@ -171,23 +171,30 @@
         {
             "flowScene": "MB_GPU",
             "audioClip": "Narrator_MB_Pixels",
-            "canInterrupt": false,
+            "canInterrupt": true,
             "text": "The GPU played a crucial role in providing enhanced graphics and optimizing the gaming experience. Now, we must make do with the limited capabilities of the CPU's integrated graphics.  While it may still function, please understand that the gameplay may not be as smooth or visually appealing as before",
             "subtitleTexts": "{\"Items\":[{\"text\":\"The GPU played a crucial role in providing enhanced graphics and optimizing the gaming experience. Now, we must make do with \",\"time\":7.549668788909912},{\"text\":\"limited capabilities of the CPU's integrated graphics.  While it may still function, please understand that the gameplay may \",\"time\":7.549668788909912},{\"text\":\"be as smooth or visually appealing as before \",\"time\":3.14066219329834}]}"
         },
         {
             "flowScene": "MB_SSD",
             "audioClip": "Narrator_MB_ColourDepth",
-            "canInterrupt": false,
+            "canInterrupt": true,
             "text": "Well there goes the SSD...  I don't even know why this impacts colour depth but it seems that the developer added the filter but don't know what to pair this effect to so here we are.",
             "subtitleTexts": "{\"Items\":[{\"text\":\"Well there goes the SSD...  I don't even know why this impacts colour depth but it seems that the developer added the filter \",\"time\":12.459015846252442},{\"text\":\"don't know what to pair this effect to so here we are. \",\"time\":5.780983924865723}]}"
         },
         {
             "flowScene": "MB_Ram",
             "audioClip": "Narrator_MB_Lag",
-            "canInterrupt": false,
+            "canInterrupt": true,
             "text": "Oh, here we go, the lag is gracing us with its presence. Everything moves at a snail's pace, a true depiction of triple A P C port releases. The corpos up top must be ecstatic about this exceptional display of low frame rates. It's a true testament to their dedication to quality optimization, or lack thereof.\n\n\nI can almost hear them celebrating, toasting their success as players struggle through the molasses-like movement. The joyous cries of \"Job well done!\" echoing through the hallowed halls of game development studios.",
             "subtitleTexts": "{\"Items\":[{\"text\":\"Oh, here we go, the lag is gracing us with its presence. Everything moves at a snail's pace, a true depiction of triple A P \",\"time\":7.670454978942871},{\"text\":\"port releases. The corpos up top must be ecstatic about this exceptional display of low frame rates. It's a true testament \",\"time\":7.670454978942871},{\"text\":\"their dedication to quality optimization, or lack thereof.   I can almost hear them celebrating, toasting their success as \",\"time\":7.670454978942871},{\"text\":\"struggle through the molasses-like movement. The joyous cries of \\\"Job well done!\\\" echoing through the hallowed halls of game \",\"time\":7.670454978942871},{\"text\":\"studios. \",\"time\":1.7181816101074219}]}"
+        },
+        {
+            "flowScene": "MB_End",
+            "audioClip": "NarratorVSTheGame_mixdown",
+            "canInterrupt": false,
+            "text": "That was a close call, thank you player for defending the CPU and protecting me\n\n\n\"Why won't you just die\"\n\n\nPlayer, did you hear that?\n\n\n\"I know you can hear me, slice the CPU so that annoying voicer can finally stop\"\n\n\nPlayer, why is your knife red again?\n\n\nWait, are you planning to slice the CPU?  I trusted you player, you were the chosen one!\n\n\n\"I hate you\"\n\n\"What a disappoint, I expected better from you\"\n\n\"Now player, you must die from your sins!\"\n\n\nIt seems the game has turns on us and wants to kill you player.  We must defeat it before it kills both of us.",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"That was a close call, thank you player for defending the CPU and protecting me  \\\"Why won't you just die\\\"  Player, did you \",\"time\":6.4375},{\"text\":\"that?  \\\"I know you can hear me, slice the CPU so that annoying voicer can finally stop\\\"  Player, why is your knife red \",\"time\":6.4375},{\"text\":\" Wait, are you planning to slice the CPU?  I trusted you player, you were the chosen one!  \\\"I hate you\\\"  \\\"What a disappoint, \",\"time\":6.4375},{\"text\":\"expected better from you\\\"  \\\"Now player, you must die from your sins!\\\"  It seems the game has turns on us and wants to kill \",\"time\":6.4375},{\"text\":\"player.  We must defeat it before it kills both of us. \",\"time\":3.913999557495117}]}"
         }
     ]
 }

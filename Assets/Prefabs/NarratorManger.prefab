@@ -456,7 +456,7 @@ MonoBehaviour:
       time: 6.785362
   - scene: 24
     clip: {fileID: 8300000, guid: 734f2176fb59fbc4181974f14185ef5f, type: 3}
-    canInterrupt: 0
+    canInterrupt: 1
     text: The GPU played a crucial role in providing enhanced graphics and optimizing
       the gaming experience. Now, we must make do with the limited capabilities of
       the CPU's integrated graphics.  While it may still function, please understand
@@ -472,7 +472,7 @@ MonoBehaviour:
       time: 3.1406622
   - scene: 25
     clip: {fileID: 8300000, guid: 9a9ff7f6c8987a04db54f813c0bd3d20, type: 3}
-    canInterrupt: 0
+    canInterrupt: 1
     text: Well there goes the SSD...  I don't even know why this impacts colour depth
       but it seems that the developer added the filter but don't know what to pair
       this effect to so here we are.
@@ -484,7 +484,7 @@ MonoBehaviour:
       time: 5.780984
   - scene: 23
     clip: {fileID: 8300000, guid: 5a63dbe2e8154dd4eb03f4a085125254, type: 3}
-    canInterrupt: 0
+    canInterrupt: 1
     text: 'Oh, here we go, the lag is gracing us with its presence. Everything moves
       at a snail''s pace, a true depiction of triple A P C port releases. The corpos
       up top must be ecstatic about this exceptional display of low frame rates.
@@ -511,6 +511,66 @@ MonoBehaviour:
       time: 7.670455
     - text: 'studios. '
       time: 1.7181816
+  - scene: 30
+    clip: {fileID: 8300000, guid: 3bd21e3cd51d4944e9021d17fba57930, type: 3}
+    canInterrupt: 1
+    text: 'That was a close call, thank you player for defending the CPU and protecting
+      me
+
+
+
+      "Why won''t you just die"
+
+
+
+      Player, did you hear that?
+
+
+
+      "I
+      know you can hear me, slice the CPU so that annoying voicer can finally stop"
+
+
+
+      Player,
+      why is your knife red again?
+
+
+
+      Wait, are you planning to slice the CPU? 
+      I trusted you player, you were the chosen one!
+
+
+
+      "I hate you"
+
+
+      "What
+      a disappoint, I expected better from you"
+
+
+      "Now player, you must die
+      from your sins!"
+
+
+
+      It seems the game has turns on us and wants to kill
+      you player.  We must defeat it before it kills both of us.'
+    subtitleTexts:
+    - text: 'That was a close call, thank you player for defending the CPU and protecting
+        me  "Why won''t you just die"  Player, did you '
+      time: 6.4375
+    - text: 'that?  "I know you can hear me, slice the CPU so that annoying voicer
+        can finally stop"  Player, why is your knife red '
+      time: 6.4375
+    - text: ' Wait, are you planning to slice the CPU?  I trusted you player, you
+        were the chosen one!  "I hate you"  "What a disappoint, '
+      time: 6.4375
+    - text: 'expected better from you"  "Now player, you must die from your sins!" 
+        It seems the game has turns on us and wants to kill '
+      time: 6.4375
+    - text: 'player.  We must defeat it before it kills both of us. '
+      time: 3.9139996
   narratorSound: {fileID: 5380063646296441450}
 --- !u!1001 &6148701260581697159
 PrefabInstance:

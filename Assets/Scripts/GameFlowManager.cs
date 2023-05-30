@@ -147,6 +147,13 @@ public class GameFlowManager : MonoBehaviour
     private bool MBFlag_RAM = false;
     private bool MBFlag_SSD = false;
 
+    [Header("Boss Room")]
+    [SerializeField]
+    Transform bossTeleportPoint;
+
+    [SerializeField]
+    private SoundAbstract bossMusic;
+
     [Header("Components")]
     [SerializeField]
     private NarratorManager narrator;
@@ -284,10 +291,13 @@ public class GameFlowManager : MonoBehaviour
             case FlowScene.MB_E3:
                 break;
             case FlowScene.MB_End:
+                Play_MB_End();
                 break;
             case FlowScene.Boss_Start:
+                Play_Boss_Start();
                 break;
             case FlowScene.Boss_GetSword:
+                Play_Boss_GetSword();
                 break;
             default:
                 Debug.LogError($"Missing Scene: {flowScene}");
@@ -484,8 +494,9 @@ public class GameFlowManager : MonoBehaviour
         PlayerSliceController.SetPlayerLevel(SliceLevel.Vindows);
         player.transform.position = MBTeleportPoint.position;
         float t = narrator.PlayAudio(FlowScene.MB_Start);
-        delaySceneTransition = StartCoroutine(DelayMoveScene(t, FlowScene.MB_BugRemoval));
+        DelayScene(t, FlowScene.MB_BugRemoval);
     }
+
 
     void Play_MB_BugRemoval()
     {
@@ -530,12 +541,40 @@ public class GameFlowManager : MonoBehaviour
         MBFilterMaterial.SetInt("_T_Colour", 1);
     }
 
+    void Play_MB_End()
+    {
+        float t = narrator.PlayAudio(FlowScene.MB_End);
+        PlayerInputController.SetLock(true);
+        DelayScene(t, FlowScene.Boss_Start);
+    }
+
+    void Play_Boss_Start()
+    {
+        player.transform.position = bossTeleportPoint.position;
+        motherboardFilter.SetActive(false);
+        lagger.OnLag_Off();
+        PlayerInputController.SetLock(false);
+        PlayerSliceController.SetPlayerLevel(SliceLevel.IBixIt);
+        bossMusic.Play();
+
+    }
+
+    void Play_Boss_GetSword()
+    {
+        PlayerSliceController.SetPlayerLevel(SliceLevel.MasterSword);
+    }
+
+
     IEnumerator DelayStartOpening()
     {
         yield return new WaitForSeconds(2f);
         Play_Scene(FlowScene.Dojo_Opening);
     }
 
+    private void DelayScene(float t, FlowScene scene)
+    {
+        delaySceneTransition = StartCoroutine(DelayMoveScene(t, scene));
+    }
 
     IEnumerator DelayMoveScene(float time, FlowScene scene)
     {
@@ -592,6 +631,11 @@ public class GameFlowManager : MonoBehaviour
     public void OnSkipToMotherboard()
     {
         Play_Scene(FlowScene.MB_Start);
+    }
+
+    public void OnSkipToBoss()
+    {
+        Play_Scene(FlowScene.Boss_Start);
     }
 
     public void ReducePillar()

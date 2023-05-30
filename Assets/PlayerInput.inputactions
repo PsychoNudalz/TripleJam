@@ -186,6 +186,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SkipToBoss",
+                    "type": "Button",
+                    "id": "3806e6a4-9b29-4550-a8e2-b7eaa1b1efa2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -307,6 +316,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SkipToMotherboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "32a0a028-6d2c-4690-999a-edbb7e80428f",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkipToBoss",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
