@@ -9,6 +9,9 @@ public class SliceableUnitManager : MonoBehaviour
     
     [SerializeField]
     private List<SliceableUnit> sliceableUnits;
+
+    [SerializeField]
+    private GameFlowManager flowManager;
     
     // Start is called before the first frame update
     void Awake()
@@ -27,7 +30,14 @@ public class SliceableUnitManager : MonoBehaviour
 
     public void Remove(SliceableUnit unit)
     {
-        sliceableUnits.Remove(unit);
+        if (sliceableUnits.Contains(unit))
+        {
+            sliceableUnits.Remove(unit);
+            if (sliceableUnits.Count == 0)
+            {
+                flowManager?.AllBugsCleared();
+            }
+        }
     }
 
     // Update is called once per frame

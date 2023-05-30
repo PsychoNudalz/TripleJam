@@ -253,6 +253,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885256285}
     m_Modifications:
+    - target: {fileID: 6909801972414543848, guid: 1633547c5dd3cf8dfa1cf8550354f9d1,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 885256286}
     - target: {fileID: 7251947333805619156, guid: 1633547c5dd3cf8dfa1cf8550354f9d1,
         type: 3}
       propertyPath: m_Name
@@ -725,6 +730,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885256285}
     m_Modifications:
+    - target: {fileID: 6909801972414543848, guid: 6da7383e66ec747aab20e9584eb97b40,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 885256286}
     - target: {fileID: 7251947333805619156, guid: 6da7383e66ec747aab20e9584eb97b40,
         type: 3}
       propertyPath: m_Name
@@ -1807,6 +1817,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885256285}
     m_Modifications:
+    - target: {fileID: 6909801972414543848, guid: 7f74bc1c4c1b38554bf904d594b53822,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 885256286}
     - target: {fileID: 7251947333805619156, guid: 7f74bc1c4c1b38554bf904d594b53822,
         type: 3}
       propertyPath: m_Name
@@ -3932,6 +3947,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885256285}
     m_Modifications:
+    - target: {fileID: 6909801972414543848, guid: 6da7383e66ec747aab20e9584eb97b40,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 885256286}
     - target: {fileID: 7251947333805619156, guid: 6da7383e66ec747aab20e9584eb97b40,
         type: 3}
       propertyPath: m_Name
@@ -6939,6 +6959,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885256285}
     m_Modifications:
+    - target: {fileID: 6909801972414543848, guid: 7f74bc1c4c1b38554bf904d594b53822,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 885256286}
     - target: {fileID: 7251947333805619156, guid: 7f74bc1c4c1b38554bf904d594b53822,
         type: 3}
       propertyPath: m_Name
@@ -11110,7 +11135,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407515033}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
@@ -12529,6 +12554,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885256285}
     m_Modifications:
+    - target: {fileID: 6909801972414543848, guid: 1633547c5dd3cf8dfa1cf8550354f9d1,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 885256286}
     - target: {fileID: 7251947333805619156, guid: 1633547c5dd3cf8dfa1cf8550354f9d1,
         type: 3}
       propertyPath: m_Name
@@ -13348,6 +13378,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885256285}
     m_Modifications:
+    - target: {fileID: 6909801972414543848, guid: 6da7383e66ec747aab20e9584eb97b40,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 885256286}
     - target: {fileID: 7251947333805619156, guid: 6da7383e66ec747aab20e9584eb97b40,
         type: 3}
       propertyPath: m_Name
@@ -16356,6 +16391,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885256285}
     m_Modifications:
+    - target: {fileID: 6909801972414543848, guid: 7f74bc1c4c1b38554bf904d594b53822,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 885256286}
     - target: {fileID: 7251947333805619156, guid: 7f74bc1c4c1b38554bf904d594b53822,
         type: 3}
       propertyPath: m_Name
@@ -16887,6 +16927,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885256285}
     m_Modifications:
+    - target: {fileID: 6909801972414543848, guid: 1633547c5dd3cf8dfa1cf8550354f9d1,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 885256286}
     - target: {fileID: 7251947333805619156, guid: 1633547c5dd3cf8dfa1cf8550354f9d1,
         type: 3}
       propertyPath: m_Name
@@ -22407,6 +22452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zone: {fileID: 1005808487}
   sliceableUnits: []
+  flowManager: {fileID: 1989382826}
 --- !u!1 &891107339 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8235011569649016361, guid: a1c6b473a1710ff40b85a62d7514aac0,
@@ -24518,6 +24564,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885256285}
     m_Modifications:
+    - target: {fileID: 6909801972414543848, guid: 6da7383e66ec747aab20e9584eb97b40,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 885256286}
     - target: {fileID: 7251947333805619156, guid: 6da7383e66ec747aab20e9584eb97b40,
         type: 3}
       propertyPath: m_Name
@@ -36786,6 +36837,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885256285}
     m_Modifications:
+    - target: {fileID: 6909801972414543848, guid: 1633547c5dd3cf8dfa1cf8550354f9d1,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 885256286}
     - target: {fileID: 7251947333805619156, guid: 1633547c5dd3cf8dfa1cf8550354f9d1,
         type: 3}
       propertyPath: m_Name
@@ -44793,6 +44849,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885256285}
     m_Modifications:
+    - target: {fileID: 6909801972414543848, guid: 1633547c5dd3cf8dfa1cf8550354f9d1,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 885256286}
     - target: {fileID: 7251947333805619156, guid: 1633547c5dd3cf8dfa1cf8550354f9d1,
         type: 3}
       propertyPath: m_Name
@@ -48277,6 +48338,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885256285}
     m_Modifications:
+    - target: {fileID: 6909801972414543848, guid: 6da7383e66ec747aab20e9584eb97b40,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 885256286}
     - target: {fileID: 7251947333805619156, guid: 6da7383e66ec747aab20e9584eb97b40,
         type: 3}
       propertyPath: m_Name
@@ -50641,6 +50707,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885256285}
     m_Modifications:
+    - target: {fileID: 6909801972414543848, guid: 7f74bc1c4c1b38554bf904d594b53822,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 885256286}
     - target: {fileID: 7251947333805619156, guid: 7f74bc1c4c1b38554bf904d594b53822,
         type: 3}
       propertyPath: m_Name
@@ -51410,6 +51481,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885256285}
     m_Modifications:
+    - target: {fileID: 6909801972414543848, guid: 7f74bc1c4c1b38554bf904d594b53822,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 885256286}
     - target: {fileID: 7251947333805619156, guid: 7f74bc1c4c1b38554bf904d594b53822,
         type: 3}
       propertyPath: m_Name

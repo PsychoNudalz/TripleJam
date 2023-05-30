@@ -275,6 +275,20 @@ public class GameFlowManager : MonoBehaviour
                 break;
             case FlowScene.MB_Heat:
                 break;
+            case FlowScene.Bsod_AltF4:
+                break;
+            case FlowScene.MB_E1:
+                break;
+            case FlowScene.MB_E2:
+                break;
+            case FlowScene.MB_E3:
+                break;
+            case FlowScene.MB_End:
+                break;
+            case FlowScene.Boss_Start:
+                break;
+            case FlowScene.Boss_GetSword:
+                break;
             default:
                 Debug.LogError($"Missing Scene: {flowScene}");
                 break;
@@ -587,6 +601,11 @@ public class GameFlowManager : MonoBehaviour
         {
             Play_Scene(FlowScene.Studio_Collapse);
         }
+    }
+
+    public void AllBugsCleared()
+    {
+        Play_Scene(FlowScene.MB_End);
     }
 
     private void OnApplicationQuit()
