@@ -17,6 +17,7 @@ public enum SliceLevel
     DualSaber,
     Vindows,
     IBixIt,
+    MasterSword,
     NarratorFBX
 }
 

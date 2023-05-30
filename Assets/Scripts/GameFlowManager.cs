@@ -35,7 +35,13 @@ public enum FlowScene
     MB_Ram,
     MB_GPU,
     MB_SSD,
-    MB_Heat
+    MB_Heat,
+    MB_E1,
+    MB_E2,
+    MB_E3,
+    MB_End,
+    Boss_Start,
+    Boss_GetSword
 }
 
 public class GameFlowManager : MonoBehaviour
@@ -410,6 +416,7 @@ public class GameFlowManager : MonoBehaviour
     {
         narrator.Stop();
         copyRightScreen.SetActive(true);
+        UIManager.current.HideScore(true);
         SoundManager.current.StopAllSounds();
         PlayerInputController.SetLock(true);
         PlayerInputController.SetHide(true);
@@ -449,6 +456,7 @@ public class GameFlowManager : MonoBehaviour
     void Play_Bsod_End()
     {
         Cursor.visible = true;
+        UIManager.current.HideScore(false);
 
         PlayerInputController.SetLock(false);
         PlayerInputController.SetHide(false);

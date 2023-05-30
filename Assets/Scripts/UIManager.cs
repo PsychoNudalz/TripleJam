@@ -13,12 +13,23 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI bladeUnlockText;
-    
+
     [Header("Score")]
     [SerializeField]
+    private GameObject scoreZone;
+    [SerializeField]
     private TextMeshProUGUI scoreText;
-    
 
+    [Header("Boss Health Bar")]
+    [SerializeField]
+    private GameObject healthBarZone;
+
+    [SerializeField]
+    private Image healthBar_Image;
+
+    private Material healthBar_Material;
+    
+    
     public static UIManager current;
     // Start is called before the first frame update
 
@@ -26,6 +37,12 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         current = this;
+        if (healthBar_Image)
+        {
+            healthBar_Material = healthBar_Image.material;
+            
+        }
+        healthBarZone.SetActive(false);
     }
 
     void Start()
@@ -52,4 +69,9 @@ public class UIManager : MonoBehaviour
         scoreText.text = i.ToString();
         
     }
+
+    public void HideScore(bool b)
+    {
+        scoreZone.SetActive(!b);
+    } 
 }

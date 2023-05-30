@@ -64,8 +64,8 @@ public class SliceableUnit : MonoBehaviour
     Vector3 GetRandomPos()
     {
         Vector3 zone = movementZone.lossyScale;
-        Vector3 pos = movementZone.position + new Vector3(Random.Range(-zone.x, zone.x), Random.Range(-zone.y, zone.y)/2f,
-            Random.Range(-zone.z, zone.z));
+        Vector3 pos = movementZone.position + new Vector3(Random.Range(-zone.x, zone.x), Random.Range(-zone.y, zone.y),
+            Random.Range(-zone.z, zone.z)) / 2f;
         pos = movementZone.rotation * pos;
         return pos;
     }
