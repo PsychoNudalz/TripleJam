@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Animator healthBar_Animator;
     [SerializeField]
-    private Image healthBar_Image;
+    private RawImage healthBar_Image;
 
     [SerializeField]
     private Sliceable bossSliceable;

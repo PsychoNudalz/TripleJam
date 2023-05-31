@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -157,6 +158,9 @@ public class GameFlowManager : MonoBehaviour
     [Header("Components")]
     [SerializeField]
     private NarratorManager narrator;
+
+    [SerializeField]
+    private Volume postProcessing;
 
     public static GameFlowManager current;
     private Coroutine delaySceneTransition;
@@ -445,6 +449,7 @@ public class GameFlowManager : MonoBehaviour
         PlayerInputController.SetLock(true);
         PlayerInputController.SetHide(true);
 
+        postProcessing.enabled = false;
         elevatorMusic.Play();
         delaySceneTransition = StartCoroutine(DelayMoveScene(copyRightTime, FlowScene.Bsod_Start));
     }
@@ -474,7 +479,7 @@ public class GameFlowManager : MonoBehaviour
     void Play_Bsod_Narrate()
     {
         float t = narrator.PlayAudio(FlowScene.Bsod_Narrate);
-        delaySceneTransition = StartCoroutine(DelayMoveScene(t + 30f, FlowScene.Bsod_End));
+        delaySceneTransition = StartCoroutine(DelayMoveScene(t + 20f, FlowScene.Bsod_End));
     }
 
     void Play_Bsod_End()
@@ -491,6 +496,8 @@ public class GameFlowManager : MonoBehaviour
 
     void Play_MB_Start()
     {
+        postProcessing.enabled = true;
+
         PlayerSliceController.SetPlayerLevel(SliceLevel.Vindows);
         player.transform.position = MBTeleportPoint.position;
         float t = narrator.PlayAudio(FlowScene.MB_Start);
