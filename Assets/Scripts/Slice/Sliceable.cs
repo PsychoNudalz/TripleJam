@@ -42,6 +42,7 @@ public class Sliceable : MonoBehaviour
 
     [SerializeField]
     private int health = 1;
+    private int healthCurrent = 1;
 
 
     [Header("Settings")]
@@ -154,13 +155,13 @@ public class Sliceable : MonoBehaviour
 
     private bool OnHit()
     {
-        health -= 1;
-        if (health > 0)
+        healthCurrent -= 1;
+        if (healthCurrent > 0)
         {
             onHitEvent.Invoke();
         }
 
-        return health <= 0;
+        return healthCurrent <= 0;
     }
 
     private bool CheckLOS(Vector3 basePos, Vector3 enterTip, Vector3 exitTip, float tipLength)
@@ -281,6 +282,8 @@ public class Sliceable : MonoBehaviour
         {
             originalMeshSize = GetMeshSize(meshFilter.mesh);
         }
+
+        healthCurrent = health;
     }
 
     // public void Init(MeshRenderer r, MeshFilter f, Rigidbody rb = null)
@@ -430,5 +433,10 @@ public class Sliceable : MonoBehaviour
     {
         originSideRemainStill = false;
         rigidbody.isKinematic = false;
+    }
+
+    public float GetHealthFraction()
+    {
+        return (float)healthCurrent / (float)health;
     }
 }

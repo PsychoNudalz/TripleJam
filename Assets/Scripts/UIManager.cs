@@ -25,7 +25,12 @@ public class UIManager : MonoBehaviour
     private GameObject healthBarZone;
 
     [SerializeField]
+    private Animator healthBar_Animator;
+    [SerializeField]
     private Image healthBar_Image;
+
+    [SerializeField]
+    private Sliceable bossSliceable;
 
     private Material healthBar_Material;
     
@@ -73,5 +78,15 @@ public class UIManager : MonoBehaviour
     public void HideScore(bool b)
     {
         scoreZone.SetActive(!b);
-    } 
+    }
+
+    public void StartBossHealthBar()
+    {
+        healthBarZone.SetActive(true);
+        healthBar_Animator.SetTrigger("Load");
+    }
+    public void UpdateBossHealthBar()
+    {
+        healthBar_Material.SetFloat("_Value",bossSliceable.GetHealthFraction());
+    }
 }

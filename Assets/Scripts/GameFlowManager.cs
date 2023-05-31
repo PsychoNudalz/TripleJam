@@ -556,7 +556,7 @@ public class GameFlowManager : MonoBehaviour
         PlayerInputController.SetLock(false);
         PlayerSliceController.SetPlayerLevel(SliceLevel.IBixIt);
         bossMusic.Play();
-
+        UIManager.current.StartBossHealthBar();
     }
 
     void Play_Boss_GetSword()
