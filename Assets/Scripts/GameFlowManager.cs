@@ -42,7 +42,14 @@ public enum FlowScene
     MB_E3,
     MB_End,
     Boss_Start,
-    Boss_GetSword
+    Boss_GetSword,
+    Boss_P1_1,
+    Boss_P1_2,
+    Boss_P1_3,
+    Boss_P1_4,
+    Boss_P2_Start,
+    Boss_P2_1,
+    Boss_P2_2,
 }
 
 public class GameFlowManager : MonoBehaviour
@@ -150,10 +157,14 @@ public class GameFlowManager : MonoBehaviour
 
     [Header("Boss Room")]
     [SerializeField]
+    private Animator bossRoomAnimator;
+    [SerializeField]
     Transform bossTeleportPoint;
 
     [SerializeField]
-    private SoundAbstract bossMusic;
+    private SoundAbstract bossMusic_1;
+    [SerializeField]
+    private SoundAbstract bossMusic_2;
 
     [Header("Components")]
     [SerializeField]
@@ -302,6 +313,21 @@ public class GameFlowManager : MonoBehaviour
                 break;
             case FlowScene.Boss_GetSword:
                 Play_Boss_GetSword();
+                break;
+            case FlowScene.Boss_P1_1:
+                break;
+            case FlowScene.Boss_P1_2:
+                break;
+            case FlowScene.Boss_P1_3:
+                break;
+            case FlowScene.Boss_P1_4:
+                break;
+            case FlowScene.Boss_P2_Start:
+                Play_Boss_P2_Start();
+                break;
+            case FlowScene.Boss_P2_1:
+                break;
+            case FlowScene.Boss_P2_2:
                 break;
             default:
                 Debug.LogError($"Missing Scene: {flowScene}");
@@ -562,13 +588,20 @@ public class GameFlowManager : MonoBehaviour
         lagger.OnLag_Off();
         PlayerInputController.SetLock(false);
         PlayerSliceController.SetPlayerLevel(SliceLevel.IBixIt);
-        bossMusic.Play();
+        bossMusic_1.Play();
         UIManager.current.StartBossHealthBar();
     }
 
     void Play_Boss_GetSword()
     {
         PlayerSliceController.SetPlayerLevel(SliceLevel.MasterSword);
+    }
+
+    void Play_Boss_P2_Start()
+    {
+        bossMusic_1.Stop();
+        bossRoomAnimator.SetTrigger("Start");
+        bossMusic_2.Play();
     }
 
 

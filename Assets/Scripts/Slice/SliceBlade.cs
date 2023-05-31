@@ -90,6 +90,11 @@ public class SliceBlade : MonoBehaviour
             sliceEffect.Play();
 
         }
+        else
+        {
+            detectedSliceObject = null;
+            return;
+        }
         if (SliceObject(other, s))
         {
         }
