@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 
+
 public enum FlowScene
 {
     None,
@@ -168,12 +169,16 @@ public class GameFlowManager : MonoBehaviour
 
     [SerializeField]
     private Sliceable boss_Small;
+
     [SerializeField]
     private SoundAbstract bossMusic_1;
+
     [SerializeField]
     private Sliceable boss_Big;
+
     [SerializeField]
     private SoundAbstract bossMusic_2;
+
     [SerializeField]
     private float timeToSwing = 5f;
 
@@ -614,7 +619,7 @@ public class GameFlowManager : MonoBehaviour
         PlayerInputController.SetLock(false);
         PlayerSliceController.SetPlayerLevel(SliceLevel.IBixIt);
         bossMusic_1.Play();
-        UIManager.current.StartBossHealthBar("THE GAME, The Developer's Projection",boss_Small);
+        UIManager.current.StartBossHealthBar("THE GAME, The Developer's Projection", boss_Small);
     }
 
     void Play_Boss_GetSword()
@@ -629,27 +634,26 @@ public class GameFlowManager : MonoBehaviour
         // DelayScene(f, FlowScene.Boss_P2_Start);
         //For testing
         DelayScene(5, FlowScene.Boss_P2_Start);
-
-        
     }
 
     void Play_Boss_P2_Start()
     {
-        UIManager.current.StartBossHealthBar("THE DEVELOPER, Controller of WORLDS",boss_Big);
+        UIManager.current.StartBossHealthBar("THE DEVELOPER, Controller of WORLDS", boss_Big);
 
         bossRoomAnimator.SetTrigger("Start");
         bossMusic_2.Play();
         float f = narrator.PlayAudio(FlowScene.Boss_P2_Start);
-        DelayScene(f+timeToSwing, FlowScene.Boss_P2_Swing);
+        DelayScene(f + timeToSwing, FlowScene.Boss_P2_Swing);
     }
 
     void Play_Boss_P2_Swing()
     {
         bossRoomAnimator.SetTrigger("Swing");
     }
+
     void Play_Boss_P2_Freed()
     {
-        bossRoomAnimator.SetTrigger("StopSwing"); 
+        bossRoomAnimator.SetTrigger("StopSwing");
         float f = narrator.PlayAudio(FlowScene.Boss_P2_Freed);
         PlayerSliceController.SetPlayerLevel(SliceLevel.NarratorFBX);
     }
@@ -663,7 +667,7 @@ public class GameFlowManager : MonoBehaviour
     void Play_GameEnd()
     {
         Debug.Log("Game end");
-
+        
         Application.Quit();
     }
 
