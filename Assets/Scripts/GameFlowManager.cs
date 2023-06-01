@@ -46,10 +46,12 @@ public enum FlowScene
     Boss_P1_1,
     Boss_P1_2,
     Boss_P1_3,
-    Boss_P1_4,
+    Boss_P1_End,
     Boss_P2_Start,
     Boss_P2_1,
     Boss_P2_2,
+    Boss_P2_3,
+    Boss_P2_4
 }
 
 public class GameFlowManager : MonoBehaviour
@@ -320,7 +322,8 @@ public class GameFlowManager : MonoBehaviour
                 break;
             case FlowScene.Boss_P1_3:
                 break;
-            case FlowScene.Boss_P1_4:
+            case FlowScene.Boss_P1_End:
+                Play_Boss_P1_End();
                 break;
             case FlowScene.Boss_P2_Start:
                 Play_Boss_P2_Start();
@@ -328,6 +331,10 @@ public class GameFlowManager : MonoBehaviour
             case FlowScene.Boss_P2_1:
                 break;
             case FlowScene.Boss_P2_2:
+                break;
+            case FlowScene.Boss_P2_3:
+                break;
+            case FlowScene.Boss_P2_4:
                 break;
             default:
                 Debug.LogError($"Missing Scene: {flowScene}");
@@ -597,11 +604,25 @@ public class GameFlowManager : MonoBehaviour
         PlayerSliceController.SetPlayerLevel(SliceLevel.MasterSword);
     }
 
-    void Play_Boss_P2_Start()
+    void Play_Boss_P1_End()
     {
         bossMusic_1.Stop();
+        float f = narrator.PlayAudio(FlowScene.Boss_P1_End);
+        DelayScene(f,FlowScene.Boss_P2_Start);
+    }
+
+    void Play_Boss_P2_Start()
+    {
         bossRoomAnimator.SetTrigger("Start");
         bossMusic_2.Play();
+        float f = narrator.PlayAudio(FlowScene.Boss_P2_Start);
+        DelayScene(f,FlowScene.Boss_P2_1);
+    }
+
+    void Play_Boss_P2_1()
+    {
+        bossRoomAnimator.SetTrigger("Swing");
+
     }
 
 
