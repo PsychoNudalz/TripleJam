@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stack Overflow Error</title>
+  <style>
+    body {
+      font-family: "Lucida Console", Monaco, monospace;
+      background-color: #f2f2f2;
+      padding: 20px;
+      font-size: 20px;
+    }
+
+    .error {
+      color: #ff0000;
+      font-weight: bold;
+    }
+
+    .stack-trace {
+      color: #333333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Missing Core Game Error</h1>
+  <div class="error">FatalException: Missing Core Game</div>
+  <div class="stack-trace">
+    <pre>
+      at UnityPlayer.Update() (at C:/Projects/UnityPlayer.cs:100)
+      at GameManager.Update() (at C:/Projects/GameManager.cs:50)
+      at GameFlowManager.Update() (at C:/Projects/GameFlowManager.cs:75)
+      at TheGameControl.Processor() (at C:/Projects/TheGameControl.cs:120)
+      at GameManager.Update() (at C:/Projects/GameManager.cs:50)
+      at GameFlowManager.Update() (at C:/Projects/GameFlowManager.cs:75)
+      at TheGameControl.Processor() (at C:/Projects/TheGameControl.cs:120)
+      at GameManager.Update() (at C:/Projects/GameManager.cs:50)
+      at GameFlowManager.Update() (at C:/Projects/GameFlowManager.cs:75)
+      at TheGameControl.Processor() (at C:/Projects/TheGameControl.cs:120)
+      at GameFlowManager.Play_GameEnd() (at Assets/Scripts/GameFlowManager.cs:672)  // Game over, man! Game over!
+      at GameFlowManager.Play_Scene(FlowScene,bool,bool) (at Assets/Scripts/GameFlowManager.cs:363)  // Playing the scene like a symphony in Beethoven's Symphony No. 9.
+      at GameFlowManager.OnSkipToEnd() (at Assets/Scripts/GameFlowManager.cs:754)  // Skipping to the end like a speedrunner on caffeine.
+      at UnityEngine.InputSystem.PlayerInput.OnActionTriggered (UnityEngine.InputSystem.InputAction/CallbackContext) (at Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Plugins/PlayerInput/PlayerInput.cs:1346)
+      at UnityEngine.InputSystem.Utilities.DelegateHelpers.InvokeCallbacksSafe<UnityEngine.InputSystem.InputAction/CallbackContext> (UnityEngine.InputSystem.Utilities.CallbackArray`1<System.Action`1<UnityEngine.InputSystem.InputAction/CallbackContext>>&,UnityEngine.InputSystem.InputAction/CallbackContext,string,object) (at Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Utilities/DelegateHelpers.cs:46)
+      at UnityEngine.InputSystem.InputActionState.CallActionListeners (int,UnityEngine.InputSystem.InputActionMap,UnityEngine.InputSystem.InputActionPhase,UnityEngine.InputSystem.Utilities.CallbackArray`1<System.Action`1<UnityEngine.InputSystem.InputAction/CallbackContext>>&,string) (at Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Actions/InputActionState.cs:2503)
+      at UnityEngine.InputSystem.InputActionState.ChangePhaseOfActionInternal (int,UnityEngine.InputSystem.InputActionState/TriggerState*,UnityEngine.InputSystem.InputActionPhase,UnityEngine.InputSystem.InputActionState/TriggerState&) (at Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Actions/InputActionState.cs:2447)
+      at UnityEngine.InputSystem.InputActionState.ChangePhaseOfAction (UnityEngine.InputSystem.InputActionPhase,UnityEngine.InputSystem.InputActionState/TriggerState&,UnityEngine.InputSystem.InputActionPhase) (at Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Actions/InputActionState.cs:2385)
+      at TheGameControl.Processor() (at C:/Projects/TheGameControl.cs:120)  // Processing power like the AI in Deus Ex.
+      at UnityPlayer.Update() (at C:/Projects/UnityPlayer.cs:100)
+      at GameManager.Update() (at C:/Projects/GameManager.cs:50)
+      at GameFlowManager.Update() (at C:/Projects/GameFlowManager.cs:75)
+      at TheGameControl.Processor() (at C:/Projects/TheGameControl.cs:120)
+      at GameManager.Update() (at C:/Projects/GameManager.cs:50)
+      at GameFlowManager.Update() (at C:/Projects/GameFlowManager.cs:75)
+      at TheGameControl.Processor() (at C:/Projects/TheGameControl.cs:120)
+      at GameManager.Update() (at C:/Projects/GameManager.cs:50)
+      at GameFlowManager.Update() (at C:/Projects/GameFlowManager.cs:75)
+      at TheGameControl.Processor() (at C:/Projects/TheGameControl.cs:120)
+      at GameFlowManager.Play_GameEnd() (at Assets/Scripts/GameFlowManager.cs:672)  // Game over, man! Game over!
+      at GameFlowManager.Play_Scene(FlowScene,bool,bool) (at Assets/Scripts/GameFlowManager.cs:363)  // Playing the scene like a symphony in Beethoven's Symphony No. 9.
+      at GameFlowManager.OnSkipToEnd() (at Assets/Scripts/GameFlowManager.cs:754)  // Skipping to the end like a speedrunner on caffeine.
+      at UnityEngine.InputSystem.PlayerInput.OnActionTriggered (UnityEngine.InputSystem.InputAction/CallbackContext) (at Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Plugins/PlayerInput/PlayerInput.cs:1346)
+      at UnityEngine.InputSystem.Utilities.DelegateHelpers.InvokeCallbacksSafe<UnityEngine.InputSystem.InputAction/CallbackContext> (UnityEngine.InputSystem.Utilities.CallbackArray`1<System.Action`1<UnityEngine.InputSystem.InputAction/CallbackContext>>&,UnityEngine.InputSystem.InputAction/CallbackContext,string,object) (at Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Utilities/DelegateHelpers.cs:46)
+      at UnityEngine.InputSystem.InputActionState.CallActionListeners (int,UnityEngine.InputSystem.InputActionMap,UnityEngine.InputSystem.InputActionPhase,UnityEngine.InputSystem.Utilities.CallbackArray`1<System.Action`1<UnityEngine.InputSystem.InputAction/CallbackContext>>&,string) (at Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Actions/InputActionState.cs:2503)
+      at UnityEngine.InputSystem.InputActionState.ChangePhaseOfActionInternal (int,UnityEngine.InputSystem.InputActionState/TriggerState*,UnityEngine.InputSystem.InputActionPhase,UnityEngine.InputSystem.InputActionState/TriggerState&) (at Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Actions/InputActionState.cs:2447)
+      at UnityEngine.InputSystem.InputActionState.ChangePhaseOfAction (UnityEngine.InputSystem.InputActionPhase,UnityEngine.InputSystem.InputActionState/TriggerState&,UnityEngine.InputSystem.InputActionPhase) (at Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Actions/InputActionState.cs:2385)
+      at TheGameControl.Processor() (at C:/Projects/TheGameControl.cs:120)  // Processing power like the AI in Deus Ex.
+      at UnityPlayer.Update() (at C:/Projects/UnityPlayer.cs:100)
+      at GameManager.Update() (at C:/Projects/GameManager.cs:50)
+      at GameFlowManager.Update() (at C:/Projects/GameFlowManager.cs:75)
+      at TheGameControl.Processor() (at C:/Projects/TheGameControl.cs:120)
+      at GameManager.Update() (at C:/Projects/GameManager.cs:50)
+      at GameFlowManager.Update() (at C:/Projects/GameFlowManager.cs:75)
+      at TheGameControl.Processor() (at C:/Projects/TheGameControl.cs:120)
+      at GameManager.Update() (at C:/Projects/GameManager.cs:50)
+      at GameFlowManager.Update() (at C:/Projects/GameFlowManager.cs:75)
+      at TheGameControl.Processor() (at C:/Projects/TheGameControl.cs:120)
+      at GameFlowManager.Play_GameEnd() (at Assets/Scripts/GameFlowManager.cs:672)  // Game over, man! Game over!
+      at GameFlowManager.Play_Scene(FlowScene,bool,bool) (at Assets/Scripts/GameFlowManager.cs:363)  // Playing the scene like a symphony in Beethoven's Symphony No. 9.
+      at GameFlowManager.OnSkipToEnd() (at Assets/Scripts/GameFlowManager.cs:754)  // Skipping to the end like a speedrunner on caffeine.
+      at UnityEngine.InputSystem.PlayerInput.OnActionTriggered (UnityEngine.InputSystem.InputAction/CallbackContext) (at Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Plugins/PlayerInput/PlayerInput.cs:1346)
+      at UnityEngine.InputSystem.Utilities.DelegateHelpers.InvokeCallbacksSafe<UnityEngine.InputSystem.InputAction/CallbackContext> (UnityEngine.InputSystem.Utilities.CallbackArray`1<System.Action`1<UnityEngine.InputSystem.InputAction/CallbackContext>>&,UnityEngine.InputSystem.InputAction/CallbackContext,string,object) (at Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Utilities/DelegateHelpers.cs:46)
+      at UnityEngine.InputSystem.InputActionState.CallActionListeners (int,UnityEngine.InputSystem.InputActionMap,UnityEngine.InputSystem.InputActionPhase,UnityEngine.InputSystem.Utilities.CallbackArray`1<System.Action`1<UnityEngine.InputSystem.InputAction/CallbackContext>>&,string) (at Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Actions/InputActionState.cs:2503)
+      at UnityEngine.InputSystem.InputActionState.ChangePhaseOfActionInternal (int,UnityEngine.InputSystem.InputActionState/TriggerState*,UnityEngine.InputSystem.InputActionPhase,UnityEngine.InputSystem.InputActionState/TriggerState&) (at Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Actions/InputActionState.cs:2447)
+      at UnityEngine.InputSystem.InputActionState.ChangePhaseOfAction (UnityEngine.InputSystem.InputActionPhase,UnityEngine.InputSystem.InputActionState/TriggerState&,UnityEngine.InputSystem.InputActionPhase) (at Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Actions/InputActionState.cs:2385)
+      at TheGameControl.Processor() (at C:/Projects/TheGameControl.cs:120)  // Processing power like the AI in Deus Ex.
+    
+      (Filename: Assets/Scripts/GameFlowManager.cs Line: 672)
+    </pre>
+  </div>
+  <h1>Thank you for playing :P</h1>
+
+</body>
+</html>

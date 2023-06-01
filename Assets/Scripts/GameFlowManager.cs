@@ -359,6 +359,9 @@ public class GameFlowManager : MonoBehaviour
             case FlowScene.Boss_P2_End:
                 Play_Boss_P2_End();
                 break;
+            case FlowScene.GameEnd:
+                Play_GameEnd();
+                break;
             default:
                 Debug.LogError($"Missing Scene: {flowScene}");
                 break;
@@ -667,7 +670,7 @@ public class GameFlowManager : MonoBehaviour
     void Play_GameEnd()
     {
         Debug.Log("Game end");
-        
+        Application.OpenURL(Application.dataPath+"/Resources/EndingHTML/index.html");
         Application.Quit();
     }
 
@@ -743,6 +746,12 @@ public class GameFlowManager : MonoBehaviour
     public void OnSkipToBoss()
     {
         Play_Scene(FlowScene.Boss_Start);
+    }
+
+    public void OnSkipToEnd()
+    {
+        Play_Scene(FlowScene.GameEnd);
+
     }
 
     public void ReducePillar()
