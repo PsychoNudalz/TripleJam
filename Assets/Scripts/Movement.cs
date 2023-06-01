@@ -110,6 +110,9 @@ public class Movement : MonoBehaviour
         if (distance < deadZone)
         {
             StopMove();
+        }else if (Vector3.Dot(direction, current_velocity) < -.5f)
+        {
+            StopMove();
         }
         else
         {

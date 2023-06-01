@@ -330,7 +330,10 @@ public class Sliceable : MonoBehaviour
 
         foreach (GameObject deactivateObject in deactivateObjects)
         {
-            deactivateObject.SetActive(false);
+            if (deactivateObject)
+            {
+                deactivateObject.SetActive(false);
+            }
         }
 
         _canSlice = beSlice;

@@ -48,10 +48,12 @@ public enum FlowScene
     Boss_P1_3,
     Boss_P1_End,
     Boss_P2_Start,
-    Boss_P2_1,
-    Boss_P2_2,
+    Boss_P2_Swing,
+    Boss_P2_Freed,
     Boss_P2_3,
-    Boss_P2_4
+    Boss_P2_4,
+    Boss_P2_End,
+    GameEnd
 }
 
 public class GameFlowManager : MonoBehaviour
@@ -160,13 +162,24 @@ public class GameFlowManager : MonoBehaviour
     [Header("Boss Room")]
     [SerializeField]
     private Animator bossRoomAnimator;
+
     [SerializeField]
     Transform bossTeleportPoint;
 
     [SerializeField]
+    private Sliceable boss_Small;
+    [SerializeField]
     private SoundAbstract bossMusic_1;
     [SerializeField]
+    private Sliceable boss_Big;
+    [SerializeField]
     private SoundAbstract bossMusic_2;
+    [SerializeField]
+    private float timeToSwing = 5f;
+
+    [SerializeField]
+    private float timeToQuitGame = 5f;
+
 
     [Header("Components")]
     [SerializeField]
@@ -328,13 +341,18 @@ public class GameFlowManager : MonoBehaviour
             case FlowScene.Boss_P2_Start:
                 Play_Boss_P2_Start();
                 break;
-            case FlowScene.Boss_P2_1:
+            case FlowScene.Boss_P2_Swing:
+                Play_Boss_P2_Swing();
                 break;
-            case FlowScene.Boss_P2_2:
+            case FlowScene.Boss_P2_Freed:
+                Play_Boss_P2_Freed();
                 break;
             case FlowScene.Boss_P2_3:
                 break;
             case FlowScene.Boss_P2_4:
+                break;
+            case FlowScene.Boss_P2_End:
+                Play_Boss_P2_End();
                 break;
             default:
                 Debug.LogError($"Missing Scene: {flowScene}");
@@ -596,7 +614,7 @@ public class GameFlowManager : MonoBehaviour
         PlayerInputController.SetLock(false);
         PlayerSliceController.SetPlayerLevel(SliceLevel.IBixIt);
         bossMusic_1.Play();
-        UIManager.current.StartBossHealthBar();
+        UIManager.current.StartBossHealthBar("THE GAME, The Developer's Projection",boss_Small);
     }
 
     void Play_Boss_GetSword()
@@ -608,21 +626,45 @@ public class GameFlowManager : MonoBehaviour
     {
         bossMusic_1.Stop();
         float f = narrator.PlayAudio(FlowScene.Boss_P1_End);
-        DelayScene(f,FlowScene.Boss_P2_Start);
+        // DelayScene(f, FlowScene.Boss_P2_Start);
+        //For testing
+        DelayScene(5, FlowScene.Boss_P2_Start);
+
+        
     }
 
     void Play_Boss_P2_Start()
     {
+        UIManager.current.StartBossHealthBar("THE DEVELOPER, Controller of WORLDS",boss_Big);
+
         bossRoomAnimator.SetTrigger("Start");
         bossMusic_2.Play();
         float f = narrator.PlayAudio(FlowScene.Boss_P2_Start);
-        DelayScene(f,FlowScene.Boss_P2_1);
+        DelayScene(f+timeToSwing, FlowScene.Boss_P2_Swing);
     }
 
-    void Play_Boss_P2_1()
+    void Play_Boss_P2_Swing()
     {
         bossRoomAnimator.SetTrigger("Swing");
+    }
+    void Play_Boss_P2_Freed()
+    {
+        bossRoomAnimator.SetTrigger("StopSwing"); 
+        float f = narrator.PlayAudio(FlowScene.Boss_P2_Freed);
+        PlayerSliceController.SetPlayerLevel(SliceLevel.NarratorFBX);
+    }
 
+    void Play_Boss_P2_End()
+    {
+        Debug.Log("The final boss is defeated!");
+        DelayScene(timeToQuitGame, FlowScene.GameEnd);
+    }
+
+    void Play_GameEnd()
+    {
+        Debug.Log("Game end");
+
+        Application.Quit();
     }
 
 

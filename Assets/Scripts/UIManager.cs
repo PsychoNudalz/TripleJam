@@ -26,6 +26,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private Animator healthBar_Animator;
+
+    [SerializeField]
+    private TextMeshProUGUI healthBar_Text;
     [SerializeField]
     private RawImage healthBar_Image;
 
@@ -84,9 +87,19 @@ public class UIManager : MonoBehaviour
     {
         healthBarZone.SetActive(true);
         healthBar_Animator.SetTrigger("Load");
+        healthBar_Material.SetFloat("_Value",1f);
+
     }
+     public void StartBossHealthBar(string name, Sliceable sliceable)
+     {
+         healthBar_Text.text = name;
+         bossSliceable = sliceable;
+        StartBossHealthBar();
+    }
+    
     public void UpdateBossHealthBar()
     {
         healthBar_Material.SetFloat("_Value",bossSliceable.GetHealthFraction());
     }
+    
 }
