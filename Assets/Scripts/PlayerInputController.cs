@@ -222,6 +222,7 @@ public class PlayerInputController : MonoBehaviour
 
         isLock = b;
         lockDisplay.SetActive(isLock);
+        OnHide(b);
     }
 
     public void OnHide(bool b)

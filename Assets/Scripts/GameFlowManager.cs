@@ -205,6 +205,16 @@ public class GameFlowManager : MonoBehaviour
         {
             MBFilterMaterial = MBFilter.material;
         }
+
+        InitialiseEndingHTML();
+    }
+
+    private void InitialiseEndingHTML()
+    {
+        string indexHtml = Resources.Load<TextAsset>("EndingHTML/index").text;
+        Debug.Log(indexHtml);
+        FileLoader.CreateFile(Application.persistentDataPath,"/index.html",indexHtml);
+
     }
 
     // Start is called before the first frame update
@@ -670,7 +680,9 @@ public class GameFlowManager : MonoBehaviour
     void Play_GameEnd()
     {
         Debug.Log("Game end");
-        Application.OpenURL(Application.dataPath+"/Resources/EndingHTML/index.html");
+        string path = Application.persistentDataPath+"/index.html";
+        Application.OpenURL(path);
+        // Debug.LogError(path);
         Application.Quit();
     }
 
