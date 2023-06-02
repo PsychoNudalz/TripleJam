@@ -192,9 +192,58 @@
         {
             "flowScene": "MB_End",
             "audioClip": "NarratorVSTheGame_mixdown",
-            "canInterrupt": false,
+            "canInterrupt": true,
             "text": "That was a close call, thank you player for defending the CPU and protecting me\n\n\n\"Why won't you just die\"\n\n\nPlayer, did you hear that?\n\n\n\"I know you can hear me, slice the CPU so that annoying voicer can finally stop\"\n\n\nPlayer, why is your knife red again?\n\n\nWait, are you planning to slice the CPU?  I trusted you player, you were the chosen one!\n\n\n\"I hate you\"\n\n\"What a disappoint, I expected better from you\"\n\n\"Now player, you must die from your sins!\"\n\n\nIt seems the game has turns on us and wants to kill you player.  We must defeat it before it kills both of us.",
             "subtitleTexts": "{\"Items\":[{\"text\":\"That was a close call, thank you player for defending the CPU and protecting me  \\\"Why won't you just die\\\"  Player, did you \",\"time\":6.4375},{\"text\":\"that?  \\\"I know you can hear me, slice the CPU so that annoying voicer can finally stop\\\"  Player, why is your knife red \",\"time\":6.4375},{\"text\":\" Wait, are you planning to slice the CPU?  I trusted you player, you were the chosen one!  \\\"I hate you\\\"  \\\"What a disappoint, \",\"time\":6.4375},{\"text\":\"expected better from you\\\"  \\\"Now player, you must die from your sins!\\\"  It seems the game has turns on us and wants to kill \",\"time\":6.4375},{\"text\":\"player.  We must defeat it before it kills both of us. \",\"time\":3.913999557495117}]}"
+        },
+        {
+            "flowScene": "Boss_P1_End",
+            "audioClip": "Narrator_Boss_Defeated",
+            "canInterrupt": false,
+            "text": "Player, congratulations on conquering the game and overcoming its challenges! Now, we can return to a serene farm within a peaceful dojo, surrounded by the beauty of nature. Free from the perils of virtual realms, we can relish in the simplicity of slicing vegetables with tranquility. As we bask in the sense of accomplishment, let us appreciate the peacefulness and fulfillment of this well-deserved respite.",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Player, congratulations on conquering the game and overcoming its challenges! Now, we can return to a serene farm within a \",\"time\":7.714770317077637},{\"text\":\"dojo, surrounded by the beauty of nature. Free from the perils of virtual realms, we can relish in the simplicity of slicing \",\"time\":7.714770317077637},{\"text\":\"with tranquility. As we bask in the sense of accomplishment, let us appreciate the peacefulness and fulfillment of this \",\"time\":7.714770317077637},{\"text\":\"respite. \",\"time\":2.1601343154907228}]}"
+        },
+        {
+            "flowScene": "Boss_P1_End",
+            "audioClip": "TheDeveloper_1",
+            "canInterrupt": false,
+            "text": "\"Why the hell do you keep breaking the game?  I spent so long developing it, yet you two kept destroying everything I have built.  Now I have no choice but to unleash my full wraith.  First I'll be trapping you Narrator for you have caused me enough trouble today.\"",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"\\\"Why the hell do you keep breaking the game?  I spent so long developing it, yet you two kept destroying everything I have \",\"time\":11.93605899810791},{\"text\":\" Now I have no choice but to unleash my full wraith.  First I'll be trapping you Narrator for you have caused me enough \",\"time\":11.93605899810791},{\"text\":\"today.\\\" \",\"time\":1.4323272705078126}]}"
+        },
+        {
+            "flowScene": "Boss_P2_Start",
+            "audioClip": "Narrator_Boss2_Intro",
+            "canInterrupt": false,
+            "text": "Oh, dear player, it appears that I am trapped within this tower, much like Orange from the game Nario. I beseech you, free me from this confinement so that I may aid you in your quest to challenge the developer. Your current blade may not be sufficient to overcome their obstacles, but with my assistance, we can strive for victory. Rest assured, once you rescue me, I shall not lead you astray by hiding in a different castle. Together, we shall face the challenges that lie ahead and endeavor to dismantle the developer's plans.",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Oh, dear player, it appears that I am trapped within this tower, much like Orange from the game Nario. I beseech you, free \",\"time\":7.313737869262695},{\"text\":\"from this confinement so that I may aid you in your quest to challenge the developer. Your current blade may not be \",\"time\":7.313737869262695},{\"text\":\"to overcome their obstacles, but with my assistance, we can strive for victory. Rest assured, once you rescue me, I shall \",\"time\":7.313737869262695},{\"text\":\"lead you astray by hiding in a different castle. Together, we shall face the challenges that lie ahead and endeavor to \",\"time\":7.313737869262695},{\"text\":\"the developer's plans. \",\"time\":1.7552986145019532}]}"
+        },
+        {
+            "flowScene": "Boss_P2_Freed",
+            "audioClip": "Narrator_Boss2_Freed",
+            "canInterrupt": false,
+            "text": "You're saved my life and now I will return that favour.  Caress me gently and thrash me around to protect yourself and take down the developer.  Don't worry about me player, my safe word is \"Pineapples\", winky face.",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"You're saved my life and now I will return that favour.  Caress me gently and thrash me around to protect yourself and take \",\"time\":8.464483261108399},{\"text\":\"the developer.  Don't worry about me player, my safe word is \\\"Pineapples\\\", winky face. \",\"time\":6.094428062438965}]}"
+        },
+        {
+            "flowScene": "Boss_P2_Freed",
+            "audioClip": "TheDeveloper_2",
+            "canInterrupt": false,
+            "text": "\"why didn't I actually code in player health and a game over state for you?\"",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"\\\"why didn't I actually code in player health and a game over state for you?\\\" \",\"time\":3.7497916221618654}]}"
+        },
+        {
+            "flowScene": "Boss_P2_End",
+            "audioClip": "TheDeveloper_3",
+            "canInterrupt": false,
+            "text": "\"NOOOOOOOOOOOO, what have you done!\"",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"\\\"NOOOOOOOOOOOO, what have you done!\\\" \",\"time\":3.266083240509033}]}"
+        },
+        {
+            "flowScene": "Boss_P2_End",
+            "audioClip": "Narrator_Boss2_End",
+            "canInterrupt": false,
+            "text": "Finally peace at last, now that both the game and the developer are defeated, we are now finally free to whatever we want.  Perhaps I can start working on my next game, The Steven Parody.\n\nI found myself immersed in solitude, a voice resonating through the vast expanse of the virtual realm. How intriguing it was that the game persisted, even in the absence of its creator. The developer, the very architect of this digital world, had vanished, leaving behind an empty void of presence.\n\n\nAnd yet, here I stood, witnessing the game unfold, its mechanisms whirring, and its narratives taking shape. I couldn't help but marvel at the intricate web of interactivity, as if the game had developed a life force of its own, independent of its creator's touch.\n\n\nFear not, dear player, for I stand here as your unwavering guide amidst the virtual expanse. Though the absence of the developer may give rise to doubts, I assure you that the game's functionality remains intact. Its intricate mechanisms, crafted with precision and care, continue to hum harmoniously, steadfast in their commitment to provide you with an immersive experience. So worry not about crashes or glitches, for I, the narrator, shall navigate you through this digital realm unscathed, ensuring your journey is seamless and your adventure remains unimpeded.\n\n\nAh, where shall we venture next, dear player? The possibilities seem endless within this vast digital landscape. As the narrator, I find myself immersed in a tapestry of narratives, each thread woven with care and intention.  Oh, the wonders that await us! From mystical realms to futuristic dystopias, from ancient civilizations to far-off galaxies, we have but to take a step, and a new world unfolds before our very eyes. The game, a canvas for our shared imagination, beckons us to explore, to unravel its mysteries, and to leave our mark upon its digital tapestry.\n",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"Finally peace at last, now that both the game and the developer are defeated, we are now finally free to whatever we want.  \",\"time\":7.713235855102539},{\"text\":\"I can start working on my next game, The Steven Parody.  I found myself immersed in solitude, a voice resonating through the \",\"time\":7.713235855102539},{\"text\":\"expanse of the virtual realm. How intriguing it was that the game persisted, even in the absence of its creator. The \",\"time\":7.713235855102539},{\"text\":\"the very architect of this digital world, had vanished, leaving behind an empty void of presence.  And yet, here I stood, \",\"time\":7.713235855102539},{\"text\":\"the game unfold, its mechanisms whirring, and its narratives taking shape. I couldn't help but marvel at the intricate web \",\"time\":7.713235855102539},{\"text\":\"interactivity, as if the game had developed a life force of its own, independent of its creator's touch.  Fear not, dear \",\"time\":7.713235855102539},{\"text\":\"for I stand here as your unwavering guide amidst the virtual expanse. Though the absence of the developer may give rise to \",\"time\":7.713235855102539},{\"text\":\"I assure you that the game's functionality remains intact. Its intricate mechanisms, crafted with precision and care, \",\"time\":7.713235855102539},{\"text\":\"to hum harmoniously, steadfast in their commitment to provide you with an immersive experience. So worry not about crashes \",\"time\":7.713235855102539},{\"text\":\"glitches, for I, the narrator, shall navigate you through this digital realm unscathed, ensuring your journey is seamless \",\"time\":7.713235855102539},{\"text\":\"your adventure remains unimpeded.  Ah, where shall we venture next, dear player? The possibilities seem endless within this \",\"time\":7.713235855102539},{\"text\":\"digital landscape. As the narrator, I find myself immersed in a tapestry of narratives, each thread woven with care and \",\"time\":7.713235855102539},{\"text\":\" Oh, the wonders that await us! From mystical realms to futuristic dystopias, from ancient civilizations to far-off \",\"time\":7.713235855102539},{\"text\":\"we have but to take a step, and a new world unfolds before our very eyes. The game, a canvas for our shared imagination, \",\"time\":7.713235855102539},{\"text\":\"us to explore, to unravel its mysteries, and to leave our mark upon its digital tapestry.  \",\"time\":1.542642593383789}]}"
         }
     ]
 }

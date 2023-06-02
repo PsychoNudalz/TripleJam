@@ -423,7 +423,7 @@ MonoBehaviour:
   autoDestroyTime: 10
   canSliceOnce: 0
   originSideRemainStill: 0
-  minimumMeshRatio: 0.2
+  minimumMeshRatio: 0.02
   rigidbody: {fileID: 9150225642374525668}
   meshRenderer: {fileID: 4343395211545471700}
   meshFilter: {fileID: 1991190987826535966}
@@ -2532,6 +2532,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 3687207856785250223, guid: b19a2e382ea90a24f9a71a4d9e4a819e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f1294da78baa424d8e6b7f5d28752bc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b19a2e382ea90a24f9a71a4d9e4a819e, type: 3}
 --- !u!33 &1991190987826535966 stripped
@@ -2687,6 +2692,16 @@ PrefabInstance:
       objectReference: {fileID: 7088593248058058421}
     - target: {fileID: 4907567576504373057, guid: 1f3b621087a34e63d80e4c8e4ab93288,
         type: 3}
+      propertyPath: autoDestroyTime
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907567576504373057, guid: 1f3b621087a34e63d80e4c8e4ab93288,
+        type: 3}
+      propertyPath: minimumMeshRatio
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907567576504373057, guid: 1f3b621087a34e63d80e4c8e4ab93288,
+        type: 3}
       propertyPath: deactivateObjects.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -2703,7 +2718,7 @@ PrefabInstance:
     - target: {fileID: 4907567576504373057, guid: 1f3b621087a34e63d80e4c8e4ab93288,
         type: 3}
       propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4907567576504373057, guid: 1f3b621087a34e63d80e4c8e4ab93288,
         type: 3}
@@ -2730,6 +2745,11 @@ PrefabInstance:
       propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4907567576504373057, guid: 1f3b621087a34e63d80e4c8e4ab93288,
+        type: 3}
+      propertyPath: onSliceEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1215627519}
     - target: {fileID: 4907567576504373057, guid: 1f3b621087a34e63d80e4c8e4ab93288,
         type: 3}
       propertyPath: onHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -2855,6 +2875,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2860465877196984009}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7181346100118765961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4907567576504373056, guid: 1f3b621087a34e63d80e4c8e4ab93288,
+    type: 3}
+  m_PrefabInstance: {fileID: 2860465877196984009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1215627519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181346100118765961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f379ef60e3dd75f9a7bfd41335870b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flowScene: 42
+  force: 1
+  triggeredOnce: 1
 --- !u!4 &7181346100118765963 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4907567576504373058, guid: 1f3b621087a34e63d80e4c8e4ab93288,

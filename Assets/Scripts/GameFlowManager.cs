@@ -644,9 +644,9 @@ public class GameFlowManager : MonoBehaviour
     {
         bossMusic_1.Stop();
         float f = narrator.PlayAudio(FlowScene.Boss_P1_End);
-        // DelayScene(f, FlowScene.Boss_P2_Start);
+        DelayScene(f+35f, FlowScene.Boss_P2_Start);
         //For testing
-        DelayScene(5, FlowScene.Boss_P2_Start);
+        // DelayScene(5, FlowScene.Boss_P2_Start);
     }
 
     void Play_Boss_P2_Start()
@@ -655,13 +655,14 @@ public class GameFlowManager : MonoBehaviour
 
         bossRoomAnimator.SetTrigger("Start");
         bossMusic_2.Play();
-        float f = narrator.PlayAudio(FlowScene.Boss_P2_Start);
-        DelayScene(f + timeToSwing, FlowScene.Boss_P2_Swing);
+        DelayScene(timeToSwing, FlowScene.Boss_P2_Swing);
     }
 
     void Play_Boss_P2_Swing()
     {
         bossRoomAnimator.SetTrigger("Swing");
+        float f = narrator.PlayAudio(FlowScene.Boss_P2_Swing);
+
     }
 
     void Play_Boss_P2_Freed()
@@ -673,7 +674,10 @@ public class GameFlowManager : MonoBehaviour
 
     void Play_Boss_P2_End()
     {
+        bossMusic_2.Stop();
         Debug.Log("The final boss is defeated!");
+        float f = narrator.PlayAudio(FlowScene.Boss_P2_End);
+
         DelayScene(timeToQuitGame, FlowScene.GameEnd);
     }
 
@@ -683,7 +687,10 @@ public class GameFlowManager : MonoBehaviour
         string path = Application.persistentDataPath+"/index.html";
         Application.OpenURL(path);
         // Debug.LogError(path);
-        Application.Quit();
+        if (!Application.isEditor)
+        {
+            Application.Quit();
+        }
     }
 
 
