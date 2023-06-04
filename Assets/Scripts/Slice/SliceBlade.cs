@@ -87,7 +87,6 @@ public class SliceBlade : MonoBehaviour
         Sliceable s = other.GetComponentInParent<Sliceable>();
         if (s)
         {
-            sliceEffect.Play();
 
         }
         else
@@ -106,8 +105,15 @@ public class SliceBlade : MonoBehaviour
     {
         if (s)
         {
-            if (!s.CanSlice(bladeLevel, _triggerEnterBasePosition, _triggerEnterTipPosition, _triggerExitTipPosition,
-                    sliceLength))
+            int canSlice = s.CanSlice(bladeLevel, _triggerEnterBasePosition, _triggerEnterTipPosition, _triggerExitTipPosition,
+                sliceLength);
+            if (canSlice==-1)
+            {
+                return false;
+            }
+
+            sliceEffect.Play();
+            if (canSlice == 1)
             {
                 return false;
             }

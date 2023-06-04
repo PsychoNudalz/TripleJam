@@ -42,6 +42,7 @@ public class Sliceable : MonoBehaviour
 
     [SerializeField]
     private int health = 1;
+
     private int healthCurrent = 1;
 
 
@@ -130,27 +131,52 @@ public class Sliceable : MonoBehaviour
     }
 
 
-    public bool CanSlice(SliceLevel sliceLevel, Vector3 basePos, Vector3 enterTip, Vector3 exitTip, float tipLength)
+    /// <summary>
+    /// 0: can slice
+    /// 1: still has health
+    /// -1: can't slice
+    /// </summary>
+    /// <param name="sliceLevel"></param>
+    /// <param name="basePos"></param>
+    /// <param name="enterTip"></param>
+    /// <param name="exitTip"></param>
+    /// <param name="tipLength"></param>
+    /// <returns></returns>
+    public int CanSlice(SliceLevel sliceLevel, Vector3 basePos, Vector3 enterTip, Vector3 exitTip, float tipLength)
     {
         if (!CanSlice(sliceLevel))
         {
-            return false;
+            return -1;
         }
 
         if (!requiresLOS)
         {
-            return OnHit();
+            if (OnHit())
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
         }
         else
         {
             if (CheckLOS(basePos, enterTip, exitTip, tipLength))
             {
-                return OnHit();
+                if (OnHit())
+                {
+                    return 0;
+                }
+                else
+                {
+                    return 1;
+                }
             }
         }
 
 
-        return false;
+        return -1;
     }
 
     private bool OnHit()
@@ -440,6 +466,6 @@ public class Sliceable : MonoBehaviour
 
     public float GetHealthFraction()
     {
-        return (float)healthCurrent / (float)health;
+        return (float) healthCurrent / (float) health;
     }
 }
