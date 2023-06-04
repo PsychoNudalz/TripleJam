@@ -65,6 +65,9 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField]
     private GameObject player;
 
+    [SerializeField]
+    private Animator playerFog;
+
     [Header("Dojo")]
     [SerializeField]
     private GameObject titleScene;
@@ -626,7 +629,9 @@ public class GameFlowManager : MonoBehaviour
 
     void Play_Boss_Start()
     {
-        player.transform.position = bossTeleportPoint.position;
+
+        playerFog.SetTrigger("Play");
+        StartCoroutine(DelayPlayerTeleport(1.9f, bossTeleportPoint.position));
         motherboardFilter.SetActive(false);
         lagger.OnLag_Off();
         PlayerInputController.SetLock(false);
@@ -728,6 +733,12 @@ public class GameFlowManager : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         g.SetActive(true);
+    }
+    IEnumerator DelayPlayerTeleport(float t, Vector3 pos)
+    {
+        yield return new WaitForSeconds(t);
+        player.transform.position = pos;
+
     }
 
 
