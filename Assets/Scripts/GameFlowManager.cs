@@ -461,7 +461,7 @@ public class GameFlowManager : MonoBehaviour
         player.transform.position = studioTeleportPoint.position;
         preyCamera.gameObject.SetActive(true);
 
-        StartCoroutine(DelayPlayerLock(launcherSpeakTime));
+        // StartCoroutine(DelayPlayerLock(launcherSpeakTime));
     }
 
     void Play_Studio_Start()
