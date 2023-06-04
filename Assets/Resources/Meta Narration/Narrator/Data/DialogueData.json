@@ -66,7 +66,7 @@
         {
             "flowScene": "Studio_Start",
             "audioClip": "Narrator_Studio_1",
-            "canInterrupt": false,
+            "canInterrupt": true,
             "text": "Oh dear, it appears that your recent actions have caused quite a stir. You see, this simulation is a highly complex and expensive endeavor.\n\n\nUnfortunately, your decision to do whatever it is you did has resulted in a mess that will require the attention of the Janitor department. ",
             "subtitleTexts": "{\"Items\":[{\"text\":\"Oh dear, it appears that your recent actions have caused quite a stir. You see, this simulation is a highly complex and \",\"time\":7.085106372833252},{\"text\":\"endeavor.   Unfortunately, your decision to do whatever it is you did has resulted in a mess that will require the attention \",\"time\":7.085106372833252},{\"text\":\"the Janitor department.  \",\"time\":1.8137874603271485}]}"
         },
@@ -211,23 +211,23 @@
             "subtitleTexts": "{\"Items\":[{\"text\":\"\\\"Why the hell do you keep breaking the game?  I spent so long developing it, yet you two kept destroying everything I have \",\"time\":11.93605899810791},{\"text\":\" Now I have no choice but to unleash my full wraith.  First I'll be trapping you Narrator for you have caused me enough \",\"time\":11.93605899810791},{\"text\":\"today.\\\" \",\"time\":1.4323272705078126}]}"
         },
         {
-            "flowScene": "Boss_P2_Start",
+            "flowScene": "Boss_P2_Swing",
             "audioClip": "Narrator_Boss2_Intro",
-            "canInterrupt": false,
+            "canInterrupt": true,
             "text": "Oh, dear player, it appears that I am trapped within this tower, much like Orange from the game Nario. I beseech you, free me from this confinement so that I may aid you in your quest to challenge the developer. Your current blade may not be sufficient to overcome their obstacles, but with my assistance, we can strive for victory. Rest assured, once you rescue me, I shall not lead you astray by hiding in a different castle. Together, we shall face the challenges that lie ahead and endeavor to dismantle the developer's plans.",
             "subtitleTexts": "{\"Items\":[{\"text\":\"Oh, dear player, it appears that I am trapped within this tower, much like Orange from the game Nario. I beseech you, free \",\"time\":7.313737869262695},{\"text\":\"from this confinement so that I may aid you in your quest to challenge the developer. Your current blade may not be \",\"time\":7.313737869262695},{\"text\":\"to overcome their obstacles, but with my assistance, we can strive for victory. Rest assured, once you rescue me, I shall \",\"time\":7.313737869262695},{\"text\":\"lead you astray by hiding in a different castle. Together, we shall face the challenges that lie ahead and endeavor to \",\"time\":7.313737869262695},{\"text\":\"the developer's plans. \",\"time\":1.7552986145019532}]}"
         },
         {
             "flowScene": "Boss_P2_Freed",
             "audioClip": "Narrator_Boss2_Freed",
-            "canInterrupt": false,
+            "canInterrupt": true,
             "text": "You're saved my life and now I will return that favour.  Caress me gently and thrash me around to protect yourself and take down the developer.  Don't worry about me player, my safe word is \"Pineapples\", winky face.",
             "subtitleTexts": "{\"Items\":[{\"text\":\"You're saved my life and now I will return that favour.  Caress me gently and thrash me around to protect yourself and take \",\"time\":8.464483261108399},{\"text\":\"the developer.  Don't worry about me player, my safe word is \\\"Pineapples\\\", winky face. \",\"time\":6.094428062438965}]}"
         },
         {
             "flowScene": "Boss_P2_Freed",
             "audioClip": "TheDeveloper_2",
-            "canInterrupt": false,
+            "canInterrupt": true,
             "text": "\"why didn't I actually code in player health and a game over state for you?\"",
             "subtitleTexts": "{\"Items\":[{\"text\":\"\\\"why didn't I actually code in player health and a game over state for you?\\\" \",\"time\":3.7497916221618654}]}"
         },

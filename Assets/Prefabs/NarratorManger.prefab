@@ -230,7 +230,7 @@ MonoBehaviour:
       time: 1.4075193
   - scene: 8
     clip: {fileID: 8300000, guid: 9cb99b3ba76da9b4ea004f521d89dfa4, type: 3}
-    canInterrupt: 0
+    canInterrupt: 1
     text: 'Oh dear, it appears that your recent actions have caused quite a stir.
       You see, this simulation is a highly complex and expensive endeavor.
 
@@ -610,7 +610,7 @@ MonoBehaviour:
       time: 1.4323273
   - scene: 38
     clip: {fileID: 8300000, guid: f3c74092a5a37fd4ea43f308e38073c9, type: 3}
-    canInterrupt: 0
+    canInterrupt: 1
     text: Oh, dear player, it appears that I am trapped within this tower, much like
       Orange from the game Nario. I beseech you, free me from this confinement so
       that I may aid you in your quest to challenge the developer. Your current blade
@@ -635,7 +635,7 @@ MonoBehaviour:
       time: 1.7552986
   - scene: 39
     clip: {fileID: 8300000, guid: 0e16d890e5dfe034e9cf120ee1279916, type: 3}
-    canInterrupt: 0
+    canInterrupt: 1
     text: You're saved my life and now I will return that favour.  Caress me gently
       and thrash me around to protect yourself and take down the developer.  Don't
       worry about me player, my safe word is "Pineapples", winky face.
@@ -648,7 +648,7 @@ MonoBehaviour:
       time: 6.094428
   - scene: 39
     clip: {fileID: 8300000, guid: 9a9dcf1e37e885b4b85babd933344d1a, type: 3}
-    canInterrupt: 0
+    canInterrupt: 1
     text: '"why didn''t I actually code in player health and a game over state for
       you?"'
     subtitleTexts:

@@ -475,14 +475,13 @@ public class GameFlowManager : MonoBehaviour
         float d = narrator.PlayAudio(FlowScene.Studio_LightSaber);
         PlayerSliceController.SetPlayerLevel(SliceLevel.LightSaber);
         preyCamera.gameObject.SetActive(false);
-        StartCoroutine(DelayPlayerLock(d * 1));
+        // StartCoroutine(DelayPlayerLock(d * 1));
     }
 
     void Play_Studio_Couch()
     {
         float d = narrator.PlayAudio(FlowScene.Studio_Couch);
-        PlayerInputController.SetLock(true);
-        PlayerInputController.SetLock(false);
+
     }
 
     void Play_Studio_Collapse()
