@@ -427,7 +427,7 @@ public class GameFlowManager : MonoBehaviour
     {
         PlayerSliceController.SetPlayerLevel(SliceLevel.KatanaLong);
         float duration = narrator.PlayAudio(FlowScene.Dojo_FirstUpgrade);
-        StartCoroutine(DelayPlayerLock(duration));
+        // StartCoroutine(DelayPlayerLock(duration));
         waitScoreSceneTransition = StartCoroutine(WaitForScoreMoveScene(bambooScore, FlowScene.Dojo_SlicedBamboo));
     }
 
@@ -450,7 +450,7 @@ public class GameFlowManager : MonoBehaviour
         }
 
         sliceableLaunchers.SetActive(true);
-        StartCoroutine(DelayPlayerLock(launcherSpeakTime));
+        // StartCoroutine(DelayPlayerLock(launcherSpeakTime));
     }
 
     void Play_Dojo_Crowbar()

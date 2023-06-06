@@ -58,7 +58,7 @@ public class PlayerSliceController : MonoBehaviour
 
     [SerializeField]
     private ParticleSystem levelUpEffect;
-    
+
     public static PlayerSliceController current;
 
     private void Awake()
@@ -155,8 +155,12 @@ public class PlayerSliceController : MonoBehaviour
 
     public static void SetPlayerLevel(SliceLevel sl)
     {
+        PlayerInputController.SetLock(true);
+
+
         current.SetPlayerBlade(sl);
         UIManager.current.UpdateBladeText(sl.ToString());
+        PlayerInputController.SetLock(false);
     }
 
     public void SetPlayerBlade(SliceLevel sl)
