@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CPU
       objectReference: {fileID: 0}
+    - target: {fileID: 2770345426864813709, guid: 2c0d795d0d9da2ce2949cda980c97583,
+        type: 3}
+      propertyPath: health
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2770345426864813710, guid: 2c0d795d0d9da2ce2949cda980c97583,
         type: 3}
       propertyPath: m_RootOrder

@@ -250,7 +250,7 @@ MonoBehaviour:
       time: 1.8137875
   - scene: 9
     clip: {fileID: 8300000, guid: 66fda6ae9866072418050ebf2c9f1370, type: 3}
-    canInterrupt: 0
+    canInterrupt: 1
     text: 'I must ask that you please put down the light saber. While it may seem
       like a harmless toy, I must caution you that using it as a weapon could have
       serious consequences.
