@@ -179,7 +179,7 @@ public class SubtitleManager : MonoBehaviour
             else
             {
                 splitSubtitle.Add(new SubtitleText(line, durationPerSection));
-                line = "";
+                line = s+ " ";
                 lineCount = 0;
             }
         }
