@@ -7,7 +7,7 @@ using UnityEngine;
 public class SliceBlade : MonoBehaviour
 {
     [SerializeField]
-    private SliceLevel bladeLevel = SliceLevel.None;
+    private SliceLevel bladeLevel = SliceLevel.Katana;
 
     [SerializeField]
     [Tooltip("The empty game object located at the tip of the blade")]
@@ -197,9 +197,9 @@ public class SliceBlade : MonoBehaviour
 
     public bool SetPlayerLevel(SliceLevel sl)
     {
-        if (sl.Equals(SliceLevel.None))
+        if (sl.Equals(SliceLevel.Katana))
         {
-            bladeLevel = SliceLevel.None;
+            bladeLevel = SliceLevel.Katana;
             return true;
         }
         if (sl > bladeLevel)

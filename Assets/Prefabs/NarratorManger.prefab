@@ -121,7 +121,7 @@ MonoBehaviour:
       time: 2.112
   - scene: 4
     clip: {fileID: 8300000, guid: 9ec3a55bebfa86e4baa691724e38c389, type: 3}
-    canInterrupt: 0
+    canInterrupt: 1
     text: you can now slice better
     subtitleTexts:
     - text: 'you can now slice better '

@@ -73,7 +73,7 @@ public class PlayerSliceController : MonoBehaviour
 
     private void Start()
     {
-        SetPlayerLevel(SliceLevel.None);
+        SetPlayerLevel(SliceLevel.Katana);
         SetDraw(false);
     }
 

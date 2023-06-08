@@ -9,12 +9,12 @@ using UnityEngine.Serialization;
 [Serializable]
 public enum SliceLevel
 {
-    None,
+    Katana,
     KatanaLong,
     KatanaSuper,
     Crowbar,
     LightSaber,
-    DualSaber,
+    JoinTheDarkSide,
     Vindows,
     IBixIt,
     MasterSword,
@@ -28,7 +28,7 @@ public class Sliceable : MonoBehaviour
     private bool _canSlice = true;
 
     [SerializeField]
-    private SliceLevel sliceLevel = SliceLevel.None;
+    private SliceLevel sliceLevel = SliceLevel.Katana;
 
     [SerializeField]
     [Tooltip("Only use if health is more than 1")]

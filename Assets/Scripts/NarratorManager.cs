@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -83,7 +84,6 @@ public class NarratorManager : MonoBehaviour
 
     [SerializeField]
     private SoundAbstract narratorSound;
-
     private DialogueSet currentSet;
 
     public DialogueSet[] Sets => sets;
@@ -118,12 +118,19 @@ public class NarratorManager : MonoBehaviour
 
     public float PlayAudio(FlowScene flowScene)
     {
-        CheckEndCurrentAudio();
+        bool isPlaying = CheckEndCurrentAudio();
 
         QueueSets(flowScene);
         if (currentSetQueue.Count > 1)
         {
-            return currentSet.Length;
+            if (isPlaying)
+            {
+                return currentSet.Length;
+            }
+            else
+            {
+                return PlayNextLine();
+            }
         }
 
         return PlayNextLine();

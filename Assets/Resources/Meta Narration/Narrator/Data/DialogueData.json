@@ -38,7 +38,7 @@
         {
             "flowScene": "Dojo_FirstUpgrade",
             "audioClip": "Narrator_mixdown_6",
-            "canInterrupt": false,
+            "canInterrupt": true,
             "text": "you can now slice better",
             "subtitleTexts": "{\"Items\":[{\"text\":\"you can now slice better \",\"time\":1.656000018119812}]}"
         },

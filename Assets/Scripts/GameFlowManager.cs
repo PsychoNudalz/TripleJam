@@ -508,7 +508,7 @@ public class GameFlowManager : MonoBehaviour
     {
         float d = narrator.PlayAudio(FlowScene.Studio_Beg);
         PlayerInputController.SetLock(false);
-        PlayerSliceController.SetPlayerLevel(SliceLevel.DualSaber);
+        PlayerSliceController.SetPlayerLevel(SliceLevel.JoinTheDarkSide);
     }
 
     void Play_Studio_End()
@@ -648,7 +648,7 @@ public class GameFlowManager : MonoBehaviour
     {
         bossMusic_1.Stop();
         float f = narrator.PlayAudio(FlowScene.Boss_P1_End);
-        DelayScene(f+35f, FlowScene.Boss_P2_Start);
+        DelayScene(f+16, FlowScene.Boss_P2_Start);
         //For testing
         // DelayScene(5, FlowScene.Boss_P2_Start);
     }
