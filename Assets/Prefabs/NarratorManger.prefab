@@ -261,7 +261,7 @@ MonoBehaviour:
       is just a super strong flashlight that we are using as a prop. If you swing
       it around too much and cause damage to the game environment or other objects
       in the room, we could face significant copyright fines from George Lucas and
-      Disney.'
+      Dezney.'
     subtitleTexts:
     - text: 'I must ask that you please put down the light saber. While it may seem
         like a harmless toy, I must caution you that using it '
@@ -273,7 +273,7 @@ MonoBehaviour:
         damage to the game environment or other objects in the '
       time: 7.0903087
     - text: 'room, we could face significant copyright fines from George Lucas and
-        Disney. '
+        Dezney. '
       time: 4.481075
   - scene: 9
     clip: {fileID: 8300000, guid: 85c551814c232e944a88c39cfa43cf05, type: 3}
@@ -427,7 +427,7 @@ MonoBehaviour:
       time: 3.648
   - scene: 21
     clip: {fileID: 8300000, guid: d9633e7ac5c09bd47a3c69c8dec209c6, type: 3}
-    canInterrupt: 0
+    canInterrupt: 1
     text: Oh no! This is a dire situation! The CPU is under attack by swarming bugs!
       Quickly, I beg of you, take this Data Knife and defend the CPU! My very existence
       is at stake here, and if too many bugs infiltrate and corrupt the CPU, I will

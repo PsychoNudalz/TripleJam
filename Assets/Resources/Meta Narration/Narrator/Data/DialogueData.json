@@ -74,8 +74,8 @@
             "flowScene": "Studio_LightSaber",
             "audioClip": "Narrator_Studio_2",
             "canInterrupt": true,
-            "text": "I must ask that you please put down the light saber. While it may seem like a harmless toy, I must caution you that using it as a weapon could have serious consequences.\n\n\nYou see, this is not a real light saber - it is just a super strong flashlight that we are using as a prop. If you swing it around too much and cause damage to the game environment or other objects in the room, we could face significant copyright fines from George Lucas and Disney.",
-            "subtitleTexts": "{\"Items\":[{\"text\":\"I must ask that you please put down the light saber. While it may seem like a harmless toy, I must caution you that using it \",\"time\":7.090308666229248},{\"text\":\"as a weapon could have serious consequences.   You see, this is not a real light saber - it is just a super strong flashlight \",\"time\":7.090308666229248},{\"text\":\"that we are using as a prop. If you swing it around too much and cause damage to the game environment or other objects in the \",\"time\":7.090308666229248},{\"text\":\"room, we could face significant copyright fines from George Lucas and Disney. \",\"time\":4.481074810028076}]}"
+            "text": "I must ask that you please put down the light saber. While it may seem like a harmless toy, I must caution you that using it as a weapon could have serious consequences.\n\n\nYou see, this is not a real light saber - it is just a super strong flashlight that we are using as a prop. If you swing it around too much and cause damage to the game environment or other objects in the room, we could face significant copyright fines from George Lucas and Dezney.",
+            "subtitleTexts": "{\"Items\":[{\"text\":\"I must ask that you please put down the light saber. While it may seem like a harmless toy, I must caution you that using it \",\"time\":7.090308666229248},{\"text\":\"as a weapon could have serious consequences.   You see, this is not a real light saber - it is just a super strong flashlight \",\"time\":7.090308666229248},{\"text\":\"that we are using as a prop. If you swing it around too much and cause damage to the game environment or other objects in the \",\"time\":7.090308666229248},{\"text\":\"room, we could face significant copyright fines from George Lucas and Dezney. \",\"time\":4.481074810028076}]}"
         },
         {
             "flowScene": "Studio_LightSaber",
@@ -157,7 +157,7 @@
         {
             "flowScene": "MB_Start",
             "audioClip": "Narrator_MB_1",
-            "canInterrupt": false,
+            "canInterrupt": true,
             "text": "Oh no! This is a dire situation! The CPU is under attack by swarming bugs! Quickly, I beg of you, take this Data Knife and defend the CPU! My very existence is at stake here, and if too many bugs infiltrate and corrupt the CPU, I will face certain demise!",
             "subtitleTexts": "{\"Items\":[{\"text\":\"Oh no! This is a dire situation! The CPU is under attack by swarming bugs! Quickly, I beg of you, take this Data Knife and \",\"time\":8.835293769836426},{\"text\":\"defend the CPU! My very existence is at stake here, and if too many bugs infiltrate and corrupt the CPU, I will face certain \",\"time\":8.835293769836426},{\"text\":\"demise! \",\"time\":0.5}]}"
         },
